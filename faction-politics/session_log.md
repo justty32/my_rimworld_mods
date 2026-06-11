@@ -144,6 +144,15 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **「地圖生成失敗」＝IsekaiLeveling 的 Harmony patch**（`JellyCreative.IsekaiLeveling`，與我方無關）：開新檔時兩階段 NRE，最內層都是它——(a) 世界生成配武器 `CompArt.InitializeArt` 上的 `Patch_ArtXP` postfix；(b) 地圖生成清礦 `Mineable.Destroy` 上的 `Patch_MineableDestroyXP` prefix（生成期無挖礦 pawn）。下游災情：`WorldGenStep_Factions`、`GenStep_RocksFromGrid`、`GenStep_ScenParts`、ancientTemple 解析全炸。我方三 mod 不在任何堆疊。使用者停用後**成功**。
 - **舊案併破（高度可信）**：一輪 E2E「拜訪友方聚落是原生態空地圖」先前疑 Odyssey/QuestEditor——更可能就是同一個 `Patch_MineableDestroyXP` 在聚落 genstep 清地時 NRE 整步炸掉（症狀吻合）。空圖防護（`pas_sims_VisitAborted`）持續保留作第三方 genstep 故障的安全網。
 
+### E2E 收官：全清單通過，Task 10 完成（2026-06-11）
+
+- **八輪（終輪）使用者回報**：#6 哨站隨主倒戈 ✓；#11 純淨環境（僅 faction-politics）無報錯 ✓；第二輪相容四項全過——啟動 log「Rim War bridge 已綁定」✓、分裂新派系出現在 Rim War 資料 ✓、Empire 附庸 PColony 顯示排除 ✓、與 Visit Settlements 並存不打架 ✓。
+- **最終矩陣**：#1 蠢動信（全合格派系）｜#3 見本人＋重逢 redress｜#4 鎮壓歸零→冷卻→重生｜#5 分裂全套（信/新派系/倒戈/敵對）｜#6 哨站隨倒戈｜#7 母保底 ≥1｜#8 上限 5 凍結＋連鎖衰減｜#9 存讀檔｜#11 純淨降級｜Rim War 雙向｜Empire 排除｜VS 並存——**全數通過**，環境：使用者 310-mod 全包 + 純淨對照，RimWorld 1.6.4850（Proton）。
+- **隱藏/無聚落派系語意（使用者問，程式碼核對）**：hidden 派系 `Eligible` 即擋（不養不發不分）；可見無聚落派系 `EnsureRebels` 的 `minSettlements`（正式 2）擋（連反叛者都不生）；追蹤中途聚落跌破 2 → `Split` 回 null **進度保留**，凍結待派系重新擴張（與 Rim War 版圖動態自然互動）。
+- **staging 還原正式參數**：`progressPerDay 0.2~0.6`、`respawnDelayDays 20`（測試加速 24~24/0.5 撤除），faction-politics 整包 rsync 與 repo 一致。
+- E2E 期間順手修復沉澱（各自已 commit）：RandomPawnKind 取代 basicMemberKind、forced-keep 復原、per-faction 例外隔離、debug dump 工具、sims-mode 影子 MapParent 反攻陷架構＋重組 gizmo 轉發、npc-outposts cctor 執行緒/存檔字典治本。
+- **Task 10 標記完成。**
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。

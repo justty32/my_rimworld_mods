@@ -1,6 +1,12 @@
-# Task 10: 實機 E2E（待 RimWorld 1.6 環境）
+# Task 10: 實機 E2E（✅ 完成 2026-06-11）
 
 需要 RimWorld 1.6 本體手動驗證。結果記 `session_log.md`，commit 訊息 `test: faction-politics 實機 E2E 驗證記錄`。
+
+**結果**：RimWorld 1.6.4850（Proton）、使用者 310-mod 全包＋純淨對照，八輪迭代全清單通過（詳 session_log「E2E 一～八輪」）。
+逐項：#1–9、#11 顯式通過；#10 隱性通過（分裂後長時間遊玩含 Rim War 接入，無異常回報）；
+#12 已過時（bridge 方向修正為 AddRimWarFaction＋rwdNextUpdateTick 重掃，不再需要 ConvertSettlement 校準）；
+#13 未顯式觸發（凍結邏輯在 TrySplit 的 `record.rebel.Spawned` 分支，期間無敵我反轉異常）。
+E2E 期間沉澱修復：RandomPawnKind、forced-keep 復原、例外隔離、debug dump、sims-mode 影子 MapParent、npc-outposts 兩治本。
 
 ## 前置
 
