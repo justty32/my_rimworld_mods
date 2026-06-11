@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <GenStepDef>
+    <defName>pas_sims_SettlementLife</defName>
+    <order>9999</order>
+    <genStep Class="pas.sims.GenStep_SettlementLife" />
+  </GenStepDef>
+
+</Defs>
