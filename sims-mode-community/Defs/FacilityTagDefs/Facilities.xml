@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <pas.sims.FacilityTagDef>
+    <defName>pas_sims_Bed</defName>
+    <matchers>
+      <li Class="pas.sims.FacilityMatcher_ThingClass">
+        <thingClass>RimWorld.Building_Bed</thingClass>
+      </li>
+    </matchers>
+  </pas.sims.FacilityTagDef>
+
+  <pas.sims.FacilityTagDef>
+    <defName>pas_sims_GatherSpot</defName>
+    <matchers>
+      <li Class="pas.sims.FacilityMatcher_Table" />
+      <li Class="pas.sims.FacilityMatcher_DefNames">
+        <defNames>
+          <li>Campfire</li>
+        </defNames>
+      </li>
+    </matchers>
+  </pas.sims.FacilityTagDef>
+
+  <pas.sims.FacilityTagDef>
+    <defName>pas_sims_Workbench</defName>
+    <matchers>
+      <li Class="pas.sims.FacilityMatcher_ThingClass">
+        <thingClass>RimWorld.Building_WorkTable</thingClass>
+      </li>
+    </matchers>
+  </pas.sims.FacilityTagDef>
+
+  <pas.sims.FacilityTagDef>
+    <defName>pas_sims_FarmPlot</defName>
+    <matchers>
+      <li Class="pas.sims.FacilityMatcher_Crop" />
+    </matchers>
+  </pas.sims.FacilityTagDef>
+
+</Defs>
