@@ -100,6 +100,12 @@ namespace pas.outposts
         public override void ExposeData()
         {
             base.ExposeData();
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                // 治本：已毀聚落寫進存檔會在讀檔 BuildDictionary 期噴「Null key」紅字
+                //（早於 PostLoadInit，事後清理擋不住）→ 存檔前就剔除。
+                caps.RemoveAll(kv => kv.Key == null || kv.Key.Destroyed);
+            }
             Scribe_Collections.Look(ref caps, "pas_outpostCaps", LookMode.Reference, LookMode.Value, ref tmpSettlements, ref tmpCaps);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
@@ -107,7 +113,7 @@ namespace pas.outposts
                 {
                     caps = new Dictionary<Settlement, int>();
                 }
-                caps.RemoveAll(kv => kv.Key == null);   // 被毀聚落的引用讀檔後為 null → 清掉防 null key 紅字
+                caps.RemoveAll(kv => kv.Key == null);   // 舊檔已含 null 引用的後備清理
             }
         }
     }
