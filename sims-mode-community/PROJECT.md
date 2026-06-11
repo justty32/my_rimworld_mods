@@ -8,7 +8,7 @@
 ## 範圍（v1）
 - 注入＝**方案 C**：PatchOperation 往聚落 MapGeneratorDef 附加 `GenStep_SettlementLife`（零 Harmony 目標）。
 - 行為引擎＝RimCities 範式（`LordJob` → 單 `LordToil` → `UpdateAllDuties` 查表發 duty）＋ 原版 Trigger 切防禦。
-- **四層全 Def 化、引擎零寫死**（核心設計約束）：`LifeProfileDef`（派系維度）→ `LifeRoleDef`（角色＋作息表）→ `FacilityTagDef`（設施標記，matcher 可插拔＋DefModExtension 明示）→ 原版 `DutyDef`（行為，純 XML think node）。所有具體內容供其他 mod patch。
+- **四層 Def 化、Def 優先但不教條**（核心設計約束）：`LifeProfileDef`（派系維度）→ `LifeRoleDef`（角色＋作息表）→ `FacilityTagDef`（設施標記，matcher 可插拔＋DefModExtension 明示）→ 原版 `DutyDef`（行為，純 XML think node）。內容知識供其他 mod patch；複雜邏輯可留 C# 但須好 patch（worker 化、public/virtual、單一資料源）。
 - 「工作」＝假動作（走到設施前播動畫，不真產出）——報告 05 §3.5 定論。
 
 ### v1 砍掉（YAGNI）
