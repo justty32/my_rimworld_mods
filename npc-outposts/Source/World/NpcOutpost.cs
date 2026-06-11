@@ -69,6 +69,20 @@ namespace pas.outposts
             }
         }
 
+        /// <summary>拜訪進行中（圖在影子宿主名下）時，在據點圖示轉發「重組遠行隊」gizmo
+        /// （原版聚落走 sims-mode 的 comp patch；本類整合走程式碼，於此補同款）。</summary>
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+            foreach (Gizmo gizmo in VisitMapParent.ReformGizmosFor(this))
+            {
+                yield return gizmo;
+            }
+        }
+
         /// <summary>重組 caravan gizmo：交易/送禮照抄 Settlement.cs:313-326，攻擊換小圖流程。</summary>
         public override IEnumerable<Gizmo> GetCaravanGizmos(Caravan caravan)
         {

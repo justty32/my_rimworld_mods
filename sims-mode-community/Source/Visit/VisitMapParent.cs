@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -14,6 +15,30 @@ namespace pas.sims
     public class VisitMapParent : MapParent
     {
         private Settlement settlement;
+
+        /// <summary>給「被拜訪的聚落/據點本體」在世界地圖上轉發影子的重組遠行隊 gizmo——
+        /// 影子隱形不可選取，玩家入口在聚落圖示上（E2E 回饋）。</summary>
+        public static IEnumerable<Gizmo> ReformGizmosFor(MapParent owner)
+        {
+            if (owner == null || !owner.Spawned || owner.HasMap)
+            {
+                yield break;   // 聚落自己掛圖（被進攻中）時原版 FormCaravanComp 已有 gizmo
+            }
+            VisitMapParent visit = Find.WorldObjects.WorldObjectAt<VisitMapParent>(owner.Tile);
+            if (visit == null || visit.settlement != owner || !visit.HasMap)
+            {
+                yield break;
+            }
+            FormCaravanComp form = visit.GetComponent<FormCaravanComp>();
+            if (form == null)
+            {
+                yield break;
+            }
+            foreach (Gizmo gizmo in form.GetGizmos())
+            {
+                yield return gizmo;
+            }
+        }
 
         public Settlement VisitedSettlement
         {

@@ -134,6 +134,8 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - 退化空圖防護（六輪前的 guard）保留：擋的是「無人圖」這個獨立症狀。
 - 建置綠（Krafs ref 簽章驗證通過）、已 rsync 部署 staging。**待使用者重測**：拜訪盟友聚落 → 應正常進場、無「敵人即將到達」、待多久都不摧毀、離場後聚落完好。
 - 注：使用者先前被毀的聚落已無法復原（已成「被摧毀的聚居點」並隨離場消失）。
+- **使用者證實影子架構修復成功** ✓（拜訪盟友聚落不再被判攻陷）。
+- **跟進 UX 缺口（已修）**：影子 `selectable=false` 連帶藏掉「重組遠行隊」入口（該 gizmo 屬於地圖宿主）。使用者要求 gizmo 出現在聚落圖示上。解法：`VisitMapParent.ReformGizmosFor(owner)` 靜態轉發器——聚落本體被選取時，找同格影子、原樣轉發其 `FormCaravanComp` gizmo（IL 核對 `Reform` 條件＝有圖且非家園，影子必過）。接線兩路：原版聚落走既有 `WorldObjectComp_VisitMap`（comp patch 已掛 Settlement def）加 `GetGizmos`；NpcOutpost（程式碼整合、硬依賴 sims）加 `GetGizmos` 覆寫。聚落自己掛圖（被進攻）時轉發器早退，不與原版 gizmo 重複。
 
 ### 待辦
 
