@@ -26,7 +26,10 @@
 
 ## 關鍵文件
 - `docs/2026-06-11-design.md`：v1 設計 spec（權威）。
-- 實作計畫：待 writing-plans 產出。
+- `docs/2026-06-11-implementation-plan.md`：實作計畫索引（各 task 細節在 `docs/plan/task-*.md`）。
+- `docs/examples/extension-sample.xml`：第三方擴充示範（新增角色/改作息/標記建築/綁派系 profile，不被遊戲載入）。
+- `tests/healthcheck.py`：靜態健檢（XML well-formed、交叉引用、patch 鏈、DefOf 防呆）。
+- `session_log.md`：執行記錄（API 驗證結果、E2E 結果）。
 
 ## 來源報告
 - 願景：`pas/analysis/rimworld/others/life_politics/`（`sims_mode_community.md` ＋ `rpg_quest_system.md`、`authority_leadership_system.md`）
