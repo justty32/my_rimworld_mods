@@ -9,7 +9,10 @@ using Verse;
 namespace pas.outposts
 {
     /// <summary>NPC 派系哨站。繼承 Settlement 白嫖交易/送禮/擊敗判定；
-    /// 拜訪與攻打 override 成小圖流程；ExtraGenStepDefs 注入守軍 trim。</summary>
+    /// 拜訪與攻打 override 成小圖流程；ExtraGenStepDefs 注入守軍 trim。
+    /// [StaticConstructorOnStartup]：靜態貼圖欄位須主執行緒載入——世界生成在背景執行緒，
+    /// 首個 MakeWorldObject 觸發 cctor 會炸（E2E 實測 Quick Test 世界生成紅字）。</summary>
+    [StaticConstructorOnStartup]
     public class NpcOutpost : Settlement
     {
         private static readonly Texture2D AttackCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/AttackSettlement");
