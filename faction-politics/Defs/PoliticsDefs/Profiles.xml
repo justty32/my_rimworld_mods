@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.politics.RebellionProfileDef>
+    <defName>pas_politics_Profile_Default</defName>
+    <label>default rebellion profile</label>
+    <isDefault>true</isDefault>
+    <progressPerDay>0.2~0.6</progressPerDay>
+    <threshold>100</threshold>
+    <defectFraction>0.3~0.5</defectFraction>
+    <respawnDelayDays>20</respawnDelayDays>
+    <minSettlements>2</minSettlements>
+  </pas.politics.RebellionProfileDef>
+</Defs>

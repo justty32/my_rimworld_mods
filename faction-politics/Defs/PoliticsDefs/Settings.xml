@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.politics.PoliticsSettingsDef>
+    <defName>pas_politics_Settings</defName>
+    <label>faction politics settings</label>
+    <maxDynamicFactions>5</maxDynamicFactions>
+    <checkIntervalTicks>2500</checkIntervalTicks>
+  </pas.politics.PoliticsSettingsDef>
+</Defs>
