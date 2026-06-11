@@ -5,8 +5,11 @@ using Verse;
 
 namespace pas.politics
 {
-    /// <summary>Rim War 軟相容骨架。以型別存在性偵測（不猜 packageId）；P1 不綁定呼叫，
-    /// 僅 dump ConvertSettlement 簽名供校準（使用者提供 Rim War 檔案後完成綁定）。</summary>
+    /// <summary>Rim War 軟相容骨架。以型別存在性偵測（不猜 packageId）；P1 不綁定呼叫。
+    /// 設計註記（pas/analysis/rimworld_mods/rim-war 核對）：WorldUtility.ConvertSettlement(:15289)
+    /// 是「摧毀原聚落→AddNewHome 重建」，與本案 in-place SetFaction（保留聚落/哨站/redress 駐民）
+    /// 衝突——校準目標應為 RimWarSettlementComp.RimWarPoints 調和（public setter），非呼叫 ConvertSettlement。
+    /// dump 僅供參考；實際綁定待使用者提供 Rim War 檔案 E2E。</summary>
     [StaticConstructorOnStartup]
     public static class RimWarBridge
     {
@@ -40,7 +43,9 @@ namespace pas.politics
             {
                 sb.AppendLine().Append("  （無——Rim War 版本差異，bridge 維持 no-op）");
             }
-            sb.AppendLine().Append("[faction-politics] 易主同步未綁定（待校準）；原版 SetFaction 已先行，Rim War 戰力資料可能滯後至其週期自檢。");
+            sb.AppendLine().Append("[faction-politics] 易主同步未綁定（待校準）；本案 in-place SetFaction 已先行，"
+                + "校準應走 RimWarSettlementComp 戰力調和而非 ConvertSettlement（後者會摧毀重建聚落）。"
+                + "在此之前 Rim War 戰力資料可能滯後至其週期自檢。");
             Log.Message(sb.ToString());
         }
     }

@@ -75,7 +75,9 @@ namespace pas.politics
             {
                 return null;
             }
-            PawnGenerationRequest request = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer);
+            // 具名引數：PawnGenerationRequest 跨版本欄位多次擴充，位置引數會錯位（rimworld-mod-guide 第 11 章）。
+            PawnGenerationRequest request = new PawnGenerationRequest(
+                kind: kind, faction: faction, context: PawnGenerationContext.NonPlayer);
             return PawnGenerator.GeneratePawn(request);
         }
     }
