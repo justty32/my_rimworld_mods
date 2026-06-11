@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef>
+    <defName>pas_outposts_Outpost</defName>
+    <label>outpost</label>
+    <description>A small satellite outpost serving a nearby settlement.</description>
+    <worldObjectClass>pas.outposts.NpcOutpost</worldObjectClass>
+    <texture>World/WorldObjects/DefaultSettlement</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/Settlement</expandingIconTexture>
+    <expandingIconPriority>0.3</expandingIconPriority>
+    <canHaveFaction>true</canHaveFaction>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <allowCaravanIncidentsWhichGenerateMap>true</allowCaravanIncidentsWhichGenerateMap>
+  </WorldObjectDef>
+</Defs>
