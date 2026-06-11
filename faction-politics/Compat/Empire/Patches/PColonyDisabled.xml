@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Empire Refactored（Matathias.Empire）軟相容：PColony 是玩家附庸帝國的專屬派系
+     （runtime FactionManager.Add、非 hidden、humanlike、WorldSettlementFC 繼承 Settlement），
+     會通過 Eligible() 被當成反叛候選——掛 PoliticsDisabledExtension 整派系停用，
+     避免 tracker 給玩家帝國養反叛者/分裂。本資料夾由 loadFolders IfModActive 條件載入。 -->
+<Patch>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/FactionDef[defName="PColony"]</xpath>
+    <value>
+      <li Class="pas.politics.PoliticsDisabledExtension" />
+    </value>
+  </Operation>
+</Patch>

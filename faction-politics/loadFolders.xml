@@ -4,5 +4,6 @@
     <li>/</li>
     <li>1.6</li>
     <li IfModActive="pas.outposts.community">Compat/NpcOutposts</li>
+    <li IfModActive="Matathias.Empire">Compat/Empire</li>
   </v1.6>
 </loadFolders>

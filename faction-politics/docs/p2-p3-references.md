@@ -31,3 +31,9 @@
 ## 4. 未解（仍待本機反編譯源）
 
 - Task 0 #3：`FactionGeneratorParms(FactionDef, IdeoGenerationParms, bool hidden)` 三參多載——本批 mod 分析皆為高階剖析，無原始建構子呼叫，無法交叉證實；仍須本機 grep `BackCompatibility.cs:424` / `FactionGenerator.cs:130` 確認。
+
+## 5. 補記 2026-06-11 晚：實裝版到位
+
+- **Empire Refactored 1.3.74 實裝於本機** workshop `3701480464`（`Matathias.Empire`，1.6，**含 Empire.pdb 符號檔**）——P2 設計時可直接 ikdasm/反編譯對照真實 IL 與符號，不再僅靠 pas 高階剖析。
+- §4 已解：Task 0 #3 經 Krafs ref 組件 monop 核實（見 session_log 2026-06-11），三參實簽 `(FactionDef, IdeoGenerationParms, Nullable<bool> hidden)`。
+- P1 軟相容已落地：`Compat/Empire/Patches/PColonyDisabled.xml` 對 `PColony` 掛 `PoliticsDisabledExtension`（玩家附庸帝國不參與反叛/分裂），`loadFolders IfModActive="Matathias.Empire"` 條件載入。
