@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 拜訪圖影子宿主：類別覆寫 Print/Draw 為空（不繪製），Label 轉聚落名。
+       texture 僅為防呆（任何旁路存取 Material 不噴錯），實際不會畫出來。 -->
+  <WorldObjectDef>
+    <defName>pas_sims_VisitMapParent</defName>
+    <label>visiting settlement</label>
+    <description>A settlement map currently hosted by a visiting caravan.</description>
+    <worldObjectClass>pas.sims.VisitMapParent</worldObjectClass>
+    <texture>World/WorldObjects/TribalSettlement</texture>
+    <canHaveFaction>true</canHaveFaction>
+    <canHaveMap>true</canHaveMap>
+    <selectable>false</selectable>
+    <comps>
+      <li Class="WorldObjectCompProperties_FormCaravan" />
+    </comps>
+  </WorldObjectDef>
+</Defs>

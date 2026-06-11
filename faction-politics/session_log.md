@@ -118,6 +118,23 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **npc-outposts 存檔字典 bug（已修 `0a1e359`）**：`pas_outpostCaps`（Settlement→int 引用字典）含已毀聚落 → 讀檔 BuildDictionary 噴 Null key 紅字（早於 PostLoadInit 清理）。治本：Saving 期先剔除 `Destroyed`。使用者現有存檔再讀會報最後一次，下次存檔起乾淨。
 - **「分裂派系沒換顏色」＝原版語意非 bug**：原版 def 的 `colorSpectrum` 是窄色帶（OutlanderCivil 深紫→淺紫藍），同 def 派系本就近色；`NewGeneratedFaction(PlanetLayer, parms)` IL 證實有指派隨機光譜值。倒戈驗證靠聚落派系名/外交頁。P2 可考慮反叛派系專屬視覺識別。
 
+### E2E 六輪：拜訪摧毀聚落「真根因」——入場防護押錯條件，改影子 MapParent 架構
+
+- 使用者回報：入場防護部署後（DLL 已核對含 guard），拜訪盟友聚落**仍被判攻陷摧毀**，圖上有建築、住民非敵對，停留期間刷「敵人即將到達」，離場後聚落從世界地圖消失。
+- **IL 定案（三段原版邏輯，全數核對 1.6.4850 實體 DLL）**：
+  1. `Settlement.TickInterval` **無條件**呼叫 `SettlementDefeatUtility.CheckDefeated`（無「被攻擊過」門檻）。
+  2. `IsDefeated` 判「未被擊敗」的唯一條件＝圖上存在 `GenHostility.IsActiveThreatToPlayer` 的該派系人形。**友方/中立住民永不構成主動威脅** → 友方聚落掛著地圖，下一個 tick 區間必判攻陷。先前 guard 檢查「有無該派系人形」完全押錯判定式——原版結構性假設「玩家在 NPC 聚落圖上＝正在進攻」。
+  3. `Settlement.PostMapGenerate` 對任何非玩家家園圖一律啟動 `TimedDetectionRaids` 倒數＝使用者看到的「敵人即將到達」，生圖瞬間就開始，與輸贏無關。
+- **修復（影子 MapParent 架構，零-Harmony）**：新增 `VisitMapParent : MapParent` + `WorldObjectDef pas_sims_VisitMapParent`。拜訪圖仍在聚落名下生成（生成行為與原版完全一致，含 redress），生成後 `map.info.parent = shadow`（原版 `CheckDefeated` 摧毀流程自己也這樣重指，公開欄位）→ `Settlement.Map` 回 null → `CheckDefeated` 永遠早退。同時 `ResetCountdown()` 取消誤啟的襲擊倒數。
+- 配套核對：
+  - **redress 不受影響**：`PawnGenerator.GenerateOrRedressPawnInternal` 按 **tile** 用 `WorldObjectAt<Settlement>` 讀寫 `previouslyGeneratedInhabitants`，與 map parent 無關（IL 核對）——見本人/重逢機制照常。
+  - `Notify_MyMapRemoved` **不轉發**回聚落：base 會發 quest「MapRemoved」訊號，轉發恐誤觸任務；聚落自己那段只是清單修剪，略過無害。
+  - 影子 `ShouldRemoveMapNow` 條件照抄 `Settlement` 版（建築/pawn/運輸艙阻擋），差別在 `alsoRemoveWorldObject=true`（圖收掉影子一起走，聚落本體留世界）；`Print/Draw` 覆寫為空（同格不疊影）；`TickInterval` 防呆自清；`ExposeData` scribe 聚落引用（存讀檔中途拜訪安全）。
+  - 語意變更（與 VS mod 同款）：拜訪期間聚落**不可被攻陷**（即使中途翻臉殺光住民，聚落本體仍在）；另一支商隊此時選「進攻」會進到同一張拜訪圖——皆為可接受邊角。
+- 退化空圖防護（六輪前的 guard）保留：擋的是「無人圖」這個獨立症狀。
+- 建置綠（Krafs ref 簽章驗證通過）、已 rsync 部署 staging。**待使用者重測**：拜訪盟友聚落 → 應正常進場、無「敵人即將到達」、待多久都不摧毀、離場後聚落完好。
+- 注：使用者先前被毀的聚落已無法復原（已成「被摧毀的聚居點」並隨離場消失）。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。

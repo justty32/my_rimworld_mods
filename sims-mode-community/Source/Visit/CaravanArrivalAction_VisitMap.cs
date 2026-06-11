@@ -49,19 +49,34 @@ namespace pas.sims
             {
                 return;
             }
-            // 退化生成防護（E2E 實測）：圖上無該派系人形（第三方 genstep 干擾/特殊層）時，
-            // 原版 Settlement.TickInterval → CheckDefeated 會把「拜訪」判成攻陷並摧毀聚落。
-            // 零-Harmony 守法：撤銷進場並立即回收剛生成的圖（VS mod 同題用 Harmony prefix 解）。
-            if (mapParent is Settlement settlement && settlement.Faction != null
-                && !settlement.Faction.IsPlayer && !AnyFactionHumanlike(map, settlement.Faction))
+            if (mapParent is Settlement settlement && settlement.Faction != null && !settlement.Faction.IsPlayer)
             {
-                if (newMap)
+                // 退化生成防護（E2E 實測）：圖上無該派系人形（第三方 genstep 干擾/特殊層）時撤銷進場。
+                if (!AnyFactionHumanlike(map, settlement.Faction))
                 {
-                    Current.Game.DeinitAndRemoveMap(map, notifyPlayer: false);
+                    if (newMap)
+                    {
+                        Current.Game.DeinitAndRemoveMap(map, notifyPlayer: false);
+                    }
+                    Messages.Message("pas_sims_VisitAborted".Translate(mapParent.Label),
+                        caravan, MessageTypeDefOf.NegativeEvent, historical: false);
+                    return;
                 }
-                Messages.Message("pas_sims_VisitAborted".Translate(mapParent.Label),
-                    caravan, MessageTypeDefOf.NegativeEvent, historical: false);
-                return;
+                // 反攻陷（E2E 實測根因，IL 核對）：IsDefeated 只認「對玩家構成主動威脅」的人形，
+                // 友方/中立住民永不構成威脅 → 聚落掛著拜訪圖必被 CheckDefeated 判攻陷。
+                // 生成（含 redress）仍在聚落名下完成後，把圖交給影子宿主，Settlement.Map 回 null → 早退。
+                if (!settlement.Faction.HostileTo(Faction.OfPlayer) && map.Parent == settlement)
+                {
+                    VisitMapParent shadow = (VisitMapParent)WorldObjectMaker.MakeWorldObject(
+                        DefDatabase<WorldObjectDef>.GetNamed("pas_sims_VisitMapParent"));
+                    shadow.Tile = settlement.Tile;
+                    shadow.SetFaction(settlement.Faction);
+                    shadow.VisitedSettlement = settlement;
+                    Find.WorldObjects.Add(shadow);
+                    map.info.parent = shadow;
+                    // Settlement.PostMapGenerate 對任何非家園圖一律啟動「敵人即將到達」倒數——拜訪語境下取消。
+                    settlement.GetComponent<TimedDetectionRaids>()?.ResetCountdown();
+                }
             }
             if (newMap)
             {
