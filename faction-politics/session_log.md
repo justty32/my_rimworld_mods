@@ -137,6 +137,13 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **使用者證實影子架構修復成功** ✓（拜訪盟友聚落不再被判攻陷）。
 - **跟進 UX 缺口（已修）**：影子 `selectable=false` 連帶藏掉「重組遠行隊」入口（該 gizmo 屬於地圖宿主）。使用者要求 gizmo 出現在聚落圖示上。解法：`VisitMapParent.ReformGizmosFor(owner)` 靜態轉發器——聚落本體被選取時，找同格影子、原樣轉發其 `FormCaravanComp` gizmo（IL 核對 `Reform` 條件＝有圖且非家園，影子必過）。接線兩路：原版聚落走既有 `WorldObjectComp_VisitMap`（comp patch 已掛 Settlement def）加 `GetGizmos`；NpcOutpost（程式碼整合、硬依賴 sims）加 `GetGizmos` 覆寫。聚落自己掛圖（被進攻）時轉發器早退，不與原版 gizmo 重複。
 
+### E2E 七輪：重組遠行隊 gizmo ✓ + 「地圖生成失敗」破案（IsekaiLeveling，非我方）
+
+- 影子架構（六輪）使用者證實成功後，七輪兩件事：
+- **重組遠行隊轉發 ✓**：使用者證實聚落圖示上的 gizmo 可用，離場後聚落存活（影子離場善後路徑驗證通過）。
+- **「地圖生成失敗」＝IsekaiLeveling 的 Harmony patch**（`JellyCreative.IsekaiLeveling`，與我方無關）：開新檔時兩階段 NRE，最內層都是它——(a) 世界生成配武器 `CompArt.InitializeArt` 上的 `Patch_ArtXP` postfix；(b) 地圖生成清礦 `Mineable.Destroy` 上的 `Patch_MineableDestroyXP` prefix（生成期無挖礦 pawn）。下游災情：`WorldGenStep_Factions`、`GenStep_RocksFromGrid`、`GenStep_ScenParts`、ancientTemple 解析全炸。我方三 mod 不在任何堆疊。使用者停用後**成功**。
+- **舊案併破（高度可信）**：一輪 E2E「拜訪友方聚落是原生態空地圖」先前疑 Odyssey/QuestEditor——更可能就是同一個 `Patch_MineableDestroyXP` 在聚落 genstep 清地時 NRE 整步炸掉（症狀吻合）。空圖防護（`pas_sims_VisitAborted`）持續保留作第三方 genstep 故障的安全網。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
