@@ -102,10 +102,15 @@ for cls in sorted(classes_in_xml):
     if not re.search(rf"class\s+{cls}\b", src):
         errors.append(f"XML 引用的類別 {cls} 不在 Source/ 中")
 
-# 6) C# 引用的 pas_sims_* defName 都在 XML 定義（DefOf 防呆）
+# 6) C# 引用的 pas_sims_* defName/翻譯 key 都在 XML 定義（DefOf/Translate 防呆）
+keyed_keys = set()
+for f, t in trees.items():
+    if "Languages" in f.parts and "Keyed" in f.parts:
+        for node in t.getroot():
+            keyed_keys.add(node.tag)
 for m in set(re.findall(r"pas_sims_\w+", src)):
-    if m not in (duty_defs | facility_defs | role_defs | profile_defs | genstep_defs | job_defs):
-        errors.append(f"C# 引用的 defName {m} 未在任何 Defs XML 定義")
+    if m not in (duty_defs | facility_defs | role_defs | profile_defs | genstep_defs | job_defs | keyed_keys):
+        errors.append(f"C# 引用的 defName/key {m} 未在任何 Defs/Keyed XML 定義")
 
 # 7) About.xml
 about = ROOT / "About" / "About.xml"

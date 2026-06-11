@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WorldObjectDef[defName="Settlement"]/comps</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WorldObjectDef[defName="Settlement"]/comps</xpath>
+      <value>
+        <li Class="pas.sims.WorldObjectCompProperties_VisitMap" />
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WorldObjectDef[defName="Settlement"]</xpath>
+      <value>
+        <comps>
+          <li Class="pas.sims.WorldObjectCompProperties_VisitMap" />
+        </comps>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>
