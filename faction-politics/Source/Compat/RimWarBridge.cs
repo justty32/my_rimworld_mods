@@ -23,6 +23,8 @@ namespace pas.politics
 
         private static readonly MethodInfo getPowerTracker;     // WorldUtility.Get_WCPT()
         private static readonly MethodInfo addRimWarFaction;    // PowerTracker.AddRimWarFaction(Faction)
+        private static readonly MethodInfo getRimWarData;       // WorldUtility.GetRimWarDataForFaction(Faction)
+        private static readonly FieldInfo nextUpdateTick;       // RimWarData.rwdNextUpdateTick（public）
         private static bool warned;
 
         static RimWarBridge()
@@ -41,9 +43,15 @@ namespace pas.politics
                     + "分裂新派系將依 Rim War 週期自檢納管。");
                 return;
             }
+            // 選配：分裂後把母派系 RimWarData 標過期，消除聚落清單滯後（Rim War 自家
+            // ConvertSettlement 對 rwdFrom 同此手法）。缺欄位僅退化為「等週期自檢」，不擋綁定。
+            getRimWarData = worldUtility.GetMethod("GetRimWarDataForFaction", BindingFlags.Public | BindingFlags.Static);
+            nextUpdateTick = GenTypes.GetTypeInAnyAssembly("RimWar.RimWarData")
+                ?.GetField("rwdNextUpdateTick", BindingFlags.Public | BindingFlags.Instance);
             RimWarPresent = true;
             PoliticsBridges.FactionSplit += OnFactionSplit;
-            Log.Message("[faction-politics] Rim War bridge 已綁定（分裂→AddRimWarFaction）。");
+            Log.Message("[faction-politics] Rim War bridge 已綁定（分裂→AddRimWarFaction"
+                + (nextUpdateTick != null ? "＋母派系即時重掃" : "") + "）。");
         }
 
         /// <summary>分裂完成（聚落已易主、hidden 已揭示）後把新派系註冊進 Rim War。</summary>
@@ -55,6 +63,14 @@ namespace pas.politics
                 if (tracker != null)
                 {
                     addRimWarFaction.Invoke(tracker, new object[] { newFaction });
+                }
+                if (getRimWarData != null && nextUpdateTick != null)
+                {
+                    object motherData = getRimWarData.Invoke(null, new object[] { mother });
+                    if (motherData != null)
+                    {
+                        nextUpdateTick.SetValue(motherData, 0);   // 下次存取即重掃 WorldSettlements
+                    }
                 }
             }
             catch (Exception e)

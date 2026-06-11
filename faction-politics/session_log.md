@@ -70,6 +70,14 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - 反向確認：Empire 未 patch `FactionManager.Add`（IL 中 "Add" 字串皆為 debug 顯示），我們分裂生成的新 NPC 派系對它是普通派系，無干擾。
 - P2/P3 紅利：實裝版含 **Empire.pdb**，`docs/p2-p3-references.md` §5 已補記（四維狀態/FCEventDef 設計可直接對照真實符號）。
 
+### Rim War 反方向審計 + 母派系即時重掃（晚間）
+
+使用者再點名 Rim War（workshop `2222935097`）。bridge 我方→Rim War 方向已於稍早校準；本輪補**反方向**審計（Rim War 事件打到我們的 record）：
+
+- Rim War 攻城易主走 `ConvertSettlement`（全 DLL 唯一呼叫點）＝摧毀重建 → 若摧毀反叛者駐地，`Heal()` 的 `homeSettlement.Destroyed → PickHome` 自癒 ✓；反叛者本體是 forced-keep world pawn 不受累 ✓。
+- Rim War 滅派系（`RemoveRWDFaction`）→ `faction.defeated` → tracker 移除 record ✓。自癒鏈完備，反方向零修改。
+- **bridge 補強**：`RimWarData.rwdNextUpdateTick` 為 **public 欄位**（IL :3706）→ 分裂後反射設 0，母派系下次存取 `WorldSettlements` 即重掃，消除滯後窗口（Rim War 自家 `ConvertSettlement` 對 `rwdFrom` 同此手法）。選配綁定：缺欄位僅退化為等週期自檢，不擋主綁定。建置綠、healthcheck OK。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
