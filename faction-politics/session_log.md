@@ -98,6 +98,13 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - 使用者證實先前「空地圖」為誤判：敵對派系本就只有進攻選項；中立以上拜訪入圖正常（建築/pawn/作息/守衛皆對，sims-mode 生活 genstep 工作正常）。
 - 既有測試檔免重開：修復部署後下次心跳 EnsureRebels 會給其餘合格派系補發（一波蠢動信）。
 
+### E2E 三輪：RandomPawnKind 修復驗證 ✓ + 見本人 ✓ + sims-mode 拜訪摧毀 bug（已修）
+
+- dump 二跑：**全部合格派系 tracked**（原版 Outlander/Tribe/Empire/海盜/多個 mod 派系），隱藏派系正確跳過。鼠國 record 顯示 `spawned=True world=False forcedKeep=False`＝反叛者正被 redress 在拜訪圖上（forced-keep 暫時清除為預期，離場後 Heal 補回）。
+- **見本人 ✓**：使用者拜訪駐地找到同名反叛者。P1 無互動選項為設計（殺=鎮壓；勸誘/支持是 P2 loyalty 範疇）——已向使用者說明。
+- **sims-mode 真 bug（已修 `aaf2d73`）**：拜訪生成出空圖（無該派系 pawn）時，原版 `Settlement.TickInterval → CheckDefeated` 把拜訪判成攻陷→聚落摧毀（使用者盟友聚落實測陣亡）。VS 用 Harmony prefix 擋；sims-mode 零-Harmony 改用**入場防護**：生成後圖上無該派系人形 → `DeinitAndRemoveMap` 回收 + message 撤銷進場（`pas_sims_VisitAborted`，雙語）。
+- 空圖根因仍待定位：高度懷疑該盟友是 TradersGuild（虛空企業，駐地「宇宙碼頭」＝Odyssey 軌道層特殊聚落，生成器非 Base_Faction）。防護已覆蓋此類；若證實，可考慮 P1.1 對特殊層聚落直接不給拜訪選項。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
