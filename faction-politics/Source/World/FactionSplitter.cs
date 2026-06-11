@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using RimWorld;
 using RimWorld.Planet;
+using UnityEngine;
 using Verse;
 
 namespace pas.politics
@@ -29,10 +30,10 @@ namespace pas.politics
             Pawn autoLeader = newFaction.leader;   // NewGeneratedFaction 末段 GenerateNewLeader 生的預設首領
             newFaction.leader = record.rebel;
             record.rebel.SetFaction(newFaction);
-            // 反叛者取代預設首領；殘留的自動首領安全棄置（API 已驗：persistent_world_pawns RemoveAndDiscardPawn）。
+            // 反叛者取代預設首領；殘留的自動首領安全棄置（1.6 實名 RemoveAndDiscardPawnViaGC，ref 組件核對）。
             if (autoLeader != null && autoLeader != record.rebel && Find.WorldPawns.Contains(autoLeader))
             {
-                Find.WorldPawns.RemoveAndDiscardPawn(autoLeader);
+                Find.WorldPawns.RemoveAndDiscardPawnViaGC(autoLeader);
             }
             List<Settlement> defected = Transfer(owned, record.homeSettlement, mother, newFaction, profile);
             newFaction.hidden = false;

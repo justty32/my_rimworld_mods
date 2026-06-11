@@ -1,2 +1,0 @@
-# Bridge DLL (FactionPoliticsOutpostsBridge.dll) 由 SourceBridgeOutposts/ 建置後落於此。
-# 此 .gitkeep 維持資料夾結構，使 loadFolders 的 IfModActive 條目與健檢第 3 檢成立。
