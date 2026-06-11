@@ -1,19 +1,29 @@
 using System;
 using System.Reflection;
-using System.Text;
+using RimWorld;
 using Verse;
 
 namespace pas.politics
 {
-    /// <summary>Rim War 軟相容骨架。以型別存在性偵測（不猜 packageId）；P1 不綁定呼叫。
-    /// 設計註記（pas/analysis/rimworld_mods/rim-war 核對）：WorldUtility.ConvertSettlement(:15289)
-    /// 是「摧毀原聚落→AddNewHome 重建」，與本案 in-place SetFaction（保留聚落/哨站/redress 駐民）
-    /// 衝突——校準目標應為 RimWarSettlementComp.RimWarPoints 調和（public setter），非呼叫 ConvertSettlement。
-    /// dump 僅供參考；實際綁定待使用者提供 Rim War 檔案 E2E。</summary>
+    /// <summary>Rim War 軟相容（反射綁定，零硬引用）。簽名經 Rim War v1.6 實體 DLL（workshop
+    /// 2222935097）ikdasm 核對 2026-06-11：
+    /// - WorldUtility.Get_WCPT() : static → WorldComponent_PowerTracker。
+    /// - WorldComponent_PowerTracker.AddRimWarFaction(Faction) : public instance void；
+    ///   內含 CheckForRimWarFaction 防重複 + GenerateFactionBehavior + AssignFactionSettlements
+    ///   （後者把已易主聚落納入新派系 RimWarData）→ 分裂後唯一需要的掛載點。
+    /// - 不呼叫 WorldUtility.ConvertSettlement：其實體為 Destroy()→AddNewHome 摧毀重建，
+    ///   與本案 in-place SetFaction（保留聚落/comp/哨站）衝突。
+    /// - 母派系側免處理：RimWarData.WorldSettlements 為自癒式 getter（到期 Clear+重掃
+    ///   Find.WorldObjects 按派系過濾），倒戈聚落於下個更新週期自動脫離母派系清單；
+    ///   RimWarSettlementComp 隨 WorldObject 留存，戰力點不歸零。</summary>
     [StaticConstructorOnStartup]
     public static class RimWarBridge
     {
         public static readonly bool RimWarPresent;
+
+        private static readonly MethodInfo getPowerTracker;     // WorldUtility.Get_WCPT()
+        private static readonly MethodInfo addRimWarFaction;    // PowerTracker.AddRimWarFaction(Faction)
+        private static bool warned;
 
         static RimWarBridge()
         {
@@ -22,31 +32,39 @@ namespace pas.politics
             {
                 return;   // Rim War 未安裝：零成本
             }
+            Type powerTracker = GenTypes.GetTypeInAnyAssembly("RimWar.Planet.WorldComponent_PowerTracker");
+            getPowerTracker = worldUtility.GetMethod("Get_WCPT", BindingFlags.Public | BindingFlags.Static);
+            addRimWarFaction = powerTracker?.GetMethod("AddRimWarFaction", new[] { typeof(Faction) });
+            if (getPowerTracker == null || addRimWarFaction == null)
+            {
+                Log.Warning("[faction-politics] Rim War 偵測到但簽名不符（版本差異），bridge 維持 no-op；"
+                    + "分裂新派系將依 Rim War 週期自檢納管。");
+                return;
+            }
             RimWarPresent = true;
-            DumpSignatures(worldUtility);
+            PoliticsBridges.FactionSplit += OnFactionSplit;
+            Log.Message("[faction-politics] Rim War bridge 已綁定（分裂→AddRimWarFaction）。");
         }
 
-        private static void DumpSignatures(Type worldUtility)
+        /// <summary>分裂完成（聚落已易主、hidden 已揭示）後把新派系註冊進 Rim War。</summary>
+        private static void OnFactionSplit(Faction mother, Faction newFaction)
         {
-            StringBuilder sb = new StringBuilder("[faction-politics] Rim War 偵測到。ConvertSettlement 候選簽名（供 bridge 校準）：");
-            MethodInfo[] methods = worldUtility.GetMethods(BindingFlags.Public | BindingFlags.Static);
-            int found = 0;
-            foreach (MethodInfo method in methods)
+            try
             {
-                if (method.Name == "ConvertSettlement")
+                object tracker = getPowerTracker.Invoke(null, null);
+                if (tracker != null)
                 {
-                    sb.AppendLine().Append("  ").Append(method);
-                    found++;
+                    addRimWarFaction.Invoke(tracker, new object[] { newFaction });
                 }
             }
-            if (found == 0)
+            catch (Exception e)
             {
-                sb.AppendLine().Append("  （無——Rim War 版本差異，bridge 維持 no-op）");
+                if (!warned)
+                {
+                    warned = true;
+                    Log.Warning("[faction-politics] Rim War 同步失敗（僅首次記錄）：" + e);
+                }
             }
-            sb.AppendLine().Append("[faction-politics] 易主同步未綁定（待校準）；本案 in-place SetFaction 已先行，"
-                + "校準應走 RimWarSettlementComp 戰力調和而非 ConvertSettlement（後者會摧毀重建聚落）。"
-                + "在此之前 Rim War 戰力資料可能滯後至其週期自檢。");
-            Log.Message(sb.ToString());
         }
     }
 }

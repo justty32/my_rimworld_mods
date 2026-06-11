@@ -43,6 +43,16 @@ dotnet 10 + Krafs.Rimworld.Ref 1.6.4850 ref 組件直驗（monop），不需反�
 - 另修 FactionSplitter 缺 `using UnityEngine;`（Mathf）。
 - **`dotnet build` 雙綠**：`Source/` → `1.6/Assemblies/FactionPolitics.dll`、`SourceBridgeOutposts/` → `Compat/NpcOutposts/Assemblies/FactionPoliticsOutpostsBridge.dll`。0 警告 0 錯誤。編譯通過即驗畢 #1/#4/#7 簽名。`tests/healthcheck.py` 重跑 OK。DLL 依 repo 慣例入 git，`.gitkeep` 佔位移除。
 
+### Rim War bridge 校準完成（晚間）
+
+Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ 免等使用者供檔，ikdasm 直接核對簽名完成綁定：
+
+- **掛載點只需一個**：`PoliticsBridges.FactionSplit` → `WorldUtility.Get_WCPT()` + `WorldComponent_PowerTracker.AddRimWarFaction(Faction)`（public instance）。後者內建 `CheckForRimWarFaction` 防重複、`GenerateFactionBehavior`、`AssignFactionSettlements`（把已易主聚落納入新派系 RimWarData）。
+- **母派系側免處理**：IL 核實 `RimWarData.WorldSettlements` 為自癒式 getter——到期 `Clear()` + 重掃 `Find.WorldObjects` 按派系過濾。in-place SetFaction 於下個更新週期自動被接收；`RimWarSettlementComp` 隨 WorldObject 留存、戰力點不歸零。
+- **確證不呼叫 `ConvertSettlement`**：IL 實體為 `Destroy()` → `SettlementUtility.AddNewHome` 摧毀重建（與先前 pas 分析一致），與 in-place 路線衝突。
+- `SettlementDefected` hook 對 Rim War 維持無訂閱（自癒已覆蓋）；簽名不符版本退化為 no-op + 一次性警告。建置綠、healthcheck OK。
+
 ### 待辦
-- Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人 → 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。
-- Rim War bridge 校準：經 `pas/analysis/rimworld_mods/rim-war` 核對，`WorldUtility.ConvertSettlement(:15289)` 為「摧毀重建」式易主，**與本案 in-place SetFaction 衝突**，校準應走 `RimWarSettlementComp.RimWarPoints` 調和（public setter）而非呼叫 ConvertSettlement。骨架 dump 已加此註記；實際綁定仍待使用者供 Rim War DLL 做 E2E。
+
+- Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人 → 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
+- E2E 加驗 Rim War bridge：啟動 log 應見「Rim War bridge 已綁定」；分裂後新派系應出現於 Rim War 派系資料。
