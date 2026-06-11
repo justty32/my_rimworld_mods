@@ -52,7 +52,15 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **確證不呼叫 `ConvertSettlement`**：IL 實體為 `Destroy()` → `SettlementUtility.AddNewHome` 摧毀重建（與先前 pas 分析一致），與 in-place 路線衝突。
 - `SettlementDefected` hook 對 Rim War 維持無訂閱（自癒已覆蓋）；簽名不符版本退化為 no-op + 一次性警告。建置綠、healthcheck OK。
 
+### Visit Settlements 相容校準 + forced-keep 退化 bug 修復（晚間）
+
+使用者指定「拜訪見本人」的參考 mod：**Visit Settlements**（workshop `3535955435`，`NinaGoblin.VisitSettlements`，alt44s fork，1.6）。ikdasm 其 DLL + 遊戲本體 `Assembly-CSharp.dll`（實體 IL，非 ref）交叉核對：
+
+- **見本人機制成立**：VS 拜訪 gizmo → `GetOrGenerateMapUtility.GetOrGenerateMap(tile, null, null)` = 原版聚落生成路徑。1.6 實體 IL 證實 `PawnGenerator.GeneratePawn` 對「請求 tile 上的聚落且 `previouslyGeneratedInhabitants` 非空」會優先 redress 名單內 world pawn 入圖（`GetValidCandidatesToRedress` ∩ 名單 → `RedressPawn` + `WorldPawns.RemovePawn`）。注意 redress 需 kind/faction 匹配（反叛者＝basicMemberKind ✓）且按權重隨機——非逐一保證，但名單通常僅反叛者一人。
+- **地圖生命週期自洽**：VS 快取拜訪地圖（`WorldComponent_SettlementData.settlementMaps`），殖民者在場時 prefix 擋 `MapDeiniter.Deinit`；全員離場才移除快取放行原版 Deinit。tracker「rebel.Spawned → 分裂凍結」與此自洽，無死鎖。VS 另 patch `SettlementDefeatUtility.CheckDefeated`，拜訪中擊殺不會誤判聚落被攻滅 → 擊殺重生測試安全。
+- **修復 forced-keep 退化（真 bug，原版層級）**：redress 的 `WorldPawns.RemovePawn` 會連帶把 pawn 移出 `pawnsForcefullyKeptAsWorldPawns`；地圖 Deinit 以 `Decide` 模式回世界 → **拜訪一次後反叛者失去 KeepForever**，之後可能被 WorldPawnGC 悄悄回收（進度歸零、換人）。修復：`Heal()` 對「在世界名單但不在 forced-keep」者補 `Find.WorldPawns.ForcefullyKeptPawns.Add(rebel)`（public getter 回傳活集合；`PassToWorld(KeepForever)` 內部即此 Add，冪等零副作用）。建置綠、healthcheck OK。
+
 ### 待辦
 
-- Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人 → 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
+- Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
 - E2E 加驗 Rim War bridge：啟動 log 應見「Rim War bridge 已綁定」；分裂後新派系應出現於 Rim War 派系資料。

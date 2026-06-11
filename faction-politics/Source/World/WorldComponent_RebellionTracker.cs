@@ -95,9 +95,19 @@ namespace pas.politics
                 }
                 return false;
             }
-            if (!record.rebel.Spawned && !Find.WorldPawns.Contains(record.rebel))
+            if (!record.rebel.Spawned)
             {
-                Find.WorldPawns.PassToWorld(record.rebel, PawnDiscardDecideMode.KeepForever);
+                if (!Find.WorldPawns.Contains(record.rebel))
+                {
+                    Find.WorldPawns.PassToWorld(record.rebel, PawnDiscardDecideMode.KeepForever);
+                }
+                else if (!Find.WorldPawns.ForcefullyKeptPawns.Contains(record.rebel))
+                {
+                    // 拜訪聚落（如 Visit Settlements）會經 PawnGenerator redress → WorldPawns.RemovePawn
+                    // 連帶清掉 forced-keep；地圖 Deinit 以 Decide 模式回世界 → GC 可能悄悄回收。
+                    // 補回 forced-keep（PassToWorld KeepForever 內部即此 Add，冪等）。
+                    Find.WorldPawns.ForcefullyKeptPawns.Add(record.rebel);
+                }
             }
             if (record.homeSettlement == null || record.homeSettlement.Destroyed
                 || record.homeSettlement.Faction != record.faction)
