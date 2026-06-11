@@ -105,6 +105,12 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **sims-mode 真 bug（已修 `aaf2d73`）**：拜訪生成出空圖（無該派系 pawn）時，原版 `Settlement.TickInterval → CheckDefeated` 把拜訪判成攻陷→聚落摧毀（使用者盟友聚落實測陣亡）。VS 用 Harmony prefix 擋；sims-mode 零-Harmony 改用**入場防護**：生成後圖上無該派系人形 → `DeinitAndRemoveMap` 回收 + message 撤銷進場（`pas_sims_VisitAborted`，雙語）。
 - 空圖根因仍待定位：高度懷疑該盟友是 TradersGuild（虛空企業，駐地「宇宙碼頭」＝Odyssey 軌道層特殊聚落，生成器非 Base_Faction）。防護已覆蓋此類；若證實，可考慮 P1.1 對特殊層聚落直接不給拜訪選項。
 
+### E2E 四輪：鎮壓循環 ✓ + 分裂全套 ✓
+
+- **鎮壓循環 ✓**：使用者殺 Rakinia 反叛者 → dump 數學自證（全派系 progress=30、Rakinia=15 ＝ 歸零+0.5 天冷卻+重生後 0.625 天累積）。繼任者咖啡豆三不變量全綠。已向使用者澄清兩個設計行為：重生靜默無信；新反叛者僅於地圖「重新生成」時 redress 登場（已生成地圖不會憑空出現）。
+- **分裂全套 ✓**：使用者確認成功（分裂信/新派系/倒戈/敵對）。
+- E2E 主線（清單 #1/#3/#4/#5）完成於 310-mod 全包環境。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
