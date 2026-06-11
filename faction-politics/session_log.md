@@ -78,6 +78,17 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - Rim War 滅派系（`RemoveRWDFaction`）→ `faction.defeated` → tracker 移除 record ✓。自癒鏈完備，反方向零修改。
 - **bridge 補強**：`RimWarData.rwdNextUpdateTick` 為 **public 欄位**（IL :3706）→ 分裂後反射設 0，母派系下次存取 `WorldSettlements` 即重掃，消除滯後窗口（Rim War 自家 `ConvertSettlement` 對 `rwdFrom` 同此手法）。選配綁定：缺欄位僅退化為等週期自檢，不擋主綁定。建置綠、healthcheck OK。
 
+### E2E 首輪（使用者 310-mod 全包）：兩缺陷回報 + 心跳隔離修復（晚間）
+
+使用者實測回報：(1) 只有一個派系發蠢動信；(2) sims-mode 拜訪聚落生成**空地圖**（無建築無 pawn）。Player.log 取證：
+
+- log 在首張地圖生成時觸頂截斷（`Reached max messages limit`），之後全瞎——含後續心跳例外與拜訪地圖生成記錄。
+- 第三方干擾證據：`GenStep_ScatterLumpsMineable` NRE（礦物 mod def 缺漏）；`QuestEditor_Library.Patch_ExtraGenStepDefs`（`hailuan.customquestframework`）by-ref prefix 改寫 `GenerateContentsIntoMap` 的 genstep 清單；`Found no good central spot…numStand=343` + 大量 region 失敗。
+- **(1) 主嫌（已修）**：`EnsureRebels` foreach 無逐派系隔離——第一派系成功發信後，第二派系 pawn 生成丟例外（大包基因/種族 mod 常見）即中斷整個迴圈，且 log 截斷掩蓋。修復：`EnsureRebels` 逐派系、心跳逐 record try-catch，同 defName 一次性具名警告（`WarnOnce`）。壞派系不再拖垮其餘。
+- **(2) 暫判第三方**：原版 IL 證實 genstep 錯誤逐步 catch 不中斷、`Settlement.MapGeneratorDef`＝`Base_Faction` 路徑正常；空地圖更像 quest framework 改清單或礦物 NRE 連鎖。待最小 modlist 復測分流。
+- 新增 dev 工具 `PoliticsDebugActions.DumpRebellionState`（Debug actions → pas.politics）：逐派系列出 tracked/skip 原因（player/hidden/defeated/temporary/non-humanlike/disabled/no-profile/聚落數/basicMemberKind）＋record 細節（progress/home/spawned/world/forcedKeep/inhabitantsList）。tracker 227 行（超 200 行慣例，接受）。
+- 測試加速參數僅存 staging（progressPerDay 24、respawnDelayDays 0.5），repo 保持正式值；**每次 rsync 部署後須重套**。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
