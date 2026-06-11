@@ -27,6 +27,13 @@ RebelRecord 29 / OutpostsBridge 32 / PoliticsBridges 36 / RimWarBridge 46 / Rebe
 2. **`Compat/NpcOutposts/Assemblies/` 補 `.gitkeep`**：bridge DLL（`FactionPoliticsOutpostsBridge.dll`）尚未建置；先建資料夾使 loadFolders `IfModActive` 條目與健檢第 3 檢成立。本機建 bridge csproj 後 DLL 落此。
 3. WorldComponent 無需 Def 註冊（遊戲自動實例化所有 `WorldComponent` 子類），沿 npc-outposts 慣例。
 
+### 補充：P2/P3 設計參照落檔（`docs/p2-p3-references.md`）
+
+掃 `pas/analysis/rimworld_mods`：**#3 的 `FactionGeneratorParms` 原始呼叫無命中**（mod 分析皆高階剖析）→ #3 確定留本機。但 P2/P3 參照豐收，已落 `docs/p2-p3-references.md`：
+- **faction-territories** Vassalage：玩家 gizmo+對話框（`Settlement_GetGizmos_Vassalise:7742`）、藩屬點數貨幣（`VassalagePointsComponent:8496`）、聚落割讓 `ExecuteCedeToFactionAtTile:10878`（與本案 SetFaction 同類）。注意它攔毀城信件用 Harmony，本案零-Harmony 須改 gizmo/alert。
+- **empire-refactored** 四維狀態 `unrest/loyalty/happiness/prosperity`（`WorldSettlementFC.cs:78-94`）+ `FCEventDef` → P2 可把單一 progress 升級為 loyalty 主軸 + def 化事件。
+- **架構背書**：empire-refactored 9 個 `IfModActive` compat DLL 與本案 npc-outposts bridge 同款技法；warband-warfare League 同盟系統為 P3 參照。
+
 ### 待辦
 
 - 本機補 Task 0 → 雙 `dotnet build` 綠 → 提交 DLL（repo 慣例：建置產物進 git）。
