@@ -111,6 +111,13 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **分裂全套 ✓**：使用者確認成功（分裂信/新派系/倒戈/敵對）。
 - E2E 主線（清單 #1/#3/#4/#5）完成於 310-mod 全包環境。
 
+### E2E 五輪：上限觸頂 ✓ + 存讀檔 ✓ + 兩個收尾項
+
+- **上限觸頂 ✓**：dynamic factions 達 5，全部母派系 progress 凍結 100、不再分裂、log 安靜。分裂出的動態派系自己也被養新反叛者（progress=8），其中一個 `settlements 1 < 2` 正確擋下——連鎖分裂的自然衰減成立。
+- **存讀檔 ✓**：進度/record/動態派系數讀檔後完整。
+- **npc-outposts 存檔字典 bug（已修 `0a1e359`）**：`pas_outpostCaps`（Settlement→int 引用字典）含已毀聚落 → 讀檔 BuildDictionary 噴 Null key 紅字（早於 PostLoadInit 清理）。治本：Saving 期先剔除 `Destroyed`。使用者現有存檔再讀會報最後一次，下次存檔起乾淨。
+- **「分裂派系沒換顏色」＝原版語意非 bug**：原版 def 的 `colorSpectrum` 是窄色帶（OutlanderCivil 深紫→淺紫藍），同 def 派系本就近色；`NewGeneratedFaction(PlanetLayer, parms)` IL 證實有指派隨機光譜值。倒戈驗證靠聚落派系名/外交頁。P2 可考慮反叛派系專屬視覺識別。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
