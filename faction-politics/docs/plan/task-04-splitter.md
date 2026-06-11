@@ -1,0 +1,119 @@
+# Task 4: FactionSplitter（分裂七步編排 + 分裂信）
+
+**Files:**
+- Create: `faction-politics/Source/World/FactionSplitter.cs`
+
+順序敏感點（可行性 `02`）：自動聚落靠 `hidden:true` 跳過；敵對必須在**揭示後**走 goodwill 路徑（hidden 期間 `HasGoodwill=false`）。
+
+- [ ] **Step 1: Source/World/FactionSplitter.cs**
+
+```csharp
+using System.Collections.Generic;
+using RimWorld;
+using RimWorld.Planet;
+using Verse;
+
+namespace pas.politics
+{
+    /// <summary>分裂編排（可行性 02 全序）：hidden 生成同 def 新派系 → 入列 → 反叛者升首領
+    /// → 倒戈（駐地必含、排除衛星、母保底留 1）→ 揭示 → goodwill 敵對 → letter。</summary>
+    public static class FactionSplitter
+    {
+        /// <summary>執行分裂；母派系聚落不足（&lt;2）時放棄並回 null（進展保留，下輪再試）。</summary>
+        public static Faction Split(RebelRecord record)
+        {
+            Faction mother = record.faction;
+            List<Settlement> owned = OwnedNonSatellite(mother);
+            if (owned.Count < 2 || record.rebel == null)
+            {
+                return null;
+            }
+            RebellionProfileDef profile = RebellionProfileResolver.Resolve(mother);
+            if (profile == null)
+            {
+                return null;
+            }
+            FactionGeneratorParms parms = new FactionGeneratorParms(mother.def, default(IdeoGenerationParms), true);
+            Faction newFaction = FactionGenerator.NewGeneratedFaction(Find.WorldGrid.Surface, parms);
+            Find.FactionManager.Add(newFaction);
+            newFaction.leader = record.rebel;
+            record.rebel.SetFaction(newFaction);
+            List<Settlement> defected = Transfer(owned, record.homeSettlement, mother, newFaction, profile);
+            newFaction.hidden = false;
+            newFaction.TryAffectGoodwillWith(mother, newFaction.GoodwillToMakeHostile(mother),
+                canSendMessage: false, canSendHostilityLetter: false);
+            PoliticsBridges.NotifyFactionSplit(mother, newFaction);
+            Find.LetterStack.ReceiveLetter("pas_politics_SplitLetterLabel".Translate(newFaction.Name),
+                "pas_politics_SplitLetterText".Translate(record.rebel.LabelShortCap, mother.Name,
+                    newFaction.Name, defected.Count),
+                LetterDefOf.NegativeEvent, defected[0]);
+            return newFaction;
+        }
+
+        private static List<Settlement> OwnedNonSatellite(Faction faction)
+        {
+            List<Settlement> all = Find.WorldObjects.Settlements;
+            List<Settlement> owned = new List<Settlement>();
+            for (int i = 0; i < all.Count; i++)
+            {
+                if (all[i].Faction == faction && !PoliticsBridges.IsSatellite(all[i]))
+                {
+                    owned.Add(all[i]);
+                }
+            }
+            return owned;
+        }
+
+        /// <summary>反叛者駐地必倒戈，其餘隨機補足至比例；母派系保底留 1。</summary>
+        private static List<Settlement> Transfer(List<Settlement> owned, Settlement home,
+            Faction mother, Faction newFaction, RebellionProfileDef profile)
+        {
+            int count = Mathf.Clamp(Mathf.RoundToInt(owned.Count * profile.defectFraction.RandomInRange),
+                1, owned.Count - 1);
+            List<Settlement> defectors = new List<Settlement>();
+            if (home != null && owned.Contains(home))
+            {
+                defectors.Add(home);
+            }
+            foreach (Settlement settlement in owned.InRandomOrder())
+            {
+                if (defectors.Count >= count)
+                {
+                    break;
+                }
+                if (!defectors.Contains(settlement))
+                {
+                    defectors.Add(settlement);
+                }
+            }
+            foreach (Settlement settlement in defectors)
+            {
+                settlement.SetFaction(newFaction);
+                PoliticsBridges.NotifySettlementDefected(settlement, mother, newFaction);
+            }
+            return defectors;
+        }
+    }
+}
+```
+
+實作註記：
+- task-0 #6 若驗得 `WorldPawns` 安全棄置 API，在 `newFaction.leader = record.rebel` 前把 `NewGeneratedFaction` 自動生成的首領（`newFaction.leader` 當時的值）棄置；無 API 則接受殘留（spec §10 預准，≤上限 5 個）。
+- `TryAffectGoodwillWith` / `GoodwillToMakeHostile` 參數形以 task-0 #1/#2 驗證結果為準。
+- `defected[0]` 一定存在（count ≥ 1）。
+
+- [ ] **Step 2: 建置驗證**
+
+Run: `dotnet build C:\code\mine\my_rimworld_mods\faction-politics\Source\FactionPolitics.csproj`
+Expected: 0 Warning(s) 0 Error(s)
+
+- [ ] **Step 3: Commit**
+
+```powershell
+git -C C:\code\mine\my_rimworld_mods add faction-politics/Source faction-politics/1.6
+git -C C:\code\mine\my_rimworld_mods commit -m @'
+feat: faction-politics 分裂編排（hidden 生成/倒戈/揭示/敵對）
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+'@
+```
