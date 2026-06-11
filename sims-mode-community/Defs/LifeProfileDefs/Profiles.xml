@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <pas.sims.LifeProfileDef>
+    <defName>pas_sims_Profile_Default</defName>
+    <isDefault>true</isDefault>
+    <roles>
+      <li>
+        <role>pas_sims_Guard</role>
+        <weight>1</weight>
+        <minCount>2</minCount>
+      </li>
+      <li>
+        <role>pas_sims_Worker</role>
+        <weight>2</weight>
+      </li>
+      <li>
+        <role>pas_sims_Farmer</role>
+        <weight>2</weight>
+      </li>
+      <li>
+        <role>pas_sims_Resident</role>
+        <weight>3</weight>
+      </li>
+    </roles>
+  </pas.sims.LifeProfileDef>
+
+  <!-- 部落：無工人（部落聚落少有工作台），更多農夫與居民 -->
+  <pas.sims.LifeProfileDef>
+    <defName>pas_sims_Profile_Tribal</defName>
+    <techLevels>
+      <li>Neolithic</li>
+    </techLevels>
+    <roles>
+      <li>
+        <role>pas_sims_Guard</role>
+        <weight>1</weight>
+        <minCount>2</minCount>
+      </li>
+      <li>
+        <role>pas_sims_Farmer</role>
+        <weight>3</weight>
+      </li>
+      <li>
+        <role>pas_sims_Resident</role>
+        <weight>3</weight>
+      </li>
+    </roles>
+  </pas.sims.LifeProfileDef>
+
+</Defs>

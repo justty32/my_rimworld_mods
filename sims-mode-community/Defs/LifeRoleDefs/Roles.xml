@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 衛兵：全天駐守聚落中心（快反部隊，被襲擊不用集結） -->
+  <pas.sims.LifeRoleDef>
+    <defName>pas_sims_Guard</defName>
+    <schedule>
+      <li>
+        <from>0</from>
+        <to>24</to>
+        <duty>pas_sims_Duty_Guard</duty>
+      </li>
+    </schedule>
+  </pas.sims.LifeRoleDef>
+
+  <!-- 工人：白天工作台、傍晚聚會、夜間睡床 -->
+  <pas.sims.LifeRoleDef>
+    <defName>pas_sims_Worker</defName>
+    <requiredFacility>pas_sims_Workbench</requiredFacility>
+    <schedule>
+      <li>
+        <from>7</from>
+        <to>17</to>
+        <duty>pas_sims_Duty_FakeWork</duty>
+        <focusFacility>pas_sims_Workbench</focusFacility>
+      </li>
+      <li>
+        <from>17</from>
+        <to>22</to>
+        <duty>pas_sims_Duty_Social</duty>
+        <focusFacility>pas_sims_GatherSpot</focusFacility>
+      </li>
+      <li>
+        <from>22</from>
+        <to>7</to>
+        <duty>pas_sims_Duty_Sleep</duty>
+        <focusFacility>pas_sims_Bed</focusFacility>
+      </li>
+    </schedule>
+  </pas.sims.LifeRoleDef>
+
+  <!-- 農夫：白天田裡、傍晚聚會、夜間睡床 -->
+  <pas.sims.LifeRoleDef>
+    <defName>pas_sims_Farmer</defName>
+    <requiredFacility>pas_sims_FarmPlot</requiredFacility>
+    <schedule>
+      <li>
+        <from>7</from>
+        <to>17</to>
+        <duty>pas_sims_Duty_FakeWork</duty>
+        <focusFacility>pas_sims_FarmPlot</focusFacility>
+      </li>
+      <li>
+        <from>17</from>
+        <to>22</to>
+        <duty>pas_sims_Duty_Social</duty>
+        <focusFacility>pas_sims_GatherSpot</focusFacility>
+      </li>
+      <li>
+        <from>22</from>
+        <to>7</to>
+        <duty>pas_sims_Duty_Sleep</duty>
+        <focusFacility>pas_sims_Bed</focusFacility>
+      </li>
+    </schedule>
+  </pas.sims.LifeRoleDef>
+
+  <!-- 居民：白天在居所附近、傍晚聚會、夜間睡床 -->
+  <pas.sims.LifeRoleDef>
+    <defName>pas_sims_Resident</defName>
+    <schedule>
+      <li>
+        <from>7</from>
+        <to>17</to>
+        <duty>pas_sims_Duty_HomeLife</duty>
+        <focusFacility>pas_sims_Bed</focusFacility>
+      </li>
+      <li>
+        <from>17</from>
+        <to>22</to>
+        <duty>pas_sims_Duty_Social</duty>
+        <focusFacility>pas_sims_GatherSpot</focusFacility>
+      </li>
+      <li>
+        <from>22</from>
+        <to>7</to>
+        <duty>pas_sims_Duty_Sleep</duty>
+        <focusFacility>pas_sims_Bed</focusFacility>
+      </li>
+    </schedule>
+  </pas.sims.LifeRoleDef>
+
+</Defs>
