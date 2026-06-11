@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.outposts.community</packageId>
+  <name>NPC Outposts (Community)</name>
+  <author>GuanYu Lu</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>pas.sims.community</packageId>
+      <displayName>Sims Mode Community</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>pas.sims.community</li>
+  </loadAfter>
+  <description>NPC factions build satellite outposts around their settlements. Visit them (small living maps via Sims Mode), trade with them, or raid them. The world grows new outposts over time.</description>
+</ModMetaData>
