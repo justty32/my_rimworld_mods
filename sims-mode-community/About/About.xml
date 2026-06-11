@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.sims.community</packageId>
+  <name>Sims Mode Community: Living Settlements</name>
+  <author>GuanYu Lu</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Visit a non-hostile faction settlement and its people actually live: working by day, gathering in the evening, sleeping at night. Fully data-driven (faction profiles, roles, schedules, facility tags) so other mods can patch everything. Phase 1 of the Sims Mode Community project.</description>
+</ModMetaData>

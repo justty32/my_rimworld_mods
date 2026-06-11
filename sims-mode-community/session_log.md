@@ -16,3 +16,7 @@
 - `PlantProperties.Sowable`（RimWorld\PlantProperties.cs:181——注意在 RimWorld namespace，非 Verse；不影響程式碼）、`ThingDef.IsTable`（ThingDef.cs:1008）存在
 - `GenCollection.RandomElementByWeight<T>(IEnumerable<T>, Func<T, float>)` 存在
 - `RestUtility.IsValidBedFor` 簽名逐字相符（RestUtility.cs:162）：`(Thing bedThing, Pawn sleeper, Pawn traveler, bool checkSocialProperness, bool allowMedBedEvenIfSetToNoCare = false, bool ignoreOtherReservations = false, GuestStatus? guestStatus = null)`
+
+### Task 1: Mod 骨架
+
+About.xml + csproj（Krafs.Rimworld.Ref 1.6.*）建立，`dotnet build -c Release` 成功（0 警告 0 錯誤），產出 `1.6/Assemblies/SimsModeCommunity.dll`。
