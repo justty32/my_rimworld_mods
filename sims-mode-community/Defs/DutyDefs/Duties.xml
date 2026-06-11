@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 假工作（工人/農夫共用，focus 不同設施） -->
+  <DutyDef>
+    <defName>pas_sims_Duty_FakeWork</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>50</targetAcquireRadius>
+          <targetKeepRadius>60</targetKeepRadius>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+        <li Class="pas.sims.JobGiver_FakeWork" />
+        <li Class="JobGiver_WanderNearDutyLocation" />
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <!-- 聚會社交 -->
+  <DutyDef>
+    <defName>pas_sims_Duty_Social</defName>
+    <socialModeMax>SuperActive</socialModeMax>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>50</targetAcquireRadius>
+          <targetKeepRadius>60</targetKeepRadius>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+        <li Class="ThinkNode_ConditionalCloseToDutyTarget">
+          <maxDistToDutyTarget>10</maxDistToDutyTarget>
+          <subNodes>
+            <li Class="JobGiver_StandAndBeSociallyActive" />
+          </subNodes>
+        </li>
+        <li Class="JobGiver_WanderNearDutyLocation" />
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <!-- 夜間睡覺 -->
+  <DutyDef>
+    <defName>pas_sims_Duty_Sleep</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>50</targetAcquireRadius>
+          <targetKeepRadius>60</targetKeepRadius>
+        </li>
+        <li Class="pas.sims.JobGiver_SleepAtDutyFocus" />
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+        <li Class="JobGiver_WanderNearDutyLocation" />
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <!-- 衛兵駐守（快反部隊；focus=聚落中心） -->
+  <DutyDef>
+    <defName>pas_sims_Duty_Guard</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>75</targetKeepRadius>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+        <li Class="JobGiver_AIDefendPoint" />
+        <li Class="JobGiver_WanderNearDutyLocation" />
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <!-- 居家（在 focus 附近過日子） -->
+  <DutyDef>
+    <defName>pas_sims_Duty_HomeLife</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_AIFightEnemies">
+          <targetAcquireRadius>50</targetAcquireRadius>
+          <targetKeepRadius>60</targetKeepRadius>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyBasicNeeds</treeDef>
+        </li>
+        <li Class="JobGiver_WanderNearDutyLocation" />
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+</Defs>
