@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>pas_sims_FakeWork</defName>
+    <driverClass>pas.sims.JobDriver_FakeWork</driverClass>
+    <reportString>working.</reportString>
+    <suspendable>false</suspendable>
+  </JobDef>
+
+</Defs>
