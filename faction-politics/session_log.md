@@ -89,6 +89,15 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - 新增 dev 工具 `PoliticsDebugActions.DumpRebellionState`（Debug actions → pas.politics）：逐派系列出 tracked/skip 原因（player/hidden/defeated/temporary/non-humanlike/disabled/no-profile/聚落數/basicMemberKind）＋record 細節（progress/home/spawned/world/forcedKeep/inhabitantsList）。tracker 227 行（超 200 行慣例，接受）。
 - 測試加速參數僅存 staging（progressPerDay 24、respawnDelayDays 0.5），repo 保持正式值；**每次 rsync 部署後須重套**。
 
+### E2E 二輪：dump 定案「一封信」根因 = basicMemberKind 原版盲點（已修）
+
+使用者跑 dump（Quick Test 世界）：除鼠族 mod 派系（Rakinia，被正常追蹤且 world/forcedKeep/inhabitantsList 全 True ✓）外，**所有原版 NPC 派系 `skip: basicMemberKind null`**——grep 原版 Data 證實 1.6 只有玩家派系 def 填 `basicMemberKind`（Colonist/Tribesperson），NPC 派系全靠 `pawnGroupMakers`。Task 0 #7 只驗了欄位存在、沒驗 NPC def 有填值。
+
+- **修復**：`RebelSpawner.GeneratePawn` 改 `Faction.RandomPawnKind()`（實體 IL 核對：彙整 pawnGroupMakers 全部 Humanlike 選項隨機，後備 basicMemberKind）；dump 工具判定同步更新。
+- 同輪修 **npc-outposts 真 bug**：`NpcOutpost` 靜態貼圖欄位於世界生成背景執行緒觸發 cctor 載圖而炸（Quick Test 紅字）→ 補 `[StaticConstructorOnStartup]`（npc-outposts commit `cffedc8`）。
+- 使用者證實先前「空地圖」為誤判：敵對派系本就只有進攻選項；中立以上拜訪入圖正常（建築/pawn/作息/守衛皆對，sims-mode 生活 genstep 工作正常）。
+- 既有測試檔免重開：修復部署後下次心跳 EnsureRebels 會給其餘合格派系補發（一波蠢動信）。
+
 ### 待辦
 
 - Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。

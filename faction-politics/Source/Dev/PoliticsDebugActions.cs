@@ -46,8 +46,9 @@ namespace pas.politics
             {
                 return "skip: settlements " + count + " < " + profile.minSettlements;
             }
-            if (faction.def.basicMemberKind == null) return "skip: basicMemberKind null";
-            if (!faction.def.basicMemberKind.RaceProps.Humanlike) return "skip: member kind non-humanlike";
+            PawnKindDef kind = faction.RandomPawnKind();
+            if (kind == null) return "skip: RandomPawnKind null（無 pawnGroupMakers 人形選項）";
+            if (!kind.RaceProps.Humanlike) return "skip: member kind non-humanlike";
             return "pending: 合格、待下次心跳補發（或生成例外，見 log 警告）";
         }
 

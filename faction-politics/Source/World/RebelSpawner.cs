@@ -70,7 +70,9 @@ namespace pas.politics
 
         private static Pawn GeneratePawn(Faction faction)
         {
-            PawnKindDef kind = faction.def.basicMemberKind;
+            // E2E 實測：1.6 原版只有玩家派系 def 填 basicMemberKind，NPC 派系全 null（Task 0 #7 盲點）。
+            // 改用 Faction.RandomPawnKind()：彙整 pawnGroupMakers 全部 Humanlike 選項隨機，後備 basicMemberKind。
+            PawnKindDef kind = faction.RandomPawnKind();
             if (kind == null || !kind.RaceProps.Humanlike)
             {
                 return null;
