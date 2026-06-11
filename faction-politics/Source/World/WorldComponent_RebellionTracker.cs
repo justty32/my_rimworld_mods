@@ -156,6 +156,8 @@ namespace pas.politics
             {
                 return;
             }
+            // 上限為「並發」語意：已被玩家剿滅(defeated)的派系不再占用名額，否則長局打滿 N 次後反叛永久凍結。
+            spawnedFactions.RemoveAll(f => f == null || f.defeated);
             if (spawnedFactions.Count >= Settings.maxDynamicFactions || record.rebel.Spawned)
             {
                 record.progress = profile.threshold;   // 凍結等待（上限觸頂或反叛者在地圖上）
@@ -220,7 +222,7 @@ namespace pas.politics
                     spawnedFactions = new List<Faction>();
                 }
                 records.RemoveAll((RebelRecord r) => r == null || r.faction == null);
-                spawnedFactions.RemoveAll((Faction f) => f == null);
+                spawnedFactions.RemoveAll((Faction f) => f == null || f.defeated);
             }
         }
     }

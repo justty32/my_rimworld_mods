@@ -43,8 +43,9 @@ namespace pas.outposts
 
         public static FloatMenuAcceptanceReport CanAttack(Caravan caravan, NpcOutpost outpost)
         {
-            if (outpost == null || !outpost.Spawned || !outpost.Attackable)
+            if (outpost == null || !outpost.Spawned || !outpost.Attackable || outpost.Faction == null)
             {
+                // Faction 可能在開菜單到到達之間被擊敗/重指派(母聚落分裂倒戈)而變 null；AttackNow 多處解引用會 NRE。
                 return false;
             }
             if (outpost.EnterCooldownBlocksEntering())

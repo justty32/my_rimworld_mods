@@ -12,9 +12,9 @@ namespace pas.sims
         private MapParent mapParent;
         private IntVec3 mapSize = IntVec3.Invalid;
 
-        public override string Label => "pas_sims_EnterSettlement".Translate(mapParent.Label);
+        public override string Label => "pas_sims_EnterSettlement".Translate(mapParent?.Label ?? "");
 
-        public override string ReportString => "CaravanVisiting".Translate(mapParent.Label);
+        public override string ReportString => "CaravanVisiting".Translate(mapParent?.Label ?? "");
 
         public CaravanArrivalAction_VisitMap()
         {
@@ -72,8 +72,10 @@ namespace pas.sims
                     shadow.Tile = settlement.Tile;
                     shadow.SetFaction(settlement.Faction);
                     shadow.VisitedSettlement = settlement;
-                    Find.WorldObjects.Add(shadow);
+                    // 先把圖掛到影子宿主再加入世界：否則 Add 後、賦 parent 前的窗口內 shadow 是
+                    // HasMap==false 的已註冊世界物件，若被 tick 到會被 TickInterval 自清。
                     map.info.parent = shadow;
+                    Find.WorldObjects.Add(shadow);
                     // Settlement.PostMapGenerate 對任何非家園圖一律啟動「敵人即將到達」倒數——拜訪語境下取消。
                     settlement.GetComponent<TimedDetectionRaids>()?.ResetCountdown();
                 }

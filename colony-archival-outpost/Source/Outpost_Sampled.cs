@@ -148,7 +148,8 @@ namespace ColonyArchivalOutpost
                 {
                     Pawn medic = AllPawns
                         .Where(p => !p.Dead && !p.Downed && p.RaceProps.Humanlike
-                               && !p.skills.GetSkill(SkillDefOf.Medicine).TotallyDisabled)
+                               && p.skills != null
+                               && p.skills.GetSkill(SkillDefOf.Medicine) is SkillRecord sr && !sr.TotallyDisabled)
                         .OrderByDescending(p => p.skills.GetSkill(SkillDefOf.Medicine).Level)
                         .FirstOrDefault();
                     if (medic != null)

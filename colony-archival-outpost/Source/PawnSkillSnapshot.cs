@@ -22,6 +22,9 @@ namespace ColonyArchivalOutpost
             {
                 if (cumulativeXP == null) cumulativeXP = new Dictionary<SkillDef, float>();
                 if (skillPassions == null) skillPassions = new Dictionary<SkillDef, Passion>();
+                // 移除提供該 SkillDef 的內容 mod 後，Def key 解析為 null → 先剔除。
+                cumulativeXP.RemoveAll(kv => kv.Key == null);
+                skillPassions.RemoveAll(kv => kv.Key == null);
             }
         }
     }

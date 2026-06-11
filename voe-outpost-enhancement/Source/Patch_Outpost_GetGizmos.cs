@@ -14,8 +14,9 @@ namespace VOEOutpostEnhancement
     {
         static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Outpost __instance)
         {
-            foreach (var g in __result)
-                yield return g;
+            if (__result != null)
+                foreach (var g in __result)
+                    yield return g;
 
             var rec = WorldComponent_OutpostUpgrades.Instance?.GetOrCreate(__instance);
             if (rec == null) yield break;

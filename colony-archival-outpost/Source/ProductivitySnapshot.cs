@@ -55,6 +55,10 @@ namespace ColonyArchivalOutpost
                 if (dailyRates == null) dailyRates = new Dictionary<ThingDef, float>();
                 if (dailySkillXP == null) dailySkillXP = new Dictionary<SkillDef, float>();
                 if (dailyHediffDeltas == null) dailyHediffDeltas = new Dictionary<HediffDef, float>();
+                // 移除提供該 def 的內容 mod 後，Def key 解析為 null → 否則後續用字典時取 null key 出錯。
+                dailyRates.RemoveAll(kv => kv.Key == null);
+                dailySkillXP.RemoveAll(kv => kv.Key == null);
+                dailyHediffDeltas.RemoveAll(kv => kv.Key == null);
             }
         }
     }

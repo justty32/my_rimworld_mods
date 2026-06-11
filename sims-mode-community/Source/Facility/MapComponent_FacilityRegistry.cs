@@ -61,7 +61,7 @@ namespace pas.sims
             if (facilities.TryGetValue(tag, out List<Thing> list))
             {
                 list.RemoveAll(t => t.DestroyedOrNull() || !t.Spawned);
-                return list;
+                return new List<Thing>(list);   // 防禦性拷貝：呼叫方改動不得污染註冊表內部列表
             }
             return new List<Thing>();
         }

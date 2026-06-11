@@ -104,6 +104,8 @@ namespace ColonyArchivalOutpost
                 if (startSkillSnapshots == null) startSkillSnapshots = new List<PawnSkillSnapshot>();
                 if (startInjurySeverity == null) startInjurySeverity = new Dictionary<string, float>();
                 if (startHediffSnapshots == null) startHediffSnapshots = new List<PawnHediffSnapshot>();
+                // 移除提供該 ThingDef 的內容 mod 後，Def key 解析為 null → 先剔除避免後續取 null key 出錯。
+                startCounts.RemoveAll(kv => kv.Key == null);
             }
         }
     }

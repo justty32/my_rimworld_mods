@@ -26,9 +26,11 @@ namespace BodyFortificationHediff
     [HarmonyPatch]
     public static class DamageWorker_AddInjury_ApplyDamageToPart_Patch
     {
-        // Reflected field for DamageInfo.amount (private float backing field).
+        // Reflected field for DamageInfo's private float amount backing field.
+        // RimWorld builds have used both "amount" and "amountInt" across versions, so probe both.
         private static readonly FieldInfo s_amountField =
-            typeof(DamageInfo).GetField("amount", BindingFlags.NonPublic | BindingFlags.Instance);
+            typeof(DamageInfo).GetField("amountInt", BindingFlags.NonPublic | BindingFlags.Instance)
+            ?? typeof(DamageInfo).GetField("amount", BindingFlags.NonPublic | BindingFlags.Instance);
 
         private static bool s_warnedMissingMethod = false;
         private static bool s_warnedMissingField  = false;
@@ -89,8 +91,12 @@ namespace BodyFortificationHediff
             float original = dinfo.Amount;
             float reduced  = original / mult;
 
-            // DamageInfo is a struct; ref parameter means we're editing the caller's copy.
-            s_amountField.SetValue(dinfo, reduced);
+            // DamageInfo is a struct. FieldInfo.SetValue boxes its argument, so we must box once,
+            // mutate the box, then unbox back into the ref parameter — otherwise the write lands on
+            // a throwaway copy and the caller's dinfo is never changed (the reduction would be lost).
+            object boxed = dinfo;
+            s_amountField.SetValue(boxed, reduced);
+            dinfo = (DamageInfo)boxed;
         }
     }
 }

@@ -210,7 +210,7 @@ namespace ColonyArchivalOutpost
                 .ToList();
             foreach (var pawn in pawns)
             {
-                pawn.DeSpawn();
+                if (pawn.Spawned) pawn.DeSpawn();   // 卧床/被搬運/已倒地等非 Spawned 狀態下 DeSpawn 會報錯
                 outpost.AddPawn(pawn);
             }
 

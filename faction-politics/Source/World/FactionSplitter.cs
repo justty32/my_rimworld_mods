@@ -39,6 +39,9 @@ namespace pas.politics
             newFaction.hidden = false;
             newFaction.TryAffectGoodwillWith(mother, newFaction.GoodwillToMakeHostile(mother),
                 canSendMessage: false, canSendHostilityLetter: false);
+            // 揭示後重算善意情勢，讓新派系對玩家/各派系的關係即時生效（鏡像 npc-outposts 攻打路徑）。
+            // 不自動發敵對信——本案下方已發專屬分裂信。
+            Find.GoodwillSituationManager.RecalculateAll(canSendHostilityChangedLetter: false);
             PoliticsBridges.NotifyFactionSplit(mother, newFaction);
             Find.LetterStack.ReceiveLetter("pas_politics_SplitLetterLabel".Translate(newFaction.Name),
                 "pas_politics_SplitLetterText".Translate(record.rebel.LabelShortCap, mother.Name,
