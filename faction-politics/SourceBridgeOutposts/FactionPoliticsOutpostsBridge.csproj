@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>FactionPoliticsOutpostsBridge</AssemblyName>
+    <RootNamespace>pas.politics.outposts</RootNamespace>
+    <OutputPath>..\Compat\NpcOutposts\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" />
+    <Reference Include="FactionPolitics">
+      <HintPath>..\1.6\Assemblies\FactionPolitics.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="NpcOutposts">
+      <HintPath>..\..\npc-outposts\1.6\Assemblies\NpcOutposts.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
