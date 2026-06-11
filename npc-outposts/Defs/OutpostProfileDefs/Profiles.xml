@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.outposts.OutpostProfileDef>
+    <defName>pas_outposts_Profile_Default</defName>
+    <isDefault>true</isDefault>
+    <countPerSettlement>1~3</countPerSettlement>
+    <radius>2~4</radius>
+    <spawnMtbDays>15</spawnMtbDays>
+    <types>
+      <li>
+        <type>pas_outposts_Type_Generic</type>
+        <weight>1</weight>
+      </li>
+    </types>
+  </pas.outposts.OutpostProfileDef>
+</Defs>

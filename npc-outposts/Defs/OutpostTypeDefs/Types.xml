@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.outposts.OutpostTypeDef>
+    <defName>pas_outposts_Type_Generic</defName>
+    <label>generic outpost</label>
+    <worldObjectDef>pas_outposts_Outpost</worldObjectDef>
+    <mapSize>(150,1,150)</mapSize>
+    <defenderPointsFactor>0.4</defenderPointsFactor>
+  </pas.outposts.OutpostTypeDef>
+</Defs>

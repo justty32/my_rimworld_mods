@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <GenStepDef>
+    <defName>pas_outposts_TrimDefenders</defName>
+    <order>9990</order>
+    <genStep Class="pas.outposts.GenStep_TrimDefenders" />
+  </GenStepDef>
+</Defs>
