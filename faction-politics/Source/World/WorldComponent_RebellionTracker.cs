@@ -42,32 +42,59 @@ namespace pas.politics
                     records.RemoveAt(i);
                     continue;
                 }
-                if (!Heal(record))
+                try
                 {
-                    continue;
+                    if (!Heal(record))
+                    {
+                        continue;
+                    }
+                    record.progress += record.ratePerDay * Settings.checkIntervalTicks / GenDate.TicksPerDay;
+                    TrySplit(record, i);
                 }
-                record.progress += record.ratePerDay * Settings.checkIntervalTicks / GenDate.TicksPerDay;
-                TrySplit(record, i);
+                catch (System.Exception e)
+                {
+                    WarnOnce(record.faction, "record 心跳", e);
+                }
             }
         }
 
-        /// <summary>合格且未追蹤的派系補 record。冪等。</summary>
+        /// <summary>同 defName 只警告一次（壞派系每心跳重炸會刷爆 log）。</summary>
+        private static readonly HashSet<string> warnedDefs = new HashSet<string>();
+
+        private static void WarnOnce(Faction faction, string stage, System.Exception e)
+        {
+            string key = faction?.def?.defName ?? "null";
+            if (warnedDefs.Add(key))
+            {
+                Log.Warning("[faction-politics] " + stage + " 例外，跳過派系 "
+                    + (faction?.Name.ToString() ?? "?") + "（" + key + "）：" + e);
+            }
+        }
+
+        /// <summary>合格且未追蹤的派系補 record。冪等；逐派系例外隔離（一個壞派系不拖垮其餘）。</summary>
         public void EnsureRebels()
         {
             foreach (Faction faction in Find.FactionManager.AllFactionsListForReading)
             {
-                if (!Eligible(faction) || HasRecord(faction))
+                try
                 {
-                    continue;
-                }
-                RebellionProfileDef profile = RebellionProfileResolver.Resolve(faction);
-                if (profile != null && CountSettlements(faction) >= profile.minSettlements)
-                {
-                    RebelRecord record = RebelSpawner.TrySpawnFor(faction, profile);
-                    if (record != null)
+                    if (!Eligible(faction) || HasRecord(faction))
                     {
-                        records.Add(record);
+                        continue;
                     }
+                    RebellionProfileDef profile = RebellionProfileResolver.Resolve(faction);
+                    if (profile != null && CountSettlements(faction) >= profile.minSettlements)
+                    {
+                        RebelRecord record = RebelSpawner.TrySpawnFor(faction, profile);
+                        if (record != null)
+                        {
+                            records.Add(record);
+                        }
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    WarnOnce(faction, "EnsureRebels", e);
                 }
             }
         }
@@ -142,7 +169,10 @@ namespace pas.politics
             }
         }
 
-        private static bool Eligible(Faction faction)
+        internal List<RebelRecord> RecordsForDebug => records;
+        internal List<Faction> SpawnedForDebug => spawnedFactions;
+
+        internal static bool Eligible(Faction faction)
         {
             return faction != null && !faction.IsPlayer && !faction.Hidden && !faction.defeated
                 && !faction.temporary && faction.def.humanlikeFaction;
@@ -160,7 +190,7 @@ namespace pas.politics
             return false;
         }
 
-        private static int CountSettlements(Faction faction)
+        internal static int CountSettlements(Faction faction)
         {
             int count = 0;
             List<Settlement> all = Find.WorldObjects.Settlements;
