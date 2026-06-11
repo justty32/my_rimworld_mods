@@ -20,3 +20,19 @@
 ### Task 1: Mod 骨架
 
 About.xml + csproj（Krafs.Rimworld.Ref 1.6.*）建立，`dotnet build -c Release` 成功（0 警告 0 錯誤），產出 `1.6/Assemblies/SimsModeCommunity.dll`。
+
+### Task 2–10: 實作完成
+
+照計畫逐 task 執行，每 task 建置綠 + commit。與計畫的偏差只有兩處 using 補充（計畫程式碼漏列，API 本身無誤）：
+
+- `FacilityMatcher.cs` 補 `using RimWorld;`（`Plant` 在 RimWorld namespace）
+- `JobDriver_FakeWork.cs` 補 `using RimWorld;`（`RandomSocialMode` 在 RimWorld namespace）
+
+驗證結果：
+- `dotnet build -c Release`：0 警告 0 錯誤
+- `python tests/healthcheck.py`：healthcheck OK（首跑即綠）
+- 所有 C# 檔案 ≤ 94 行（最大 `MapComponent_FacilityRegistry.cs`），符合 ≤200 行約束
+
+### Task 11: 實機 E2E（待執行）
+
+需要 RimWorld 1.6 本體，依 `docs/plan/task-11-e2e.md` 清單手動驗證（載入/作息切換/部落 profile/翻臉防禦/攻打不受影響/存讀檔/離場）。
