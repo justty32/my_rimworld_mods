@@ -26,8 +26,14 @@ namespace pas.politics
             FactionGeneratorParms parms = new FactionGeneratorParms(mother.def, default(IdeoGenerationParms), true);
             Faction newFaction = FactionGenerator.NewGeneratedFaction(Find.WorldGrid.Surface, parms);
             Find.FactionManager.Add(newFaction);
+            Pawn autoLeader = newFaction.leader;   // NewGeneratedFaction 末段 GenerateNewLeader 生的預設首領
             newFaction.leader = record.rebel;
             record.rebel.SetFaction(newFaction);
+            // 反叛者取代預設首領；殘留的自動首領安全棄置（API 已驗：persistent_world_pawns RemoveAndDiscardPawn）。
+            if (autoLeader != null && autoLeader != record.rebel && Find.WorldPawns.Contains(autoLeader))
+            {
+                Find.WorldPawns.RemoveAndDiscardPawn(autoLeader);
+            }
             List<Settlement> defected = Transfer(owned, record.homeSettlement, mother, newFaction, profile);
             newFaction.hidden = false;
             newFaction.TryAffectGoodwillWith(mother, newFaction.GoodwillToMakeHostile(mother),
