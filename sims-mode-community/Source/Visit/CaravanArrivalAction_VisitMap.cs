@@ -49,6 +49,20 @@ namespace pas.sims
             {
                 return;
             }
+            // 退化生成防護（E2E 實測）：圖上無該派系人形（第三方 genstep 干擾/特殊層）時，
+            // 原版 Settlement.TickInterval → CheckDefeated 會把「拜訪」判成攻陷並摧毀聚落。
+            // 零-Harmony 守法：撤銷進場並立即回收剛生成的圖（VS mod 同題用 Harmony prefix 解）。
+            if (mapParent is Settlement settlement && settlement.Faction != null
+                && !settlement.Faction.IsPlayer && !AnyFactionHumanlike(map, settlement.Faction))
+            {
+                if (newMap)
+                {
+                    Current.Game.DeinitAndRemoveMap(map, notifyPlayer: false);
+                }
+                Messages.Message("pas_sims_VisitAborted".Translate(mapParent.Label),
+                    caravan, MessageTypeDefOf.NegativeEvent, historical: false);
+                return;
+            }
             if (newMap)
             {
                 Find.TickManager.Notify_GeneratedPotentiallyHostileMap();
@@ -68,6 +82,19 @@ namespace pas.sims
             base.ExposeData();
             Scribe_References.Look(ref mapParent, "mapParent");
             Scribe_Values.Look(ref mapSize, "mapSize", IntVec3.Invalid);
+        }
+
+        private static bool AnyFactionHumanlike(Map map, Faction faction)
+        {
+            List<Pawn> pawns = map.mapPawns.SpawnedPawnsInFaction(faction);
+            for (int i = 0; i < pawns.Count; i++)
+            {
+                if (pawns[i].RaceProps.Humanlike)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static FloatMenuAcceptanceReport CanVisit(Caravan caravan, MapParent mapParent)

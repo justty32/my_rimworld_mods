@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <pas_sims_EnterSettlement>Enter {0}</pas_sims_EnterSettlement>
+  <pas_sims_VisitAborted>Could not enter {0}: nobody answered at the gates. (Map generation produced no inhabitants; entering would destroy the settlement.)</pas_sims_VisitAborted>
 </LanguageData>
