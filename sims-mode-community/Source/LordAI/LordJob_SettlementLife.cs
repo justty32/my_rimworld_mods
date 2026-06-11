@@ -7,6 +7,9 @@ namespace pas.sims
 {
     public class LordJob_SettlementLife : LordJob
     {
+        private const int DelayBeforeAssault = 25000;   // 原版 SymbolResolver_Settlement 給 LordJob_DefendBase 的值
+        private const int CalmReturnTicks = 5000;       // 平靜約 2 小時 → 回歸生活
+
         private Faction faction;
         private IntVec3 baseCenter;
         private Dictionary<Pawn, LifeRoleDef> roleAssignments = new Dictionary<Pawn, LifeRoleDef>();
@@ -50,20 +53,39 @@ namespace pas.sims
             toDefend.AddPostAction(new TransitionAction_WakeAll());
             graph.AddTransition(toDefend);
 
+            // 觸發組照抄原版 LordJob_DefendBase 的 defend→assault：攻打聚落時行為貼齊原版
             Transition toAssault = new Transition(defend, assault);
             toAssault.AddTrigger(new Trigger_FractionPawnsLost(0.2f));
+            toAssault.AddTrigger(new Trigger_PawnHarmed(0.4f));
+            toAssault.AddTrigger(new Trigger_ChanceOnTickInterval(2500, 0.03f));
+            toAssault.AddTrigger(new Trigger_TicksPassed(DelayBeforeAssault));
+            toAssault.AddTrigger(new Trigger_UrgentlyHungry());
+            toAssault.AddTrigger(new Trigger_ChanceOnPlayerHarmNPCBuilding(0.4f));
+            toAssault.AddTrigger(new Trigger_OnClamor(ClamorDefOf.Ability));
+            toAssault.AddPostAction(new TransitionAction_WakeAll());
+            TaggedString message = faction.def.messageDefendersAttacking.Formatted(faction.def.pawnsPlural, faction.Name, Faction.OfPlayer.def.pawnsPlural).CapitalizeFirst();
+            toAssault.AddPreAction(new TransitionAction_Message(message, MessageTypeDefOf.ThreatBig));
             graph.AddTransition(toAssault);
 
             Transition toLife = new Transition(defend, life);
             toLife.AddSource(assault);
             toLife.AddTrigger(new Trigger_BecameNonHostileToPlayer());
+            toLife.AddTrigger(new Trigger_CalmNonHostile(CalmReturnTicks));   // 非玩家敵對時的回歸退路（防卡死）
             graph.AddTransition(toLife);
 
             return graph;
         }
 
+        /// <summary>pawn 死亡/離隊即清出字典，避免存檔殘留銷毀引用 → 讀檔 null key 紅字。</summary>
+        public override void Notify_PawnLost(Pawn p, PawnLostCondition condition)
+        {
+            base.Notify_PawnLost(p, condition);
+            roleAssignments.Remove(p);
+        }
+
         public override void ExposeData()
         {
+            base.ExposeData();
             Scribe_References.Look(ref faction, "faction");
             Scribe_Values.Look(ref baseCenter, "baseCenter");
             Scribe_Collections.Look(ref roleAssignments, "roleAssignments", LookMode.Reference, LookMode.Def, ref tmpPawns, ref tmpRoles);

@@ -33,6 +33,20 @@ About.xml + csproj（Krafs.Rimworld.Ref 1.6.*）建立，`dotnet build -c Releas
 - `python tests/healthcheck.py`：healthcheck OK（首跑即綠）
 - 所有 C# 檔案 ≤ 94 行（最大 `MapComponent_FacilityRegistry.cs`），符合 ≤200 行約束
 
+### 程式碼自我審查（對照反編譯源碼），修了 3 個 bug
+
+1. **防禦卡死（高）**：`Trigger_PawnHarmed` 不過濾加害者（野獸傷害也觸發；Trigger_PawnHarmed.cs:37-60），而 life→defend 後唯一回程 `Trigger_BecameNonHostileToPlayer` 只在「曾敵對→解除」時觸發——非玩家來源傷害會讓聚落永久卡在防禦。修：新增 `Trigger_CalmNonHostile`（繼承原版 `Trigger_TicksPassedAndNoRecentHarm`，加「未與玩家敵對」條件），defend|assault → life，平靜 5000 ticks 回歸生活。零 Harmony。
+2. **攻打中立聚落偏離原版（中）**：`SettlementUtility.AttackNow` 先生成地圖才翻敵對（SettlementUtility.cs:47→50），攻打中立聚落時本 mod GenStep 也會接管；守軍會被 `Trigger_BecamePlayerEnemy` 立刻切 defend（行為正確），但原 defend→assault 只有損失 20% 一個觸發，原版有 7 個（LordJob_DefendBase.cs:55-65）。修：整組觸發＋進攻警告訊息照抄原版（delayBeforeAssault=25000 同 SymbolResolver_Settlement.cs:45）。
+3. **存讀檔 null key 紅字（中）**：pawn 死亡/離隊後 `roleAssignments` 殘留引用，銷毀後讀檔印 "Null key while loading dictionary"（Scribe_Collections.cs:400-405）。修：override `LordJob.Notify_PawnLost`（LordJob.cs:71 virtual，Lord.cs:700 會呼叫）清字典；另補 `base.ExposeData()` 呼叫（對齊原版慣例）。
+
+附帶確認無誤的點：`JobMaker.MakeJob(JobDefOf.LayDown, bed)` 與原版 JobGiver_GetRest 同寫法；`Trigger_TicksPassed` 計數只在來源 toil 活躍時累積、從非來源 toil 進入會歸零（語意正確）；MapComponent 子類由引擎自動為每張地圖建構。
+
+已知但接受的行為（記錄備查）：
+- `pas_sims_Bed` matcher 用 `Building_Bed` 會掃到動物床——`IsValidBedFor` 會擋下，pawn fallback 睡地上（外觀小瑕疵，不爆錯）。
+- life→defend 的 `Trigger_PawnHarmed()` 全靈敏度（被野獸咬也全聚落警戒 2 小時）——有了回歸退路後可接受，寧可過度反應。
+
+驗證：`dotnet build` 0 警告 0 錯誤；`healthcheck OK`。
+
 ### Task 11: 實機 E2E（待執行）
 
-需要 RimWorld 1.6 本體，依 `docs/plan/task-11-e2e.md` 清單手動驗證（載入/作息切換/部落 profile/翻臉防禦/攻打不受影響/存讀檔/離場）。
+需要 RimWorld 1.6 本體，依 `docs/plan/task-11-e2e.md` 清單手動驗證（載入/作息切換/部落 profile/翻臉防禦/攻打不受影響/存讀檔/離場）。新增驗證點：野獸傷害觸發防禦後約 2 小時內應自動回歸生活。
