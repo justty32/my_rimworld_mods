@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_politics_RebelEmergedLabel>Rebel stirs: {0}</pas_politics_RebelEmergedLabel>
+  <pas_politics_RebelEmergedText>{0} of {1} has begun plotting rebellion from {2}. Their influence will grow with time — unless someone removes them.</pas_politics_RebelEmergedText>
+  <pas_politics_SplitLetterLabel>Faction split: {0}</pas_politics_SplitLetterLabel>
+  <pas_politics_SplitLetterText>{0}, a rebel within {1}, has declared independence. The new faction {2} seized {3} settlement(s) and is hostile to its former rulers.</pas_politics_SplitLetterText>
+</LanguageData>
