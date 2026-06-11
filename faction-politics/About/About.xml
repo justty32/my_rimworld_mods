@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Faction Politics (Community)</name>
+  <author>justty32</author>
+  <packageId>pas.politics.community</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <loadAfter>
+    <li>pas.sims.community</li>
+    <li>pas.outposts.community</li>
+  </loadAfter>
+  <description>Named rebel NPCs rise inside NPC factions. Their rebellion grows over time; at the breaking point the faction splits — settlements (and their satellite outposts) defect to a new hostile faction led by the rebel.\n\nVisit a faction's settlement to meet its rebel in person; kill them to crush the plot (a new schemer will rise later). Works on existing saves. No Harmony, no hard dependencies.\n\nRecommended companions: Sims Mode (Community) for peaceful settlement visits, NPC Outposts (Community) for satellite outposts that defect together with their parent settlement. Soft-compatible with Rim War (bridge skeleton; full sync pending calibration).</description>
+</ModMetaData>
