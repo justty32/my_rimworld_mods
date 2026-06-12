@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnRelationDef>
+    <defName>pas_officers_SwornBrother</defName>
+    <label>sworn brother</label>
+    <opinionOffset>60</opinionOffset>
+    <reflexive>true</reflexive>
+    <importance>120</importance>
+  </PawnRelationDef>
+  <PawnRelationDef>
+    <defName>pas_officers_BloodFeud</defName>
+    <label>sworn enemy</label>
+    <opinionOffset>-60</opinionOffset>
+    <reflexive>true</reflexive>
+    <importance>120</importance>
+  </PawnRelationDef>
+</Defs>

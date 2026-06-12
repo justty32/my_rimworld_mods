@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.officers.OfficerRoleDef>
+    <defName>pas_officers_Generic</defName>
+    <label>officer</label>
+    <description>A generic named officer attached to a world object. Used for testing; consumer mods define their own roles (lord, general, ...).</description>
+    <displayPriority>100</displayPriority>
+    <leaderLike>false</leaderLike>
+  </pas.officers.OfficerRoleDef>
+</Defs>

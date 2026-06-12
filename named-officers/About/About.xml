@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.officers.community</packageId>
+  <name>Named Officers (Community)</name>
+  <author>justty32</author>
+  <supportedVersions><li>1.6</li></supportedVersions>
+  <description>Foundation library: named officer pawns (warlords, governors, generals)
+attached to world objects, with stats, relations, and lazy pawn materialization.
+No gameplay by itself; consumed by the sanguo mod family. No Harmony, no hard deps.</description>
+</ModMetaData>

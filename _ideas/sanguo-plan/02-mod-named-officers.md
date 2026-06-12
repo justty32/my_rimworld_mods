@@ -47,3 +47,9 @@
 - **comp 掛載時序**（讀檔 vs 注入）→ 沿用 faction-politics 軟橋 + `FinalizeInit(fromLoad)` 補鋪範式。
 - **屬性集 over-design** → MVP 只實作將領用（武力/統率）+ 領主用（政務/忠誠/魅力），其餘預留欄位。
 - 跨 mod 型別耦合 → comp/record 型別放此 mod，消費 mod hard-ref 本基礎層。
+
+> **P0 已實作**（2026-06-12，`my_rimworld_mods/named-officers/`）：依
+> `plans/p0-named-officers/`（00-overview G1–G6 決議）。要點：packageId=`pas.officers.community`（G1）；
+> 七維全建 MVP 五維（G2）；屬性承載改「record 唯一真相＋無狀態 view comp，零 Harmony，注入由消費 mod 自做」（G3，
+> 取代本檔「WorldObjectComp + Harmony 注入」）；A 軌對未具現職官按需具現（G4）；死亡=標記+事件+下心跳清理（G5）；
+> maxOfficersPerObject=4、不自動鋪官（G6）。B 軌 dict key 用 record id 而非本檔的 otherPawnId（pawn 換體不斷鍵）。

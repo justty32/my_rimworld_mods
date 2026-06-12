@@ -5,22 +5,38 @@
 > 仿 npc-outposts `task-00-api-verification.md` 範式：先在 Krafs ref / 反編譯源確認簽章，
 > 把「以為存在」變「驗證存在」，避免 E2E 才踩坑（faction-politics 曾在 Task 0 漏 #7 盲點）。
 
-逐項確認並把行號記進本檔（驗證 = 在 decompile/ref 中找到該成員）：
+逐項確認並把行號記進本檔（驗證 = 在 decompile/ref 中找到該成員；
+decompile 源：`~/repo/pas/projects/rimworld/`，Krafs ref 1.6.4850。2026-06-12 簽收）：
 
-- [ ] `Settlement.previouslyGeneratedInhabitants` 是 public `List<Pawn>`（1.6 仍為「原版死碼、mod 唯一供給者」，
-      見 `RebelSpawner.cs:8-9` 註解；確認 redress 路徑 `PawnGenerator.cs` 仍讀它）。
-- [ ] `Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever)` 與
-      `ForcefullyKeptPawns` 公開可寫（自癒手法，`WorldComponent_RebellionTracker.cs:127-137`）。
-- [ ] `Faction.RandomPawnKind()` 存在（NPC 派系 `basicMemberKind` 全 null 的對策，`RebelSpawner.cs:73-75`）。
-- [ ] `PawnGenerationRequest` 具名引數建構（跨版本欄位擴充，必須具名，`RebelSpawner.cs:80-82`）。
-- [ ] **人名生成不經 pawn 的途徑**：確認 `PawnBioAndNameGenerator.GeneratePawnName(...)` 或
-      `NameGenerator.GenerateName(RulePackDef …)` 哪個能在無 pawn 時產人名；若皆需 pawn，
-      fallback 方案=「首次具現前顯示 role label，具現時快取 `pawn.Name`」（T5 用）。
-- [ ] `PawnRelationDef` 最小欄位集：`defName/label/opinionOffset/reflexive(對稱)/familyByBloodRelation`；
-      `Pawn_RelationsTracker.AddDirectRelation` 無 Spawned 檢查（調查 I:147 已證，複核 1.6）。
-- [ ] `[DebugAction]`（LudeonTK）`allowedGameStates = AllowedGameStates.Playing` 下能取
-      `Find.WorldSelector.SingleSelectedObject` 操作選中世界物件（T8 用）。
-- [ ] `WorldComponent.FinalizeInit(bool fromLoad)` 簽章（1.6 帶參，`WorldComponent_RebellionTracker.cs:23`）。
+- [x] `Settlement.previouslyGeneratedInhabitants` 是 public `List<Pawn>`
+      （`RimWorld.Planet/Settlement.cs:14`；redress 路徑仍讀它：`Verse/PawnGenerator.cs:212-213`，
+      原版唯一寫入點是玩家地圖生成 `:237`——NPC 聚落仍是死碼，mod 為唯一供給者）。
+- [x] `Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever)`
+      （`RimWorld.Planet/WorldPawns.cs:200`）；`ForcefullyKeptPawns` 為 get-only property
+      但回傳可變 `HashSet<Pawn>`（`:71`），`.Add` 可行（faction-politics 既有手法成立）。
+- [x] `Faction.RandomPawnKind()` 存在（`RimWorld/Faction.cs:452`）。
+- [x] `PawnGenerationRequest` 具名引數建構可行：唯一必填參 `kind`，其餘全有預設值
+      （`Verse/PawnGenerationRequest.cs:151`）。
+- [x] **人名生成不經 pawn**：`PawnBioAndNameGenerator.GeneratePawnName` 需 pawn（`:297`）；
+      `TryGetRandomUnusedSolidName(Gender,…)`（`:219`）可無 pawn 但需預先擲性別且只出 solid name；
+      `NameGenerator.GenerateName(RulePackDef…)`（`RimWorld/NameGenerator.cs:11/16`）出字串非人名專用
+      → **採 fallback 方案 B**：建 record 時 `nameCached=null` 顯示 role label，首次具現後快取 `pawn.Name`（T5）。
+- [x] `PawnRelationDef` 欄位齊：`importance(float):14`/`reflexive(bool):18`/`opinionOffset(int):20`/
+      `familyByBloodRelation(bool):28`（`RimWorld/PawnRelationDef.cs`）；
+      `Pawn_RelationsTracker.AddDirectRelation`（`:483`）無 Spawned 檢查，僅防 implied/self/duplicate
+      （duplicate 只 Log.Warning——呼叫前自查 `DirectRelationExists :422`）；
+      預設 `workerClass = typeof(PawnRelationWorker)`（`PawnRelationDef.cs:9`），
+      `OnRelationCreated` 為 no-op（`PawnRelationWorker.cs:74`）——XML 不填 worker 安全。
+- [x] `[DebugAction]` 在 `LudeonTK`（`LudeonTK/DebugActionAttribute.cs:8`，
+      `allowedGameStates` 欄位 `:14` 預設即 Playing）；`Find.WorldSelector.SingleSelectedObject`
+      public `WorldObject` property（`RimWorld.Planet/WorldSelector.cs:79`）。
+- [x] `WorldComponent.FinalizeInit(bool fromLoad)` 1.6 帶參簽章
+      （`RimWorld.Planet/WorldComponent.cs:31` virtual）。
+- 加驗（T7 view comp 用）：`WorldObjectComp.CompInspectStringExtra()` virtual
+  （`RimWorld.Planet/WorldObjectComp.cs:64`）、`WorldObjectCompProperties.compClass`
+  （`RimWorld/WorldObjectCompProperties.cs:11`）。
+
+**結論：8/8 全過，無一落空，不需回改任務設計。名字策略定案方案 B。**
 
 **驗證步驟**：每項在本檔打勾並附「檔案:行」；任何一項落空 → 回 `00-overview.md` 改對應任務設計再動工。
 

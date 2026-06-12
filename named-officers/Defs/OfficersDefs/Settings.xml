@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.officers.OfficersSettingsDef>
+    <defName>pas_officers_Settings</defName>
+    <label>named officers settings</label>
+    <description>Global settings singleton for the named officers layer.</description>
+    <checkIntervalTicks>2500</checkIntervalTicks>
+    <maxOfficersPerObject>4</maxOfficersPerObject>
+    <opinionDriftPerHeartbeat>1</opinionDriftPerHeartbeat>
+    <initialAttributeRange>20~80</initialAttributeRange>
+  </pas.officers.OfficersSettingsDef>
+</Defs>
