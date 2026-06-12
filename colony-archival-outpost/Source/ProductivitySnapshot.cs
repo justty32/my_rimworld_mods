@@ -26,6 +26,10 @@ namespace ColonyArchivalOutpost
         public Dictionary<HediffDef, float> dailyHediffDeltas = new Dictionary<HediffDef, float>();
         public bool applyHediffDeltas;
 
+        // N5：電力採樣——封存窗平均淨功率（有號，瓦；正=發電、負=耗電）
+        public float avgNetPowerW;
+        public bool applyPowerSampling;
+
         public ProductivitySnapshot() { }
 
         public ProductivitySnapshot(Dictionary<ThingDef, float> rates)
@@ -50,7 +54,9 @@ namespace ColonyArchivalOutpost
                 avgHealthDeltaPerDay = avgHealthDeltaPerDay,
                 applyHealthDelta = applyHealthDelta,
                 applyHealthDeterioration = applyHealthDeterioration,
-                applyHediffDeltas = applyHediffDeltas
+                applyHediffDeltas = applyHediffDeltas,
+                avgNetPowerW = avgNetPowerW,
+                applyPowerSampling = applyPowerSampling
             };
             c.dailyRates = dailyRates == null
                 ? new Dictionary<ThingDef, float>()
@@ -76,6 +82,8 @@ namespace ColonyArchivalOutpost
             Scribe_Values.Look(ref applyHealthDeterioration, "applyHealthDeterioration", false);
             Scribe_Collections.Look(ref dailyHediffDeltas, "dailyHediffDeltas", LookMode.Def, LookMode.Value);
             Scribe_Values.Look(ref applyHediffDeltas, "applyHediffDeltas", false);
+            Scribe_Values.Look(ref avgNetPowerW, "avgNetPowerW", 0f);
+            Scribe_Values.Look(ref applyPowerSampling, "applyPowerSampling", false);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 if (dailyRates == null) dailyRates = new Dictionary<ThingDef, float>();
