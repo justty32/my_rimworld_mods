@@ -17,6 +17,20 @@ namespace ColonyArchivalOutpost
         private ProductivitySnapshot snapshot = new ProductivitySnapshot();
         public string chosenIconPath; // N3：玩家選定的世界地圖圖標路徑（如 "WorldObjects/OutpostMining"）
 
+        // N5：連線的 outlet 建築（反向引用，供「一哨站一 outlet」去重；跨 WorldObject↔map Thing 走 Scribe_References）
+        private Thing connectedOutlet;
+        public Thing ConnectedOutlet => connectedOutlet;
+        public void SetConnectedOutlet(Thing t) => connectedOutlet = t;
+
+        // N5：有號平均淨功率（瓦）；未套用電力採樣時回 0。outlet 每 tick 讀此值灌進主基地電網。
+        public float PowerWatts => snapshot != null && snapshot.applyPowerSampling ? snapshot.avgNetPowerW : 0f;
+
+        // outlet 連線浮選單用：本哨站是否有可輸出的電力資料
+        public bool HasPowerSampling => snapshot != null && snapshot.applyPowerSampling;
+
+        // 哨站被毀時由其本身呼叫，通知 outlet comp 清引用（避免 Destroy 互呼遞迴）
+        public void NotifyOutletDestroyed() => connectedOutlet = null;
+
         // Bug N1 fix：MaterialPool.MatFrom 以 MaterialRequest struct 為 key，但 Mono 的 struct
         // GetHashCode 對含 reference 欄位的 struct 不穩定，可能每幀 cache miss 並洩漏 GPU material。
         // 以本地欄位 cache，只在 chosenIconPath 改變時重建。
@@ -290,11 +304,22 @@ namespace ColonyArchivalOutpost
             return (int)Math.Round(v);
         }
 
+        public override void Destroy()
+        {
+            if (connectedOutlet != null)
+            {
+                connectedOutlet.TryGetComp<CompArchivalPowerOutlet>()?.NotifyOutpostDestroyed();
+                connectedOutlet = null;
+            }
+            base.Destroy();
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Deep.Look(ref snapshot, "caoSnapshot");
             Scribe_Values.Look(ref chosenIconPath, "caoIconPath", null);
+            Scribe_References.Look(ref connectedOutlet, "caoConnectedOutlet");
             if (Scribe.mode == LoadSaveMode.PostLoadInit && snapshot == null)
                 snapshot = new ProductivitySnapshot();
         }
