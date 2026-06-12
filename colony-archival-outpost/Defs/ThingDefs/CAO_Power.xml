@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 採樣端：供電節點。一圖一個，可疊牆任意放，併入所在電網量測淨功率。 -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>CAO_PowerSamplingNode</defName>
+    <label>power sampling node</label>
+    <description>Joins the power grid it overlaps and measures that grid's net power (generation minus consumption) during a productivity sampling period. Place it touching wires or powered buildings. Only one per map. After archival, an archival power outlet replays the sampled net power at your home base.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/Power/PowerSwitch</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <color>(0.40,0.90,0.55)</color>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <building>
+      <isEdifice>false</isEdifice>
+      <allowWireConnection>true</allowWireConnection>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>120</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTransmitter</compClass>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>ColonyArchivalOutpost.PlaceWorker_OnlyOnePerMap</li>
+    </placeWorkers>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <designationCategory>Power</designationCategory>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <!-- 產出端：電力輸出端 outlet。可疊牆任意放，可多個；連封存哨站，把其有號淨功率灌進本地電網。 -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>CAO_PowerOutlet</defName>
+    <label>archival power outlet</label>
+    <description>Connect this to an archived outpost that sampled its power grid. Each tick it feeds the outpost's signed net power into the local grid: positive generates power here, negative draws power from here (covering the outpost's deficit). Your home grid is the buffer. Place it touching wires or powered buildings.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/Power/PowerSwitch</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <color>(0.40,0.62,1.00)</color>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <building>
+      <isEdifice>false</isEdifice>
+      <allowWireConnection>true</allowWireConnection>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="ColonyArchivalOutpost.CompProperties_ArchivalPowerOutlet">
+        <transmitsPower>true</transmitsPower>
+        <basePowerConsumption>-1</basePowerConsumption>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <designationCategory>Power</designationCategory>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
