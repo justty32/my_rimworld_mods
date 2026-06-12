@@ -224,9 +224,11 @@ A3 **摧毀**（fallback `RW:11221-11239`：`parent.Destroy()`）；B 同歸於�
 
 ## P. 在野/仕官/官職職涯系統 → S0 擴 P0 ＋ S1 新 `pas.personnel.community`
 
-**關鍵發現：「在野」目前被 P0 主動禁止**——`Registry.Create():57` 拒 faction=null；`OfficerHealer` 分支5(:14-18) 把孤兒當派系滅亡直接刪（＝「主公敗亡→武將蒸發」反特性）；`OfficerSpawner:57` 具現靠 `faction.RandomPawnKind()` null 必敗。
-- **S0（擴 P0，~200-250 行增量、向後相容）**：`status` enum(Serving/在野/流浪)、`homeSettlement`（居住地≠任職地，inhabitants 橋泛化）、`appointedTick`/`serviceHistory`；API：`ReleaseOfficer`/`EmployOfficer`/`SetRole`（**禁走 Remove+Create——Registry.Remove 會清全網 opinions 鍵，關係網毀**）；事件 `OfficerOrphaned/Employed/Released`；`OfficerRoleDef` 加 `rank/scope(Settlement/Warband/Faction)/quotaPerFaction`——**role 即官職、疊加不另立 Def**，升遷=SetRole 換 def，朝廷職=scope Faction+assignedTo null。
-- **在野層**：同 registry 留 faction-nullable record（關係網同庫；獨立人才池/哨兵派系皆否決）。產生：開局撒種/trickle/**亡國轉在野**(訂 OfficerOrphaned)/城破軍滅轉在野——**P1/P2 Heal 三處無情 RemoveOfficer 是人才守恆洩漏點**，S1 須加「認領窗口」（事件處理者認領則跳過 Remove，P2 改 <30 行）。
+> ⚠ **2026-06-12 使用者修正「在野」語意**：在野**≠無派系**，而是「**屬於派系但不擔任官職**」（record.faction＝居住城所屬派系、status=在野、assignedTo=null）；備選方案＝建一個與玩家中立的「在野」容器派系。主模型下**不需要 faction-nullable**：主公敗亡→在野者改隸 homeSettlement 的新主派系（人才隨城易主，很三國志）；homeSettlement 也沒了→改隸最近聚落派系或轉流浪。原調查的 faction=null 方案作廢，下文據此修正。
+
+**關鍵發現（修正後仍成立的部分）**：`OfficerHealer` 分支5(:14-18) 把派系亡的 record 直接刪（＝「主公敗亡→武將蒸發」反特性）→ 改為「改隸居住城新主＋status=在野＋廣播 `OfficerOrphaned`，不刪」。
+- **S0（擴 P0，增量、向後相容）**：`status` enum(Serving/在野/流浪)、`homeSettlement`（居住地≠任職地，inhabitants 橋泛化）、`appointedTick`/`serviceHistory`；API：`ReleaseOfficer`（下野＝留派系、卸官職、status=在野）/`EmployOfficer`（仕官/跳槽＝換派系+任官）/`SetRole`（**禁走 Remove+Create——Registry.Remove 會清全網 opinions 鍵，關係網毀**）；事件 `OfficerOrphaned/Employed/Released`；`OfficerRoleDef` 加 `rank/scope(Settlement/Warband/Faction)/quotaPerFaction`——**role 即官職、疊加不另立 Def**，升遷=SetRole 換 def，朝廷職=scope Faction+assignedTo null。**不需** faction-nullable Create 與 spawner fallback（faction 永遠有值）。
+- **在野層**：同 registry、record.faction=居住城派系。產生：開局撒種/trickle/**亡國轉在野**(改隸新主+OfficerOrphaned)/城破軍滅轉在野——**P1/P2 Heal 三處無情 RemoveOfficer 是人才守恆洩漏點**，S1 須加「認領窗口」（事件處理者認領則跳過 Remove，P2 改 <30 行）。
 - **仕官/挖角**：人事心跳(~60000-tick)權重函數 `willing=w1·派系實力+w2·對該派系職官平均opinion+w3·品階俸祿−w4·距離`；跳槽=Release+Employ（id 不變恩怨保留）；分裂新派系缺官=招攬窗口零接線。
 - **人事 AI**：P2 LordAppointer 升級三段式（待命職官→在野徵辟→憑空保底），接線=P2 加 `CandidateProvider` static hook；升遷罷免遲滯帶防震盪；「庸主佔位能臣在野」由公式摻魅力/opinion 自然湧現。
 - **玩家面**：殖民者**不進** record 系統（雙真相同步無底洞）；玩家=拜訪遇在野（橋既有）＋通訊台徵辟（N 管線）→招為殖民者(Materialize+轉派系+RemoveOfficer 單向離開)或資助出仕。
