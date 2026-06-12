@@ -22,8 +22,9 @@
 | K | 據點屬性 dict 容器（領主治理） | ✅ 完成 |
 | — | 自家 mod 盤點（13 mod 整合藍圖） | ✅ 完成 |
 | L | warband 攻佔後行為可選（佔領/劫掠/消滅） | ✅ 完成 |
-| M | 城池財富→原版聚落交易清單影響 | ⏳ 進行中 |
-| N | 通訊台指揮 RimWar 派兵攻打/救援 | ⏳ 進行中 |
+| M | 城池財富→原版聚落交易清單影響 | ✅ 完成 |
+| N | 通訊台指揮 RimWar 派兵攻打/救援 | ✅ 完成 |
+| O | NPC 派系合縱連橫×官員關係 | ✅ 完成 |
 
 ---
 
@@ -209,6 +210,16 @@ A3 **摧毀**（fallback `RW:11221-11239`：`parent.Destroy()`）；B 同歸於�
 - **目標 UI**：MVP=DiaOption 清單（距離排序+預估天數，抄 `ArrivalTimeEstimator RW:3098`）；加值=世界 targeter（`Find.WorldTargeter.BeginTargeting`，先例 `CompLaunchable.cs:270`）。
 - **代價**：goodwill（`TryAffectGoodwillWith`）＋出兵城扣 RimWarPoints（範本既有）＋白銀（`TradeUtility.LaunchSilver`）＋自存冷卻。
 - **歸屬：獨立薄 mod**（hard dep RimWar、不需 Empire）；後續與 L（指定結局）、C#5（影響力付費）、B（指定哨站目標）組合。
+
+## O. NPC 派系合縱連橫×官員關係 → 獨立 `sanguo-diplomacy` mod（外交 AI 整層空白可填）
+
+**現況＝半成品：API 完整、自主 AI 幾乎不存在**。`DeclareWarOn/DeclareAllianceWith/EndAllianceWith` 呼叫點只有玩家 UI 鈕（`RW:396/425`）、playerVS 初始化、同盟連鎖內部遞迴——**零 NPC↔NPC 自主呼叫**。唯一自主漂移＝`DoGlobalRWDAction`（日頻、單派系，Settler +0..20/Warband −20..0 goodwill `RW:17391/17401`）。vanilla 自然 goodwill 回歸只對玩家（`Faction.cs:356`）→ NPC↔NPC goodwill 寫入持久。behavior 只調動作配比不驅動宣戰。**目標選擇完全不讀 AllianceFactions、無任何救援盟友機制**（`ShouldRequestReinforcements RW:9446` 僅同派系內部調度 `RW:9567`）。
+- **合縱連橫 AI**：獨立 WorldComponent ~60000-tick 心跳，**純權重函數非 FSM**：`score(A→B,action)=w1·領主opinion + w2·結拜/世仇bias + w3·behaviorBias + w4·戰略(共同敵人/實力比 RW:1510/現有goodwill)`；動作集＝結盟/宣戰/背刺(EndAlliance+DeclareWarOn)/維持。
+- **衝突面（皆可控）**：①同盟連鎖會拖玩家下水（決策先查波及面）②直寫 baseGoodwill=±100 與 Empire relations 互蓋 ③**`EndAllianceWith` 不還原 goodwill**——背刺要自己補砸低否則不會真打 ④自存條約冷卻防震盪。
+- **聯軍助攻＝零成本原生合流**：多派系 warband 同打一城自動同進 `AttackingUnits` 並肩輪打；野戰 `BattleSite` 逐對 `HostileTo` 才互打（`RW:8788`）→ 盟軍同場不誤傷。城破歸補刀者（先到先得，三國志味）。
+- **救援盟友城＝薄補丁**：圍城軍抵達即 Destroy 深存進 `AttackingUnits`（**地圖上無實體可攔**，攔截須戰前）→ 做法＝心跳掃 `AllianceFactions`×盟友城 `AttackingUnits`，就近 `CreateWarband` 馳援 + **`Warband.ArrivalAction` postfix 加分支**（非敵對且被圍→對 AttackingUnits 逐單位 `ResolveCombat_Units RW:11271` 或簡化城防加點）。
+- **letter 不用自己做**：宣戰/結盟已內建（`RW:495-555`）；補背刺/馳援兩種自訂（`RW_LetterMaker RW:7841`）順便餵 C#3 匯流排。
+- **歸屬**：獨立 `sanguo-diplomacy`（hard RimWar、**optional named-officers**——無領主資料退化為 behavior+goodwill+戰略，fail-soft）；與 N 共用派兵底層 util 但不合併（N=玩家通道、O=NPC AI）。工程量：聯軍~0 < 外交心跳(小) < 救援(小)。
 
 ## 三國志化願景（跨全部調查 A–K 的整合圖像）
 
