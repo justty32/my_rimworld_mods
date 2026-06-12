@@ -22,11 +22,17 @@ namespace ColonyArchivalOutpost
         // N6b：非傷勢 hediff 採樣——期初各殖民者的非 Injury/MissingPart hediff severity
         public List<PawnHediffSnapshot> startHediffSnapshots = new List<PawnHediffSnapshot>();
 
+        // N5：電力採樣累加器
+        public double powerAccumW;
+        public int powerSampleCount;
+
         public ColonyArchivalTracker(Map map) : base(map) { }
 
         public void BeginSampling()
         {
             isSampling = true;
+            powerAccumW = 0d;
+            powerSampleCount = 0;
             startTick = Find.TickManager.TicksGame;
             startColonistCount = Math.Max(1, map.mapPawns.FreeColonistsCount);
             startCounts = new Dictionary<ThingDef, int>(map.resourceCounter.AllCountedAmounts);
@@ -77,6 +83,20 @@ namespace ColonyArchivalOutpost
             startSkillSnapshots = new List<PawnSkillSnapshot>();
             startInjurySeverity = new Dictionary<string, float>();
             startHediffSnapshots = new List<PawnHediffSnapshot>();
+            powerAccumW = 0d;
+            powerSampleCount = 0;
+        }
+
+        public override void MapComponentTick()
+        {
+            base.MapComponentTick();
+            if (!isSampling) return;
+            if (Find.TickManager.TicksGame % 2500 != 0) return;
+            if (ArchivalService.TryGetNodePowerWatts(map, out float watts))
+            {
+                powerAccumW += watts;
+                powerSampleCount++;
+            }
         }
 
         private static float TotalHealableSeverity(Pawn pawn)
@@ -98,6 +118,8 @@ namespace ColonyArchivalOutpost
             Scribe_Collections.Look(ref startSkillSnapshots, "caoStartSkillSnapshots", LookMode.Deep);
             Scribe_Collections.Look(ref startInjurySeverity, "caoStartInjurySeverity", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref startHediffSnapshots, "caoStartHediffSnapshots", LookMode.Deep);
+            Scribe_Values.Look(ref powerAccumW, "caoPowerAccumW", 0d);
+            Scribe_Values.Look(ref powerSampleCount, "caoPowerSampleCount", 0);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 if (startCounts == null) startCounts = new Dictionary<ThingDef, int>();

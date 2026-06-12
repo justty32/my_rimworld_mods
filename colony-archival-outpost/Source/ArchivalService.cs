@@ -149,6 +149,20 @@ namespace ColonyArchivalOutpost
             return total;
         }
 
+        // N5：讀某地圖供電節點所在電網的即時淨功率（瓦，有號）。
+        // 回傳 false = 無節點；true 且 watts=採樣值（節點未接網則 watts=0）。
+        public static bool TryGetNodePowerWatts(Map map, out float watts)
+        {
+            watts = 0f;
+            if (map == null) return false;
+            var node = map.listerThings.ThingsOfDef(CAODefOf.CAO_PowerSamplingNode).FirstOrDefault();
+            if (node == null) return false;
+            var net = node.TryGetComp<CompPower>()?.PowerNet;
+            if (net == null) return true; // 節點已放但未併入任何電網 → 讀 0
+            watts = net.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick;
+            return true;
+        }
+
         // passion 倍率：與 SkillRecord.LearnRateFactor(direct=true) 一致
         private static float PassionFactor(Passion passion) => passion switch
         {
