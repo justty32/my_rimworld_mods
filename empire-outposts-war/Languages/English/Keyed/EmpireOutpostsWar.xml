@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_empire_war_ModName>Empire Outposts War</pas_empire_war_ModName>
+
+  <pas_empire_war_VassalOutposts>Vassals grow satellite outposts</pas_empire_war_VassalOutposts>
+  <pas_empire_war_VassalOutpostsTip>When on, your Empire vassal settlements spawn their own satellite outposts (using NPC Outposts).</pas_empire_war_VassalOutpostsTip>
+  <pas_empire_war_PerOutpostSilver>Extra tax silver per outpost: {0}</pas_empire_war_PerOutpostSilver>
+
+  <pas_empire_war_DefensePerOutpost>Defense bonus per outpost (military level): {0}</pas_empire_war_DefensePerOutpost>
+  <pas_empire_war_MaxCounted>Max outposts counted per battle: {0}</pas_empire_war_MaxCounted>
+
+  <pas_empire_war_TransferOnConquest>Outposts change hands on conquest</pas_empire_war_TransferOnConquest>
+  <pas_empire_war_TransferOnConquestTip>When you capture an NPC settlement its outposts join your empire; when a vassal falls its outposts go to the conqueror.</pas_empire_war_TransferOnConquestTip>
+
+  <pas_empire_war_OutpostsSeizedLabel>Outposts seized</pas_empire_war_OutpostsSeizedLabel>
+  <pas_empire_war_OutpostsSeizedText>{0} satellite outpost(s) defected to your empire when you captured {1}.</pas_empire_war_OutpostsSeizedText>
+
+  <pas_empire_war_OutpostsLostLabel>Outposts lost</pas_empire_war_OutpostsLostLabel>
+  <pas_empire_war_OutpostsLostText>{0} satellite outpost(s) were handed to {1} when your vassal fell.</pas_empire_war_OutpostsLostText>
+</LanguageData>

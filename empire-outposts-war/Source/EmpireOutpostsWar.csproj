@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    建置：dotnet build Source/EmpireOutpostsWar.csproj -c Release
+    參考組件路徑可由 /p: 覆寫（預設＝本機 Linux Steam 安裝，已驗證存在）。
+    所有外部參考一律 Private=False：執行期由 mod 載入器提供，不複製進輸出。
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>EmpireOutpostsWar</AssemblyName>
+    <RootNamespace>pas.empire.outposts.war</RootNamespace>
+    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <DebugType>none</DebugType>
+    <LangVersion>latest</LangVersion>
+    <WorkshopRoot>$(HOME)/.local/share/Steam/steamapps/workshop/content/294100</WorkshopRoot>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EmpireDll Condition=" '$(EmpireDll)' == '' ">$(WorkshopRoot)/3701480464/1.6/Assemblies/Empire.dll</EmpireDll>
+    <RimWarDll Condition=" '$(RimWarDll)' == '' ">$(WorkshopRoot)/2222935097/v1.6/Assemblies/RimWar.dll</RimWarDll>
+    <HarmonyDll Condition=" '$(HarmonyDll)' == '' ">$(WorkshopRoot)/2009463077/Current/Assemblies/0Harmony.dll</HarmonyDll>
+    <NpcOutpostsDll Condition=" '$(NpcOutpostsDll)' == '' ">..\..\npc-outposts\1.6\Assemblies\NpcOutposts.dll</NpcOutpostsDll>
+    <NpcOutpostsRimWarDll Condition=" '$(NpcOutpostsRimWarDll)' == '' ">..\..\npc-outposts-rimwar\1.6\Assemblies\NpcOutpostsRimWar.dll</NpcOutpostsRimWarDll>
+    <EmpireWarfareDll Condition=" '$(EmpireWarfareDll)' == '' ">..\..\empire-warfare\1.6\Assemblies\EmpireWarfare.dll</EmpireWarfareDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <Reference Include="Empire">
+      <HintPath>$(EmpireDll)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RimWar">
+      <HintPath>$(RimWarDll)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDll)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NpcOutposts">
+      <HintPath>$(NpcOutpostsDll)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NpcOutpostsRimWar">
+      <HintPath>$(NpcOutpostsRimWarDll)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EmpireWarfare">
+      <HintPath>$(EmpireWarfareDll)</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

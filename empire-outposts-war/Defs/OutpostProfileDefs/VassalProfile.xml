@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 功能 1：玩家附庸專屬哨站 profile。由 Patches/PColonyOutposts.xml 把
+       OutpostProfileExtension 掛到 PColony 派系，使附庸用此 profile（而非 NPC 的 default）。
+       平衡刻意略保守：略少數量、略短半徑、略慢增生，附庸哨站偏「衛星經濟」而非擴張。 -->
+  <pas.outposts.OutpostProfileDef>
+    <defName>pas_empire_war_Profile_Vassal</defName>
+    <isDefault>false</isDefault>
+    <countPerSettlement>1~2</countPerSettlement>
+    <radius>2~3</radius>
+    <spawnMtbDays>20</spawnMtbDays>
+    <types>
+      <li>
+        <type>pas_outposts_Type_Generic</type>
+        <weight>1</weight>
+      </li>
+    </types>
+  </pas.outposts.OutpostProfileDef>
+</Defs>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Empire Outposts War (帝國哨站戰爭)</name>
+  <author>justty32</author>
+  <packageId>pas.empire.outposts.war</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Matathias.Empire</packageId>
+      <displayName>Empire Refactored</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3701480464</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Torann.RimWar</packageId>
+      <displayName>Rim War</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2222935097</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>pas.outposts.community</packageId>
+      <displayName>NPC Outposts (Community)</displayName>
+    </li>
+    <li>
+      <packageId>pas.outposts.rimwar</packageId>
+      <displayName>NPC Outposts: Rim War</displayName>
+    </li>
+    <li>
+      <packageId>pas.empire.warfare</packageId>
+      <displayName>Empire Warfare</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Matathias.Empire</li>
+    <li>Torann.RimWar</li>
+    <li>pas.outposts.community</li>
+    <li>pas.outposts.rimwar</li>
+    <li>pas.empire.warfare</li>
+  </loadAfter>
+  <description>Three-way glue between Empire (Refactored), Rim War and the NPC Outposts cluster. Pure interaction layer — requires Empire Warfare and NPC Outposts: Rim War.\n\nFeatures:\n- Player vassal settlements grow their own satellite outposts, which boost the vassal's tax output and abstract defense strength.\n- Outposts act as a defensive buffer: nearby same-owner outposts add to a vassal's defense, and the outposts around a hostile NPC settlement add to its defense when you launch an Empire Capture against it (strip them first to soften the target).\n- Conquest spoils: when you capture an NPC settlement its satellite outposts defect to your empire; when a vassal falls its outposts are handed to the conqueror.\n\nAll cross-mod hooks are fail-soft: if any dependency changes its signatures the affected sub-feature degrades quietly instead of crashing. Safe to add to existing saves.</description>
+</ModMetaData>

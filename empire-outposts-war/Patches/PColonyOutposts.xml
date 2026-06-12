@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 功能 1：給 Empire 的 PColony（玩家附庸帝國）派系掛 npc-outposts 的 OutpostProfileExtension，
+     指定附庸專用 profile。增生本身由本 mod 的 ParentEligibilityOverride（opt-in）放行；
+     此 patch 只決定「附庸用哪個 profile」。
+     PatchOperationConditional：PColony 不存在（Empire 未載/改版）時靜默跳過，不報錯。 -->
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/FactionDef[defName="PColony"]</xpath>
+    <match>
+      <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/FactionDef[defName="PColony"]</xpath>
+        <value>
+          <li Class="pas.outposts.OutpostProfileExtension">
+            <profile>pas_empire_war_Profile_Vassal</profile>
+          </li>
+        </value>
+      </Operation>
+    </match>
+  </Operation>
+</Patch>

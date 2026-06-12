@@ -16,6 +16,11 @@ namespace pas.outposts
         /// null 或回傳 ≤0 視為 1（零行為變化）；倍率作用於 spawnMtbDays（>1 加速、<1 減速）。</summary>
         public static Func<Faction, float> GrowthRateMultiplier;
 
+        /// <summary>擴充接點：橋接 mod（如 empire-outposts-war）可覆寫「某聚落是否為合格哨站母體」。
+        /// 回傳 true＝強制納入、false＝強制排除、null＝不表態（沿用本體預設判定）。
+        /// hook 為 null 或拋例外＝視為不表態（零行為變化）。</summary>
+        public static Func<Settlement, bool?> ParentEligibilityOverride;
+
         /// <summary>聚落 → 哨站上限（首見時擲定，持久化）。</summary>
         private Dictionary<Settlement, int> caps = new Dictionary<Settlement, int>();
         private List<Settlement> tmpSettlements;
@@ -38,8 +43,7 @@ namespace pas.outposts
             for (int i = settlements.Count - 1; i >= 0; i--)
             {
                 Settlement settlement = settlements[i];
-                if (settlement is NpcOutpost || settlement.Faction == null || settlement.Faction.IsPlayer
-                    || caps.ContainsKey(settlement))
+                if (!IsEligibleParent(settlement) || caps.ContainsKey(settlement))
                 {
                     continue;
                 }
@@ -84,6 +88,31 @@ namespace pas.outposts
                 {
                     OutpostPlacer.TryPlaceFor(settlement, profile);
                 }
+            }
+        }
+
+        /// <summary>合格母體判定：本體預設＝非哨站、有派系、非玩家；
+        /// ParentEligibilityOverride 回 true/false 可強制納入/排除，null/異常＝沿用預設。</summary>
+        private static bool IsEligibleParent(Settlement settlement)
+        {
+            if (settlement is NpcOutpost || settlement.Faction == null)
+            {
+                return false;
+            }
+            bool defaultEligible = !settlement.Faction.IsPlayer;
+            Func<Settlement, bool?> hook = ParentEligibilityOverride;
+            if (hook == null)
+            {
+                return defaultEligible;
+            }
+            try
+            {
+                bool? verdict = hook(settlement);
+                return verdict ?? defaultEligible;
+            }
+            catch
+            {
+                return defaultEligible;
             }
         }
 
