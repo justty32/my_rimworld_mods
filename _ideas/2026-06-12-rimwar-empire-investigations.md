@@ -21,6 +21,9 @@
 | J | 依領主決策決定建哪些 outpost | ✅ 完成 |
 | K | 據點屬性 dict 容器（領主治理） | ✅ 完成 |
 | — | 自家 mod 盤點（13 mod 整合藍圖） | ✅ 完成 |
+| L | warband 攻佔後行為可選（佔領/劫掠/消滅） | ✅ 完成 |
+| M | 城池財富→原版聚落交易清單影響 | ⏳ 進行中 |
+| N | 通訊台指揮 RimWar 派兵攻打/救援 | ⏳ 進行中 |
 
 ---
 
@@ -176,6 +179,24 @@
 **需新建**：①**共用 `pas.named-officers` 基礎層**（從 faction-politics 抽取泛化：具名 pawn+屬性+關係+懶生成，領主與將領共消費）②warband 將領（E）③聚落領主 comp+點數影響（F/G）④城池財富/防禦（H/K 單一 comp）⑤領主決策層（J/K 的 ILordAction）。
 
 **建議架構**：`pas.named-officers`（基礎）→ 聚落領主 mod（F/G/K/J 決策）＋ warband 將領（E）＋ faction-politics 擴充（叛亂改寫成領主帶城叛變）；戰爭叢集 Mod 1/2/3 已完成、新功能掛載其上勿改寫；城池財富獨立 mod「RimWar comp + Empire registry participant」形態。
+
+## L. warband 攻佔後行為可選（佔領/劫掠/消滅） → Mod 1 加 ResolveBattle prefix 結局選擇器
+
+**原版結局現況（全在 `ResolveBattle_Settlement RW:11086-11269`）**：攻方勝出後依兩道 behavior 加權 Rand 閘分流——
+A1 **佔領**（`RW:11148-11169`：`Rand×(Expansionist1.1/Warmonger1.5)>0.5` 且非 Vassal 且點數夠 → `ConvertSettlement RW:11168` 易主）；
+A2 **劫掠**（`RW:11197-11213`：`Rand×(Warmonger1.2/Merchant1.4)>0.5` 且守方點數>1000 → 搬點數 0.3~0.6，城留存）；
+A3 **摧毀**（fallback `RW:11221-11239`：`parent.Destroy()`）；B 同歸於盡固定摧毀（`RW:11257`）；C 攻方覆滅城不變。守方 Vassal 跳劫掠直接摧毀（`RW:11214`）。**結局由隨機閘決定，無人可選。**
+- **做成可選**：prefix `ResolveBattle_Settlement` 換「結局選擇器」（佔領=呼 `ConvertSettlement`、劫掠=sack 迴圈+可搬 H wealth、消滅=`Destroy()`），`return false` skip 原版；**須自行重建部隊回吐+letter**（中等工程）。決定者：①behavior 映射（MVP）③玩家 ModSettings（疊加）②將領決策（留 `Func<WarObject,BattleOutcome>` hook，等 E/named-officers）。
+- **共存**：empire-warfare 走旁路（patch 上游 `ResolveWarObjectAttackOnSettlement RW:10340` 異步淪陷、明示避開 ConvertSettlement）→ 選擇器開頭排除 `WorldSettlementFC` 即零衝突；Mod 1 既有 ConvertSettlement prefix 對 NpcOutpost 的 capture/raze 正好複用；**風險**：prefix-skip 後 Mod 1 自己的記帳 postfix 須仍觸發（保留等效副作用＋實測）。
+- **歸屬**：MVP 放 Mod 1（已 patch 同方法、有範本/設定框架）；outpost 對應走 B 影子＋Mod 1 範本。
+
+## M. 城池財富→原版聚落交易清單影響
+
+⏳ 進行中。完成後回填。
+
+## N. 通訊台指揮 RimWar 派兵攻打/救援
+
+⏳ 進行中。完成後回填。
 
 ## 三國志化願景（跨全部調查 A–K 的整合圖像）
 
