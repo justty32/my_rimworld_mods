@@ -1,8 +1,12 @@
 # colony-archival-outpost · TODO（近期工作）
 
 > 本檔只放 v1 現有 mod 的近期工作：🔴 需要 Fix、🟡 可以完善。
-> **未來新功能／擴展（🟢 N1–N7、🔵 E1–E4）已拆到 [`IDEAS.md`](./IDEAS.md)。**
-> 源碼核對基準日：2026-06-10。
+> **未來新功能／擴展（🟢 N1–N8、🔵 E1–E4）已拆到 [`IDEAS.md`](./IDEAS.md)；N1–N4/N6/N7 已實作。**
+> 源碼核對基準日：2026-06-10；狀態對齊：2026-06-12。
+>
+> **🔴🟡 區現況（2026-06-12）：全部關閉。** F1 設計特性、F2a 已修、F2b 隨 N1 軟提醒落地、P1/P2 查證關閉。
+> 另修一個 healthcheck 抓到的 keyed 缺陷：`CAO.DefaultOutpostName` 代碼用到但三語言檔皆缺
+> （`Dialog_ArchivalConfirm.cs:60` 命名欄 fallback）→ 已補齊 en/zh-CN/zh-TW，healthcheck 回 OK。
 
 ---
 
@@ -19,7 +23,10 @@
 
 - ~~**F2a 殘留溢位點 — 已修**~~：`Mathf.RoundToInt` 全數改為私有 helper `RateToInt(float, float)`，
   以 `double` 計算 + `int.MaxValue` clamp，消除 float→int 轉換溢位。build 0/0。
-- **F2b 採樣不足一天的處置（⚠ 使用者已改為「軟提醒」，不再硬擋——詳見 IDEAS.md N1）**：
+- ~~**F2b 採樣不足一天的處置——已隨 N1 落地（軟提醒）**~~：✅ `SnapshotPreviewDrawer.cs:58` 於
+  `elapsedTicks < 60000` 時顯示黃字 `CAO.ShortSampleWarning`「採樣時間不到一天，速率已強制以一天計算」，
+  玩家知情後仍可封存。以下為原硬擋構想，保留備查。
+- **F2b（原構想，已被軟提醒取代）採樣不足一天的處置**：
   > 原構想是「不足門檻 → 按鈕變灰硬擋」；使用者後決定改為「照樣可封存，於確認視窗黃字提醒
   > 『不足一天，已強制以一天計算』」。實作併入 N1。若日後想改回硬擋或做兩段式（極短硬擋+其餘軟提醒），再議。
   > 以下為原硬擋構想，保留備查：

@@ -36,4 +36,5 @@
   <CAO.Preview.InfoOnly>(info only)</CAO.Preview.InfoOnly>
   <CAO.ArchivalConfirm.ApplyHediffDeltas>Apply condition changes to occupant colonists ({0} conditions)</CAO.ArchivalConfirm.ApplyHediffDeltas>
   <CAO.ArchivalConfirm.ApplyHealthDeterioration>Apply injury deterioration (-{0} severity/pawn per cycle)</CAO.ArchivalConfirm.ApplyHealthDeterioration>
+  <CAO.DefaultOutpostName>Archived Outpost</CAO.DefaultOutpostName>
 </LanguageData>

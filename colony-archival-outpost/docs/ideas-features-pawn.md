@@ -5,11 +5,21 @@
 > 🔵 擴展見 [`ideas-expansions.md`](./ideas-expansions.md)；🔴🟡 近期工作見 [`TODO.md`](./TODO.md)。
 > 源碼核對基準日：2026-06-10。
 
-> **本檔主題**：N6–N8 同屬「**第三種運作模式**」——不送回主基地、不從緩衝扣物品，而是**每生產週期對 occupants 本身施加狀態變化**。三者共用 `ProductivitySnapshot` 新增的「狀態變化」區段、共用「開始採樣視窗」的粒度勾選、共用結束視窗的 per-pawn 開關。文末附「暫不做」存查區。
+> **本檔主題**：N6–N8 同屬「**第三種運作模式**」——不送回主基地、不從緩衝扣物品，而是**每生產週期對 occupants 本身施加狀態變化**。三者共用 `ProductivitySnapshot` 新增的「狀態變化」區段、共用結束視窗的 per-pawn 開關。文末附「暫不做」存查區。
+
+> **實作狀態（2026-06-12 對齊）**：**N6（傷勢恢復/惡化＋tend pass）、N6b（其他 hediff）、N7（技能 XP）已實作**；
+> 僅 **N8（孩童成長）尚未動工**（卡在「佔位符不被 tick／成長是離散事件」，見該節）。
+> ⚠ **實作與原構想的差異**：原設計要「開始採樣時跳視窗選粒度＋選哪些殖民者」；實際簡化為
+> **採樣自動全記錄（所有自由殖民者的傷勢/hediff/技能），於封存視窗（N1）才用勾選框決定套用哪些**——
+> 較少一道 UI、效果等價，視為設計簡化而非缺漏。下方各節原始構想中「開始採樣視窗粒度勾選」部分**未採用**。
 
 ---
 
 ### N6. 採樣殖民者 hediff/狀態變化（封存後套用於佔位符殖民者）
+> ✅ **已實作（2026-06-12 核對）**：傷勢恢復/惡化 ＝ `Outpost_Sampled.ApplyHealingToPawn/ApplyDeteriorationToPawn`
+> ＋ tend pass（找 Medicine 最高 pawn 包紮，null medicine 不耗物品）；非傷勢 hediff（N6b）＝ `ApplyHediffDeltasToPawn`。
+> 採樣端 `ColonyArchivalTracker.startInjurySeverity/startHediffSnapshots`，封存視窗對應勾選框。
+> ⚠ 採樣為「自動全記錄、封存時勾選套用」，**未採用**下文「開始採樣視窗選粒度/選殖民者」設計。
 > 使用者 2026-06-10 提出。把殖民者的傷勢/狀態變化納入採樣，封存後哨站每週期對佔位符殖民者施加這些變化。
 - ⚠ **概念釐清（第三種運作模式）**：這**不是**「送回主基地」或「從緩衝扣物品」，而是
   **每生產週期對 occupants 本身施加 hediff 變化**（治療/惡化/加狀態）。
@@ -41,6 +51,9 @@
 - **狀態**：構想＋技術勘查；先做階段 A 傷勢。分組與其他 mod component 待參考 mod 到位。
 
 ### N7. 採樣技能訓練程度（封存後套用於佔位符殖民者）
+> ✅ **已實作（2026-06-12 核對）**：採樣端 `ColonyArchivalTracker.startSkillSnapshots`（記累積 XP＋passion）；
+> 套用 `Outpost_Sampled.Produce()` 每週期 `SkillRecord.Learn(xp, direct:true)`（只乘佔位符自身 passion，不計
+> GlobalLearningFactor/飽和）；N1 視窗 `ApplySkillXP` 勾選框。**passion 採樣時不重現、套用時依各佔位符自身熱情**已落實。
 > 使用者 2026-06-10 補充。與 N6 同屬「對 occupants 施加狀態變化」家族，且是 N6 分組（教師/學生）的數值基礎。
 - **目標**：採樣期間記錄殖民者**技能訓練速率**（XP 增長／等級變化），封存後每週期施加到佔位符殖民者的
   `Pawn_SkillTracker`。
@@ -59,6 +72,8 @@
 - **相依/關聯**：N6（共用區段與 UI）；N4（per-pawn）；E1（模板存技能配方）。
 
 ### N8. 採樣孩童成長評級（封存後套用於佔位符孩童）
+> ⏳ **尚未實作（本檔唯一未動工項）**。核心卡點：VOE 佔位符 pawn 不被 tick（年齡不推進、成長時刻永不觸發），
+> 且成長是離散事件非連續速率（詳見下文待釐清#1/#2）。在 VOE 架構下需自行手動推進孩童年齡才能做，非 trivial。
 > 使用者 2026-06-10 提出。與 N6/N7 同屬「對 occupants 施加狀態變化」家族——把孩童的**成長評級**納入採樣。
 - **目標**：採樣期間記錄孩童的**成長進度／成長評級**（RimWorld 1.6 兒童系統：學習需求 Learning need 的滿足
   決定成長時刻 Growth moment 的成長品質與成長等級 Growth tier，影響可選熱情/特性數量），

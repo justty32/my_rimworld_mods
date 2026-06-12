@@ -7,9 +7,14 @@
 
 > **本檔主題**：圍繞「封存確認視窗 / 採樣 UI / 產出消耗速率語意」的增強。N1 視窗是 N2/N3/N4 的共同 UI 載體；N5 是產出消耗資源面的延伸。
 
+> **實作狀態（2026-06-12 對齊）**：N1–N4 **已全部實作並通過 build/healthcheck**，下方各項標 ✅；
+> 僅 **N5（電力採樣）尚未動工**（電力非物品、卡跨地圖輸電參考 mod，詳見該節）。
+
 ---
 
 ### N1. 封存前確認視窗（產出/消耗預覽 + 命名 + 確定/取消）
+> ✅ **已實作（2026-06-12 核對）**：`Source/Dialog_ArchivalConfirm.cs`（命名欄、確定/先等等、不足一天黃字軟提醒）
+> ＋ `Source/SnapshotPreviewDrawer.cs`（產出/消耗分區預覽，N2 共用）。下列為原始構想，保留備查。
 - **流程**：按「結束封存」後，不立即執行 `ArchivalService.Archive()`，先跳一個 `Window`/`Dialog`：
   - **預覽區**：列出 `ComputeSnapshot()` 算出的各資源每日有號淨流——正成長(產出)與負成長(消耗)分區顯示，
     讓玩家封存前看清楚這座哨站之後會產什麼、耗什麼。
@@ -26,6 +31,8 @@
 - **與 F2b 的協同**：採樣不足一天時於視窗黃字軟提醒（見 TODO.md F2b），玩家知情後仍可確定。
 
 ### N2. 採樣中查看狀況的 gizmo（即時預覽當前採樣結果）
+> ✅ **已實作（2026-06-12 核對）**：`Source/Dialog_SamplingStatus.cs` ＋ `Settlement_GetGizmos_Patch.cs:39`
+> 的「查看採樣狀況」gizmo（僅 `isSampling` 時顯示）；預覽計算與 N1 共用 `SnapshotPreviewDrawer`。下列為原始構想。
 - **流程**：採樣進行中（封存前），於 Settlement 的 gizmo 列加一顆「查看採樣狀況」按鈕，開視窗顯示：
   - **目前採到的有號淨流**：用「當下 `AllCountedAmounts` − `tracker.startCounts`」即時算（同 `ComputeSnapshot` 邏輯，
     但用當前 tick 而非封存 tick），分產出(正)/消耗(負)顯示。
@@ -40,6 +47,9 @@
 - **與 N1 關係**：N2 是「採樣中隨時看」，N1 是「結束封存前最終確認」；兩者畫面/算法高度重疊，可共用同一 UI 元件 + 計算 helper。
 
 ### N3. 封存視窗可選大地圖圖標（世界物件 icon 由玩家挑選）
+> ✅ **已實作（2026-06-12 核對）**：`Dialog_ArchivalConfirm.cs:27` 內建 15 張圖標 gallery；
+> `Outpost_Sampled.chosenIconPath`（`Scribe_Values` 存）＋ override `ExpandingMaterial`（非 ExpandingIcon——
+> 渲染走材質，已踩坑修正）。下列為原始構想。
 > 使用者歸「可以完善」；功能上是 N1 視窗內新增的選擇項，故與 N1 綁一起實作。
 - **現況**：圖標寫死在 def——`Defs/WorldObjectDefs/Outpost_Sampled.xml` 的
   `<expandingIconTexture>WorldObjects/OutpostFarming</expandingIconTexture>`（借 VOE 既有貼圖）。所有哨站長一樣。
@@ -55,6 +65,9 @@
 - **相依**：需 N1 視窗先存在（此為其中一個輸入欄，與命名欄並列）。
 
 ### N4. 速率隨殖民者數量縮放（per-pawn 速率 + 封存視窗開關）
+> ✅ **已實作（2026-06-12 核對）**：`ProductivitySnapshot.perPawnScaling/basePawnCount`；
+> `ColonyArchivalTracker.startColonistCount` 記採樣起始人數為基準；正成長走 VOE `ResultOption.AmountPerPawn`、
+> 負成長 `Produce()` 乘 `CapablePawns.Count()`（對稱）；N1 視窗 `ScalePawn` 勾選框。下列為原始構想。
 > 使用者 2026-06-10 提出。影響核心採樣/產出語意，且為 E1 正確復刻的前提。
 - **目標**：產出/消耗速率不再是固定絕對值，而是「**以採樣期平均殖民者數為基準的 per-pawn 速率**」；
   哨站日後增減殖民者時，速率隨之等比增減。是否啟用此縮放，由封存視窗（N1）一個**開關**決定。
@@ -72,6 +85,8 @@
 - **相依/關聯**：N1（開關 UI 載體）；F1（消耗端語意，乘 pawn 數時一併處理）；E1（模板存 per-pawn 基準）。
 
 ### N5. 把電量（電力流）納入採樣與產出/消耗
+> ⏳ **尚未實作（本檔唯一未動工項）**。可拆兩段：①採樣＋顯示電力盈虧、負電量走「電量緩衝」扣——**現在就能做、不卡參考 mod**；
+> ②正電量送回主基地——**卡跨地圖輸電**，待使用者提供 2 個參考 mod（見檔末暫存區）。2026-06-12 與使用者確認「電力之後再說」。
 > 使用者 2026-06-10 提出。目標：封存採樣時也把**電量產出/消耗**算進去，封存後哨站反映電力盈虧。
 > 需結合兩個 mod 的 code（回家後提供）：一個 **VOE 電力輸送哨站擴展**；一個**分層 mod**
 > （其 A 建築接電 → 把電量輸送到另一地圖的 B 建築，使 B 成為「發電站」＝跨地圖電力傳輸）。

@@ -36,4 +36,5 @@
   <CAO.Preview.InfoOnly>（僅顯示）</CAO.Preview.InfoOnly>
   <CAO.ArchivalConfirm.ApplyHediffDeltas>套用其他狀態變化至佔位符殖民者（共 {0} 種狀態）</CAO.ArchivalConfirm.ApplyHediffDeltas>
   <CAO.ArchivalConfirm.ApplyHealthDeterioration>套用傷勢惡化（每週期約 -{0} severity/pawn）</CAO.ArchivalConfirm.ApplyHealthDeterioration>
+  <CAO.DefaultOutpostName>封存哨站</CAO.DefaultOutpostName>
 </LanguageData>

@@ -22,13 +22,18 @@
 ## 對應 RimWorld 版本
 1.6（反編譯權威源 `projects/rimworld/`；VOE 引擎 `projects/rimworld_mods/vanilla-outposts-expanded/decompiled-framework/Outposts.decompiled.cs`）。
 
-## 完成定義（v1）
-- [ ] 採樣：玩家 Settlement gizmo「開始採樣」記錄期初庫存快照＋tick。
-- [ ] 封存：gizmo「封存成哨站」算淨日均率→建 `Outpost_Sampled`→搬所有 pawn＋儲存物資→銷毀地圖。
-- [ ] 產出：VOE 子類動態 `ResultOptions` 按 snapshot 持續投遞回主基地。
-- [ ] 唯一基地防呆：最後一張家園地圖不可封存。
-- [ ] 存讀檔：snapshot＋outpost 往返不壞。
-- [ ] 靜態健檢全綠 + 實機端到端驗證（採樣→封存→投遞→存讀檔）。
+## 完成定義（v1）— ✅ 全數達成（2026-06-09 實機端到端驗證；2026-06-12 複核 build 0/0、healthcheck OK）
+- [x] 採樣：玩家 Settlement gizmo「開始採樣」記錄期初庫存快照＋tick。
+- [x] 封存：gizmo「封存成哨站」算淨日均率→建 `Outpost_Sampled`→搬所有 pawn＋儲存物資→銷毀地圖。
+- [x] 產出：VOE 子類動態 `ResultOptions` 按 snapshot 持續投遞回主基地。
+- [x] 唯一基地防呆：最後一張家園地圖不可封存。
+- [x] 存讀檔：snapshot＋outpost 往返不壞。
+- [x] 靜態健檢全綠 + 實機端到端驗證（採樣→封存→投遞→存讀檔）。
+
+## v1 後續增量（2026-06-10 起，已實作）
+- N1 封存確認視窗（預覽＋命名＋不足一天軟提醒）／N2 採樣狀況 gizmo／N3 世界圖標 gallery／
+  N4 per-pawn 縮放／N6・N6b 傷勢與 hediff 採樣＋tend pass／N7 技能 XP 採樣。詳見 `docs/IDEAS.md`。
+- ⏳ 未動工：N5 電力採樣、N8 孩童成長、E1–E4 擴展。
 
 ## 關鍵文件
 - `docs/2026-06-09-design.md`：v1 設計 spec（權威）。

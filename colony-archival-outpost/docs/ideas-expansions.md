@@ -2,6 +2,9 @@
 
 > 由 `IDEAS.md` 拆出（2026-06-10）。索引見 [`IDEAS.md`](./IDEAS.md)；🟢 新想法見 [`ideas-features-flow.md`](./ideas-features-flow.md)（N1–N5）與 [`ideas-features-pawn.md`](./ideas-features-pawn.md)（N6–N8）；🔴🟡 近期工作見 [`TODO.md`](./TODO.md)。
 > 超出目前 mod 範圍，構想階段。源碼核對基準日：2026-06-10。
+>
+> **實作狀態（2026-06-12）：E1–E4 全部尚未動工。** E1（自訂哨站類型）設計已定案、所依賴的 N1/N3/N4 都已實作，
+> 是四者中最可直接動工的（需先一輪 brainstorm 細分）；E2/E3 卡使用者待提供的參考 mod（empire refactor／某 VOE 擴展）。
 
 ---
 
