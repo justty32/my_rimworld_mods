@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Settings -->
+  <pas_wte_SettingsCategory>RimWar Empire Wartime Economy</pas_wte_SettingsCategory>
+  <pas_wte_SettingEnableSiege>Besieged settlements lose production</pas_wte_SettingEnableSiege>
+  <pas_wte_SettingEnableSiegeTip>When a Rim War warband is attacking one of your Empire vassal settlements, that settlement's resource production is multiplied down until the siege lifts.</pas_wte_SettingEnableSiegeTip>
+  <pas_wte_SettingSiegeMult>Production kept while besieged: {0}</pas_wte_SettingSiegeMult>
+  <pas_wte_SettingSiegeMultTip>The fraction of normal resource output a besieged settlement still produces. 0% = total shutdown, 100% = no penalty.</pas_wte_SettingSiegeMultTip>
+  <pas_wte_SettingEnableTax>Wartime tax surcharge</pas_wte_SettingEnableTax>
+  <pas_wte_SettingEnableTaxTip>While your empire's faction is at war in Rim War (it has war factions), every vassal's tax silver is increased by the surcharge below to fund the war effort.</pas_wte_SettingEnableTaxTip>
+  <pas_wte_SettingTaxSurcharge>Wartime tax surcharge: +{0}</pas_wte_SettingTaxSurcharge>
+  <pas_wte_SettingTaxSurchargeTip>Extra tax silver collected from each settlement while at war, as a percentage of the normal amount. +25% means a settlement that would pay 100 silver pays 125.</pas_wte_SettingTaxSurchargeTip>
+
+  <!-- Tooltips -->
+  <pas_wte_SiegeProductionDesc>Under siege (Rim War): production x{0}</pas_wte_SiegeProductionDesc>
+</LanguageData>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- 设置 -->
+  <pas_wte_SettingsCategory>边境战争·帝国战时经济</pas_wte_SettingsCategory>
+  <pas_wte_SettingEnableSiege>被围困聚落减产</pas_wte_SettingEnableSiege>
+  <pas_wte_SettingEnableSiegeTip>当一支 Rim War 部队正在攻打你的某个帝国附庸聚落时，该聚落的资源产量会被乘以一个倍率而下降，直到围困解除。</pas_wte_SettingEnableSiegeTip>
+  <pas_wte_SettingSiegeMult>围困时保留产量：{0}</pas_wte_SettingSiegeMult>
+  <pas_wte_SettingSiegeMultTip>被围困聚落仍能保有的正常产量比例。0% = 完全停产，100% = 无惩罚。</pas_wte_SettingSiegeMultTip>
+  <pas_wte_SettingEnableTax>战时加税</pas_wte_SettingEnableTax>
+  <pas_wte_SettingEnableTaxTip>当你的帝国派系在 Rim War 中处于战争状态（有交战派系）时，每个附庸的税收白银都会按下方加成上调，以支撑战争开销。</pas_wte_SettingEnableTaxTip>
+  <pas_wte_SettingTaxSurcharge>战时税收加成：+{0}</pas_wte_SettingTaxSurcharge>
+  <pas_wte_SettingTaxSurchargeTip>处于战争状态时，每个聚落额外征收的税银，以正常税额的百分比计。+25% 表示本应缴 100 白银的聚落改缴 125。</pas_wte_SettingTaxSurchargeTip>
+
+  <!-- 提示 -->
+  <pas_wte_SiegeProductionDesc>被围困（Rim War）：产量 x{0}</pas_wte_SiegeProductionDesc>
+</LanguageData>

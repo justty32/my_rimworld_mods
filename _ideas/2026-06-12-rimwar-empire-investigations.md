@@ -190,9 +190,14 @@ A3 **摧毀**（fallback `RW:11221-11239`：`parent.Destroy()`）；B 同歸於�
 - **共存**：empire-warfare 走旁路（patch 上游 `ResolveWarObjectAttackOnSettlement RW:10340` 異步淪陷、明示避開 ConvertSettlement）→ 選擇器開頭排除 `WorldSettlementFC` 即零衝突；Mod 1 既有 ConvertSettlement prefix 對 NpcOutpost 的 capture/raze 正好複用；**風險**：prefix-skip 後 Mod 1 自己的記帳 postfix 須仍觸發（保留等效副作用＋實測）。
 - **歸屬**：MVP 放 Mod 1（已 patch 同方法、有範本/設定框架）；outpost 對應走 B 影子＋Mod 1 範本。
 
-## M. 城池財富→原版聚落交易清單影響
+## M. 城池財富→原版聚落交易清單影響 → 掛 H 城池經濟 mod（RegenerateStock postfix）
 
-⏳ 進行中。完成後回填。
+**原版 stock 生成鏈**（`RimWorld.Planet/Settlement_TraderTracker.cs`）：**惰性生成**——玩家第一次按交易 `StockListForReading`(:27) 才呼 `RegenerateStock()`(:265)；每 30 天（`RegenerateStockEveryDays` protected virtual :21）`TryDestroyStock` 清空待重生。參數：`TraderKind` getter(:39) ＝ `faction.def.baseTraderKinds[|HashOffset| % Count]`（每聚落確定性、永不變）；白銀/貨量全由 TraderKindDef XML 的 `StockGenerator` 決定——**聚落本身無財富參數**（純留白）。stock 隨聚落存檔（`Scribe_Deep` :134）。
+
+- **注入點（推薦）**：**A. postfix `RegenerateStock`**——生成後讀 WealthComp 按 silver/goods/food 增刪物品調白銀（工程小、相容面最窄）。B. `StockGenerator.GenerateThings` 不可行（拿不到 settlement）。C. patch `TraderKind` getter 富/貧換 TraderKindDef（效果最原生但工程大，二期）。價格維度（缺糧高價收糧）走 `TradePriceImprovementOffsetForPlayer`(:109 virtual，全域)或 `PriceTypeFor`（分品類，與改價 mod 衝突面），留二期。
+- **玩家交易回寫**：postfix `GiveSoldThingToTrader`(:164 玩家賣→food/goods↑) ＋ `GiveSoldThingToPlayer`(:187 玩家買→goods/silver↓)，皆 virtual、`__instance.settlement` 直達。
+- **Rim War 零衝突（grep 確認）**：完全沒碰 Settlement_TraderTracker/TradeDeal；唯一相關 `ThingSetMaker.Generate` postfix（`RW:6089`，MFI shim）→ **勿選 ThingSetMaker 當注入點**，RegenerateStock 在其外層避開。
+- **歸屬：H 的城池經濟 mod 同一 mod**（回寫直讀寫 comp；這正是 H 缺的「玩家可感介面」）。一期 stock 數量＋回寫（估 200-400 行）；二期 TraderKind 切換＋品類價格。
 
 ## N. 通訊台指揮 RimWar 派兵攻打/救援
 

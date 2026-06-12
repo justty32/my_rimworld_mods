@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  把圍困減產 comp 掛上 Empire 的抽象聚落基底 WorldSettlementDefBase，讓所有 Empire 聚落型別
+  （Surface/Orbital…）都繼承到它。元素名是 FactionColonies.WorldSettlementDef（不是 WorldObjectDef）——
+  與 Empire 官方 Patch-RW 的 RimWarSettlementComp.xml 完全同一掛載手法（對基底 PatchOperationAdd 一個 <comps>）。
+  comp 在 ResourceFC 重算產量時被 settlement.AllComps 掃到（IResourceProductionModifier），無需 Registry。
+
+  優先用 PatchOperationAddModExtension 風格不適用於 comps，故照官方範本對 base 加 <comps>；
+  RimWorld 的 def 繼承會把基底 <comps> 併入各子型別既有 <comps>。
+-->
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/FactionColonies.WorldSettlementDef[@Name="WorldSettlementDefBase"]</xpath>
+    <value>
+      <comps>
+        <li Class="pas.empire.wartimeeconomy.WorldObjectCompProperties_SiegeProduction" />
+      </comps>
+    </value>
+  </Operation>
+</Patch>

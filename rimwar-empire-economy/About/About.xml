@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>RimWar Empire Wartime Economy (戰時經濟)</name>
+  <author>justty32</author>
+  <packageId>pas.empire.wartimeeconomy</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Matathias.Empire</packageId>
+      <displayName>Empire Refactored</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3701480464</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Torann.RimWar</packageId>
+      <displayName>Rim War</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2222935097</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Matathias.Empire</li>
+    <li>Torann.RimWar</li>
+  </loadAfter>
+  <description>The Rim War world situation now feeds back into your Empire (Refactored) vassal economy: the missing "RimWar -&gt; Empire" causal link.
+
+- Besieged settlements lose production. When a Rim War warband is attacking one of your vassal settlements (the settlement's RimWar comp reports attacking units), that settlement's resource output is multiplied down by a configurable factor until the siege lifts.
+- Wartime tax surcharge. While your empire's faction is at war in Rim War (its RimWarData has war factions), every vassal's tax silver is increased by a configurable percentage to fund the war effort.
+
+All signals are read-only from Rim War's public state (RimWarSettlementComp.AttackingUnits / UnderAttack, WorldUtility.GetRimWarDataForFaction(...).IsAtWar / WarFactions). The Empire side uses zero Harmony patches: the besieged production cut is a WorldObjectComp implementing Empire's IResourceProductionModifier, and the wartime tax is an ITaxTickParticipant registered in TaxTickRegistry. Registrations are re-applied after Game.ClearCaches (new game / load) via EmpireCacheUtil.RegisterCacheInvalidator.
+
+Requires Empire (Refactored) and Rim War.</description>
+</ModMetaData>
