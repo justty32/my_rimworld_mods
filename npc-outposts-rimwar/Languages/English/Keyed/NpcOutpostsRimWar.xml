@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_outposts_rimwar_ModName>NPC Outposts: Rim War</pas_outposts_rimwar_ModName>
+
+  <!-- Settings -->
+  <pas_outposts_rimwar_PointsPerOutpost>Points each outpost feeds its parent settlement per growth cycle: {0} (0 = off)</pas_outposts_rimwar_PointsPerOutpost>
+  <pas_outposts_rimwar_InitialPoints>Initial Rim War points of an outpost: {0}</pas_outposts_rimwar_InitialPoints>
+  <pas_outposts_rimwar_CaptureToConqueror>Captured outposts defect to the conqueror</pas_outposts_rimwar_CaptureToConqueror>
+  <pas_outposts_rimwar_CaptureToConquerorTip>Checked: a captured outpost joins the attacking faction and re-attaches to its nearest settlement. Unchecked: captured outposts are destroyed.</pas_outposts_rimwar_CaptureToConquerorTip>
+  <pas_outposts_rimwar_MomentumEnabled>War momentum</pas_outposts_rimwar_MomentumEnabled>
+  <pas_outposts_rimwar_MomentumEnabledTip>Adjusts outpost growth by each faction's recent settlement-battle record: winners speed up, losers slow down or wither.</pas_outposts_rimwar_MomentumEnabledTip>
+  <pas_outposts_rimwar_MomentumMaxMult>Max growth rate multiplier: {0} (losers get the inverse)</pas_outposts_rimwar_MomentumMaxMult>
+  <pas_outposts_rimwar_ShrinkEnabled>Losing factions' outposts wither</pas_outposts_rimwar_ShrinkEnabled>
+  <pas_outposts_rimwar_ShrinkEnabledTip>A faction on a losing streak has a daily chance to abandon one outpost.</pas_outposts_rimwar_ShrinkEnabledTip>
+
+  <!-- Letters -->
+  <pas_outposts_rimwar_LetterCapturedLabel>Outpost captured</pas_outposts_rimwar_LetterCapturedLabel>
+  <pas_outposts_rimwar_LetterCapturedText>{0} has fallen to {1} and now serves their cause.</pas_outposts_rimwar_LetterCapturedText>
+  <pas_outposts_rimwar_LetterRazedLabel>Outpost destroyed</pas_outposts_rimwar_LetterRazedLabel>
+  <pas_outposts_rimwar_LetterRazedText>{0} has been razed to the ground by {1}.</pas_outposts_rimwar_LetterRazedText>
+  <pas_outposts_rimwar_LetterShrinkLabel>Outpost abandoned</pas_outposts_rimwar_LetterShrinkLabel>
+  <pas_outposts_rimwar_LetterShrinkText>{0} has been abandoned — {1} can no longer sustain it after repeated defeats.</pas_outposts_rimwar_LetterShrinkText>
+</LanguageData>

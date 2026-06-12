@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- 功能 2：把 RimWar 聚落 comp 注入哨站 WorldObjectDef。
+       哨站因此通過 NearbyHostileSettlements 的 comp/points 過濾（RW:9411），
+       被 warband 自然鎖定，抽象戰全鏈（ResolveWarObjectAttackOnSettlement→ResolveCombat/Battle_Settlement）可用。
+       不動 IsValidSettlement：哨站不入派系資產、不主動出兵。
+       寫法仿 RimWar v1.6/Patches/RimWarCompsx.xml，但拆成「補空 comps 節點＋注入 li」兩步，
+       避免原版 test+add pattern 在 def 無 comps 時重複注入。 -->
+
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationTest">
+        <xpath>Defs/WorldObjectDef[defName="pas_outposts_Outpost"]/comps</xpath>
+        <success>Invert</success>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/WorldObjectDef[defName="pas_outposts_Outpost"]</xpath>
+        <value>
+          <comps />
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/WorldObjectDef[defName="pas_outposts_Outpost"]/comps</xpath>
+    <value>
+      <li Class="RimWar.Planet.WorldObjectCompProperties_RimWarSettlement" />
+    </value>
+  </Operation>
+
+  <!-- 功能 1/2 平衡鈕：按哨站類型調點數係數（貢獻與初始點數共用）。
+       缺省＝程式預設 1.0；其他 mod 加新 OutpostTypeDef 時可自掛此 extension。 -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/pas.outposts.OutpostTypeDef[defName="pas_outposts_Type_Generic"]</xpath>
+    <value>
+      <li Class="pas.outposts.rimwar.RimWarOutpostExtension">
+        <pointsFactor>1.0</pointsFactor>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>

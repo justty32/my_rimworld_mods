@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.outposts.rimwar</packageId>
+  <name>NPC Outposts: Rim War (Community)</name>
+  <author>GuanYu Lu</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Torann.RimWar</packageId>
+      <displayName>Rim War</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2222935097</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>pas.outposts.community</packageId>
+      <displayName>NPC Outposts (Community)</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Torann.RimWar</li>
+    <li>pas.outposts.community</li>
+  </loadAfter>
+  <description>Bridges NPC Outposts into the Rim War grand strategy layer.\n\n- Satellite outposts feed Rim War points to their parent settlement every growth cycle (per-type tunable).\n- Outposts become legitimate warband targets: hostile war parties will march on them and resolve abstract battles.\n- A captured outpost defects to the conqueror (or is razed, configurable) instead of being rebuilt as a vanilla settlement; when a settlement itself changes hands, its satellites follow.\n- War momentum: factions winning settlement battles grow outposts faster; losing factions slow down and may see outposts wither.\n\nRequires Harmony, Rim War and NPC Outposts (Community). Safe to add to existing saves.</description>
+</ModMetaData>

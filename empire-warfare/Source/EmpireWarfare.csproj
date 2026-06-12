@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>EmpireWarfare</AssemblyName>
+    <RootNamespace>pas.empire.warfare</RootNamespace>
+    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <DebugType>none</DebugType>
+    <LangVersion>latest</LangVersion>
+    <WorkshopRoot>$(HOME)/.local/share/Steam/steamapps/workshop/content/294100</WorkshopRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 所有外部參考一律 Private=False：執行期由 mod 載入器提供，不得複製進輸出 -->
+    <Reference Include="Empire">
+      <HintPath>$(WorkshopRoot)/3701480464/1.6/Assemblies/Empire.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Empire.RW">
+      <HintPath>$(WorkshopRoot)/3701480464/Compat/1.6/RimWar/Assemblies/Empire.RW.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RimWar">
+      <HintPath>$(WorkshopRoot)/2222935097/v1.6/Assemblies/RimWar.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(WorkshopRoot)/2009463077/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using RimWorld.Planet;
@@ -10,6 +11,10 @@ namespace pas.outposts
     public class WorldComponent_OutpostSpawner : WorldComponent
     {
         private const int CheckInterval = 2500;
+
+        /// <summary>擴充接點：橋接 mod（如 npc-outposts-rimwar）可註冊「派系 → 增生速率倍率」。
+        /// null 或回傳 ≤0 視為 1（零行為變化）；倍率作用於 spawnMtbDays（>1 加速、<1 減速）。</summary>
+        public static Func<Faction, float> GrowthRateMultiplier;
 
         /// <summary>聚落 → 哨站上限（首見時擲定，持久化）。</summary>
         private Dictionary<Settlement, int> caps = new Dictionary<Settlement, int>();
@@ -75,11 +80,31 @@ namespace pas.outposts
                     continue;
                 }
                 OutpostProfileDef profile = OutpostProfileResolver.Resolve(settlement.Faction);
-                if (profile != null && Rand.MTBEventOccurs(profile.spawnMtbDays, GenDate.TicksPerDay, CheckInterval))
+                if (profile != null && Rand.MTBEventOccurs(profile.spawnMtbDays / GrowthMultiplierFor(settlement.Faction), GenDate.TicksPerDay, CheckInterval))
                 {
                     OutpostPlacer.TryPlaceFor(settlement, profile);
                 }
             }
+        }
+
+        /// <summary>hook 取倍率；未註冊/異常/非正值一律 1（行為與無 hook 完全相同）。</summary>
+        private static float GrowthMultiplierFor(Faction faction)
+        {
+            Func<Faction, float> hook = GrowthRateMultiplier;
+            if (hook == null)
+            {
+                return 1f;
+            }
+            float mult;
+            try
+            {
+                mult = hook(faction);
+            }
+            catch
+            {
+                return 1f;
+            }
+            return mult > 0f ? mult : 1f;
         }
 
         private static Dictionary<Settlement, int> CountOutpostsByParent()

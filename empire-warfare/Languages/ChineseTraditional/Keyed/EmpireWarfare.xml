@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- 設定 -->
+  <pas_warfare_SettingsCategory>帝國參戰 (Empire Warfare)</pas_warfare_SettingsCategory>
+  <pas_warfare_SettingEnableFall>附庸可淪陷</pas_warfare_SettingEnableFall>
+  <pas_warfare_SettingEnableFallTip>總開關。開啟時，附庸聚落防守失敗（依下方門檻）會真正易主：脫離帝國、變成攻方派系的正規聚落並納入 Rim War 戰局。關閉則回到 Empire 原版行為（只折損不易主）。</pas_warfare_SettingEnableFallTip>
+  <pas_warfare_SettingOnlyRimWar>僅 Rim War 行軍部隊的攻擊會導致淪陷</pas_warfare_SettingOnlyRimWar>
+  <pas_warfare_SettingOnlyRimWarTip>開啟時只有 Rim War 的 warband／scout 等行軍部隊攻陷附庸才會易主；Empire 自身的隨機襲擊事件失敗仍只折損。</pas_warfare_SettingOnlyRimWarTip>
+  <pas_warfare_SettingCrushRatio>徹底潰敗門檻：攻方殘餘戰力 ≥ {0}</pas_warfare_SettingCrushRatio>
+  <pas_warfare_SettingCrushRatioTip>自動結算戰敗時，攻方剩餘戰力佔其初始戰力的比例達到此值即視為「徹底潰敗」，一次就淪陷。比例越低越容易淪陷。手動地圖戰守軍全滅一律視為徹底潰敗。</pas_warfare_SettingCrushRatioTip>
+  <pas_warfare_SettingFailStreak>連續防守失敗淪陷次數：{0}</pas_warfare_SettingFailStreak>
+  <pas_warfare_SettingFailStreakTip>同一附庸連續防守失敗達此次數也會淪陷（不論是否徹底潰敗）。0 = 停用，僅由徹底潰敗觸發。防守成功會重設計數。</pas_warfare_SettingFailStreakTip>
+  <pas_warfare_SettingProtectionDays>新附庸保護期：{0} 天</pas_warfare_SettingProtectionDays>
+  <pas_warfare_SettingProtectionDaysTip>聚落建立（或本 mod 加入存檔）後的保護天數，期間防守失敗不會淪陷。0 = 無保護。</pas_warfare_SettingProtectionDaysTip>
+  <pas_warfare_SettingHeatDecay>附庸熱度每日衰減：{0}</pas_warfare_SettingHeatDecay>
+  <pas_warfare_SettingHeatDecayTip>Rim War 以「附庸熱度」節流對附庸的攻擊：每次被打後熱度上升、需要攻方累積更多行動量才會再選同一附庸。此值 &gt; 0 時每天衰減該熱度，附庸會更常成為攻擊目標；0 = Rim War 原生節奏（被打頻率隨時間遞減）。</pas_warfare_SettingHeatDecayTip>
+  <pas_warfare_Disabled>停用</pas_warfare_Disabled>
+
+  <!-- 信件 / 訊息 -->
+  <pas_warfare_VassalFallenLabel>附庸淪陷</pas_warfare_VassalFallenLabel>
+  <pas_warfare_VassalFallenDesc>我們的附庸聚落「{0}」防守崩潰，已落入 {1} 之手。\n\n該地現在是敵方的正規聚落，並已納入世界戰局。可動用帝國軍事的「奪取聚落」作戰收復失土。</pas_warfare_VassalFallenDesc>
+  <pas_warfare_VassalProtectedMsg>{0} 防守失敗，但仍在保護期內，免於淪陷。</pas_warfare_VassalProtectedMsg>
+  <pas_warfare_VassalRecapturedLabel>收復失土</pas_warfare_VassalRecapturedLabel>
+  <pas_warfare_VassalRecapturedDesc>曾淪陷於 {1} 的「{0}」已被帝國收復，重新成為我們的附庸聚落。</pas_warfare_VassalRecapturedDesc>
+</LanguageData>

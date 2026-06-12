@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_outposts_rimwar_ModName>NPC 哨站入戰局</pas_outposts_rimwar_ModName>
+
+  <!-- 設定 -->
+  <pas_outposts_rimwar_PointsPerOutpost>每哨站每成長週期貢獻母聚落點數：{0}（0＝停用）</pas_outposts_rimwar_PointsPerOutpost>
+  <pas_outposts_rimwar_InitialPoints>哨站初始 Rim War 點數：{0}</pas_outposts_rimwar_InitialPoints>
+  <pas_outposts_rimwar_CaptureToConqueror>哨站被佔領時易主給攻方</pas_outposts_rimwar_CaptureToConqueror>
+  <pas_outposts_rimwar_CaptureToConquerorTip>勾選：被佔哨站改掛攻方派系、重掛最近的母聚落。取消：被佔哨站直接摧毀。</pas_outposts_rimwar_CaptureToConquerorTip>
+  <pas_outposts_rimwar_MomentumEnabled>戰局動態增減</pas_outposts_rimwar_MomentumEnabled>
+  <pas_outposts_rimwar_MomentumEnabledTip>依各派系近期聚落戰戰績調整哨站增生：勝者加速、敗者減速甚至萎縮。</pas_outposts_rimwar_MomentumEnabledTip>
+  <pas_outposts_rimwar_MomentumMaxMult>增生速率最大倍率：{0}（敗方取倒數）</pas_outposts_rimwar_MomentumMaxMult>
+  <pas_outposts_rimwar_ShrinkEnabled>敗方哨站萎縮</pas_outposts_rimwar_ShrinkEnabled>
+  <pas_outposts_rimwar_ShrinkEnabledTip>連敗派系每天有機率荒廢一座哨站。</pas_outposts_rimwar_ShrinkEnabledTip>
+
+  <!-- 信件 -->
+  <pas_outposts_rimwar_LetterCapturedLabel>哨站易主</pas_outposts_rimwar_LetterCapturedLabel>
+  <pas_outposts_rimwar_LetterCapturedText>{0} 已被 {1} 攻陷，併入其勢力範圍。</pas_outposts_rimwar_LetterCapturedText>
+  <pas_outposts_rimwar_LetterRazedLabel>哨站被摧毀</pas_outposts_rimwar_LetterRazedLabel>
+  <pas_outposts_rimwar_LetterRazedText>{0} 在戰火中被 {1} 夷為平地。</pas_outposts_rimwar_LetterRazedText>
+  <pas_outposts_rimwar_LetterShrinkLabel>哨站荒廢</pas_outposts_rimwar_LetterShrinkLabel>
+  <pas_outposts_rimwar_LetterShrinkText>{0} 因 {1} 戰事連敗、無力維持而遭放棄。</pas_outposts_rimwar_LetterShrinkText>
+</LanguageData>

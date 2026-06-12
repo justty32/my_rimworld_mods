@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Settings -->
+  <pas_warfare_SettingsCategory>Empire Warfare</pas_warfare_SettingsCategory>
+  <pas_warfare_SettingEnableFall>Vassal settlements can fall</pas_warfare_SettingEnableFall>
+  <pas_warfare_SettingEnableFallTip>Master toggle. When enabled, a vassal settlement whose defense fails (per the thresholds below) truly changes hands: it leaves your empire and becomes a regular settlement of the attacking faction, registered into Rim War. When disabled, Empire's vanilla behavior applies (losses only, no conquest).</pas_warfare_SettingEnableFallTip>
+  <pas_warfare_SettingOnlyRimWar>Only Rim War units can conquer vassals</pas_warfare_SettingOnlyRimWar>
+  <pas_warfare_SettingOnlyRimWarTip>When enabled, only attacks by Rim War warbands/scouts can lead to a fall; Empire's own random raid events still cause losses only.</pas_warfare_SettingOnlyRimWarTip>
+  <pas_warfare_SettingCrushRatio>Crushing defeat threshold: attacker retains ≥ {0}</pas_warfare_SettingCrushRatio>
+  <pas_warfare_SettingCrushRatioTip>In an auto-resolved defeat, if the attacker's remaining force is at least this fraction of its initial force, the defeat counts as "crushing" and the settlement falls immediately. Lower = falls happen more easily. Losing a manual map battle (all defenders dead) always counts as crushing.</pas_warfare_SettingCrushRatioTip>
+  <pas_warfare_SettingFailStreak>Consecutive failed defenses before fall: {0}</pas_warfare_SettingFailStreak>
+  <pas_warfare_SettingFailStreakTip>The same vassal also falls after this many consecutive failed defenses (crushing or not). 0 = disabled; only crushing defeats trigger falls. A successful defense resets the counter.</pas_warfare_SettingFailStreakTip>
+  <pas_warfare_SettingProtectionDays>New vassal grace period: {0} days</pas_warfare_SettingProtectionDays>
+  <pas_warfare_SettingProtectionDaysTip>Days after a settlement is founded (or after this mod is added to a save) during which failed defenses never cause a fall. 0 = no protection.</pas_warfare_SettingProtectionDaysTip>
+  <pas_warfare_SettingHeatDecay>Vassal heat decay per day: {0}</pas_warfare_SettingHeatDecay>
+  <pas_warfare_SettingHeatDecayTip>Rim War throttles attacks on vassals with a "vassal heat" gate: each attack raises the heat, so the same vassal gets targeted less and less often. A value &gt; 0 decays that heat daily, making vassals more frequent targets; 0 = Rim War's native pacing.</pas_warfare_SettingHeatDecayTip>
+  <pas_warfare_Disabled>disabled</pas_warfare_Disabled>
+
+  <!-- Letters / messages -->
+  <pas_warfare_VassalFallenLabel>Vassal settlement fallen</pas_warfare_VassalFallenLabel>
+  <pas_warfare_VassalFallenDesc>Our vassal settlement "{0}" has been overrun and now belongs to {1}.\n\nIt is now a regular enemy settlement, registered into the world war. Use the Empire military "Capture settlement" job to take it back.</pas_warfare_VassalFallenDesc>
+  <pas_warfare_VassalProtectedMsg>{0} lost its defense, but is still within its grace period and was spared from falling.</pas_warfare_VassalProtectedMsg>
+  <pas_warfare_VassalRecapturedLabel>Settlement recaptured</pas_warfare_VassalRecapturedLabel>
+  <pas_warfare_VassalRecapturedDesc>"{0}", once lost to {1}, has been retaken and is a vassal settlement of our empire again.</pas_warfare_VassalRecapturedDesc>
+</LanguageData>
