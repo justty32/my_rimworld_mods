@@ -48,10 +48,18 @@
 ## 關鍵技術座標（設計時已核對）
 
 - **Empire 已有征服**：`MilitaryJobHandler_Capture`（`1.6/Source/Core/FactionColonies/Military/MilitaryJobHandler_Capture.cs`）——派 squad → `SimulateBattleFc.FightBattle` → 勝利 `target.Destroy()` ＋ `ColonyUtil.CreatePlayerColonySettlement`。
-- **Empire Patch-RW 現況**＝防禦性橋：`Patch_IsValidSettlement`/`Patch_ConvertSettlement`/`Patch_EmpireColonyCheck` 讓 RimWar **無視/不捕獲**帝國聚落；`RWStrengthBattleModifier : IBattleModifier` 讓戰鬥結算吃 RimWar 點數。**Mod 2 最大風險＝要繞過/再 patch 這層「無視」**，讓 warband 能選附庸當目標但不觸發 RimWar 自己的捕獲邏輯（仍由我方接管淪陷流程）。
+- **Empire Patch-RW 現況（2026-06-12 讀源碼修正——比想像中完整得多）**：
+  - `Patch_IsValidSettlement`＝**把附庸納入** RimWar 追蹤（postfix 白名單放行 `WorldSettlementFC`），不是無視；
+  - `Patch_ResolveWarObjectAttack`＝warband 抵達附庸時**導流進 Empire 的 `AttackPlayerSettlement`**——1 天預告事件、自動防守派遣、戰鬥預報、尊重手動/自動戰鬥設定。**我們設計的「混合防守結算」基本已存在！**
+  - `Patch_RimWarPoints`＝附庸點數 getter 置換（基於 Empire 軍事+經濟實力），是 RimWar 所有點數讀取的單一漏斗；
+  - `Patch_ConvertSettlement`＝附庸打輸時 **prefix 擋下易主**，只折點數（防 Destroy/複製聚落/RemoveRWDFaction 三連環）；
+  - `Patch_ForceVassalBehavior`＝PColony 鎖 Vassal 行為（不主動派 RimWar 單位）。
+  - **→ Mod 2 範圍大幅縮小**：防守/馳援/實體戰已由 Patch-RW 提供，剩下要做的＝把「打輸後果」從折點數改成真易主（接管/替換 `Patch_ConvertSettlement` 的攔截邏輯，安全處理 WorldSettlementFC 退場與 RimWar 註冊），外加驗證 warband 目標選擇確實會挑附庸。風險從「解開無視」降為「改寫單一後果路徑」。
+  - 詳盡逐檔走讀已在 `pas/analysis/rimworld_mods/empire-refactored/details/bridge_module_walkthrough.md`。
 - **Empire 擴充面**：優先走 B-1（`FCInterfaces` 20+ 介面 ＋ 15 個 Registry，免 Harmony；`IBattleModifier`/`ILifecycleParticipant`/`IRaidTarget`/`IThreatScalingContributor` 都直接相關），逼不得已才 B-2 compat DLL。註冊慣例 `[StaticConstructorOnStartup]` ＋ `XxxRegistry.Register`。
 - **RimWar 戰力**：`RimWarSettlementComp.RimWarPoints` 為 public 可直接讀寫；成長唯一入口 `IncrementSettlementGrowth`（`RW:17567`，核心公式 `RW:17622-17626`）；上限基礎 50000，postfix 加點不受原方法 Clamp 閘控、須自行尊重上限。
 - **npc-outposts 是自家碼**：`NpcOutpost : Settlement`（有 `ParentSettlement` 引用＋`OutpostTypeDef`）、增生在 `WorldComponent_OutpostSpawner`（2500 tick 週期、per-settlement cap 字典）。**不需反射**，橋接 mod 可直接引用；也可考慮在 npc-outposts 本體加少量擴充接點（事件/虛方法）讓 Mod 1/3 掛載更乾淨。
+- **RimWar 不會自動收編 NpcOutpost（2026-06-12 源碼確認）**：`WorldUtility.IsValidSettlement`（`RW:16685`）是 **defName 白名單**（`Settlement`/`City_Faction`/`City_Citadel`/`FactionBaseGenerator`），NpcOutpost 自有 def 不在內 → 不被追蹤、不算戰力、warband 不會選它當目標。Mod 1 兩面意涵：①「哨站貢獻母聚落點數」可放心做加成（無重複計算）；②「warband 掠奪/抹除哨站」**不會自然發生**，要自己做（候選：仿 Empire 手法 postfix `IsValidSettlement` 放行 NpcOutpost＋接管結算；或在 warband 行軍路徑/抵達邏輯加哨站攔截）——這是 Mod 1 設計時要決策的點。
 - 載入順序：橋接 mod loadAfter Empire/RimWar/npc-outposts；gated 模組照 Empire/Ariandel 的 `LoadFolders.xml IfModActive` 慣例。
 
 ## 開放問題（進實作計畫前要回答）
