@@ -137,6 +137,10 @@ namespace ColonyArchivalOutpost
                 if (count > 0) snapshot.avgHealthDeltaPerDay = totalDelta / count / elapsedDays;
             }
 
+            // N5：電力——平均採樣窗淨功率（有號）
+            if (tracker.powerSampleCount > 0)
+                snapshot.avgNetPowerW = (float)(tracker.powerAccumW / tracker.powerSampleCount);
+
             return snapshot;
         }
 
@@ -174,7 +178,8 @@ namespace ColonyArchivalOutpost
 
         public static void Archive(Map map, string name = null, string iconPath = null,
             bool perPawn = false, bool applySkillXP = false, bool applyHealthDelta = false,
-            bool applyHediffDeltas = false, bool applyHealthDeterioration = false)
+            bool applyHediffDeltas = false, bool applyHealthDeterioration = false,
+            bool applyPower = false)
         {
             var tracker = map.GetComponent<ColonyArchivalTracker>();
             if (tracker == null || !tracker.isSampling) return;
@@ -206,6 +211,9 @@ namespace ColonyArchivalOutpost
             // N6 傷勢惡化開關
             if (applyHealthDeterioration && snapshot.avgHealthDeltaPerDay > 0f)
                 snapshot.applyHealthDeterioration = true;
+            // N5：電力採樣開關（只有採到資料才套用）
+            if (applyPower && tracker.powerSampleCount > 0)
+                snapshot.applyPowerSampling = true;
 
             // 1) 建 outpost(掛玩家陣營, 餵 snapshot)——與 VOE 建站選單共用 OutpostFactory.Create。
             var outpost = OutpostFactory.Create(tile, Faction.OfPlayer, snapshot, name, iconPath);
