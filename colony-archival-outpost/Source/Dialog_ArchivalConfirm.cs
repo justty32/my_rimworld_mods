@@ -20,6 +20,9 @@ namespace ColonyArchivalOutpost
         private bool applyHealthDelta;
         private bool applyHealthDeterioration;
         private bool applyHediffDeltas;
+        private bool applyPowerSampling = true; // N5：預設計入（既然放了節點並採到資料）
+        private readonly int powerSampleCount;
+        private readonly float avgNetPowerW;
 
         private Vector2 previewScroll;
         private float previewContentH;
@@ -55,6 +58,8 @@ namespace ColonyArchivalOutpost
             if (tracker == null) { closeOnClickedOutside = true; return; } // Bug 3 fix
             elapsedTicks = Find.TickManager.TicksGame - tracker.startTick;
             snapshot = ArchivalService.ComputeSnapshot(map, tracker);
+            powerSampleCount = tracker.powerSampleCount;
+            avgNetPowerW = snapshot.avgNetPowerW;
             daysPerCycle = 900000f / 60000f; // 15 遊戲天，對應 def TicksPerProduction=900000
             currentPawnCount = tracker.startColonistCount;
             outpostName = map.Parent?.Label ?? "CAO.DefaultOutpostName".Translate();
@@ -134,6 +139,14 @@ namespace ColonyArchivalOutpost
                 y += 32f;
             }
 
+            // N5：電力採樣開關（只在放了節點並採到資料時顯示）
+            if (powerSampleCount > 0)
+            {
+                Widgets.CheckboxLabeled(new Rect(x, y, w, 26f),
+                    "CAO.ArchivalConfirm.ApplyPower".Translate(avgNetPowerW.ToString("F0")), ref applyPowerSampling);
+                y += 32f;
+            }
+
             // N3：圖標 gallery
             Widgets.Label(new Rect(x, y, w, 22f), "CAO.ArchivalConfirm.ChooseIcon".Translate() + ":");
             y += 24f;
@@ -179,7 +192,9 @@ namespace ColonyArchivalOutpost
             {
                 Close();
                 string name = outpostName.NullOrEmpty() ? null : outpostName.Trim();
-                ArchivalService.Archive(map, name, chosenIconPath, scalePawnCount, applySkillXP, applyHealthDelta, applyHediffDeltas, applyHealthDeterioration);
+                ArchivalService.Archive(map, name, chosenIconPath, scalePawnCount, applySkillXP,
+                    applyHealthDelta, applyHediffDeltas, applyHealthDeterioration,
+                    powerSampleCount > 0 && applyPowerSampling);
             }
         }
     }

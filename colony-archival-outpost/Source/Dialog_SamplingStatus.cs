@@ -6,6 +6,7 @@ namespace ColonyArchivalOutpost
     // N2：採樣中查看狀況視窗。打開時算一次 snapshot，顯示當前速率預覽與已歷時。
     public class Dialog_SamplingStatus : Window
     {
+        private readonly Map map;
         private readonly ProductivitySnapshot snapshot;
         private readonly int elapsedTicks;
         private readonly float daysPerCycle;
@@ -17,6 +18,7 @@ namespace ColonyArchivalOutpost
 
         public Dialog_SamplingStatus(Map map)
         {
+            this.map = map;
             var tracker = map.GetComponent<ColonyArchivalTracker>();
             if (tracker == null) { closeOnClickedOutside = true; return; } // Bug N2 fix
             elapsedTicks = Find.TickManager.TicksGame - tracker.startTick;
@@ -48,6 +50,13 @@ namespace ColonyArchivalOutpost
             int hours = (elapsedTicks % 60000) / 2500;
             string elapsedStr = $"{days}d {hours}h";
             Widgets.Label(new Rect(x, y, w, 24f), "CAO.SamplingStatus.Elapsed".Translate(elapsedStr));
+            y += 28f;
+
+            // N5：即時供電節點淨功率
+            string powerLine = ArchivalService.TryGetNodePowerWatts(map, out float nodeWatts)
+                ? "CAO.SamplingStatus.NodePower".Translate(nodeWatts.ToString("F0"))
+                : "CAO.SamplingStatus.NoNode".Translate();
+            Widgets.Label(new Rect(x, y, w, 24f), powerLine);
             y += 28f;
 
             // 預覽 scroll view（填滿剩餘空間，預留按鈕高度）

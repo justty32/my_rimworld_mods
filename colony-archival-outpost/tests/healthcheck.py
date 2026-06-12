@@ -41,6 +41,17 @@ else:
     fail("缺 Defs/WorldObjectDefs/Outpost_Sampled.xml")
 
 
+# 2b) Power ThingDef defName 齊全
+power = ROOT / "Defs/ThingDefs/CAO_Power.xml"
+if power.exists():
+    proot = ET.parse(power).getroot()
+    pnames = {d.findtext("defName") for d in proot.findall("ThingDef")}
+    for need in ("CAO_PowerSamplingNode", "CAO_PowerOutlet"):
+        if need not in pnames:
+            fail(f"CAO_Power.xml 缺 ThingDef defName: {need}")
+else:
+    fail("缺 Defs/ThingDefs/CAO_Power.xml")
+
 # 3) 兩語言 Keyed 鍵集合一致
 def keys(p):
     return {c.tag for c in ET.parse(p).getroot()} if p.exists() else set()
