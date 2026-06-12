@@ -199,9 +199,16 @@ A3 **摧毀**（fallback `RW:11221-11239`：`parent.Destroy()`）；B 同歸於�
 - **Rim War 零衝突（grep 確認）**：完全沒碰 Settlement_TraderTracker/TradeDeal；唯一相關 `ThingSetMaker.Generate` postfix（`RW:6089`，MFI shim）→ **勿選 ThingSetMaker 當注入點**，RegenerateStock 在其外層避開。
 - **歸屬：H 的城池經濟 mod 同一 mod**（回寫直讀寫 comp；這正是 H 缺的「玩家可感介面」）。一期 stock 數量＋回寫（估 200-400 行）；二期 TraderKind 切換＋品類價格。
 
-## N. 通訊台指揮 RimWar 派兵攻打/救援
+## N. 通訊台指揮 RimWar 派兵攻打/救援 → 獨立薄 mod（postfix FactionDialogFor，範本逐行可抄）
 
-⏳ 進行中。完成後回填。
+**注入機制**：postfix `FactionDialogMaker.FactionDialogFor`（`RimWorld/FactionDialogMaker.cs:16`）插 DiaOption——**RimWar 自己就是先例**（`RW:5875-5908` 同 patch 點插 4 選項），我們在它之後再 postfix 即可；選項文字避開它會刪的 "Request a trade caravan"/"Request immediate military aid" 字樣。
+**派兵 API**：`CreateWarband(power, rwd, parentSettlement, startTile, destination, worldDef)`（`RW:15467` public static）；目標可為移動中 WarObject（tick 自動重尋路追擊）。**抵達派發**（`Warband.ArrivalAction RW:13382-13530`）：敵對 NPC 聚落→攻擊鏈全自動（含 L 的結局）；非敵對玩家聚落→`DoReinforcementWithPoints RW:10544`（友軍進地圖助戰）；同派系聚落→城防+兵力/2；**非敵對他派系聚落→落空（救第三方缺口）**。
+- **攻打**：一行 CreateWarband 指定目標；前置須敵對——否則升級為「慫恿宣戰並出兵」（`DeclareWarOn RW:468`，注意直寫 goodwill=-100 與 Empire relations 衝突面）。
+- **救援三型**：①救玩家城（原生 Reinforcement，改目的地 1 行）②救該派系自己城（城防加點；圍城 2500-tick 一輪互耗，趕到有意義）③救第三方→改做「攔截敵軍」（鎖敵 WarObject→`ResolveRimWarBattle RW:10274`；敵已併入 AttackingUnits 則攔不到，需戰前下單）。MVP=①②＋攔截。
+- **現成範本**：`RequestTraderOption RW:3085-3260`（前置檢查鏈/子選單 DiaNode/出兵聚落扣點/goodwill/冷卻）＋`CallForAid RW:3247`（一行派發）——把目的地換成玩家指定即核心完成。
+- **目標 UI**：MVP=DiaOption 清單（距離排序+預估天數，抄 `ArrivalTimeEstimator RW:3098`）；加值=世界 targeter（`Find.WorldTargeter.BeginTargeting`，先例 `CompLaunchable.cs:270`）。
+- **代價**：goodwill（`TryAffectGoodwillWith`）＋出兵城扣 RimWarPoints（範本既有）＋白銀（`TradeUtility.LaunchSilver`）＋自存冷卻。
+- **歸屬：獨立薄 mod**（hard dep RimWar、不需 Empire）；後續與 L（指定結局）、C#5（影響力付費）、B（指定哨站目標）組合。
 
 ## 三國志化願景（跨全部調查 A–K 的整合圖像）
 
