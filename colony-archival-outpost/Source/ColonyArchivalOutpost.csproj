@@ -37,6 +37,7 @@
     <Compile Include="CAOMod.cs" />
     <Compile Include="ProductivitySnapshot.cs" />
     <Compile Include="CAODefOf.cs" />
+    <Compile Include="PlaceWorker_OnlyOnePerMap.cs" />
     <Compile Include="Outpost_Sampled.cs" />
     <Compile Include="ColonyArchivalTracker.cs" />
     <Compile Include="ArchivalService.cs" />
