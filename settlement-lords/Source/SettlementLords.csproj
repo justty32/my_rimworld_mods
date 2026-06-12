@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    建置：dotnet build Source/SettlementLords.csproj -c Release
+    參考組件路徑可由 /p: 覆寫（預設＝本機 Linux Steam 安裝＋姊妹 mod 建置產物）：
+      RimWarDll          Rim War 主程式（workshop 2222935097，注意資料夾是 v1.6）
+      HarmonyDll         0Harmony.dll（workshop 2009463077）
+      NamedOfficersDll   P0 基礎層 named-officers 的建置產物（同倉庫）
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>SettlementLords</AssemblyName>
+    <RootNamespace>pas.officers.settlements</RootNamespace>
+    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RimWarDll Condition=" '$(RimWarDll)' == '' ">$(HOME)/.local/share/Steam/steamapps/workshop/content/294100/2222935097/v1.6/Assemblies/RimWar.dll</RimWarDll>
+    <HarmonyDll Condition=" '$(HarmonyDll)' == '' ">$(HOME)/.local/share/Steam/steamapps/workshop/content/294100/2009463077/Current/Assemblies/0Harmony.dll</HarmonyDll>
+    <NamedOfficersDll Condition=" '$(NamedOfficersDll)' == '' ">..\..\named-officers\1.6\Assemblies\NamedOfficers.dll</NamedOfficersDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <Reference Include="RimWar">
+      <HintPath>$(RimWarDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="NamedOfficers">
+      <HintPath>$(NamedOfficersDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

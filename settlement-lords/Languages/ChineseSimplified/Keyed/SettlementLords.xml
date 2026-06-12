@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_settlement_ModName>聚落领主（社群版）</pas_settlement_ModName>
+  <pas_settlement_LordChance>领主上任几率：{0}%</pas_settlement_LordChance>
+  <pas_settlement_LordChanceTip>每次扫描（约每游戏小时一次）无主 NPC 聚落获派具名领主的几率。控制领主上任速度；0＝停用新指派（既有领主照常运作）。</pas_settlement_LordChanceTip>
+  <pas_settlement_GovAmplitude>治理摆幅：±{0}%</pas_settlement_GovAmplitude>
+  <pas_settlement_GovAmplitudeTip>领主属性对聚落点数成长的影响幅度：属性 100 → 治理系数 x(1+X)、属性 0 → x(1-X)。逐城套用于每轮 Rim War 成长；绝不修改派系级成长系数。0＝完全停用治理影响。</pas_settlement_GovAmplitudeTip>
+  <pas_settlement_DecayEnabled>庸主令聚落点数衰退</pas_settlement_DecayEnabled>
+  <pas_settlement_DecayEnabledTip>开启时，治理系数低于 1 的领主每轮成长会扣减该城 Rim War 点数（净衰退，停在 Rim War 地板 100）。关闭时，庸主只是不加成长、不会倒扣。</pas_settlement_DecayEnabledTip>
+  <pas_settlement_InspectLord>领主：{0}（政务 {1}、忠诚 {2}、治理 x{3}）</pas_settlement_InspectLord>
+</LanguageData>

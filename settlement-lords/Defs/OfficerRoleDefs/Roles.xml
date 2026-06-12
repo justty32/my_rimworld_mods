@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.officers.OfficerRoleDef>
+    <defName>pas_settlement_Lord</defName>
+    <label>lord</label>
+    <description>A named lord governing a Rim War settlement. Polity and Loyalty swing the settlement's point growth: a capable lord makes the city flourish, an incompetent one lets it decay.</description>
+    <displayPriority>0</displayPriority>
+    <leaderLike>true</leaderLike>
+  </pas.officers.OfficerRoleDef>
+</Defs>

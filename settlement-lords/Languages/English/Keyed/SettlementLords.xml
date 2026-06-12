@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_settlement_ModName>Settlement Lords (Community)</pas_settlement_ModName>
+  <pas_settlement_LordChance>Lord appointment chance: {0}%</pas_settlement_LordChance>
+  <pas_settlement_LordChanceTip>Chance per scan (every ~1 in-game hour) that an ungoverned NPC settlement is appointed a named lord. Controls how fast lords take office; 0 disables new appointments (existing lords keep working).</pas_settlement_LordChanceTip>
+  <pas_settlement_GovAmplitude>Governance swing: ±{0}%</pas_settlement_GovAmplitude>
+  <pas_settlement_GovAmplitudeTip>How strongly lord attributes swing settlement point growth: attributes at 100 give a x(1+X) governance factor, at 0 give x(1-X). Applied per settlement on each Rim War growth cycle; faction-level growth stats are never modified. 0 disables the growth effect entirely.</pas_settlement_GovAmplitudeTip>
+  <pas_settlement_DecayEnabled>Poor lords drain settlement points</pas_settlement_DecayEnabled>
+  <pas_settlement_DecayEnabledTip>When enabled, a lord with a governance factor below 1 drains the settlement's Rim War points each growth cycle (net decay, stopping at the Rim War floor of 100). When disabled, poor lords merely fail to add growth.</pas_settlement_DecayEnabledTip>
+  <pas_settlement_InspectLord>Lord: {0} (Polity {1}, Loyalty {2}, governance x{3})</pas_settlement_InspectLord>
+</LanguageData>
