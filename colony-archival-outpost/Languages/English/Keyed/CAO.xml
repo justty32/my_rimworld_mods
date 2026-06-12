@@ -47,4 +47,16 @@
   <CAO.Founding.NeedColonist>The caravan needs at least one colonist to found this outpost.</CAO.Founding.NeedColonist>
   <CAO.Founding.RatePerPawn>Rates scale with the number of occupant colonists.</CAO.Founding.RatePerPawn>
   <CAO.Founding.RateAbsolute>Fixed rates, regardless of the number of occupants.</CAO.Founding.RateAbsolute>
+  <!-- N5 power sampling -->
+  <CAO.Power.OnlyOneNode>Only one power sampling node is allowed per map.</CAO.Power.OnlyOneNode>
+  <CAO.Power.Connect>Connect to outpost</CAO.Power.Connect>
+  <CAO.Power.Connect.Desc>Pick an archived outpost whose sampled net power this outlet feeds into (or draws from) the local power grid.</CAO.Power.Connect.Desc>
+  <CAO.Power.Disconnect>Disconnect outpost</CAO.Power.Disconnect>
+  <CAO.Power.NoOutposts>No archived outpost has power sampling data.</CAO.Power.NoOutposts>
+  <CAO.Power.Connected>Connected: {0}</CAO.Power.Connected>
+  <CAO.Power.NotConnected>Not connected to any outpost.</CAO.Power.NotConnected>
+  <CAO.Power.Output>Net power: {0} W</CAO.Power.Output>
+  <CAO.ArchivalConfirm.ApplyPower>Count grid power (avg net {0} W: positive generates, negative consumes)</CAO.ArchivalConfirm.ApplyPower>
+  <CAO.SamplingStatus.NodePower>Sampling node net power: {0} W</CAO.SamplingStatus.NodePower>
+  <CAO.SamplingStatus.NoNode>No power sampling node placed — power not sampled.</CAO.SamplingStatus.NoNode>
 </LanguageData>

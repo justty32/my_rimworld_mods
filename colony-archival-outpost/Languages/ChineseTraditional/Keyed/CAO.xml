@@ -47,4 +47,16 @@
   <CAO.Founding.NeedColonist>商隊至少需要一名殖民者才能建立此哨站。</CAO.Founding.NeedColonist>
   <CAO.Founding.RatePerPawn>速率隨進駐殖民者人數縮放。</CAO.Founding.RatePerPawn>
   <CAO.Founding.RateAbsolute>固定速率，不論進駐人數。</CAO.Founding.RateAbsolute>
+  <!-- N5 電力採樣 -->
+  <CAO.Power.OnlyOneNode>每張地圖只能放置一個供電節點。</CAO.Power.OnlyOneNode>
+  <CAO.Power.Connect>連接封存哨站</CAO.Power.Connect>
+  <CAO.Power.Connect.Desc>選擇一個封存哨站，由此輸出端把該哨站採樣到的淨功率灌入（或抽取）本地電網。</CAO.Power.Connect.Desc>
+  <CAO.Power.Disconnect>斷開哨站</CAO.Power.Disconnect>
+  <CAO.Power.NoOutposts>沒有任何封存哨站具備電力採樣資料。</CAO.Power.NoOutposts>
+  <CAO.Power.Connected>已連接：{0}</CAO.Power.Connected>
+  <CAO.Power.NotConnected>未連接任何哨站。</CAO.Power.NotConnected>
+  <CAO.Power.Output>淨功率：{0} W</CAO.Power.Output>
+  <CAO.ArchivalConfirm.ApplyPower>計入電網消耗與產出（平均淨功率 {0} W：正值發電、負值耗電）</CAO.ArchivalConfirm.ApplyPower>
+  <CAO.SamplingStatus.NodePower>供電節點淨功率：{0} W</CAO.SamplingStatus.NodePower>
+  <CAO.SamplingStatus.NoNode>未放置供電節點——不採集電力。</CAO.SamplingStatus.NoNode>
 </LanguageData>
