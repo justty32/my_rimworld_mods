@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.sanguo.cityeconomy</packageId>
+  <name>City Economy (Community)</name>
+  <author>justty32</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Torann.RimWar</packageId>
+      <displayName>Rim War</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2222935097</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Torann.RimWar</li>
+    <li>pas.officers.community</li>
+    <li>pas.officers.settlements</li>
+  </loadAfter>
+  <description>Romance-of-the-Three-Kingdoms flavour for Rim War: settlements get a real economy and defenses.\n\n- Every Rim War tracked NPC settlement carries real wealth (silver, food, goods) and fortifications (defense level and points) that grow over time with the city.\n- Warband sieges are blunted by city defenses; when a city is sacked, its actual wealth is plundered, not just abstract points.\n- Settlement trade stock scales with the city's wealth, and trading with a settlement feeds back into its economy.\n- If Settlement Lords (Community) is installed, a capable governing lord accelerates the city's wealth growth; without it the mod works standalone.\n\nRequires Harmony and Rim War. Named Officers / Settlement Lords are optional. Safe to add to existing saves.</description>
+</ModMetaData>

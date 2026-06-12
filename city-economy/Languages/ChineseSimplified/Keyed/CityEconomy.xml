@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_cityecon_ModName>城池经济（社群版）</pas_cityecon_ModName>
+  <pas_cityecon_GrowthRate>财富成长率：x{0}</pas_cityecon_GrowthRate>
+  <pas_cityecon_GrowthRateTip>聚落财富（白银/粮食/货物）与城防工事每轮累积的速度。0＝停用成长；既有存量、劫掠与守城照常运作。装有“聚落领主”时，贤能太守会放大财富成长。</pas_cityecon_GrowthRateTip>
+  <pas_cityecon_SackLossRatio>劫掠损失比例：{0}%</pas_cityecon_SackLossRatio>
+  <pas_cityecon_SackLossRatioTip>城池被军团洗劫时损失的白银/粮食/货物比例（城防点数同时折半）。0＝停用真实资源劫掠；Rim War 原有的点数搬移不受影响。</pas_cityecon_SackLossRatioTip>
+  <pas_cityecon_DefenseAmplitude>守城加成幅度：x{0}</pas_cityecon_DefenseAmplitude>
+  <pas_cityecon_DefenseAmplitudeTip>城防工事为被围聚落提供多强的掩护：城防点数在当回合临时抬高其有效战斗点数（受 Rim War 自身战斗分档上限封顶），战后即还原。0＝停用守城效果。绝不修改聚落点数存量。</pas_cityecon_DefenseAmplitudeTip>
+  <pas_cityecon_TraderEconomy>财富影响贸易货架</pas_cityecon_TraderEconomy>
+  <pas_cityecon_TraderEconomyTip>启用后，聚落贸易货架的数量（白银、粮食、货物）随其真实财富缩放，且玩家交易会回写城池经济。停用即恢复原版货架行为。</pas_cityecon_TraderEconomyTip>
+  <pas_cityecon_InspectLine>城财：银 {0}、粮 {1}、货 {2}｜城防 Lv{3}（{4} 点）</pas_cityecon_InspectLine>
+</LanguageData>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_cityecon_ModName>City Economy (Community)</pas_cityecon_ModName>
+  <pas_cityecon_GrowthRate>Wealth growth rate: x{0}</pas_cityecon_GrowthRate>
+  <pas_cityecon_GrowthRateTip>How fast settlement wealth (silver/food/goods) and fortifications accumulate each cycle. 0 disables growth; existing stockpiles, sacking and defense still work. A governing lord (Settlement Lords) multiplies wealth growth when present.</pas_cityecon_GrowthRateTip>
+  <pas_cityecon_SackLossRatio>Sack plunder ratio: {0}%</pas_cityecon_SackLossRatio>
+  <pas_cityecon_SackLossRatioTip>Share of a city's silver/food/goods lost when it is sacked by a warband (defense points are also halved). 0 disables real-resource plunder; Rim War's own point transfer is untouched either way.</pas_cityecon_SackLossRatioTip>
+  <pas_cityecon_DefenseAmplitude>Defense bonus amplitude: x{0}</pas_cityecon_DefenseAmplitude>
+  <pas_cityecon_DefenseAmplitudeTip>How strongly fortifications shield a besieged settlement: defense points temporarily raise its effective combat points for the battle round (capped by Rim War's own combat tier clamp) and are restored afterwards. 0 disables the defense effect. Settlement point stockpiles are never modified.</pas_cityecon_DefenseAmplitudeTip>
+  <pas_cityecon_TraderEconomy>Wealth affects trade stock</pas_cityecon_TraderEconomy>
+  <pas_cityecon_TraderEconomyTip>When enabled, a settlement's trade stock quantities (silver, food, goods) scale with its real wealth, and player trades feed back into the city's economy. Disable to restore vanilla trade stock behaviour.</pas_cityecon_TraderEconomyTip>
+  <pas_cityecon_InspectLine>Wealth: {0} silver, {1} food, {2} goods | Defense Lv{3} ({4} pts)</pas_cityecon_InspectLine>
+</LanguageData>

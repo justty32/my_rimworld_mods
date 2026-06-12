@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    建置：dotnet build Source/CityEconomy.csproj -c Release
+    參考組件路徑可由 /p: 覆寫（預設＝本機 Linux Steam 安裝）：
+      RimWarDll    Rim War 主程式（workshop 2222935097，注意資料夾是 v1.6）
+      HarmonyDll   0Harmony.dll（workshop 2009463077）
+    鐵律：P0 named-officers／P2 settlement-lords 為 soft-optional——
+    本 csproj 絕不引用 NamedOfficers.dll / SettlementLords.dll（反射橋接，healthcheck guard）。
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>CityEconomy</AssemblyName>
+    <RootNamespace>pas.sanguo.cityeconomy</RootNamespace>
+    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RimWarDll Condition=" '$(RimWarDll)' == '' ">$(HOME)/.local/share/Steam/steamapps/workshop/content/294100/2222935097/v1.6/Assemblies/RimWar.dll</RimWarDll>
+    <HarmonyDll Condition=" '$(HarmonyDll)' == '' ">$(HOME)/.local/share/Steam/steamapps/workshop/content/294100/2009463077/Current/Assemblies/0Harmony.dll</HarmonyDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <Reference Include="RimWar">
+      <HintPath>$(RimWarDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

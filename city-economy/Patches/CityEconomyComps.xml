@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- 鏡像 RimWar 官方 RimWarCompsx.xml 的注入 xpath（只掛會被 RimWar 追蹤的聚落 def，
+       不掛 Caravan/WarObject）。同 xpath 雙方各自 PatchOperationAdd，疊加安全。 -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>*/WorldObjectDef[worldObjectClass = "Settlement"]/comps</xpath>
+    <value>
+      <li Class="pas.sanguo.cityeconomy.WorldObjectCompProperties_SettlementWealth"></li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationTest">
+        <xpath>*/WorldObjectDef[worldObjectClass = "Cities.City"]/comps</xpath>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>*/WorldObjectDef[worldObjectClass = "Cities.City"]/comps</xpath>
+        <value>
+          <li Class="pas.sanguo.cityeconomy.WorldObjectCompProperties_SettlementWealth"></li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationTest">
+        <xpath>*/WorldObjectDef[worldObjectClass = "FactionColonies.WorldSettlementFC"]/comps</xpath>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>*/WorldObjectDef[worldObjectClass = "FactionColonies.WorldSettlementFC"]/comps</xpath>
+        <value>
+          <li Class="pas.sanguo.cityeconomy.WorldObjectCompProperties_SettlementWealth"></li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+</Patch>
