@@ -12,9 +12,15 @@
 | A | warband 是否襲擊 VOE outpost | ✅ 完成 |
 | B | 如何讓 warband 襲擊 VOE/封存哨站 | ✅ 完成 |
 | C | RimWar × Empire 更多聯動機會 | ✅ 完成 |
-| D | warband 建聚落變體改建哨站＋降頻 | ⏳ 進行中 |
-| E | warband 三國志式屬性＋將領佔位符 | ⏳ 進行中 |
-| F | 聚落掛領主/官員佔位符 × faction-politics | ⏳ 進行中 |
+| D | warband 建聚落變體改建哨站＋降頻 | ✅ 完成 |
+| E | warband 三國志式屬性＋將領佔位符 | ✅ 完成 |
+| F | 聚落掛領主/官員佔位符 × faction-politics | ✅ 完成 |
+| G | 領主/官員屬性影響據點點數成長/削弱 | ✅ 完成 |
+| H | Rim War 據點擴充金錢/資源維度 | ✅ 完成 |
+| I | 領主/官員 pawn 之間的關係好感度 | ✅ 完成 |
+| J | 依領主決策決定建哪些 outpost | ✅ 完成 |
+| K | 據點屬性 dict 容器（領主治理） | ✅ 完成 |
+| — | 自家 mod 盤點（13 mod 整合藍圖） | ✅ 完成 |
 
 ---
 
@@ -70,25 +76,108 @@
 
 ---
 
-## D. warband 建聚落變體改建哨站＋降頻
+## D. warband 建聚落變體改建哨站＋降頻 → 推薦 Mod 1 加一個 `CreateSettlement` Prefix
 
-⏳ 進行中（首次派發跑空、已重派）。完成後回填。
+**Rim War 聚落生成鏈（單一線性）**：決策抽籤 `RimWarData.GetWeightedSettlementAction`（`RW:1688`，`Rand.Value <= settlerChance`→`RimWarAction.Settler`）→ 權重 `CalculateFactionBehaviorWeights`（`RW:15977`，受 `createsSettlements` 旗標 gate）→ 每聚落排程 `WorldComponent_PowerTracker.WorldComponentTick`（`RW:17030`）到 `nextEventTick` 抽籤、`< maxFactionSettlements` 時 `AttemptSettlerMission`（`RW:17167`）→ 生 `RW_Settler` WarObject（`CreateSettler RW:15783`）→ 抵達 `Settler.ArrivalAction`（`RW:12302`）呼 `CreateSettlement`（`RW:12574`）→ **`WorldUtility.CreateSettlement`（`RW:15248`，public static）→ `SettleUtility.AddNewHome`（`RW:15259`）建 vanilla Settlement**。
 
----
+**頻率控制點**：`settlerChance`（`RW:1157`）、behavior 權重（`RW:15989`…）、`createsSettlements` 旗標（派系 def，純資料）、`maxFactionSettlements`（預設 40）、`settlementEventDelay`（預設 50000 tick）——後兩者是 **ModSettings 滑桿**（`RW:7373-7410`），非 Def。
 
-## E. warband 三國志式屬性＋將領佔位符
-
-⏳ 進行中。完成後回填。
-
----
-
-## F. 聚落掛領主/官員佔位符 × faction-politics（colony rebellion）
-
-⏳ 進行中。背景：使用者的「colony rebellion」＝本機 `faction-politics` mod（有 `RebellionProfileDef`、派系分裂、named NPC bridge）。完成後回填。
+**推薦：路 A — Prefix `WorldUtility.CreateSettlement`（`RW:15248`）**，按設定機率改呼叫 npc-outposts 的 `OutpostPlacer.TryPlaceFor(parent, profile)`（`~/repo/my_rimworld_mods/npc-outposts/Source/World/OutpostPlacer.cs:11`）建 NpcOutpost、`return false` skip 原版。Prefix 拿得到 `warObject`(Settler，可取 `ParentSettlement` 當母聚落)/`tile`/`faction`。profile 由 `OutpostProfileResolver.Resolve(faction)` 解析。**一個 patch 同時達成「建哨站變體」＋「降低建聚落頻率」**（settler→哨站轉換率即淨降聚落生成率）。
+- 落點：`TryPlaceFor` 自己在母聚落 `profile.radius` 內重找 tile（語意 OK：從母聚落派衛星）。
+- fail-soft：profile 解析不到/placer 回 null/例外 → 放行原版建城（仿 Mod 1 `Patch_ConvertSettlement` 風格）。
+- 不碰 enum/dispatch/權重正規化（extension_points.md 標「極高風險」散布區全避開）。
+- **歸屬：Mod 1 `npc-outposts-rimwar`**（已 patch 同類 `WorldUtility`、已有 fail-soft 框架/ModSettings/spawner cap）。新增 `Source/Patches/Patch_CreateSettlement.cs` + 1 個 slider `settlerToOutpostChance`（預設 0.6）。
+- 路 B（只降頻、靠 npc-outposts 既有 spawner 增生）零成本但無「warband 變體」敘事；可與 A 疊加。
 
 ---
 
-## 三國志化願景（跨 D/E/F 的整合圖像，待調查回填後細化）
+## E. warband 三國志式屬性＋將領佔位符 → 推薦 WorldObjectComp（注入 RW_Warband def）
+
+**WarObject 資料模型**：`WarObject : WorldObject`（`RW:14157`）、`Warband : WarObject`（`RW:13236`，同層 Scout/Trader/Settler/Diplomat）。戰力＝純抽象點數 `warPointsInt`/`pointDamageInt`→`EffectivePoints`。**已內建 `private List<Pawn> pawns`（`RW:14208`，深存於 `RW:14557` `LookMode.Deep`）但抽象 warband 生成時為空、閒置**（真 pawn 只在打到地圖時 `GeneratePawnGroup RW:11521/11582` 臨時生）。`rimwarData`（`RW:14475`）是**派系級計算屬性**、含 `combatAttribute`（`RW:1171`）。工廠 `CreateWarObjectOfType RW:15358`→`CreateWarband RW:15467`→`MakeWarband RW:15518`（硬編碼 `RW_Warband` def + `new Warband()`）。
+
+**推薦：WorldObjectComp**（Rim War 原生慣例，存檔相容最佳）——自訂 `CompProperties` 用 Harmony 注入 `RimWarDefOf.RW_Warband.comps`，存將領武力/統率/智力/士氣（`Scribe_Values`）。**子類化不可行**（工廠硬編碼、多呼叫點）。
+- **將領 pawn**：(A) 真 Pawn（深存、照 VOE `AddPawn` 清 caravan/WorldPawns/holdingOwner，`VOE:1022`）或 (B) 輕量佔位符（string+ints）。**MVP 走 B**。
+- **戰力注入點（核心）**：`IncidentUtility.ResolveCombat_Units`（`RW:11271`，公式 `points × Rand × combatAttribute` 於 `RW:11290-11291`）→ postfix/transpiler 乘將領加成。**勿直接改派系級 `combatAttribute`**（污染全派系），要局部乘。聚落戰用 `ResolveCombat_Settlement RW:11018`。
+- **顯示**：`WarObject.GetInspectString`（virtual `RW:14860`）+ comp `CompInspectStringExtra`/gizmo；仿 `Settlement_InspectString_WithPoints_Postfix RW:5977`。
+- **可達成度 ~80%**：戰略抽象層三國志（名將帶兵更能打），非戰術單騎。**MVP＝輕量 comp + 注入 ResolveCombat_Units + inspect 顯示**。
+- 與聚落領主（F）共用「具名 pawn + 屬性」基礎設施（見下）。
+
+---
+
+## F. 聚落掛領主/官員佔位符 × faction-politics → 擴充 faction-politics、抽共用「具名職官」層
+
+**「colony rebellion」＝本機 `faction-politics`**（`pas.politics.community`，零 Harmony/零硬相依）。現況：NPC 派系生**一個具名反叛者 world pawn** 駐某城，進展累積到閾值 `FactionSplitter` **分裂新派系**（聚落含哨站倒戈）。**它已實作「具名 pawn↔聚落綁定」**——正是領主佔位符的地基：
+- `RebelSpawner.cs:13-36`：`GeneratePawn` + `WorldPawns.PassToWorld(KeepForever)`；
+- pawn↔城橋 `homeSettlement.previouslyGeneratedInhabitants.Add`（`RebelSpawner.cs:24`，玩家拜訪該城 redress 請回同一 pawn）；
+- `RebelRecord.cs`（IExposable：faction/rebel(ref)/homeSettlement(ref)/progress/ratePerDay）；
+- `WorldComponent_RebellionTracker`（2500-tick 心跳+自癒）；存檔 pawn 走 `Scribe_References`、record 走 Deep。
+
+**推薦混合承載**（鏡像 Empire 模型）：①**數值層走 WorldObjectComp**（能力值/職位/忠誠，仿 Empire `WorldSettlementFC` 的 unrest/loyalty/prosperity；先例 `RimWarSettlementComp:9078`，掛任何 `Settlement` 子類含 RimWar City/Empire/NpcOutpost）②**具現層走真 Pawn 懶生成**（平時輕量 record，拜訪/攻打時才 `GeneratePawn` + 既有 `previouslyGeneratedInhabitants` 橋）。
+- **屬性影響管道**（皆有現成接點）：產出/稅收（Empire `WorldSettlementFC.CreateTax`）、防守（`RimWarPoints` / npc-outposts `defenderPointsFactor`）、叛亂傾向（餵 `RebelRecord.ratePerDay`）。
+- **與 rebellion 連動**：`ratePerDay`（`RebellionTracker.cs:51`，源 `RebelSpawner.cs:29`）← 領主忠誠/魅力函數；`TrySplit`（`152-172`）；`FactionSplitter.Split`（`14-51`，反叛者升 `newFaction.leader`）——**「領主帶城叛變獨立」80% 現成**，把「藏匿反叛者」改寫成「公開城池領主」即是三國志式叛變；倒戈通知 `PoliticsBridges.SettlementDefected`（哨站跟隨/RimWar 同步已掛）。
+- **歸屬：擴充 faction-politics（P-next），不開全新 mod**（地基已在）。**強烈建議把「具名 pawn + 屬性」抽成共用層**（可獨立 `pas.named-officers` 基礎 mod），**城池領主（F）與 warband 將領（E）共消費同款 comp/record**。
+- **可行性高**，主要工作：把 `RebelRecord`/`RebelSpawner` 從「單一反叛者」泛化為「領主＋N 官員 record list」+ 加屬性 comp + 接 `ratePerDay`/`RimWarPoints`/稅收。風險：world pawn 數量控管（懶生成）、comp 掛載時序（沿用軟橋）。
+
+---
+
+## G. 領主/官員屬性影響據點點數成長/削弱 → 領主 mod 獨立 postfix（仿 Mod 1）
+
+**成長節奏**：`WorldComponentTick RW:17030`→每 `rwdUpdateFrequency`(2500)→`UpdateFactions RW:17560`→`IncrementSettlementGrowth RW:17567`。**成長公式（`RW:17622-17631`）**：`num4 = (Rand(2,3)+biome) × num × tech × growthAttribute × settlementGrowthRate`，`RimWarPoints += RoundToInt(Clamp(num4,1,100))`（每城每輪最多 +100）；`bonusGrowthCount`（`RW:9098`）是 RimWar 自己的「逐城 int 加速」先例。
+- **關鍵：`growthAttribute`（`RW:1173`）是派系級共享**，動它全派系一起變 → **不能**當單城領主倍率。領主倍率**必須逐城 postfix 補乘**（warband 將領能用 `combatAttribute` 當鉤子、本案不行的根本差異）。
+- **衰退**：原版只有 PointDamage 分支（`RW:17616-17620`，需 `PointDamage>0`；`if/else if` → 戰損中的城當輪不成長）；成長分支被 `Clamp(...,1,100)` 鎖死下限 +1，**永不為負**。故「庸主→淨衰退」必走 postfix 扣 `RimWarPoints` 或加 `PointDamage`，不能靠改係數。
+- **骨架**：postfix 逐城讀領主 comp `GovernanceFactor`（政務×忠誠，0.5~1.5）；`gov≥1` 補成長、`gov<1` 扣點；鏡像「`PointDamage>0` 跳過」、複用 Mod 1 `GrowthCapFor` 上限鏡像。`RimWarPoints` setter `Max(0,)`、getter 地板 100（`RW:9267`）→ 衰退停在 100，**摧毀城需走 ConvertSettlement 易主**（`RW:11168`），非本注入點。
+- **歸屬：領主系統 mod 自己的 postfix**（與 Mod 1 哨站貢獻正交；多 postfix 疊加同方法安全；勿塞進 Mod 1）。`GrowthCapFor` 抽共享 util。
+- 風險：上限/地板鏡像漂移、PointDamage 語意、派系級 vs 聚落級混淆（**勿動 `RW:1171/1173/17625` 係數**）、threading（`RW:17062`）。
+
+## H. Rim War 據點擴充金錢/資源維度 → 新增 `SettlementWealthComp`（XML 注入、抽象計數器）
+
+**現況**：Rim War 經濟全建在抽象 `RimWarPoints`，**無真實 silver/wealth/goods 欄位**。silver 只在玩家↔NPC 介面層（`GetPlayerSilver RW:124`、`TributeSilver RW:667` 掃玩家地圖）。`Trader`（`RW:11977`）無 inventory、貨物由 vanilla `ThingSetMaker` 即時生成；trade 結算純 `RimWarPoints` 轉移（`RW:10448/11938`）。**掠奪已存在**：`ResolveBattle_Settlement` sack 分支（`RW:11197-11212`），城破搬 `RimWarPoints×Rand(0.3,0.6)` 給攻方——搬點數非物資，"wealth" 只在信件文案。
+
+**推薦：新增自訂 `WorldObjectComp` `SettlementWealthComp`（XML 注入、勿擴 RimWarSettlementComp）**，存 `silver/food/goods`（int, `Scribe_Values`，仿 `RimWarSettlementComp.PostExposeData RW:9502`）。成長走**自 comp `CompTick` + nextTick 節流**（仿 `RW:9585`，與 Rim War 解耦）；需與點數同步才 postfix `IncrementSettlementGrowth`。
+- **互動接點**：戰敗被劫 postfix `ResolveBattle_Settlement` sack 分支（`RW:11197`，複用既有觸發、換搬真資源）；貿易 postfix trade 結算（`RW:10448/11938`）；Empire 稅收 `ITaxTickParticipant.PostSettlementCreateTax`（`ref silverAmount`，免 Harmony）；領主貪腐接 F/G comp。
+- **玩法**：劫掠經濟（最契合）、貿易路線、上繳朝貢、領主貪腐。
+- **歸屬：獨立 mod，「RimWar 側自有 comp + Empire 側 registry participant」形態**（同 C#1 範式；Empire Registry `ClearCaches` 陷阱同 C）。
+- **顯示**：獨立 `GetInspectString` postfix（仿 `RW:6570`），勿改 Rim War postfix。**設計決策**：抽象計數器（推薦，合 Rim War 哲學）vs 真 Thing。
+
+## I. 領主/官員 pawn 之間的關係好感度 → 雙軌（DirectPawnRelation + 自訂 opinion dict）
+
+- **持久關係（結拜/世仇）→ vanilla `DirectPawnRelation` + 自訂 `PawnRelationDef`**：對 world pawn **完全可用**（隨 pawn 存檔，`AddDirectRelation` 無 Spawned 檢查，`Pawn_RelationsTracker.cs:483/292`）。零成本。
+- **連續好感度（會漲跌）→ 自訂輕量 opinion dict**：vanilla 動態 opinion **對 world pawn 凍結**（社交想法靠 InteractionsTracker、被 `Pawn.cs:1659` 的 `Spawned` 閘死）。故存 `Dictionary<otherPawnId,int>`（IExposable, `Scribe` value），掛具名職官 record/comp，由既有 2500-tick 心跳演化。
+- **玩法接點**：餵叛亂 `ratePerDay`（`RebellionTracker.cs:51`；官員集體厭領主→更快 `TrySplit`）、戰力（`ResolveCombat_Units RW:11271` 兩將不和打折）、治理（`IncrementSettlementGrowth RW:17567` 經 GovernanceFactor）。
+- 住 E/F 共用「具名職官」層；複用 faction-politics world pawn 管線與心跳。A 軌（結構關係）+ B 軌（情緒好感度）並用，B 讀 A 當初始 bias。
+
+## J. 依領主決策決定建哪些 outpost → npc-outposts 加 `TypeSelector` hook + Mod 1 權重函數
+
+- **選型唯一處**：`OutpostPlacer.TryPlaceFor`（`npc-outposts/Source/World/OutpostPlacer.cs:11`），第 17-20 行 `profile.types.RandomElementByWeight` 純隨機；`TryPlaceFor` 已有 `type=null` 參數可繞過隨機＝乾淨注入縫。
+- **推薦：npc-outposts 加第三個 static hook `TypeSelector`**（仿既有 `GrowthRateMultiplier`/`ParentEligibilityOverride`，`WorldComponent_OutpostSpawner.cs:17/22`）：`type ??= TypeSelector?.Invoke(parent,profile)`；spawner（line 61/89）與 D 兩路徑同時受益、本體 hook=null 零變化。
+- **Mod 1 註冊權重函數**：讀母聚落領主 comp 能力值 + RimWar `behavior` + Mod 1 `WorldComponent_OutpostWarMomentum` score → 重加權 `profile.types`。**MVP＝純權重函數，非 FSM**（策略靠現成 momentum/behavior 訊號推導）。
+- 串接 D(管道)/G(成長)/H(財富成本)。歸屬：hook 在 npc-outposts 本體、權重函數在 Mod 1。**硬前置：領主屬性 comp（F/E 基礎層）尚未實作，須先建。**
+
+## K. 據點屬性容器（領主治理） → 併入 H 的 `SettlementWealthComp`，typed 主幹 + Def-dict 旁路
+
+- **容器設計**：核心維度用 **typed int 欄位**（`silver/food/goods/defenseLevel/defensePoints`，`Scribe_Values`，與 `RimWarSettlementComp.PostExposeData RW:9502` 同形、最安全）；擴充性預留 `Dictionary<SettlementAttributeDef,float> extraAttributes` 旁路（本機 `OutpostProfileDef` 已驗證 Def 驅動屬性可行）。**純 string-dict 否決**（參與邏輯的屬性需穩定符號）。
+- **防禦屬性 ↔ RimWarPoints**：防禦是**獨立維度**，**勿疊進存量**（污染經濟/sack）。守城時透過**降 `PointDamage` 臨時抬高 `EffectivePoints`**（`EffectivePoints=RimWarPoints-PointDamage RW:9277`）參與 `ResolveCombat_Settlement RW:11018`，受其 `num` tier clamp 自動封頂；玩家實打另走 `defenderPointsFactor` 範式（`OutpostTypeDef.cs:10`）。
+- **領主治理動作層 = 與 J 共用 `ILordAction` 決策骨架**：同一 per-tick/per-lord 迴圈讀領主 comp，**對內動作**（蓋倉庫/修防禦/徵糧，寫 wealth comp）+ **對外動作**（建哪種 outpost，走 D 的 `CreateSettlement` 接點）；`GovernanceFactor` 調制成敗。歸屬領主系統 mod。
+- **與 H 合併成單一 comp**：H 經濟維度+互動接點，本案加防禦維度+守城折算+治理寫入層。
+
+## 自家 mod 盤點（13 mod 整合藍圖）
+
+> 實際 packageId 校準：`npc-outposts`=`pas.outposts.community`、`colony-archival-outpost`=`pas.colonyarchival.outpost`。
+
+**核心地基（複用、勿重造）**：
+- **faction-politics**（`pas.politics.community`）：具名 pawn↔聚落綁定（`RebelSpawner.cs` `PassToWorld(KeepForever)` + `previouslyGeneratedInhabitants` 橋）、`RebelRecord`、`WorldComponent_RebellionTracker`(心跳+自癒)、`FactionSplitter`(反叛者升 `newFaction.leader`)。**＝領主系統①地基 + 叛亂⑥**。
+- **npc-outposts**（`pas.outposts.community`）：`NpcOutpost:Settlement`、增生引擎、`OutpostTypeDef`/profile、**兩個 public static hook**。**＝哨站擴張③地基**。
+- **戰爭叢集 Mod 1/2/3**：RimWar 接線、Empire 契約層、雙向易主——**⑦範式已驗證**。
+- **colony-archival-outpost**：封存採樣→抽象產出（**＝⑧，E1 進行中**）。
+- **voe-outpost-enhancement**（`justty32.VOEOutpostEnhancement`）：花銀升級 gizmo+扣費+WorldComponent——**＝城池發展②投資範式**。
+- **sims-mode-community**（`pas.sims.community`）：角色/作息層——領主拜訪具現呈現。
+- 無關（排除）：speakup-context-expansion、cqf-caravan-redemption、body-fortification-hediff、body-hp-x10。
+
+**需新建**：①**共用 `pas.named-officers` 基礎層**（從 faction-politics 抽取泛化：具名 pawn+屬性+關係+懶生成，領主與將領共消費）②warband 將領（E）③聚落領主 comp+點數影響（F/G）④城池財富/防禦（H/K 單一 comp）⑤領主決策層（J/K 的 ILordAction）。
+
+**建議架構**：`pas.named-officers`（基礎）→ 聚落領主 mod（F/G/K/J 決策）＋ warband 將領（E）＋ faction-politics 擴充（叛亂改寫成領主帶城叛變）；戰爭叢集 Mod 1/2/3 已完成、新功能掛載其上勿改寫；城池財富獨立 mod「RimWar comp + Empire registry participant」形態。
+
+## 三國志化願景（跨全部調查 A–K 的整合圖像）
 
 使用者要的整體感覺：**Rim War 大地圖戰爭 + 具名人物（將領率軍、太守治城）+ 叛亂/勢力消長**，把抽象點數戰爭變成有人物的三國志式大戰略。
 - **E（warband 將領）** 與 **F（聚落領主/官員）** 應共用一套「具名 pawn 佔位符 + 屬性」基礎設施（待兩調查確認可共用）。
