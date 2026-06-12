@@ -38,6 +38,32 @@ namespace ColonyArchivalOutpost
                             && (dailyHediffDeltas == null || dailyHediffDeltas.Count == 0)
                             && avgHealthDeltaPerDay == 0f;
 
+        // E1：深複製。新建各字典、複製值；def key 為共享單例直接帶引用。
+        // 註冊與建造時各複製一次，杜絕共享可變字典。
+        public ProductivitySnapshot Clone()
+        {
+            var c = new ProductivitySnapshot
+            {
+                perPawnScaling = perPawnScaling,
+                basePawnCount = basePawnCount,
+                applySkillXP = applySkillXP,
+                avgHealthDeltaPerDay = avgHealthDeltaPerDay,
+                applyHealthDelta = applyHealthDelta,
+                applyHealthDeterioration = applyHealthDeterioration,
+                applyHediffDeltas = applyHediffDeltas
+            };
+            c.dailyRates = dailyRates == null
+                ? new Dictionary<ThingDef, float>()
+                : new Dictionary<ThingDef, float>(dailyRates);
+            c.dailySkillXP = dailySkillXP == null
+                ? new Dictionary<SkillDef, float>()
+                : new Dictionary<SkillDef, float>(dailySkillXP);
+            c.dailyHediffDeltas = dailyHediffDeltas == null
+                ? new Dictionary<HediffDef, float>()
+                : new Dictionary<HediffDef, float>(dailyHediffDeltas);
+            return c;
+        }
+
         public void ExposeData()
         {
             Scribe_Collections.Look(ref dailyRates, "dailyRates", LookMode.Def, LookMode.Value);

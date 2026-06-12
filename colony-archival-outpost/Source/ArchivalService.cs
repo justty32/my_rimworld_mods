@@ -193,14 +193,8 @@ namespace ColonyArchivalOutpost
             if (applyHealthDeterioration && snapshot.avgHealthDeltaPerDay > 0f)
                 snapshot.applyHealthDeterioration = true;
 
-            // 1) 建 outpost(掛玩家陣營, 餵 snapshot)
-            var outpost = (Outpost_Sampled)WorldObjectMaker.MakeWorldObject(
-                DefDatabase<WorldObjectDef>.GetNamed("pas_archival_Outpost"));
-            outpost.Tile = tile;
-            outpost.SetFaction(Faction.OfPlayer);
-            outpost.SetSnapshot(snapshot);
-            if (!name.NullOrEmpty()) outpost.Name = name;
-            if (!iconPath.NullOrEmpty()) outpost.chosenIconPath = iconPath;
+            // 1) 建 outpost(掛玩家陣營, 餵 snapshot)——與 VOE 建站選單共用 OutpostFactory.Create。
+            var outpost = OutpostFactory.Create(tile, Faction.OfPlayer, snapshot, name, iconPath);
             Find.WorldObjects.Add(outpost);
 
             // 2) 搬玩家 pawn(殖民者+玩家動物+殖民地囚犯)。我們的 def 無 <Event> → CanAddPawn 恆過。

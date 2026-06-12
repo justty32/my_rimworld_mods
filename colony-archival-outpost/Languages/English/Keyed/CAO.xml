@@ -37,4 +37,14 @@
   <CAO.ArchivalConfirm.ApplyHediffDeltas>Apply condition changes to occupant colonists ({0} conditions)</CAO.ArchivalConfirm.ApplyHediffDeltas>
   <CAO.ArchivalConfirm.ApplyHealthDeterioration>Apply injury deterioration (-{0} severity/pawn per cycle)</CAO.ArchivalConfirm.ApplyHealthDeterioration>
   <CAO.DefaultOutpostName>Archived Outpost</CAO.DefaultOutpostName>
+  <CAO.RegisterType>Register outpost type</CAO.RegisterType>
+  <CAO.RegisterType.Desc>Save this outpost's name, world icon and production snapshot as a reusable outpost type. Later, build the same type from a caravan's create-camp menu for free.</CAO.RegisterType.Desc>
+  <CAO.RegisterType.Registered>Registered outpost type "{NAME}".</CAO.RegisterType.Registered>
+  <CAO.RegisterType.Overwritten>Overwrote existing outpost type "{NAME}".</CAO.RegisterType.Overwritten>
+  <CAO.RegisterType.EmptySnapshot>This outpost has an empty production snapshot — nothing worth registering.</CAO.RegisterType.EmptySnapshot>
+  <CAO.Founding.Create>Build</CAO.Founding.Create>
+  <CAO.Founding.Unregister>Unregister</CAO.Founding.Unregister>
+  <CAO.Founding.NeedColonist>The caravan needs at least one colonist to found this outpost.</CAO.Founding.NeedColonist>
+  <CAO.Founding.RatePerPawn>Rates scale with the number of occupant colonists.</CAO.Founding.RatePerPawn>
+  <CAO.Founding.RateAbsolute>Fixed rates, regardless of the number of occupants.</CAO.Founding.RateAbsolute>
 </LanguageData>

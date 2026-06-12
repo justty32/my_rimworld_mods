@@ -45,6 +45,12 @@
     <Compile Include="Dialog_SamplingStatus.cs" />
     <Compile Include="PawnSkillSnapshot.cs" />
     <Compile Include="PawnHediffSnapshot.cs" />
+    <Compile Include="OutpostType.cs" />
+    <Compile Include="GameComponent_ArchivalTypes.cs" />
+    <Compile Include="OutpostFactory.cs" />
+    <Compile Include="CustomTypeMenu.cs" />
+    <Compile Include="CustomTypeRow.cs" />
+    <Compile Include="Dialog_CreateCamp_Patch.cs" />
   </ItemGroup>
 
   <ItemGroup>

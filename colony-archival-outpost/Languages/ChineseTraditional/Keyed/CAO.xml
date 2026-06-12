@@ -37,4 +37,14 @@
   <CAO.ArchivalConfirm.ApplyHediffDeltas>套用其他狀態變化至佔位符殖民者（共 {0} 種狀態）</CAO.ArchivalConfirm.ApplyHediffDeltas>
   <CAO.ArchivalConfirm.ApplyHealthDeterioration>套用傷勢惡化（每週期約 -{0} severity/pawn）</CAO.ArchivalConfirm.ApplyHealthDeterioration>
   <CAO.DefaultOutpostName>封存哨站</CAO.DefaultOutpostName>
+  <CAO.RegisterType>註冊哨站類型</CAO.RegisterType>
+  <CAO.RegisterType.Desc>把這座哨站的名稱、世界圖標與產出快照存為可重複建造的哨站類型。日後可在商隊的建站選單裡免費蓋出同類型哨站。</CAO.RegisterType.Desc>
+  <CAO.RegisterType.Registered>已註冊哨站類型「{NAME}」。</CAO.RegisterType.Registered>
+  <CAO.RegisterType.Overwritten>已覆寫既有哨站類型「{NAME}」。</CAO.RegisterType.Overwritten>
+  <CAO.RegisterType.EmptySnapshot>這座哨站的產出快照為空——沒有值得註冊的內容。</CAO.RegisterType.EmptySnapshot>
+  <CAO.Founding.Create>建立</CAO.Founding.Create>
+  <CAO.Founding.Unregister>取消註冊</CAO.Founding.Unregister>
+  <CAO.Founding.NeedColonist>商隊至少需要一名殖民者才能建立此哨站。</CAO.Founding.NeedColonist>
+  <CAO.Founding.RatePerPawn>速率隨進駐殖民者人數縮放。</CAO.Founding.RatePerPawn>
+  <CAO.Founding.RateAbsolute>固定速率，不論進駐人數。</CAO.Founding.RateAbsolute>
 </LanguageData>

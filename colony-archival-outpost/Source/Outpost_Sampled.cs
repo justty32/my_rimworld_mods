@@ -51,6 +51,37 @@ namespace ColonyArchivalOutpost
         }
 
         public void SetSnapshot(ProductivitySnapshot s) => snapshot = s ?? new ProductivitySnapshot();
+        public ProductivitySnapshot Snapshot => snapshot;
+
+        // E1：選中本（封存來的）哨站 → gizmo「註冊哨站類型」，把當前 snapshot 升格成可重複建造的類型。
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var g in base.GetGizmos())
+                yield return g;
+
+            var cmd = new Command_Action
+            {
+                defaultLabel = "CAO.RegisterType".Translate(),
+                defaultDesc = "CAO.RegisterType.Desc".Translate(),
+                icon = TexCommand.GatherSpotActive,
+                action = RegisterAsType
+            };
+            if (snapshot == null || snapshot.IsEmpty)
+                cmd.Disable("CAO.RegisterType.EmptySnapshot".Translate());
+            yield return cmd;
+        }
+
+        private void RegisterAsType()
+        {
+            var comp = GameComponent_ArchivalTypes.Current;
+            if (comp == null) return;
+            var type = new OutpostType(Name, chosenIconPath, snapshot.Clone());
+            bool overwrote = comp.Register(type);
+            Messages.Message(
+                (overwrote ? "CAO.RegisterType.Overwritten" : "CAO.RegisterType.Registered")
+                    .Translate(Name.Named("NAME")),
+                this, MessageTypeDefOf.PositiveEvent, false);
+        }
 
         public override List<ResultOption> ResultOptions
         {
