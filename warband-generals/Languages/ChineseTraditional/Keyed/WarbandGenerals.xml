@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_warband_ModName>戰團將領（社群版）</pas_warband_ModName>
+  <pas_warband_GeneralChance>將領生成率：{0}%</pas_warband_GeneralChance>
+  <pas_warband_GeneralChanceTip>新生成的 NPC 戰團由具名將領率領的機率。</pas_warband_GeneralChanceTip>
+  <pas_warband_BonusMax>將領戰力擺幅上限：±{0}%</pas_warband_BonusMax>
+  <pas_warband_BonusMaxTip>將領屬性對會戰傷害的影響幅度：屬性 100 得 +X%、屬性 0 得 -X%。逐場戰鬥局部套用，絕不修改派系級戰鬥係數。</pas_warband_BonusMaxTip>
+  <pas_warband_InspectGeneral>將領：{0}（武力 {1}、統率 {2}）</pas_warband_InspectGeneral>
+</LanguageData>

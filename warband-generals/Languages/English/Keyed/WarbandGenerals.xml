@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_warband_ModName>Warband Generals (Community)</pas_warband_ModName>
+  <pas_warband_GeneralChance>General spawn chance: {0}%</pas_warband_GeneralChance>
+  <pas_warband_GeneralChanceTip>Chance that a newly raised NPC warband is led by a named general.</pas_warband_GeneralChanceTip>
+  <pas_warband_BonusMax>Max general combat swing: ±{0}%</pas_warband_BonusMax>
+  <pas_warband_BonusMaxTip>How strongly general attributes swing battle damage: attributes at 100 give +X%, at 0 give -X%. Applied locally per battle round; faction-level combat stats are never modified.</pas_warband_BonusMaxTip>
+  <pas_warband_InspectGeneral>General: {0} (Might {1}, Command {2})</pas_warband_InspectGeneral>
+</LanguageData>

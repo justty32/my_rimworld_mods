@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <pas.officers.OfficerRoleDef>
+    <defName>pas_warband_General</defName>
+    <label>general</label>
+    <description>A named general leading a Rim War warband. Might and Command swing abstract battle resolution in the warband's favour.</description>
+    <displayPriority>10</displayPriority>
+    <leaderLike>false</leaderLike>
+  </pas.officers.OfficerRoleDef>
+</Defs>

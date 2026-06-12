@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.officers.warband</packageId>
+  <name>Warband Generals (Community)</name>
+  <author>justty32</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Torann.RimWar</packageId>
+      <displayName>Rim War</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2222935097</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>pas.officers.community</packageId>
+      <displayName>Named Officers (Community)</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Torann.RimWar</li>
+    <li>pas.officers.community</li>
+  </loadAfter>
+  <description>Romance-of-the-Three-Kingdoms flavour for Rim War: NPC warbands get named generals.\n\n- Newly raised warbands have a chance to be led by a named general with Might and Command stats (Named Officers foundation layer).\n- Generals swing abstract battles: a strong general deals more and takes less point damage, applied locally per battle round (faction-level stats are never touched).\n- The warband inspect pane shows the general and a stat summary.\n- Victorious generals carry over to the regrouped warband; generals whose warband is wiped out are removed.\n\nRequires Harmony, Rim War and Named Officers (Community). Safe to add to existing saves.</description>
+</ModMetaData>
