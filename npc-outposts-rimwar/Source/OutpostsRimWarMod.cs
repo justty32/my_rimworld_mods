@@ -14,6 +14,9 @@ namespace pas.outposts.rimwar
         /// <summary>true＝被佔哨站易主給攻方；false＝直接摧毀。</summary>
         public bool captureToConqueror = true;
 
+        /// <summary>settler 抵達時改建哨站（而非聚落）的機率。0＝全建聚落（停用），1＝全改哨站。</summary>
+        public float settlerToOutpostChance = 0.6f;
+
         /// <summary>戰局動態增減總開關。</summary>
         public bool warMomentumEnabled = true;
 
@@ -29,6 +32,7 @@ namespace pas.outposts.rimwar
             Scribe_Values.Look(ref pointsPerOutpost, "pointsPerOutpost", 4f);
             Scribe_Values.Look(ref initialOutpostPoints, "initialOutpostPoints", 400);
             Scribe_Values.Look(ref captureToConqueror, "captureToConqueror", defaultValue: true);
+            Scribe_Values.Look(ref settlerToOutpostChance, "settlerToOutpostChance", 0.6f);
             Scribe_Values.Look(ref warMomentumEnabled, "warMomentumEnabled", defaultValue: true);
             Scribe_Values.Look(ref momentumMaxMultiplier, "momentumMaxMultiplier", 1.5f);
             Scribe_Values.Look(ref shrinkEnabled, "shrinkEnabled", defaultValue: true);
@@ -62,6 +66,11 @@ namespace pas.outposts.rimwar
 
             listing.CheckboxLabeled("pas_outposts_rimwar_CaptureToConqueror".Translate(), ref Settings.captureToConqueror,
                 "pas_outposts_rimwar_CaptureToConquerorTip".Translate());
+
+            listing.Label("pas_outposts_rimwar_SettlerToOutpostChance".Translate(
+                (Settings.settlerToOutpostChance * 100f).ToString("0")), -1f,
+                "pas_outposts_rimwar_SettlerToOutpostChanceTip".Translate());
+            Settings.settlerToOutpostChance = Mathf.Round(listing.Slider(Settings.settlerToOutpostChance, 0f, 1f) * 20f) / 20f;
             listing.GapLine();
 
             listing.CheckboxLabeled("pas_outposts_rimwar_MomentumEnabled".Translate(), ref Settings.warMomentumEnabled,

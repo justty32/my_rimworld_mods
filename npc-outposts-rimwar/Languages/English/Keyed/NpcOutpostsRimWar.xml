@@ -7,6 +7,8 @@
   <pas_outposts_rimwar_InitialPoints>Initial Rim War points of an outpost: {0}</pas_outposts_rimwar_InitialPoints>
   <pas_outposts_rimwar_CaptureToConqueror>Captured outposts defect to the conqueror</pas_outposts_rimwar_CaptureToConqueror>
   <pas_outposts_rimwar_CaptureToConquerorTip>Checked: a captured outpost joins the attacking faction and re-attaches to its nearest settlement. Unchecked: captured outposts are destroyed.</pas_outposts_rimwar_CaptureToConquerorTip>
+  <pas_outposts_rimwar_SettlerToOutpostChance>Chance a settler founds an outpost instead of a settlement: {0}%</pas_outposts_rimwar_SettlerToOutpostChance>
+  <pas_outposts_rimwar_SettlerToOutpostChanceTip>When a Rim War settler arrives, this chance redirects it to build a random outpost variant near its home settlement instead of a full settlement. Higher values mean fewer new settlements and a slower-spreading world map. 0 = vanilla settlement growth.</pas_outposts_rimwar_SettlerToOutpostChanceTip>
   <pas_outposts_rimwar_MomentumEnabled>War momentum</pas_outposts_rimwar_MomentumEnabled>
   <pas_outposts_rimwar_MomentumEnabledTip>Adjusts outpost growth by each faction's recent settlement-battle record: winners speed up, losers slow down or wither.</pas_outposts_rimwar_MomentumEnabledTip>
   <pas_outposts_rimwar_MomentumMaxMult>Max growth rate multiplier: {0} (losers get the inverse)</pas_outposts_rimwar_MomentumMaxMult>
@@ -20,4 +22,6 @@
   <pas_outposts_rimwar_LetterRazedText>{0} has been razed to the ground by {1}.</pas_outposts_rimwar_LetterRazedText>
   <pas_outposts_rimwar_LetterShrinkLabel>Outpost abandoned</pas_outposts_rimwar_LetterShrinkLabel>
   <pas_outposts_rimwar_LetterShrinkText>{0} has been abandoned — {1} can no longer sustain it after repeated defeats.</pas_outposts_rimwar_LetterShrinkText>
+  <pas_outposts_rimwar_LetterOutpostFoundedLabel>Outpost founded</pas_outposts_rimwar_LetterOutpostFoundedLabel>
+  <pas_outposts_rimwar_LetterOutpostFoundedText>Rather than build a new settlement, {1} has founded the outpost {0} near {2}.</pas_outposts_rimwar_LetterOutpostFoundedText>
 </LanguageData>

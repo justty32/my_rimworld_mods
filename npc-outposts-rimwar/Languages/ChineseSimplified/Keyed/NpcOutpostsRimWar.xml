@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- 设定 -->
+  <pas_outposts_rimwar_SettlerToOutpostChance>settler 改建哨站（而非聚落）的几率：{0}%</pas_outposts_rimwar_SettlerToOutpostChance>
+  <pas_outposts_rimwar_SettlerToOutpostChanceTip>Rim War 的 settler 抵达时，按此几率改在母聚落附近建一座随机类型哨站，而非整座聚落。数值越高、新聚落越少、世界版图扩张越慢。0＝维持原版建聚落。</pas_outposts_rimwar_SettlerToOutpostChanceTip>
+
+  <!-- 信件 -->
+  <pas_outposts_rimwar_LetterOutpostFoundedLabel>哨站建立</pas_outposts_rimwar_LetterOutpostFoundedLabel>
+  <pas_outposts_rimwar_LetterOutpostFoundedText>{1} 未另建聚落，而是在 {2} 附近建立了哨站 {0}。</pas_outposts_rimwar_LetterOutpostFoundedText>
+</LanguageData>

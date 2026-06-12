@@ -30,6 +30,10 @@ namespace pas.outposts.rimwar
                 prefix: AccessTools.Method(typeof(Patch_ResolveBattleSettlement), nameof(Patch_ResolveBattleSettlement.Prefix)),
                 postfix: AccessTools.Method(typeof(Patch_ResolveBattleSettlement), nameof(Patch_ResolveBattleSettlement.Postfix)));
 
+            // 功能 5：按機率把 settler 落地改建哨站變體（淨降 RimWar 建聚落頻率）
+            TryPatch(harmony, typeof(WorldUtility), "CreateSettlement",
+                prefix: AccessTools.Method(typeof(Patch_CreateSettlement), nameof(Patch_CreateSettlement.Prefix)));
+
             // 功能 4：增生倍率 hook（npc-outposts 唯一擴充接點；未註冊時零行為變化）
             WorldComponent_OutpostSpawner.GrowthRateMultiplier = WorldComponent_OutpostWarMomentum.GetGrowthMultiplierFor;
         }

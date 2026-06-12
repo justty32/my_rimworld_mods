@@ -7,6 +7,8 @@
   <pas_outposts_rimwar_InitialPoints>哨站初始 Rim War 點數：{0}</pas_outposts_rimwar_InitialPoints>
   <pas_outposts_rimwar_CaptureToConqueror>哨站被佔領時易主給攻方</pas_outposts_rimwar_CaptureToConqueror>
   <pas_outposts_rimwar_CaptureToConquerorTip>勾選：被佔哨站改掛攻方派系、重掛最近的母聚落。取消：被佔哨站直接摧毀。</pas_outposts_rimwar_CaptureToConquerorTip>
+  <pas_outposts_rimwar_SettlerToOutpostChance>settler 改建哨站（而非聚落）的機率：{0}%</pas_outposts_rimwar_SettlerToOutpostChance>
+  <pas_outposts_rimwar_SettlerToOutpostChanceTip>Rim War 的 settler 抵達時，依此機率改在母聚落附近建一座隨機類型哨站，而非整座聚落。數值越高、新聚落越少、世界版圖擴張越慢。0＝維持原版建聚落。</pas_outposts_rimwar_SettlerToOutpostChanceTip>
   <pas_outposts_rimwar_MomentumEnabled>戰局動態增減</pas_outposts_rimwar_MomentumEnabled>
   <pas_outposts_rimwar_MomentumEnabledTip>依各派系近期聚落戰戰績調整哨站增生：勝者加速、敗者減速甚至萎縮。</pas_outposts_rimwar_MomentumEnabledTip>
   <pas_outposts_rimwar_MomentumMaxMult>增生速率最大倍率：{0}（敗方取倒數）</pas_outposts_rimwar_MomentumMaxMult>
@@ -20,4 +22,6 @@
   <pas_outposts_rimwar_LetterRazedText>{0} 在戰火中被 {1} 夷為平地。</pas_outposts_rimwar_LetterRazedText>
   <pas_outposts_rimwar_LetterShrinkLabel>哨站荒廢</pas_outposts_rimwar_LetterShrinkLabel>
   <pas_outposts_rimwar_LetterShrinkText>{0} 因 {1} 戰事連敗、無力維持而遭放棄。</pas_outposts_rimwar_LetterShrinkText>
+  <pas_outposts_rimwar_LetterOutpostFoundedLabel>哨站建立</pas_outposts_rimwar_LetterOutpostFoundedLabel>
+  <pas_outposts_rimwar_LetterOutpostFoundedText>{1} 未另建聚落，而是在 {2} 附近建立了哨站 {0}。</pas_outposts_rimwar_LetterOutpostFoundedText>
 </LanguageData>
