@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_empire_war_ModName>帝国哨站战争</pas_empire_war_ModName>
+
+  <pas_empire_war_VassalOutposts>附庸生成卫星哨站</pas_empire_war_VassalOutposts>
+  <pas_empire_war_VassalOutpostsTip>开启时，你的帝国附庸聚落会像 NPC 聚落一样生成自己的卫星哨站（沿用 NPC Outposts）。</pas_empire_war_VassalOutpostsTip>
+  <pas_empire_war_PerOutpostSilver>每哨站额外税收白银：{0}</pas_empire_war_PerOutpostSilver>
+
+  <pas_empire_war_DefensePerOutpost>每哨站防守加成（军事等级）：{0}</pas_empire_war_DefensePerOutpost>
+  <pas_empire_war_MaxCounted>单场战斗计入哨站数上限：{0}</pas_empire_war_MaxCounted>
+
+  <pas_empire_war_TransferOnConquest>征服时哨站随之易主</pas_empire_war_TransferOnConquest>
+  <pas_empire_war_TransferOnConquestTip>你夺下 NPC 聚落时其哨站加入你的帝国；附庸沦陷时其哨站归于征服者。</pas_empire_war_TransferOnConquestTip>
+
+  <pas_empire_war_OutpostsSeizedLabel>哨站接收</pas_empire_war_OutpostsSeizedLabel>
+  <pas_empire_war_OutpostsSeizedText>你夺下 {1} 时，{0} 座卫星哨站倒戈加入你的帝国。</pas_empire_war_OutpostsSeizedText>
+
+  <pas_empire_war_OutpostsLostLabel>哨站失陷</pas_empire_war_OutpostsLostLabel>
+  <pas_empire_war_OutpostsLostText>附庸沦陷时，{0} 座卫星哨站被交给了 {1}。</pas_empire_war_OutpostsLostText>
+</LanguageData>

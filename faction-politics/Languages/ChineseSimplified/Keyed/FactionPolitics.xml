@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_politics_RebelEmergedLabel>反叛者蠢动：{0}</pas_politics_RebelEmergedLabel>
+  <pas_politics_RebelEmergedText>{1}的{0}开始在{2}密谋反叛。其影响力将随时间增长——除非有人除掉他。</pas_politics_RebelEmergedText>
+  <pas_politics_SplitLetterLabel>派系分裂：{0}</pas_politics_SplitLetterLabel>
+  <pas_politics_SplitLetterText>{1}内的反叛者{0}宣布独立。新派系{2}夺取了 {3} 座聚落，并与旧主敌对。</pas_politics_SplitLetterText>
+</LanguageData>

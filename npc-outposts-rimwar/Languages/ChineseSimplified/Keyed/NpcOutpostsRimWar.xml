@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <pas_outposts_rimwar_ModName>NPC 哨站入战局</pas_outposts_rimwar_ModName>
+
   <!-- 设定 -->
+  <pas_outposts_rimwar_PointsPerOutpost>每哨站每成长周期贡献母聚落点数：{0}（0＝停用）</pas_outposts_rimwar_PointsPerOutpost>
+  <pas_outposts_rimwar_InitialPoints>哨站初始 Rim War 点数：{0}</pas_outposts_rimwar_InitialPoints>
+  <pas_outposts_rimwar_CaptureToConqueror>哨站被占领时易主给攻方</pas_outposts_rimwar_CaptureToConqueror>
+  <pas_outposts_rimwar_CaptureToConquerorTip>勾选：被占哨站改挂攻方派系、重挂最近的母聚落。取消：被占哨站直接摧毁。</pas_outposts_rimwar_CaptureToConquerorTip>
   <pas_outposts_rimwar_SettlerToOutpostChance>settler 改建哨站（而非聚落）的几率：{0}%</pas_outposts_rimwar_SettlerToOutpostChance>
   <pas_outposts_rimwar_SettlerToOutpostChanceTip>Rim War 的 settler 抵达时，按此几率改在母聚落附近建一座随机类型哨站，而非整座聚落。数值越高、新聚落越少、世界版图扩张越慢。0＝维持原版建聚落。</pas_outposts_rimwar_SettlerToOutpostChanceTip>
+  <pas_outposts_rimwar_MomentumEnabled>战局动态增减</pas_outposts_rimwar_MomentumEnabled>
+  <pas_outposts_rimwar_MomentumEnabledTip>依各派系近期聚落战战绩调整哨站增生：胜者加速、败者减速甚至萎缩。</pas_outposts_rimwar_MomentumEnabledTip>
+  <pas_outposts_rimwar_MomentumMaxMult>增生速率最大倍率：{0}（败方取倒数）</pas_outposts_rimwar_MomentumMaxMult>
+  <pas_outposts_rimwar_ShrinkEnabled>败方哨站萎缩</pas_outposts_rimwar_ShrinkEnabled>
+  <pas_outposts_rimwar_ShrinkEnabledTip>连败派系每天有几率荒废一座哨站。</pas_outposts_rimwar_ShrinkEnabledTip>
 
   <!-- 信件 -->
+  <pas_outposts_rimwar_LetterCapturedLabel>哨站易主</pas_outposts_rimwar_LetterCapturedLabel>
+  <pas_outposts_rimwar_LetterCapturedText>{0} 已被 {1} 攻陷，并入其势力范围。</pas_outposts_rimwar_LetterCapturedText>
+  <pas_outposts_rimwar_LetterRazedLabel>哨站被摧毁</pas_outposts_rimwar_LetterRazedLabel>
+  <pas_outposts_rimwar_LetterRazedText>{0} 在战火中被 {1} 夷为平地。</pas_outposts_rimwar_LetterRazedText>
+  <pas_outposts_rimwar_LetterShrinkLabel>哨站荒废</pas_outposts_rimwar_LetterShrinkLabel>
+  <pas_outposts_rimwar_LetterShrinkText>{0} 因 {1} 战事连败、无力维持而遭放弃。</pas_outposts_rimwar_LetterShrinkText>
   <pas_outposts_rimwar_LetterOutpostFoundedLabel>哨站建立</pas_outposts_rimwar_LetterOutpostFoundedLabel>
   <pas_outposts_rimwar_LetterOutpostFoundedText>{1} 未另建聚落，而是在 {2} 附近建立了哨站 {0}。</pas_outposts_rimwar_LetterOutpostFoundedText>
 </LanguageData>

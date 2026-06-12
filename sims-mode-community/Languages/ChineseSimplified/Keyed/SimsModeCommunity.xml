@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <pas_sims_EnterSettlement>进入{0}</pas_sims_EnterSettlement>
+  <pas_sims_VisitAborted>无法进入{0}：无人应门。（地图生成未产生任何居民；强行进入会导致聚落被判定摧毁。）</pas_sims_VisitAborted>
+</LanguageData>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!-- CQFAction_Message.message 会经过 Translator.Translate（decompiled.cs:680），故为翻译 key -->
+  <CQF_CaravanRedemption_OpeningMessage>流民商队的偿还：一支旧识的流民商队循着风雪中的旧路返回，捎来了迟到的谢意。</CQF_CaravanRedemption_OpeningMessage>
+</LanguageData>
