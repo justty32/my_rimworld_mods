@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: sworn brother -->
+  <pas_officers_SwornBrother.label>結義兄弟</pas_officers_SwornBrother.label>
+
+  <!-- EN: sworn enemy -->
+  <pas_officers_BloodFeud.label>世仇</pas_officers_BloodFeud.label>
+
+</LanguageData>

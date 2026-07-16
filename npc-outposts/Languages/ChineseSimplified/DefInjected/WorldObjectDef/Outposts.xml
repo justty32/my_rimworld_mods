@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: outpost -->
+  <pas_outposts_Outpost.label>哨站</pas_outposts_Outpost.label>
+  <!-- EN: A small satellite outpost serving a nearby settlement. -->
+  <pas_outposts_Outpost.description>服务于邻近聚落的小型卫星哨站。</pas_outposts_Outpost.description>
+
+</LanguageData>

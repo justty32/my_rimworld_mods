@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: general -->
+  <pas_warband_General.label>將領</pas_warband_General.label>
+  <!-- EN: A named general leading a Rim War warband. Might and Command swing abstract battle resolution in the warband's favour. -->
+  <pas_warband_General.description>統領某支 Rim War 戰團的具名將領。武略與統率會讓抽象戰鬥的判定偏向該戰團。</pas_warband_General.description>
+
+</LanguageData>

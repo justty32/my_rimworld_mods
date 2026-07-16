@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: officer -->
+  <pas_officers_Generic.label>官员</pas_officers_Generic.label>
+  <!-- EN: A generic named officer attached to a world object. Used for testing; consumer mods define their own roles (lord, general, ...). -->
+  <pas_officers_Generic.description>附加在世界物件上的通用具名官员。用于测试；下游 mod 会自行定义各自的职位（领主、将领……）。</pas_officers_Generic.description>
+
+</LanguageData>

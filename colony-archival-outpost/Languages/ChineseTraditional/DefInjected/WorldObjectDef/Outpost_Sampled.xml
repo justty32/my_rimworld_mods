@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: archived colony outpost -->
+  <pas_archival_Outpost.label>封存殖民地哨站</pas_archival_Outpost.label>
+  <!-- EN: An abstract outpost converted from a fully-archived colony. It keeps producing the colony's sampled surplus and ships it home, while drawing down its carried reserves for whatever the colony ran at a deficit. -->
+  <pas_archival_Outpost.description>由一座完整封存的殖民地轉化而成的抽象哨站。它會持續產出該殖民地採樣到的結餘並運回主基地，同時從其攜帶的庫存中扣除殖民地入不敷出的部分。</pas_archival_Outpost.description>
+
+</LanguageData>

@@ -21,7 +21,7 @@
 - ✅ **N2** 採樣中查看狀況的 gizmo（即時預覽）
 - ✅ **N3** 封存視窗可選大地圖圖標
 - ✅ **N4** 速率隨殖民者數量縮放（per-pawn + 開關）
-- ⏳ **N5** 把電量（電力流）納入採樣 — 未動工（可拆半套；送電回家卡參考 mod）
+- ⏳ **N5** 把電量（電力流）納入採樣 — 未動工（可拆半套；①採樣換 silver 現在就能做，②送電回家藍本已找到）。外部 mod 研究 → [`2026-06-12-n5-power-sampling-external-mod-research.md`](./2026-06-12-n5-power-sampling-external-mod-research.md)
 
 **🟢 新想法 B · 佔位符狀態採樣家族（ideas-features-pawn.md）**
 - ✅ **N6** 採樣殖民者 hediff/狀態變化（含 N6b 其他 hediff＋tend pass）
@@ -40,6 +40,6 @@
 ## 待參考／待提供（暫存區）
 - ⏳ **待使用者提供**：E3 阻擋襲擊參考的「某 VOE 擴展 mod」（使用者回家後貼）。
 - ⏳ **待使用者提供**：E2 哨站地圖生成參考 mod「**empire refactor**」（使用者回家後給看）。
-- ⏳ **待使用者提供**：N5 電量採樣參考——①某 **VOE 電力輸送哨站擴展** mod；②某**分層 mod**（A 建築接電→跨地圖輸電到 B 建築發電站）。
+- ✅ **已調查**：N5 電量採樣參考——① **VOE Power Grid**（`MrHydralisk.VOEPowerGrid`）＝②跨地圖輸電唯一藍本（收電地圖本地 `CompPowerPlant` 假發電機，香草能力，借鏡重寫不需相依，**不需要第二個分層 mod**）；另查 VOE Additional Outposts 確認零電力內容。詳見 [`2026-06-12-n5-power-sampling-external-mod-research.md`](./2026-06-12-n5-power-sampling-external-mod-research.md)。
 - ⏳ **待使用者提供**：N6/N7 分組套用參考——某 **VOE 擴展 mod**（分「教師/學生」，教師技能等級決定學生技能提升速率）。
 - ⏳ **待 clone**：VOE 反編譯源碼（卡住 P1/P2/E1/E2 多項查證：`Deliver:1409`/`AddPawn:1022`/`ResultOption:2061`/哨站地圖生成）。

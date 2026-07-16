@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: visiting settlement -->
+  <pas_sims_VisitMapParent.label>到访中的聚落</pas_sims_VisitMapParent.label>
+  <!-- EN: A settlement map currently hosted by a visiting caravan. -->
+  <pas_sims_VisitMapParent.description>目前由到访商队承载的聚落地图。</pas_sims_VisitMapParent.description>
+
+</LanguageData>

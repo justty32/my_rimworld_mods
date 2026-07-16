@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: named officers settings -->
+  <pas_officers_Settings.label>具名官员设置</pas_officers_Settings.label>
+  <!-- EN: Global settings singleton for the named officers layer. -->
+  <pas_officers_Settings.description>具名官员层的全局设置单例。</pas_officers_Settings.description>
+
+</LanguageData>

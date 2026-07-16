@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: lord -->
+  <pas_settlement_Lord.label>领主</pas_settlement_Lord.label>
+  <!-- EN: A named lord governing a Rim War settlement. Polity and Loyalty swing the settlement's point growth: a capable lord makes the city flourish, an incompetent one lets it decay. -->
+  <pas_settlement_Lord.description>治理某座 Rim War 聚落的具名领主。政略与忠诚会左右该聚落的点数成长：能干的领主使城池兴盛，无能者令其衰败。</pas_settlement_Lord.description>
+
+</LanguageData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: power sampling node -->
+  <CAO_PowerSamplingNode.label>供电采样节点</CAO_PowerSamplingNode.label>
+  <!-- EN: Joins the power grid it overlaps and measures that grid's net power (generation minus consumption) during a productivity sampling period. Place it touching wires or powered buildings. Only one per map. After archival, an archival power outlet replays the sampled net power at your home base. -->
+  <CAO_PowerSamplingNode.description>併入其覆盖的电网，在产能采样期间测量该电网的净功率（发电量减去耗电量）。请将其放置在电线或已通电建筑旁。每张地图仅限一个。封存后，封存供电端会在你的主基地重现采样到的净功率。</CAO_PowerSamplingNode.description>
+
+  <!-- EN: archival power outlet -->
+  <CAO_PowerOutlet.label>封存供电端</CAO_PowerOutlet.label>
+  <!-- EN: Connect this to an archived outpost that sampled its power grid. Each tick it feeds the outpost's signed net power into the local grid: positive generates power here, negative draws power from here (covering the outpost's deficit). Your home grid is the buffer. Place it touching wires or powered buildings. -->
+  <CAO_PowerOutlet.description>将其连接到已采样过电网的封存哨站。它会持续把哨站的有号净功率灌入本地电网：正值在此发电，负值从此处取电（弥补哨站的缺口）。你的主基地电网就是缓冲。请将其放置在电线或已通电建筑旁。</CAO_PowerOutlet.description>
+
+</LanguageData>

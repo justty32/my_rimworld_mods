@@ -50,3 +50,4 @@ About.xml + csproj（Krafs.Rimworld.Ref 1.6.*）建立，`dotnet build -c Releas
 ### Task 11: 實機 E2E（待執行）
 
 需要 RimWorld 1.6 本體，依 `docs/plan/task-11-e2e.md` 清單手動驗證（載入/作息切換/部落 profile/翻臉防禦/攻打不受影響/存讀檔/離場）。新增驗證點：野獸傷害觸發防禦後約 2 小時內應自動回歸生活。
+- 2026-07-10 規劃偵察完成：「NPC 據點人物生活」= 本 mod 的 P2（Talk 對話/租房留宿/工作板，R5 B 區），P1 代碼已完成僅剩 task-11 實機 E2E；具名家族 NPC 整合（idea 8 + named-officers OfficersApi + previouslyGeneratedInhabitants redress）是 P1→P2 的缺口；地基定調＝本 mod 的 VisitMap 套件（不用 workshop Visit Settlements）。另 city-economy 同日已接線完成（ModsConfig 已加、build/healthcheck 綠）待使用者實機 T5。下一步＝先跑 task-11 E2E，再開 P2 拆工單。
