@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDE_CannotBuildInPocketDimension>cannot build inside a pocket dimension</PDE_CannotBuildInPocketDimension>
+  <PDE_MessageDimensionCollapsed>The pocket dimension has collapsed. Everyone and everything inside was returned.</PDE_MessageDimensionCollapsed>
+</LanguageData>

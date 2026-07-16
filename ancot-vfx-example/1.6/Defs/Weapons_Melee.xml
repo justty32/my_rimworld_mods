@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       範例 2：近戰命中刀光特效（全 XML）
+       路線：自訂 ToolCapacityDef + ManeuverDef，
+             verbClass 用 AncotLibrary.Verb_MeleeAttackDamage_Effecter，
+             ManeuverDef 掛 AncotLibrary.Effecter_Extension（欄位拼字是
+             effcterDef，少一個 e）。命中時於 caster→target 連線觸發
+             EffecterDef（AncotLibrary/Verb_MeleeAttackDamage_Effecter.cs:135-148）。
+       ============================================================ -->
+
+  <ToolCapacityDef>
+    <defName>AVE_SlashVFX</defName>
+    <label>slash</label>
+  </ToolCapacityDef>
+
+  <ManeuverDef>
+    <defName>AVE_SlashVFX</defName>
+    <requiredCapacity>AVE_SlashVFX</requiredCapacity>
+    <verb>
+      <verbClass>AncotLibrary.Verb_MeleeAttackDamage_Effecter</verbClass>
+      <meleeDamageDef>Cut</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    <modExtensions>
+      <li Class="AncotLibrary.Effecter_Extension">
+        <effcterDef>AVE_Effecter_SlashHit</effcterDef>
+      </li>
+    </modExtensions>
+  </ManeuverDef>
+
+  <!-- 自訂刀光 effecter：兩個子噴射器都吃 Ancot 內建 512x512 白色刀光 fleck，
+       靠 <color> 染色。SubEffecter_SprayerTriggered = 事件觸發一次性噴發。 -->
+  <EffecterDef>
+    <defName>AVE_Effecter_SlashHit</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>Ancot_FlashSlash</fleckDef>
+        <burstCount>1</burstCount>
+        <color>(1.0,0.75,0.3,0.85)</color>
+        <scale>5.0~6.5</scale>
+        <speed>2</speed>
+        <angle>-20~20</angle>
+        <spawnLocType>OnSource</spawnLocType>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>Ancot_SlashGhostArc_Anticlockwise</fleckDef>
+        <burstCount>1</burstCount>
+        <color>(1.0,0.85,0.4,0.6)</color>
+        <scale>1.0~1.2</scale>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>Pawn_Melee_Punch_HitBuilding_Metal</soundDef>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+    <offsetTowardsTarget>0.4~0.4</offsetTowardsTarget>
+    <positionRadius>0.1</positionRadius>
+  </EffecterDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>AVE_TestSword</defName>
+    <label>AVE test sword</label>
+    <description>Ancot VFX example: every hit with the edge flashes an orange slash arc (Ancot Library built-in flecks, recolored via effecter). Spawn via dev mode.</description>
+    <graphicData>
+      <!-- 佔位：原版短劍貼圖。自製規格＝512x512 RGBA PNG、刀尖朝右上 45 度。 -->
+      <texPath>Things/Item/Equipment/WeaponMelee/Gladius</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <WorkToMake>4000</WorkToMake>
+      <Mass>2</Mass>
+    </statBases>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <recipeMaker>
+      <researchPrerequisite>Smithing</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+      <displayPriority>501</displayPriority>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>AVE_SlashVFX</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>1.6</cooldownTime>
+        <armorPenetration>0.3</armorPenetration>
+      </li>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+</Defs>

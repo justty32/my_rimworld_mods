@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PASVPE_Sedation.label>灵能镇静</PASVPE_Sedation.label>
+  <PASVPE_Sedation.description>一名灵能者以麻痺般的平静淹没了这个生物的心智。在效果消退前，其意识与移动能力都被压低。</PASVPE_Sedation.description>
+  <PASVPE_MindBarrier.label>心灵壁垒</PASVPE_MindBarrier.label>
+  <PASVPE_MindBarrier.description>这名灵能者的心灵已硬化为灵能壁垒，可偏折部分伤害并削弱心灵入侵。</PASVPE_MindBarrier.description>
+</LanguageData>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    讓「漂泊嚮導」對話隨機出現在到訪的中立訪客身上。
+    機制（QuestEditor_Library.decompiled.cs）：
+      - Harmony postfix 掛在 IncidentWorker_NeutralGroup.SpawnPawns（:31142-31149）：
+        每批訪客按 commonality 加權「只抽一個」SpecialPawnGenerateDef 執行
+        （與 CQF 官方 QE_RandomDialog commonality 0.6 競爭）
+      - SpecialPawnGenerator_AddDialog（:20244）：對每個 pawn 按 dialogs[].commonality
+        機率綁 DialogManagerDef（tag 對 DialogManagerDef.tags）；排除商人與非人形（:20291）
+    格式參照官方一手範例：
+      <CQF mod>/1.6/Defs/QuestEditor_Library.SpecialPawnGenerateDef/Quest.xml
+  -->
+  <QuestEditor_Library.SpecialPawnGenerateDef>
+    <defName>CQFExample_GuideSpawn</defName>
+    <commonality>0.4</commonality>
+    <generator Class="QuestEditor_Library.SpecialPawnGenerator_AddDialog">
+      <dialogs>
+        <li>
+          <tag>CQFExample_Guide</tag>
+          <commonality>0.7</commonality>
+        </li>
+      </dialogs>
+    </generator>
+  </QuestEditor_Library.SpecialPawnGenerateDef>
+
+</Defs>

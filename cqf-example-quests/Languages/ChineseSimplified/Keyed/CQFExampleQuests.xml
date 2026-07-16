@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <CQFExample_Beacon_Opening>回声信标：旧通讯塔自行点亮，开始向深空重复播送一段古老的识别码。信号已经出去了——等着看有什么会回应。</CQFExample_Beacon_Opening>
+  <CQFExample_Beacon_Echo>回声信标：深空传回了一段规整的应答码。有什么东西听见了信标，正循着信号而来。</CQFExample_Beacon_Echo>
+
+  <CQFExample_Signal_BeaconBonus>信标的回应：应答码与你的信标识别码完全吻合——这批补给是冲着那座塔来的。</CQFExample_Signal_BeaconBonus>
+
+  <CQFExample_Commission_Opening>向导的藏匿点：漂泊向导答应把一处旧藏匿点让给你。他要先确认东西还在——等他的信。</CQFExample_Commission_Opening>
+
+  <CQFExample_GuideTree_Title>漂泊向导</CQFExample_GuideTree_Title>
+  <CQFExample_GuideTree_Report>与漂泊向导攀谈。</CQFExample_GuideTree_Report>
+
+  <CQFExample_Guide_Greeting>风尘仆仆的旅人上下打量着{Interviewer_labelShort}：「哦？边陲地带还有活人聚落。我是个带路的——消息、草药、还有些别人不知道的地方，都能谈。」</CQFExample_Guide_Greeting>
+  <CQFExample_Guide_Rumor1>「北边的商路最近不太平，机械体在旧公路附近游荡。要运货就绕南边走。」</CQFExample_Guide_Rumor1>
+  <CQFExample_Guide_Rumor2>「听说有支商队在雪原上捡到一整舱的旧时代药品。运气这种东西，说不准的。」</CQFExample_Guide_Rumor2>
+  <CQFExample_Guide_Rumor3>「部落最近在山口设了关卡。别问我怎么知道的——我的靴子比你们的雷达灵。」</CQFExample_Guide_Rumor3>
+  <CQFExample_Guide_Farewell>向导拍了拍身上的尘土：「就聊到这。路还长，各自保重。」</CQFExample_Guide_Farewell>
+
+  <CQFExample_Guide_OptRumors>打听风声</CQFExample_Guide_OptRumors>
+  <CQFExample_Guide_OptBarter>买下那批草药（30 白银）</CQFExample_Guide_OptBarter>
+  <CQFExample_Guide_OptCommission>接下他的委托</CQFExample_Guide_OptCommission>
+  <CQFExample_Guide_OptBefriend>套套交情（需要社交 7 以上）</CQFExample_Guide_OptBefriend>
+  <CQFExample_Guide_OptLeave>告辞</CQFExample_Guide_OptLeave>
+  <CQFExample_Guide_OptBack>回到正题</CQFExample_Guide_OptBack>
+
+  <CQFExample_Guide_ReasonTaken>已经接过向导的委托了。</CQFExample_Guide_ReasonTaken>
+  <CQFExample_Guide_ReasonSocial>社交技能不足 7。</CQFExample_Guide_ReasonSocial>
+
+  <CQFExample_Guide_MsgHerbs>向导把一捆草药（{0}）抛了过来：「小心保存，别受潮。」</CQFExample_Guide_MsgHerbs>
+  <CQFExample_Guide_MsgBefriend>向导咧嘴一笑，答应替你的殖民地在族人面前美言几句。</CQFExample_Guide_MsgBefriend>
+
+</LanguageData>

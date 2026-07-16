@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 被動：餘燼之心。由 PawnKindDef 的 FixedIdentityExtension.extraForcedHediffs
+       在生成時強制掛上（範式：SCMF Sample PawnKinds_Milira_Sample.xml 的
+       extraForcedHediffs 段；下游實例：Cangyan PawnKinds_Milira_Cangyan.xml:97-107）。
+       純原版 HediffDef，永久、不可治癒，等同「被動天賦」。 -->
+  <HediffDef>
+    <defName>PAS_AEC_EmberHeart</defName>
+    <label>ember heart</label>
+    <description>A smoldering warmth radiates from this pawn's chest. Wounds close faster and cold means little.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(255,140,60)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+          <InjuryHealingFactor>1.0</InjuryHealingFactor>
+          <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 主動技能「燼焰戰吼」施放後給自己的短時增益（60 秒 = 3600 ticks）。 -->
+  <HediffDef>
+    <defName>PAS_AEC_WarcryBuff</defName>
+    <label>ashen warcry</label>
+    <description>Roused by an ashen warcry. Faster, harder to hit, hits harder.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(255,90,40)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>3600</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>0.6</MoveSpeed>
+          <MeleeHitChance>4</MeleeHitChance>
+          <MeleeDodgeChance>8</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

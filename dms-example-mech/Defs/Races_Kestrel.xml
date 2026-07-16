@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       紅隼 Kestrel：超輕型偵察懸浮機兵。
+       範式來源：DMS 游隼/夜蝠
+       （dead-mans-switch 1.6/Defs/Things_race/Races_Automatroid_Light.xml）
+       繼承鏈：BaseMechRace_Falcon（抽象，含 thingClass
+       Fortified.WeaponUsableMech、body DMS_Chop、懸浮 comp 與 DMS_Hover 動畫）
+        → BaseAutomatroidRace → BaseMechanoid（原版）。
+       ============================================================ -->
+  <ThingDef ParentName="BaseMechRace_Falcon">
+    <defName>PASEX_Mech_Kestrel</defName>
+    <label>kestrel</label>
+    <description>An ultralight tri-rotor reconnaissance drone. Stripped of most armor plating in exchange for outstanding speed and a minimal bandwidth footprint, it is meant to scout ahead of heavier automatroid columns, designate targets, and get out before anything can shoot back.</description>
+    <statBases>
+      <!-- 偵察定位：比游隼(8)更快、更脆 -->
+      <MoveSpeed>9.2</MoveSpeed>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+      <ArmorRating_Heat>1.0</ArmorRating_Heat>
+      <MaxFlightTime>40</MaxFlightTime>
+      <FlightCooldown>8</FlightCooldown>
+      <BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">1</BandwidthCost>
+      <WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">1</WastepacksPerRecharge>
+    </statBases>
+    <race>
+      <baseBodySize>0.4</baseBodySize>
+      <baseHealthScale>0.6</baseHealthScale>
+      <flightStartChanceOnJobStart>0.08</flightStartChanceOnJobStart>
+    </race>
+    <!-- 特色機制（純 XML）：光學迷彩。FFF CompProperties_Camouflage
+         （Fortified.decompiled.cs:4217），範式同夜蝠 Races_Automatroid_Light.xml:150-158。
+         僅在 Royalty 或 Anomaly 存在時掛上（該 comp 用到其隱形系統）。 -->
+    <comps>
+      <li MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly" Class="Fortified.CompProperties_Camouflage">
+        <ticksUntilRecover>1500</ticksUntilRecover>
+        <detectedLetterLabel>Kestrel revealed</detectedLetterLabel>
+        <detectedLetterDesc>An enemy automatroid has appeared out of thin air!</detectedLetterDesc>
+        <detectedMessage>A kestrel has appeared!</detectedMessage>
+        <baseDetectRange>5</baseDetectRange>
+        <texPath>UI/Ability/Camouflage</texPath>
+        <commandKey>FFF_Camouflage</commandKey>
+      </li>
+    </comps>
+    <!-- 武器白名單：Inherit=False 蓋掉游隼的清單（同夜蝠做法，
+         Races_Automatroid_Light.xml:161）。MechWeaponExtension 欄位語意見
+         Fortified.decompiled.cs:14218-14283。 -->
+    <modExtensions>
+      <li Class="Fortified.MechWeaponExtension" Inherit="False">
+        <EnableWeaponFilter>true</EnableWeaponFilter>
+        <UsableWeaponTags>
+          <li>DMS_MechWeaponUltraLight</li>
+          <li>PASEX_ScoutCarbine</li>
+          <li>GrenadeSmoke</li>
+          <li>GrenadeEMP</li>
+        </UsableWeaponTags>
+        <EnableTechLevelFilter>true</EnableTechLevelFilter>
+        <UsableTechLevels>
+          <li>Industrial</li>
+        </UsableTechLevels>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- PawnKindDef：世界生成/派系群組用的「兵種卡」。
+       範式：DMS_Mech_Falcon PawnKindDef（Races_Automatroid_Light.xml:102-133）。
+       貼圖為佔位：暫時複用 DMS 的 falcon 三方向貼圖（見 PROJECT.md 待補）。 -->
+  <PawnKindDef ParentName="BaseAutomatroidKind">
+    <defName>PASEX_Mech_Kestrel</defName>
+    <label>kestrel</label>
+    <race>PASEX_Mech_Kestrel</race>
+    <isFighter>true</isFighter>
+    <combatPower>15</combatPower>
+    <maxPerGroup>30</maxPerGroup>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Automatroid/falcon</texPath>
+          <shaderType>CutoutComplex</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Automatroid/falcon</texPath>
+          <shaderType>CutoutComplex</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+      <li>PASEX_ScoutCarbine</li>
+    </weaponTags>
+  </PawnKindDef>
+
+</Defs>

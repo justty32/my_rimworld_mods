@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Pocket Dimension Example</name>
+  <author>justty32</author>
+  <packageId>pas.pocketdimension.example</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Example mod: a buildable "dimension door" that opens a small persistent pocket map. Pawns can walk in and out; items can be hauled through. Built entirely on the vanilla 1.5+ pocket map stack (MapPortal / PocketMapExit / PocketMapUtility) — no Harmony, no DLC required.
+
+範例 mod：可建造的「異空間門」，第一次進入時生成一張小型持久異空間地圖；小人可自由進出、物資可裝載搬入。完全站在原版 1.5+ pocket map 機制（MapPortal / PocketMapExit / PocketMapUtility）之上——零 Harmony、不需任何 DLC。
+
+拆除異空間門時，門內的小人與物品會被安全傳送回門口，異空間地圖隨後回收。</description>
+</ModMetaData>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--
+	  橡實大遠征商會命名器。
+	  仿寫 NewRatkinPlus 1.6/Defs/RulePack/RulePacks_Namers_Factions.xml
+	  （NamerFaction_RatkinKingdom:76-98、NamerSettlement_RatkinKingdom:100-137），
+	  並直接複用其英文詞庫檔（rulesFiles 路徑對 Languages/<語言>/Strings/ 解析，跨 mod 合併；
+	  詞庫實體在 NewRatkinPlus Contents/Languages/English/Strings/Names/Noun/*.txt）。
+	  調性：傻氣可愛——名字取堅果/花草，跟遠征、快遞、囤貨有關。
+	-->
+	<RulePackDef>
+		<defName>RKP_NamerFaction_AcornGuild</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name(p=3)->The [nutword] [company]</li>
+				<li>r_name(p=2)->The Grand [nutword] [company]</li>
+				<li>r_name(p=2)->The [nutword] and [flowerword] [company]</li>
+				<li>r_name->The Order of the Round [nutword]</li>
+				<li>r_name->The Hundred-Thousand [nutword] Company</li>
+
+				<li>company(p=3)->Expedition</li>
+				<li>company(p=2)->Convoy</li>
+				<li>company(p=2)->Delivery Guild</li>
+				<li>company->Trading House</li>
+				<li>company->Hauling Company</li>
+
+				<li>nutword->[RK_Noun_Prefix_Nut]</li>
+				<li>flowerword->[RK_Noun_Prefix_Flower]</li>
+			</rulesStrings>
+			<rulesFiles>
+				<li>RK_Noun_Prefix_Nut->Names/Noun/RK_Noun_Prefix_Nut</li>
+				<li>RK_Noun_Prefix_Flower->Names/Noun/RK_Noun_Prefix_Flower</li>
+			</rulesFiles>
+		</rulePack>
+	</RulePackDef>
+
+	<RulePackDef>
+		<defName>RKP_NamerSettlement_AcornGuild</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name(p=4)->[nutword][burrowend]</li>
+				<li>r_name(p=3)->[nutword] [depot]</li>
+				<li>r_name(p=2)->Little [nutword]ton</li>
+				<li>r_name(p=2)->[flowerword][burrowend]</li>
+				<li>r_name->[natureword] [depot]</li>
+
+				<li>burrowend(p=3)->burrow</li>
+				<li>burrowend(p=2)->hollow</li>
+				<li>burrowend(p=2)->nest</li>
+				<li>burrowend->den</li>
+				<li>burrowend->cellar</li>
+
+				<li>depot(p=3)->Depot</li>
+				<li>depot(p=2)->Warehouse</li>
+				<li>depot->Waystation</li>
+				<li>depot->Market</li>
+				<li>depot->Pantry</li>
+
+				<li>nutword->[RK_Noun_Prefix_Nut]</li>
+				<li>flowerword->[RK_Noun_Prefix_Flower]</li>
+				<li>natureword->[RK_Noun_Prefix_Nature]</li>
+			</rulesStrings>
+			<rulesFiles>
+				<li>RK_Noun_Prefix_Nut->Names/Noun/RK_Noun_Prefix_Nut</li>
+				<li>RK_Noun_Prefix_Flower->Names/Noun/RK_Noun_Prefix_Flower</li>
+				<li>RK_Noun_Prefix_Nature->Names/Noun/RK_Noun_Prefix_Nature</li>
+			</rulesFiles>
+		</rulePack>
+	</RulePackDef>
+</Defs>

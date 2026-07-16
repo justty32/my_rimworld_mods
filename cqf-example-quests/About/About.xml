@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>CQF：範例任務集</name>
+	<author>pas</author>
+	<packageId>pas.cqf.examplequests</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+		<li>
+			<packageId>HaiLuan.CustomQuestFramework</packageId>
+			<displayName>Custom Quest Framework</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2978572782</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>HaiLuan.CustomQuestFramework</li>
+	</loadAfter>
+	<description>Custom Quest Framework（CQF）純 XML 教學範例集，展示三種任務製作機制：
+
+1.「回聲信標」— 說書人可抽選的任務，示範全域旗標（SetGlobalBool）、延時排程（DelayExecute）與任務鏈（CQFAction_Quest 觸發後續任務）。
+2.「信標的回應」— 被任務鏈觸發的隱藏任務，示範條件分支（CQFAction_Condition + DialogCondition_Bool）與原版節點發獎。
+3.「漂泊嚮導」— 手寫 DialogTreeDef 多節點對話樹：分支跳轉、隨機台詞、技能門檻選項、以物易物（requiredThings）、對話中接下委託任務。嚮導會隨機出現在到訪的中立訪客團裡（頭上有對話圖示）。
+
+搭配分析報告：pas/analysis/rimworld_mods/custom-quest-framework/tutorial/02_authoring_new_quests.md。
+測試：開發者模式 Execute quest 可直接觸發各任務；對話樹需等待訪客團或用 CQF 編輯器驗證。</description>
+</ModMetaData>

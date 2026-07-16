@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================
+       樹脂樹精 Resinmaker：化工燃料生態位（原版/VIE 皆未覆蓋）。
+       能力＝原版 CompProperties_Spawner（與 Woodmaker 同機制，零 C#）。
+       DryadBase / DryadKindBase 是 Ideology 的具名抽象親：
+       Data/Ideology/Defs/ThingDefs_Races/Races_Animal_Special.xml:6 / :115
+       ============================================================ -->
+
+  <ThingDef ParentName="DryadBase">
+    <defName>DEP_Dryad_Resinmaker</defName>
+    <label>resinmaker dryad</label>
+    <description>A dryad caste specialized in secreting flammable resin. Together with its Gauranlen tree, this dryad slowly condenses volatile sap into chemfuel on an ongoing basis. However, it is slow and ineffective at work or combat.\n\nIn general, dryads are mammal-like creatures that have a symbiotic relationship with the Gauranlen tree. They reproduce together with their tree, which contains a hidden dryad queen. Dryads can morph into various specialized castes.</description>
+    <statBases>
+      <MoveSpeed>2.8</MoveSpeed>
+      <!-- 易燃的代價：樹脂體 -->
+      <Flammability>1.5</Flammability>
+    </statBases>
+    <descriptionHyperlinks>
+      <ThingDef>Chemfuel</ThingDef>
+    </descriptionHyperlinks>
+    <race>
+      <useMeatFrom>Dryad_Basic</useMeatFrom>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+          <soundCall>Pawn_Dryad_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <comps>
+      <!-- 產量對標：Woodmaker 32 木/2日、Berrymaker 40 莓/2日 → 35 化工燃料/2日 -->
+      <li Class="CompProperties_Spawner">
+        <thingToSpawn>Chemfuel</thingToSpawn>
+        <spawnCount>35</spawnCount>
+        <spawnIntervalRange>120000</spawnIntervalRange>
+        <writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+        <showMessageIfOwned>true</showMessageIfOwned>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DryadKindBase">
+    <defName>DEP_Dryad_Resinmaker</defName>
+    <label>resinmaker dryad</label>
+    <race>DEP_Dryad_Resinmaker</race>
+    <lifeStages>
+      <!-- 樹精 race 只有一個 lifeStageAges（AnimalAdult），故只需一組貼圖。
+           貼圖規格：PNG RGBA 256x256，Graphic_Multi 命名 _north/_south/_east（west 鏡射 east）。 -->
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/DEP_Dryad_Resinmaker/DEP_DryadResinmaker</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/DEP_Dryad_Resinmaker/Dessicated_DEP_DryadResinmaker</texPath>
+          <drawSize>1.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <!-- ============================================================
+       救援樹精 Rescuer：戰場救援生態位（拖回倒地友軍；原版 Carrier 只會拉貨）。
+       能力＝訓練系統：Rescue TrainableDef（tags=Combat,Help、minBodySize=0.65，
+       Data/Core/Defs/TrainableDefs/Trainables.xml:43-60）。
+       untrainableTags 先否決、trainableTags 強制允許
+       （RimWorld/Pawn_TrainingTracker.cs:106-151）；連樹時 CompTreeConnection.ResetDryad
+       自動練滿（RimWorld/CompTreeConnection.cs:390-412），玩家零操作。
+       ============================================================ -->
+
+  <ThingDef ParentName="DryadBase">
+    <defName>DEP_Dryad_Rescuer</defName>
+    <label>rescuer dryad</label>
+    <description>A dryad caste specialized in battlefield rescue. Long-limbed and quick, it drags wounded allies out of danger and back to their beds. It is a poor fighter and refuses to haul mundane cargo.\n\nIn general, dryads are mammal-like creatures that have a symbiotic relationship with the Gauranlen tree. They reproduce together with their tree, which contains a hidden dryad queen. Dryads can morph into various specialized castes.</description>
+    <statBases>
+      <MoveSpeed>4.6</MoveSpeed>
+    </statBases>
+    <race>
+      <useMeatFrom>Dryad_Basic</useMeatFrom>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <soundWounded>Pawn_Dryad_Wounded</soundWounded>
+          <soundCall>Pawn_Dryad_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <!-- Rescue 需 minBodySize 0.65；DryadBase 預設 0.667 壓線，抬到 0.7 保險 -->
+      <baseBodySize>0.7</baseBodySize>
+      <baseHealthScale>0.75</baseHealthScale>
+      <trainability>Advanced</trainability>
+      <trainableTags>
+        <li>Basic</li>
+        <li>Help</li>
+      </trainableTags>
+      <untrainableTags>
+        <li>Work</li>
+      </untrainableTags>
+      <!-- 注意：Rescue 的 tags 含 Combat，因此不能把 Combat 放進 untrainableTags，
+           否則 Rescue 會被一票否決；副作用是 Release（放獸攻擊）也可訓練，可接受。 -->
+      <disableAreaControl>false</disableAreaControl>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="DryadKindBase">
+    <defName>DEP_Dryad_Rescuer</defName>
+    <label>rescuer dryad</label>
+    <race>DEP_Dryad_Rescuer</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/DEP_Dryad_Rescuer/DEP_DryadRescuer</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/DEP_Dryad_Rescuer/Dessicated_DEP_DryadRescuer</texPath>
+          <drawSize>1.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- 進「樹的模式選單」不需要任何 patch：
+       Dialog_ChangeDryadCaste 直接枚舉 DefDatabase<GauranlenTreeModeDef>.AllDefs
+       （RimWorld/Dialog_ChangeDryadCaste.cs:51），def 載入即入列。
+
+       drawPosition 是選單 0..1 相對座標網格：
+       原版占 x=0 欄（y: 0 ~ 1）、VIE Dryads 占 x=0.833 欄，
+       本包取 x=0.4166 中欄避免圖示重疊。 -->
+
+  <GauranlenTreeModeDef>
+    <defName>DEP_Resinmaker</defName>
+    <label>resinmaker</label>
+    <description>A dryad caste specialized in secreting flammable resin. Together with its Gauranlen tree, this dryad slowly condenses volatile sap into chemfuel on an ongoing basis. However, it is slow and ineffective at work or combat.</description>
+    <pawnKindDef>DEP_Dryad_Resinmaker</pawnKindDef>
+    <drawPosition>(0.4166, 0)</drawPosition>
+    <displayedStats>
+      <li>MaxHitPoints</li>
+      <li>MoveSpeed</li>
+    </displayedStats>
+    <hyperlinks>
+      <ThingDef>DEP_Dryad_Resinmaker</ThingDef>
+      <ThingDef>Chemfuel</ThingDef>
+    </hyperlinks>
+    <!-- 可選欄位示範（本包不啟用）：
+
+         ① meme 門檻：沒有此 meme 的意識形態在選單中顯示為鎖定
+            （Dialog_ChangeDryadCaste.cs:99-113；原版 Gaumaker 即綁 TreeConnection）
+         <requiredMemes>
+           <li>TreeConnection</li>
+         </requiredMemes>
+
+         ② 進化鏈：目前模式必須是 previousStage 指向的模式才可選，
+            選單會在兩格之間畫連線（Dialog_ChangeDryadCaste.cs:201, :248-257）。
+            原版定義了欄位但六個模式皆未使用，是現成擴充點。
+         <previousStage>DEP_Resinmaker</previousStage>
+    -->
+  </GauranlenTreeModeDef>
+
+  <GauranlenTreeModeDef>
+    <defName>DEP_Rescuer</defName>
+    <label>rescuer</label>
+    <description>A dryad caste specialized in battlefield rescue. Long-limbed and quick, it drags wounded allies out of danger and back to their beds. It is a poor fighter and refuses to haul mundane cargo.</description>
+    <pawnKindDef>DEP_Dryad_Rescuer</pawnKindDef>
+    <drawPosition>(0.4166, 0.1665)</drawPosition>
+    <displayedStats>
+      <li>MaxHitPoints</li>
+      <li>MoveSpeed</li>
+    </displayedStats>
+    <hyperlinks>
+      <ThingDef>DEP_Dryad_Rescuer</ThingDef>
+    </hyperlinks>
+  </GauranlenTreeModeDef>
+
+</Defs>

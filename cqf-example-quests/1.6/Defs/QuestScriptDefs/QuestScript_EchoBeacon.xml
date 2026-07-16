@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    任務 A「回聲信標」— 任務鏈 + 延時排程示範
+    ================================================
+    展示點（行號指 QuestEditor_Library.decompiled.cs）：
+      - CQFAction_SetGlobalBool (:573)  寫全域資料庫旗標，入存檔（GameComponent_Editor.ExposeData :7661）
+      - CQFAction_DelayExecute  (:188)  延時排程；佇列有序列化（:7662），跨讀檔不丟
+      - CQFAction_Quest         (:719)  直接生成並上架任務 B（GenerateQuestAndMakeAvailable :752）
+      - CQFAction_SentSignal    (:447)  addQuestPrefix=true 拼 Quest{id}. 前綴（:514-517），
+                                        與 QuestNode_End 的 HardcodedSignalWithQuestID 對上
+    60000 tick = 1 遊戲日。
+  -->
+  <QuestScriptDef>
+    <defName>CQFExample_EchoBeacon</defName>
+
+    <!-- 說書人可隨機抽選；早期即可出 -->
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <expireDaysRange>5~10</expireDaysRange>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->回聲信標</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->殖民地邊緣的舊通訊塔突然自行點亮，向深空重複播送一段古老的識別碼。訊號已經發出去了——現在只能等，看黑暗裡有什麼會回應它。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- (1) 任務生成即跑（inSignal 留空＝吃 initiate 信號）：
+             開場訊息 → 點亮全域旗標 → 排一天後的後續 -->
+        <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+          <actions>
+            <li Class="QuestEditor_Library.CQFAction_Message">
+              <message>CQFExample_Beacon_Opening</message>
+              <type>NeutralEvent</type>
+            </li>
+            <!-- 全域旗標：任務 B 會用 DialogCondition_Bool 讀它 -->
+            <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+              <keyOfBool>CQFExample_BeaconLit</keyOfBool>
+              <valueOfBool>true</valueOfBool>
+            </li>
+            <!-- 一天後：回應訊息 + 鏈式觸發任務 B + 發信號讓本任務結案 -->
+            <li Class="QuestEditor_Library.CQFAction_DelayExecute">
+              <delayTime>60000</delayTime>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>CQFExample_Beacon_Echo</message>
+                  <type>PositiveEvent</type>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_Quest">
+                  <quest>CQFExample_EchoBeaconSignal</quest>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SentSignal">
+                  <signal>BeaconResolved</signal>
+                  <addQuestPrefix>true</addQuestPrefix>
+                </li>
+              </actions>
+            </li>
+          </actions>
+        </li>
+
+        <!-- (2) 收到信號即成功結案 -->
+        <li Class="QuestNode_End">
+          <inSignal>BeaconResolved</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

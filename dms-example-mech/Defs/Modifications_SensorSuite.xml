@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       光學感測套件：機兵插件（modification）範例。
+       範式來源：DMS 插件雙 def 模式
+       （dead-mans-switch 1.6/Defs/Things_item/DMS_Modification.xml，
+       例：DMS_SyntheticTendon:357-427）。
+
+       機制（全在 FFF）：
+       - 物品掛 CompProperties_Usable（使用 gizmo）＋
+         Fortified.CompProperties_AddHediffOnTarget
+         （Fortified.decompiled.cs:27108-27117；欄位：hediffDef /
+         soundDef / targetBodyPartDefs / supportRaceDefs）。
+       - 使用時開啟目標選取（只能點機械體，:27057-27066），檢查
+         supportRaceDefs 白名單與 targetBodyPartDefs 空位
+         （ModificationUtility:27634-27691，一個部位一件插件），
+         然後 JobDriver_ApplyModification（:27492）把 hediff 裝上該部位。
+       - 加成＝hediff stages 的 statOffsets/statFactors；
+         HediffCompProperties_Modification(:27222) 提供右鍵拆卸
+         （FFF_ModificationRemove），spawnThingOnRemoved 拆回物品。
+       ============================================================ -->
+  <ThingDef ParentName="BaseModificationItem">
+    <defName>PASEX_OpticSensorSuite</defName>
+    <label>optic sensor suite</label>
+    <description>A clip-on package of low-light optics, a laser rangefinder and target-lead processors, designed to bolt onto an automatroid's sensor mast. Improves aim, especially at long range.\n\nInstall it on a mech's sensor or radar unit; one suite per sensor.</description>
+    <descriptionHyperlinks>
+      <HediffDef>PASEX_OpticSensorSuite</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <!-- 佔位貼圖：複用 DMS 資源圖（見 PROJECT.md 待補） -->
+      <texPath>Things/Resource/ReinforcedFrame</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <MarketValue>250</MarketValue>
+      <Mass>2</Mass>
+      <Flammability>0.6</Flammability>
+    </statBases>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Steel>20</Steel>
+    </costList>
+    <recipeMaker>
+      <workAmount>2400</workAmount>
+      <researchPrerequisite>DMS_UAVBasis</researchPrerequisite>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>DMS_TableMachinePrinter</li>
+      </recipeUsers>
+    </recipeMaker>
+    <comps>
+      <li Class="Fortified.CompProperties_AddHediffOnTarget">
+        <compClass>Fortified.CompTargetable_AddHediffOnTarget</compClass>
+        <hediffDef>PASEX_OpticSensorSuite</hediffDef>
+        <soundDef>DMS_EquipGear</soundDef>
+        <!-- 槽位＝感測器類部位；每個符合部位可各裝一件。
+             部位 def 出處：dead-mans-switch
+             1.6/Defs/Things_race/BodyPartsDef.xml（DMS_CompactSenser:98、
+             DMS_HeadRadar:43）。supportRaceDefs 留空＝所有機械體可裝。 -->
+        <targetBodyPartDefs>
+          <li>DMS_CompactSenser</li>
+          <li>DMS_HeadRadar</li>
+        </targetBodyPartDefs>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>PASEX_OpticSensorSuite</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>optic sensor suite</label>
+    <description>Installed low-light optics and targeting processors. Faster aim and better long-range accuracy; the delicate optics slightly increase energy drain.</description>
+    <descriptionHyperlinks>
+      <ThingDef>PASEX_OpticSensorSuite</ThingDef>
+    </descriptionHyperlinks>
+    <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <defaultInstallPart>DMS_CompactSenser</defaultInstallPart>
+    <spawnThingOnRemoved>PASEX_OpticSensorSuite</spawnThingOnRemoved>
+    <countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+    <stages>
+      <li>
+        <statFactors>
+          <AimingDelayFactor>0.85</AimingDelayFactor>
+        </statFactors>
+        <statOffsets>
+          <ShootingAccuracyFactor_Long>0.08</ShootingAccuracyFactor_Long>
+          <MechEnergyUsageFactor>0.05</MechEnergyUsageFactor>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="Fortified.HediffCompProperties_Modification">
+        <applyJob>FFF_ModificationRemove</applyJob>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

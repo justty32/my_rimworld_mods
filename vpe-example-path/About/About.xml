@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.vpe.examplepath</packageId>
+  <name>VPE Example Path: Tranquilizer</name>
+  <author>GuanYu Lu</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Royalty</packageId>
+      <displayName>Royalty</displayName>
+    </li>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+      <displayName>Vanilla Expanded Framework</displayName>
+      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>VanillaExpanded.VPsycastsE</packageId>
+      <displayName>Vanilla Psycasts Expanded</displayName>
+      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2842502659</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>brrainz.harmony</li>
+    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+    <li>VanillaExpanded.VPsycastsE</li>
+  </loadAfter>
+  <description>Example mod: adds a brand-new psycaster path "Tranquilizer" to Vanilla Psycasts Expanded, built entirely in XML (no C#). Five abilities across three tiers: calming touch, mind jolt, mind barrier, panic pulse and serene field. Written as a companion artifact to a PAS analysis of how VPE paths work.</description>
+</ModMetaData>

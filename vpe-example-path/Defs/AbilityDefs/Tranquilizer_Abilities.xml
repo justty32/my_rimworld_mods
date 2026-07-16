@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       寧神者能力樹（5 能力 / 3 層；同層最多 3 格：VPE.cs:10124 abilityTreeXOffsets）
+
+           L3        [寧神場]
+                      /    \        （prerequisites 為 OR 語意：VPE.cs:5541）
+           L2   [心靈壁壘] [恐慌脈衝]
+                    |         |
+           L1   [安神之觸] [心靈震懾]
+
+       全部 ParentName="VPE_PsycastBase"（VPE Base.xml 抽象 def：施法音效/泡泡/
+       cooldownTime=120/靈能 gizmo；跨 mod 繼承需 loadAfter VPE）。
+       abilityClass 無預設、必填（VEF.cs:69141）；純積木組合就填 Ability_Blank。
+       iconPath 借 Royalty 既有圖示當佔位（正式圖 64x64 PNG 放 Textures/UI/Abilities/）。
+       ============================================================ -->
+
+  <!-- L1-1 安神之觸：單體上鎮靜 hediff（AbilityExtension_Hediff 積木）。 -->
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>PASVPE_CalmingTouch</defName>
+    <label>calming touch</label>
+    <description>Flood a single mind with numbing calm, dulling consciousness and slowing movement for a few hours. Duration scales with the target's psychic sensitivity.</description>
+    <iconPath>UI/Abilities/Painblock</iconPath>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <range>15</range>
+    <castTime>60</castTime>
+    <durationTime>7500</durationTime>
+    <goodwillImpact>-5</goodwillImpact>
+    <showUndrafted>true</showUndrafted>
+    <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>PASVPE_Tranquilizer</path>
+        <level>1</level>
+        <order>1</order>
+        <psyfocusCost>0.15</psyfocusCost>
+        <entropyGain>8</entropyGain>
+        <psychic>true</psychic>
+      </li>
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
+        <hediff>PASVPE_Sedation</hediff>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+    </modExtensions>
+  </VEF.Abilities.AbilityDef>
+
+  <!-- L1-2 心靈震懾：單體暈眩（AbilityExtension_Stun 積木）。 -->
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>PASVPE_MindJolt</defName>
+    <label>mind jolt</label>
+    <description>Strike a mind with a psychic jolt, stunning the target for several seconds. Duration scales with the target's psychic sensitivity.</description>
+    <iconPath>UI/Abilities/Stun</iconPath>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <range>20</range>
+    <castTime>30</castTime>
+    <goodwillImpact>-10</goodwillImpact>
+    <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>PASVPE_Tranquilizer</path>
+        <level>1</level>
+        <order>2</order>
+        <psyfocusCost>0.2</psyfocusCost>
+        <entropyGain>12</entropyGain>
+        <psychic>true</psychic>
+      </li>
+      <li Class="VEF.Abilities.AbilityExtension_Stun">
+        <stunTicks>180~300</stunTicks>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+    </modExtensions>
+  </VEF.Abilities.AbilityDef>
+
+  <!-- L2-1 心靈壁壘：自體 buff（AbilityExtension_Hediff.applyToCaster）。前置：安神之觸。 -->
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>PASVPE_MindBarrier</defName>
+    <label>mind barrier</label>
+    <description>Harden your own mind into a psychic barrier: incoming blades and blows lose part of their bite, pain is easier to bear, and psychic intrusion is halved for a while.</description>
+    <iconPath>UI/Abilities/EntropyLink</iconPath>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
+    <targetMode>Self</targetMode>
+    <castTime>60</castTime>
+    <durationTime>15000</durationTime>
+    <showUndrafted>true</showUndrafted>
+    <castFleck>PsycastPsychicEffect</castFleck>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>PASVPE_Tranquilizer</path>
+        <level>2</level>
+        <order>1</order>
+        <psyfocusCost>0.25</psyfocusCost>
+        <entropyGain>20</entropyGain>
+        <prerequisites>
+          <li>PASVPE_CalmingTouch</li>
+        </prerequisites>
+      </li>
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
+        <hediff>PASVPE_MindBarrier</hediff>
+        <applyToCaster>true</applyToCaster>
+      </li>
+    </modExtensions>
+  </VEF.Abilities.AbilityDef>
+
+  <!-- L2-2 恐慌脈衝：AoE 給精神狀態（hasAoE 展開目標：VEF.cs:68156；
+       AbilityExtension_GiveMentalState 積木）。前置：心靈震懾。 -->
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>PASVPE_PanicPulse</defName>
+    <label>panic pulse</label>
+    <description>Release a pulse of raw dread around a target point. Every human and animal caught in the radius breaks into blind panic and flees. Affects friend and foe alike.</description>
+    <iconPath>UI/Abilities/Burden</iconPath>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
+    <targetMode>Location</targetMode>
+    <range>25</range>
+    <hasAoE>true</hasAoE>
+    <radius>6</radius>
+    <castTime>60</castTime>
+    <durationTime>1800</durationTime>
+    <goodwillImpact>-15</goodwillImpact>
+    <fleckOnTarget>PsycastAreaEffect</fleckOnTarget>
+    <fleckOnTargetScaleWithRadius>true</fleckOnTargetScaleWithRadius>
+    <targetingParametersForAoE>
+      <canTargetHumans>True</canTargetHumans>
+      <canTargetAnimals>True</canTargetAnimals>
+      <canTargetMechs>False</canTargetMechs>
+    </targetingParametersForAoE>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>PASVPE_Tranquilizer</path>
+        <level>2</level>
+        <order>2</order>
+        <psyfocusCost>0.35</psyfocusCost>
+        <entropyGain>25</entropyGain>
+        <psychic>true</psychic>
+        <prerequisites>
+          <li>PASVPE_MindJolt</li>
+        </prerequisites>
+      </li>
+      <li Class="VEF.Abilities.AbilityExtension_GiveMentalState">
+        <stateDef>PanicFlee</stateDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <causedByPsycast>true</causedByPsycast>
+      </li>
+    </modExtensions>
+  </VEF.Abilities.AbilityDef>
+
+  <!-- L3 寧神場（頂點技）：以自身為中心的 AoE，只鎮靜敵對目標
+       （AbilityExtension_Hediff.targetOnlyEnemies）＋震屏。
+       前置列兩個 L2 能力＝「任一已學即可」（OR 語意，VPE.cs:5541-5548）。 -->
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>PASVPE_SereneField</defName>
+    <label>serene field</label>
+    <description>Blanket the area around you in a serene psychic field. Every hostile mind within it is flooded with sedating calm, dulling consciousness and slowing movement. Allies are unaffected.</description>
+    <iconPath>UI/Abilities/BlindingPulse</iconPath>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
+    <targetMode>Self</targetMode>
+    <hasAoE>true</hasAoE>
+    <radius>8</radius>
+    <castTime>120</castTime>
+    <cooldownTime>2500</cooldownTime>
+    <durationTime>7500</durationTime>
+    <castFleck>PsycastAreaEffect</castFleck>
+    <castFleckScaleWithRadius>true</castFleckScaleWithRadius>
+    <targetingParametersForAoE>
+      <canTargetSelf>True</canTargetSelf>
+      <canTargetHumans>True</canTargetHumans>
+      <canTargetAnimals>True</canTargetAnimals>
+      <canTargetMechs>False</canTargetMechs>
+    </targetingParametersForAoE>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>PASVPE_Tranquilizer</path>
+        <level>3</level>
+        <order>1</order>
+        <psyfocusCost>0.5</psyfocusCost>
+        <entropyGain>40</entropyGain>
+        <psychic>true</psychic>
+        <prerequisites>
+          <li>PASVPE_MindBarrier</li>
+          <li>PASVPE_PanicPulse</li>
+        </prerequisites>
+      </li>
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
+        <hediff>PASVPE_Sedation</hediff>
+        <targetOnlyEnemies>true</targetOnlyEnemies>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class="VEF.Abilities.AbilityExtension_ScreenShaker">
+        <intensity>0.4</intensity>
+      </li>
+    </modExtensions>
+  </VEF.Abilities.AbilityDef>
+
+</Defs>

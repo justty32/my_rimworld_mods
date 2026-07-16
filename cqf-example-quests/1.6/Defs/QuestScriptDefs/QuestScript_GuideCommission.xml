@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    任務 C「嚮導的藏匿點」— 由對話樹接下的委託
+    ================================================
+    展示點：
+      - 觸發入口在 DialogTree_WanderingGuide.xml 的「接下委託」選項
+        （DialogResult.actions 裡的 CQFAction_Quest :719）
+      - 信號閘門的原版節點：QuestNode_DropPods 的 inSignal 等
+        CQF 的 CQFAction_SentSignal（延時半天後發出）才投放
+      - 半天 = 30000 tick
+  -->
+  <QuestScriptDef>
+    <defName>CQFExample_GuideCommission</defName>
+
+    <!-- 只由對話觸發 -->
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->嚮導的藏匿點</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->漂泊嚮導答應把一處舊藏匿點的座標賣個人情給你。他要先確認東西還在——等他的信。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>true</canBeSpace>
+        </li>
+
+        <!-- (1) 接單訊息 + 半天後發「座標確認」信號 -->
+        <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+          <actions>
+            <li Class="QuestEditor_Library.CQFAction_Message">
+              <message>CQFExample_Commission_Opening</message>
+              <type>NeutralEvent</type>
+            </li>
+            <li Class="QuestEditor_Library.CQFAction_DelayExecute">
+              <delayTime>30000</delayTime>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_SentSignal">
+                  <signal>StashConfirmed</signal>
+                  <addQuestPrefix>true</addQuestPrefix>
+                </li>
+              </actions>
+            </li>
+          </actions>
+        </li>
+
+        <!-- (2) 信號到才投放藏匿品（原版節點吃 CQF 信號的示範） -->
+        <li Class="QuestNode_GenerateThingSet">
+          <thingSetMaker>CQFExample_RewardStash</thingSetMaker>
+          <storeAs>guideStash</storeAs>
+        </li>
+        <li Class="QuestNode_DropPods">
+          <inSignal>StashConfirmed</inSignal>
+          <contents>$guideStash</contents>
+          <sendStandardLetter>true</sendStandardLetter>
+          <useTradeDropSpot>true</useTradeDropSpot>
+          <customLetterLabel>嚮導的藏匿點</customLetterLabel>
+          <customLetterText>嚮導的座標是真的。藏匿點的舊補給以投放艙送達了殖民地。</customLetterText>
+        </li>
+
+        <!-- (3) 同信號結案 -->
+        <li Class="QuestNode_End">
+          <inSignal>StashConfirmed</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

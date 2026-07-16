@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       紅隼的生產入口：Biotech 機兵母體配方。
+       範式來源：DMS_Make_Falcon
+       （dead-mans-switch 1.6/Biotech/Defs/DMS_Recipes_MechGestator_Light.xml:35-65）
+       抽象母 def：DMS_LightMechanoidRecipe
+       （…/DMS_Recipes_MechGestator_Base.xml:4-8；gestationCycles=1、
+       recipeUsers=DMS_MechGestatorSmall）。
+       註：DMS Core 1.6 硬相依 Biotech，故本檔可放主 Defs 不需條件資料夾。
+       ============================================================ -->
+  <RecipeDef ParentName="DMS_LightMechanoidRecipe">
+    <defName>PASEX_Make_Kestrel</defName>
+    <label>gestate kestrel</label>
+    <description>Gestate a Kestrel recon automatroid.</description>
+    <researchPrerequisite>DMS_UAVBasis</researchPrerequisite>
+    <products>
+      <PASEX_Mech_Kestrel>1</PASEX_Mech_Kestrel>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>PASEX_Mech_Kestrel</ThingDef>
+    </descriptionHyperlinks>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+</Defs>

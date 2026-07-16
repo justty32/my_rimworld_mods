@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 異空間地圖生成器。
+       isUnderground=true 讓 MapGenerator 自動為全圖鋪 RoofRockThick（Verse/MapGenerator.cs:147-153），
+       pocketMapProperties.temperature 提供恆溫（Verse/MapTemperature.cs:33/49）。
+       biome 用 Core 的 Underground（generatesNaturally=false，天氣固定 Underground）。 -->
+  <MapGeneratorDef>
+    <defName>PDE_PocketDimension</defName>
+    <label>pocket dimension</label>
+    <isUnderground>true</isUnderground>
+    <ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
+    <disableCallAid>true</disableCallAid>
+    <disableShadows>true</disableShadows>
+    <pocketMapProperties>
+      <biome>Underground</biome>
+      <temperature>21</temperature>
+      <destroyOnParentMapAbandoned>true</destroyOnParentMapAbandoned>
+      <canBeCleaned>true</canBeCleaned>
+    </pocketMapProperties>
+    <genSteps>
+      <li>PDE_PocketRoom</li>
+    </genSteps>
+  </MapGeneratorDef>
+
+  <!-- 單一 GenStep：整圖鋪地、外圈圍岩牆、中央生成出口。
+       出口生成於此（GenStep 於 MapGenerator.GenerateMap 期間執行，
+       此時 PocketMapUtility.currentlyGeneratingPortal 仍指向入口，
+       原版 PocketMapExit.SpawnSetup 會自動完成入口/出口互綁）。 -->
+  <GenStepDef>
+    <defName>PDE_PocketRoom</defName>
+    <order>400</order>
+    <genStep Class="PocketDimensionExample.GenStep_PocketRoom">
+      <exitDef>PDE_DimensionExit</exitDef>
+      <floorTerrain>MetalTile</floorTerrain>
+      <wallRockDef>Granite</wallRockDef>
+      <borderThickness>4</borderThickness>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

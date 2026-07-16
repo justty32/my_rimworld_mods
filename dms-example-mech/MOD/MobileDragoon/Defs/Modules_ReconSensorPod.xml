@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       偵察感測莢艙：Mobile Dragoon（Exosuit Framework）部件範例。
+       本檔僅在 Aoba.DeadManSwitch.MobileDragoon 啟用時載入
+       （見本 mod LoadFolders.xml）。
+
+       範式來源：左肩裝甲 DMS_Module_ArmorPad / DMS_Apparel_ArmorPad 一對
+       （mobile-dragoon 1.6/Defs/ThingDef_Modules/Modules_ShoulderLeft.xml:4-95）。
+       部件＝「物品 def ＋ 衣服 def」一對，兩邊都掛
+       Exosuit.CompProperties_ExosuitModule（Exosuit.decompiled.cs:3619-3648；
+       欄位：EquipedThingDef / ItemDef / occupiedSlots / disabledSlots /
+       repairEfficiency），互相指向、佔用同一 SlotDef
+       （exosuit-framework 1.6/Defs/SlotDef.xml；此處＝MountLeft）。
+
+       配對紀律：
+       - 物品.EquipedThingDef == 衣服.defName
+       - 衣服.ItemDef == 物品.defName
+       - 兩邊 occupiedSlots 一致
+       ============================================================ -->
+  <ThingDef ParentName="DMS_ModuleItemMountLeft">
+    <defName>PASEX_Module_ReconSensorPod</defName>
+    <label>recon sensor pod</label>
+    <description>A lightweight mast-mounted sensor pod for dragoon frames. Sacrifices the mount's usual armor or launcher for a suite of optics that helps the pilot spot and engage targets sooner.</description>
+    <descriptionHyperlinks>
+      <ThingDef>PASEX_Apparel_ReconSensorPod</ThingDef>
+    </descriptionHyperlinks>
+    <recipeMaker>
+      <researchPrerequisite>DMS_MobileDragoon</researchPrerequisite>
+      <workAmount>15000</workAmount>
+    </recipeMaker>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Mass>15</Mass>
+    </statBases>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="Exosuit.CompProperties_ExosuitModule">
+        <EquipedThingDef>PASEX_Apparel_ReconSensorPod</EquipedThingDef>
+        <occupiedSlots>
+          <li>MountLeft</li>
+        </occupiedSlots>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="DMS_ModuleApparelMountLeft">
+    <defName>PASEX_Apparel_ReconSensorPod</defName>
+    <label>recon sensor pod</label>
+    <description>A lightweight mast-mounted sensor pod for dragoon frames. Sacrifices the mount's usual armor or launcher for a suite of optics that helps the pilot spot and engage targets sooner.</description>
+    <descriptionHyperlinks>
+      <ThingDef>PASEX_Module_ReconSensorPod</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <!-- 佔位貼圖：複用 MD 煙霧發射器貼圖（見 PROJECT.md 待補） -->
+      <texPath>Things/Dragoon/SmokeLauncher/apparel_south</texPath>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Mass>15</Mass>
+    </statBases>
+    <!-- 加成走 equippedStatOffsets（穿戴者屬性位移），
+         同 ArmorPad 範式（Modules_ShoulderLeft.xml:57-61） -->
+    <equippedStatOffsets>
+      <ShootingAccuracyFactor_Medium>0.06</ShootingAccuracyFactor_Medium>
+      <ShootingAccuracyFactor_Long>0.10</ShootingAccuracyFactor_Long>
+    </equippedStatOffsets>
+    <apparel>
+      <!-- wornGraphicPath＋drawData＝穿戴後的四向貼圖掛點；
+           offset/layer/rotationOffset 逐向可調
+           （範式：Modules_ShoulderLeft.xml:63-86） -->
+      <wornGraphicPath>Things/Dragoon/SmokeLauncher/apparel</wornGraphicPath>
+      <drawData>
+        <dataSouth>
+          <offset>(0.75,0,0.5)</offset>
+          <layer>30</layer>
+        </dataSouth>
+        <dataNorth>
+          <offset>(-0.75,0,0.6)</offset>
+          <layer>30</layer>
+        </dataNorth>
+        <dataWest>
+          <offset>(0.5,0,0.3)</offset>
+          <layer>30</layer>
+        </dataWest>
+        <dataEast>
+          <offset>(0,0,0.75)</offset>
+          <layer>-2</layer>
+        </dataEast>
+      </drawData>
+    </apparel>
+    <comps>
+      <li Class="Exosuit.CompProperties_ExosuitModule">
+        <ItemDef>PASEX_Module_ReconSensorPod</ItemDef>
+        <occupiedSlots>
+          <li>MountLeft</li>
+        </occupiedSlots>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

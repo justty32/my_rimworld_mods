@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RKP_Faction_AcornGuild.label>橡实大远征商会</RKP_Faction_AcornGuild.label>
+  <RKP_Faction_AcornGuild.description>一群把「把橡实搬回家」当成毕生伟业的鼠鼠。商队的地图多半拿反着看，账本只要尾数对不上就整页重抄，仓库囤到门都推不开。\n\n不过没有谁能对他们生气太久——你订的货最后总是会送到的。大概。有时候送到的是隔壁镇。\n\n他们深深相信：只要囤满十万颗橡实，冬天就再也不会来了。</RKP_Faction_AcornGuild.description>
+  <RKP_Faction_AcornGuild.pawnSingular>搬运鼠</RKP_Faction_AcornGuild.pawnSingular>
+  <RKP_Faction_AcornGuild.pawnsPlural>搬运鼠</RKP_Faction_AcornGuild.pawnsPlural>
+  <RKP_Faction_AcornGuild.leaderTitle>橡实大总管</RKP_Faction_AcornGuild.leaderTitle>
+
+</LanguageData>

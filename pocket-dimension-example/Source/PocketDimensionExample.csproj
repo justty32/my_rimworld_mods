@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Build: dotnet build Source/PocketDimensionExample.csproj -c Release
+    (run from mod root: pocket-dimension-example/)
+
+    參數（環境變數或 -p: 覆寫）：
+      RimWorldManaged  遊戲 Managed 目錄（Assembly-CSharp.dll、UnityEngine*.dll）
+    本 mod 零 Harmony 相依。
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>PocketDimensionExample</AssemblyName>
+    <RootNamespace>PocketDimensionExample</RootNamespace>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Deterministic>true</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Linux 原生版優先，找不到再退 Win 版（Proton）目錄。 -->
+    <RimWorldManaged Condition=" '$(RimWorldManaged)' == '' AND Exists('$(HOME)/.local/share/Steam/steamapps/common/RimWorld/RimWorldLinux_Data/Managed') ">$(HOME)/.local/share/Steam/steamapps/common/RimWorld/RimWorldLinux_Data/Managed</RimWorldManaged>
+    <RimWorldManaged Condition=" '$(RimWorldManaged)' == '' ">$(HOME)/.local/share/Steam/steamapps/common/RimWorld/RimWorldWin64_Data/Managed</RimWorldManaged>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Building_PocketDimensionDoor.cs" />
+    <Compile Include="GenStep_PocketRoom.cs" />
+    <Compile Include="PlaceWorker_NotInPocketMap.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RimWorldManaged)/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(RimWorldManaged)/UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(RimWorldManaged)/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

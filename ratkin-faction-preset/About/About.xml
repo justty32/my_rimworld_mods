@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ModMetaData>
+	<name>Ratkin Faction: Acorn Expedition Guild (橡實大遠征商會)</name>
+	<author>justty32</author>
+	<packageId>justty32.RatkinAcornGuild</packageId>
+	<description>Adds a new Ratkin faction - the Acorn Expedition Guild: earnest, hard-working, hopelessly clumsy ratkin haulers who believe stockpiling enough acorns will cancel winter.
+
+- New FactionDef built on NewRatkinPlus pawn kinds, traders and culture.
+- Ships a Worldbuilder world preset "Acorn Road" (橡實之路): ratkin kingdom + two guild branches + vanilla factions on a forested world.
+- Works WITHOUT Worldbuilder as a normal faction mod; with Worldbuilder installed the preset appears in the world preset list.
+
+新增鼠族派系「橡實大遠征商會」：認真努力但常常出包的搬運鼠鼠們。未安裝 Worldbuilder 時作為普通派系 mod 生效；安裝 Worldbuilder 後額外提供世界預設「橡實之路」。
+
+Requires: NewRatkinPlus (and its dependencies HAR + Harmony).
+Optional: Worldbuilder (for the bundled world preset).</description>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Solaris.RatkinRaceMod</packageId>
+			<displayName>NewRatkinPlus</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1578693166</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<!-- Worldbuilder 刻意不列 modDependencies：
+	     它的 preset 掃描發生在 Worldbuilder 端（對每個已載入 mod 的 load folder 找 Worldbuilder/ 子目錄，
+	     見 worldbuilder Source/WorldPresetManager.cs:145-158）；
+	     未安裝時本 mod 的 Worldbuilder/ 目錄不屬於任何原版載入路徑，完全惰性，
+	     FactionDef 照常走原版世界生成。 -->
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>brrainz.harmony</li>
+		<li>erdelf.HumanoidAlienRaces</li>
+		<li>Solaris.RatkinRaceMod</li>
+		<li>ferny.Worldbuilder</li>
+	</loadAfter>
+</ModMetaData>

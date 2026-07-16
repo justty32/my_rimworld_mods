@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    任務 B「信標的回應」— 任務鏈的接收端 + 條件分支示範
+    ================================================
+    展示點：
+      - rootSelectionWeight=0：說書人永不抽選，只能被 CQFAction_Quest 鏈式觸發
+      - CQFAction_Condition (:336) + DialogCondition_Bool (:5494)：
+        讀任務 A 寫下的全域旗標（DialogCondition_Bool 先查全域庫 :5508 再查任務庫 :5513）
+        —— 注意 Condition 沒有 else 分支
+      - 實體獎勵走原版節點（GetMap → GenerateThingSet → DropPods）：
+        QuestPart_DoCQFActions 以空 targets 執行（:32838），CQFAction_Spawn 系
+        在純任務腳本裡解析不到位置，故不用於發獎（cqf-caravan-redemption 實測結論）
+  -->
+  <QuestScriptDef>
+    <defName>CQFExample_EchoBeaconSignal</defName>
+
+    <!-- 不讓說書人抽；由任務 A 的 CQFAction_Quest 觸發 -->
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->信標的回應</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->回應訊號的來源不明，但隨之而來的補給艙是真的：某個聽見信標的舊時代自動貨站，照著三百年前的合約條款送來了一批「例行補給」。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- (0) 取投放地圖（DropPods 的前置必要步驟；少了它 TestRun 失敗、任務被靜默丟棄） -->
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>true</canBeSpace>
+        </li>
+
+        <!-- (1) 條件分支：只有信標旗標點亮時才跳出「加碼訊息」。
+             本任務理論上只會被 A 鏈到（旗標必為 true），此處保留條件是為了
+             示範「跨任務讀全域旗標」的寫法；dev 直接 Execute quest 本任務
+             （旗標未點亮）時，這則訊息不會出現 —— 可作旗標讀取的實機驗證。 -->
+        <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+          <actions>
+            <li Class="QuestEditor_Library.CQFAction_Condition">
+              <conditions>
+                <li Class="QuestEditor_Library.DialogCondition_Bool">
+                  <boolName>CQFExample_BeaconLit</boolName>
+                </li>
+              </conditions>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>CQFExample_Signal_BeaconBonus</message>
+                  <type>PositiveEvent</type>
+                </li>
+              </actions>
+            </li>
+          </actions>
+        </li>
+
+        <!-- (2) 生成補給並投放 -->
+        <li Class="QuestNode_GenerateThingSet">
+          <thingSetMaker>CQFExample_RewardSupplies</thingSetMaker>
+          <storeAs>beaconSupplies</storeAs>
+        </li>
+        <li Class="QuestNode_DropPods">
+          <contents>$beaconSupplies</contents>
+          <sendStandardLetter>true</sendStandardLetter>
+          <useTradeDropSpot>true</useTradeDropSpot>
+          <customLetterLabel>信標的回應</customLetterLabel>
+          <customLetterText>聽見信標的某個舊時代自動貨站送來了一批補給艙。無論當年簽約的是誰，這批貨現在是你的了。</customLetterText>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

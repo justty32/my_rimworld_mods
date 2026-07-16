@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       範例 1：投射物拖尾 + 命中特效（全 XML）
+       路線：thingClass 換成 AncotLibrary.Projectile_Custom，
+             modExtension 掛 AncotLibrary.Projectile_Custom_Extension。
+       - trailFleck：每 trailFreauency tick 在彈道上丟一顆 fleck
+         （AncotLibrary/Projectile_Custom.cs:30-54）
+       - impactEffecter：命中點觸發 EffecterDef
+         （AncotLibrary/Projectile_Custom.cs:11-20）
+       fleck / effecter 皆直接複用 Ancot Library 內建 def，零貼圖需求。
+       ============================================================ -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>AVE_Bullet_Trail</defName>
+    <label>AVE trail bullet</label>
+    <thingClass>AncotLibrary.Projectile_Custom</thingClass>
+    <graphicData>
+      <!-- 佔位：直接用原版小型子彈貼圖。自製時規格＝白色發光形狀、
+           透明背景 PNG（64x64 或 128x128 即足，drawSize 控實際大小）。 -->
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <speed>55</speed>
+    </projectile>
+    <modExtensions>
+      <li Class="AncotLibrary.Projectile_Custom_Extension">
+        <!-- Ancot 內建 128x128 十字準星 fleck（MoteGlow shader，白圖可染色） -->
+        <trailFleck>Ancot_Fleck_CrossHair</trailFleck>
+        <!-- 注意：欄位拼字就是 Freauency（源碼如此），寫 Frequency 會載入失敗 -->
+        <trailFreauency>2</trailFreauency>
+        <trailColor>(0.4,0.9,1.0)</trailColor>
+        <!-- true = 拖尾角度固定朝飛行方向；false = 隨機角度 -->
+        <fixedTrailRotation>true</fixedTrailRotation>
+        <!-- Ancot 內建格擋火花複合特效：金屬音 + AirPuff + 火花 mote -->
+        <impactEffecter>Ancot_ShieldBlock</impactEffecter>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>AVE_TestGun</defName>
+    <label>AVE test pistol</label>
+    <description>Ancot VFX example: fires bullets that leave a cyan crosshair trail and burst into sparks on impact. Spawn via dev mode.</description>
+    <graphicData>
+      <!-- 佔位：原版自動手槍貼圖。自製規格＝512x512 RGBA PNG、武器朝右上 45 度。 -->
+      <texPath>Things/Item/Equipment/WeaponRanged/Autopistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>2000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.8</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>SimpleGun</li>
+    </weaponTags>
+    <costList>
+      <Steel>30</Steel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <displayPriority>500</displayPriority>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>AVE_Bullet_Trail</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>25.9</range>
+        <soundCast>Shot_Autopistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+</Defs>

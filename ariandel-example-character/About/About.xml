@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Ariandel Example: Named Character (Vesper)</name>
+    <author>justty32</author>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <description>Example mod for Ariandel Library's Special Character Framework (SCMF).
+
+Adds one named, unique, non-random character: Vesper, the Ash Singer — a vanilla-human hero with a fixed name, backstory, traits, a passive hediff and one active ability. She joins the colony through the Shroud break-in ritual (build the "Shroud break in ritual spot" from Ariandel Library and perform the ritual), gets auto-registered into the Special Character Manager, and cannot truly die (death sends her back to the Shroud for a resurrection cooldown).
+
+100% XML, no C#. Written as a study template: every file mirrors the official "Sample: Special Character Framework" (Workshop 3668177055) but on a vanilla human, so no race mod is required.
+
+本 mod 是 Ariandel Library 特殊角色框架的範例：新增一名具名獨特角色「燼歌者・薇絲珀」，固定姓名／背景／特質，帶被動 hediff 與一個主動技能，經虛境突入儀式入場並自動登錄特殊角色管理器，不會真死。全程純 XML。</description>
+    <packageId>pas.ariandel.examplecharacter</packageId>
+    <modDependencies>
+        <li>
+            <packageId>Ariandel.AriandelLibrary</packageId>
+            <displayName>Ariandel Library</displayName>
+            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3665997350</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>brrainz.harmony</li>
+        <li>Ariandel.AriandelLibrary</li>
+    </loadAfter>
+</ModMetaData>

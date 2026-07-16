@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       機兵偵察卡賓槍：輕型機兵武器範例。
+       範式來源：DMS_AssaultRifle
+       （dead-mans-switch 1.6/Defs/Things_Weapon/MilitaryGun.xml:96-…）
+       與武器基底 Base.xml（DMS_AutomatroidGun / DMS_BaseMakeableGun）。
+
+       設計要點：
+       - weaponTags 同時掛自訂 tag（PASEX_ScoutCarbine）與生態 tag
+         （DMS_MechWeaponUltraLight），讓游隼/夜蝠等既有超輕機兵也能用。
+       - 「刻意不掛」Fortified.HeavyEquippableExtension：
+         掛了 LightAutomatroid（EquippableBaseBodySize 1.1，見 FFF
+         1.6/Defs/HeavyEquippableDef/FFF_EquippableDef.xml:35-59）反而會把
+         bodySize 0.4-0.5 的小型無人機與普通人類(1.0)都擋掉——該擴充是
+         「重武器門檻」不是「機兵專用」開關（判定邏輯見
+         Fortified.decompiled.cs:26918-26992、39786-39815）。
+       - 貼圖為佔位：暫時複用 DMS 的半自動步槍貼圖（見 PROJECT.md 待補）。
+       ============================================================ -->
+  <ThingDef ParentName="DMS_BaseMakeableGun">
+    <defName>PASEX_ScoutCarbine</defName>
+    <label>mech scout carbine</label>
+    <description>A short, suppressed carbine scaled for ultralight automatroids. Trades raw firepower for accuracy on the move, letting recon drones discourage pursuers without giving away their position.\n\nThis weapon is specially designed for automatroid use, though its light frame also suits unaugmented humans.</description>
+    <weaponClasses>
+      <li>LongShots</li>
+      <li>Ranged</li>
+    </weaponClasses>
+    <weaponTags>
+      <li>PASEX_ScoutCarbine</li>
+      <li>DMS_MechWeaponUltraLight</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Weapons/DMS_SemiAutoRifle</texPath>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>28000</WorkToMake>
+      <Mass>3.2</Mass>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.50</AccuracyLong>
+      <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>DMS_UAVBasis</li>
+      </researchPrerequisites>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <Steel>45</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_BoltActionRifle</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
+        <range>27.9</range>
+        <burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCast>Shot_BoltActionRifle</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+</Defs>

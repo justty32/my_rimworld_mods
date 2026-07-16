@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 異空間門（入口，可建造）。
+       thingClass 是 MapPortal 的小型子類：只補「拆除時疏散＋回收 pocket map」。
+       進出 UI／Job 全部由原版 MapPortal 生態提供：
+       - GetGizmos → Dialog_EnterPortal（批量進入＋裝載清單）
+       - FloatMenuOptionProvider_EnterMapPortal（右鍵單人進入）
+       - JobDefOf.EnterPortal / HaulToPortal / ITab_ContentsMapPortal -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PDE_DimensionDoor</defName>
+    <label>dimension door</label>
+    <description>A mysterious archway that opens into a small pocket dimension. The pocket dimension is generated the first time someone steps through, and persists afterwards. Deconstructing the door safely returns everyone and everything inside, then collapses the dimension.</description>
+    <thingClass>PocketDimensionExample.Building_PocketDimensionDoor</thingClass>
+    <size>(3,3)</size>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <minifiable>false</minifiable>
+    <passability>Impassable</passability>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Misc/CaveExit/CaveExit</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <building>
+      <isEdifice>true</isEdifice>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <placeWorkers>
+      <li>PocketDimensionExample.PlaceWorker_NotInPocketMap</li>
+    </placeWorkers>
+    <inspectorTabs>
+      <li>ITab_ContentsMapPortal</li>
+    </inspectorTabs>
+    <portal>
+      <!-- 異空間地圖生成器與尺寸（50x50 小圖）。
+           出口 thing 由 GenStep 生成（原版 exitDef 欄位是死欄位，程式碼無人讀）。 -->
+      <pocketMapGenerator>PDE_PocketDimension</pocketMapGenerator>
+      <pocketMapSize>50</pocketMapSize>
+      <enteredLetterLabel>Pocket dimension opened</enteredLetterLabel>
+      <enteredLetterText>{PAWN_labelShort} has stepped through the dimension door. A small, stable pocket dimension lies beyond. It will persist until the door is deconstructed.</enteredLetterText>
+      <enteredLetterDef>NeutralEvent</enteredLetterDef>
+    </portal>
+  </ThingDef>
+
+  <!-- 異空間內的出口（不可建造、不可拆）。
+       thingClass 直接用原版 PocketMapExit：SpawnSetup 期間會透過
+       PocketMapUtility.currentlyGeneratingPortal 自動與入口互相綁定。 -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PDE_DimensionExit</defName>
+    <label>dimension exit</label>
+    <description>The way back out of the pocket dimension.</description>
+    <thingClass>PocketMapExit</thingClass>
+    <size>(3,3)</size>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <useHitPoints>false</useHitPoints>
+    <destroyable>false</destroyable>
+    <passability>Standable</passability>
+    <canOverlapZones>false</canOverlapZones>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Building/Misc/CaveExit/CaveExit</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <building>
+      <deconstructible>false</deconstructible>
+      <isTargetable>false</isTargetable>
+      <isInert>true</isInert>
+      <claimable>false</claimable>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(140,160,184,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

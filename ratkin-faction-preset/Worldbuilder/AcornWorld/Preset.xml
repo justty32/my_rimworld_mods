@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Worldbuilder 世界預設「橡實之路」。
+  格式依據：worldbuilder Source/WorldPreset.cs::ExposeData（Scribe 存檔式 XML）；
+  掃描點：Source/WorldPresetManager.cs:145-158（每個已載入 mod 的 load folder 下的 Worldbuilder/<名>/）。
+  刻意不開 saveTerrain / saveBases / saveIdeologies：零快照、零衝突面，
+  只帶「派系陣容 + 生成參數」。
+-->
+<worldPreset>
+  <!-- ===== 中繼資料（選擇頁顯示） ===== -->
+  <name>AcornWorld</name>
+  <label>橡實之路</label>
+  <description>鼠鼠們的溫帶森林星。鼠族王國安安靜靜地種田，橡實大遠征商會的兩支分會在每一條路上認真地迷路；人類的市鎮與部族照常過日子，海盜照常搗蛋。鼠鼠們相信：只要囤夠橡實，一切都會沒事的。</description>
+  <planetType>溫帶森林殖民星</planetType>
+  <difficulty>2</difficulty>
+  <sortPriority>40</sortPriority>
+  <biomes>
+    <li>TemperateForest</li>
+    <li>BorealForest</li>
+  </biomes>
+
+  <!-- ===== 生效開關（省略者皆 False） ===== -->
+  <saveFactions>True</saveFactions>
+  <saveGenerationParameters>True</saveGenerationParameters>
+
+  <!-- ===== 派系陣容（FactionDef defName）=====
+       Rakinia / RKP_Faction_AcornGuild 來自 NewRatkinPlus 與本 mod；
+       其餘為原版 Core 派系（不引用 DLC 派系，Royalty/Ideology 缺席也能生成）。 -->
+  <savedFactionDefs>
+    <li>Rakinia</li>
+    <li>RKP_Faction_AcornGuild</li>
+    <li>TribeCivil</li>
+    <li>OutlanderCivil</li>
+    <li>TribeRough</li>
+    <li>Pirate</li>
+  </savedFactionDefs>
+
+  <!-- ===== 世界生成參數（Source/WorldGenerationData.cs:29-62） ===== -->
+  <generationData>
+    <!-- 一項＝一個派系實例；商會兩個分會 -->
+    <factionCountsStrings>
+      <li>Rakinia</li>
+      <li>RKP_Faction_AcornGuild</li>
+      <li>RKP_Faction_AcornGuild</li>
+      <li>TribeCivil</li>
+      <li>OutlanderCivil</li>
+      <li>TribeRough</li>
+      <li>Pirate</li>
+    </factionCountsStrings>
+    <planetCoverage>0.3</planetCoverage>
+    <rainfall>Normal</rainfall>
+    <temperature>Normal</temperature>
+    <population>Normal</population>
+    <!-- 鼠鼠味調味：多山（好挖洞）、路網密（快遞商會嘛）、河也多一點 -->
+    <riverDensity>1.2</riverDensity>
+    <ancientRoadDensity>1</ancientRoadDensity>
+    <settlementRoadDensity>1.3</settlementRoadDensity>
+    <mountainDensity>1.2</mountainDensity>
+    <seaLevel>1</seaLevel>
+    <axialTilt>Normal</axialTilt>
+    <!-- 溫帶/寒帶森林（有橡實的地方）權重上調，基準 10 -->
+    <biomeCommonalities>
+      <keys>
+        <li>TemperateForest</li>
+        <li>BorealForest</li>
+      </keys>
+      <values>
+        <li>14</li>
+        <li>12</li>
+      </values>
+    </biomeCommonalities>
+  </generationData>
+</worldPreset>

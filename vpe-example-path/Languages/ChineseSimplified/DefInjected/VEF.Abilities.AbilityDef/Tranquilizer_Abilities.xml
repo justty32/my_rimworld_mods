@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PASVPE_CalmingTouch.label>安神之触</PASVPE_CalmingTouch.label>
+  <PASVPE_CalmingTouch.description>以麻痺般的平静淹没单一心智，数小时内压低其意识与移动速度。持续时间随目标的心灵敏感度增长。</PASVPE_CalmingTouch.description>
+  <PASVPE_MindJolt.label>心灵震慑</PASVPE_MindJolt.label>
+  <PASVPE_MindJolt.description>以灵能冲击敲击目标心智，将其晕眩数秒。持续时间随目标的心灵敏感度增长。</PASVPE_MindJolt.description>
+  <PASVPE_MindBarrier.label>心灵壁垒</PASVPE_MindBarrier.label>
+  <PASVPE_MindBarrier.description>把自己的心灵硬化为灵能壁垒：一段时间内刀剑与钝击威力减弱、更能忍痛，且心灵入侵效果减半。</PASVPE_MindBarrier.description>
+  <PASVPE_PanicPulse.label>恐慌脉冲</PASVPE_PanicPulse.label>
+  <PASVPE_PanicPulse.description>在目标点释放纯粹恐惧的脉冲。范围内所有人类与动物陷入盲目恐慌并四散奔逃。敌我不分。</PASVPE_PanicPulse.description>
+  <PASVPE_SereneField.label>宁神场</PASVPE_SereneField.label>
+  <PASVPE_SereneField.description>以自身为中心笼罩周围成宁静的灵能场。场内每一颗敌意心智都被镇静的平静淹没，意识与移动速度下降。盟友不受影响。</PASVPE_SereneField.description>
+</LanguageData>

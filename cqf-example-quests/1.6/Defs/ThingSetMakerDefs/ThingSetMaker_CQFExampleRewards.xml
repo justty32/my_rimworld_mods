@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    範例任務獎勵的 ThingSetMaker。
+    沿用原版 ThingSetMaker_StackCount + fixedParams 寫法
+    （參照 Core/Defs/ThingSetMakerDefs/ThingSetMakers_Misc.xml、
+      cqf-caravan-redemption 的 ThingSetMaker_CQFCaravanReward.xml）。
+  -->
+
+  <!-- 任務 B：舊貨站例行補給（藥品 + 罐頭） -->
+  <ThingSetMakerDef>
+    <defName>CQFExample_RewardSupplies</defName>
+    <root Class="ThingSetMaker_Sum">
+      <options>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MedicineIndustrial</li>
+                </thingDefs>
+              </filter>
+              <countRange>4~8</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>MealSurvivalPack</li>
+                </thingDefs>
+              </filter>
+              <countRange>6~10</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+  <!-- 任務 C：嚮導藏匿點（銀 + 零件） -->
+  <ThingSetMakerDef>
+    <defName>CQFExample_RewardStash</defName>
+    <root Class="ThingSetMaker_Sum">
+      <options>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Silver</li>
+                </thingDefs>
+              </filter>
+              <countRange>150~300</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>ComponentIndustrial</li>
+                </thingDefs>
+              </filter>
+              <countRange>3~6</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>

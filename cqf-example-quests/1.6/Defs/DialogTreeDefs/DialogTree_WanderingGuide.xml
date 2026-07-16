@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    「漂泊嚮導」— 手寫 DialogTreeDef 實證（本工作區首例）
+    ================================================
+    結構與欄位逐一對照反編譯 SaveToXElement/欄位宣告（QuestEditor_Library.decompiled.cs）：
+      DialogTreeDef  :22474  defName/title/dialogReportKey/requireNonHostile/curIndex/nodeMoulds
+                             nodeMoulds 為 Dictionary<int,DialogNode>，格式 li>key+value（:22602-22609）
+      DialogNode     :22618  text/extraText/index/parentIndex/options/subNodeIndexs
+      DialogOption   :23485  text/hideWhenDisabled/hideFailReason/removeDialogAfterSelect/
+                             conditions/results/requiredThings
+      DialogResult   :22768  resultName/conditions/actions/nextIndex（省略 nextIndex＝關窗）
+      CQFThingDefCount :15687（thing）＋基底 CQFThingData :15511（count，IntRange min~max）
+    規則：
+      - 抽象型別列表（conditions/actions/requiredThings）的 li 必帶 Class 全限定名
+      - int? 欄位（index/nextIndex）原版 ParseHelper 可解析（rimworld/Verse/ParseHelper.cs:419）
+      - text/title 先過 Translator.CanTranslate（GameTools.GetDialogText :10574）→ 填 Keyed key
+      - 文本支援 {Interviewer_labelShort}/{Interviewee_labelShort} 插值（:10575-10600）
+    節點圖：
+      0 問候 ─┬─ 打聽風聲 → 1 風聲（隨機台詞）→ 回到 0
+              ├─ 買草藥（付 30 銀，requiredThings 自動驗料+扣料）→ 2 道別
+              ├─ 接下委託（全域旗標防重複；CQFAction_Quest 接任務 C）→ 2 道別
+              ├─ 套交情（社交 >6 才可選；提升嚮導派系好感）→ 2 道別
+              └─ 告辭（關窗）
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>CQFExample_GuideTree</defName>
+    <title>CQFExample_GuideTree_Title</title>
+    <dialogReportKey>CQFExample_GuideTree_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>3</curIndex>
+    <nodeMoulds>
+
+      <!-- 節點 0：問候（入口固定為 key 0） -->
+      <li>
+        <key>0</key>
+        <value>
+          <text>CQFExample_Guide_Greeting</text>
+          <index>0</index>
+          <subNodeIndexs>
+            <li>1</li>
+            <li>2</li>
+          </subNodeIndexs>
+          <options>
+
+            <!-- 選項 1：打聽風聲 → 節點 1 -->
+            <li>
+              <text>CQFExample_Guide_OptRumors</text>
+              <results>
+                <li>
+                  <resultName>GoRumors</resultName>
+                  <nextIndex>1</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 2：以物易物 — 30 銀換 10 草藥。
+                 requiredThings 不足時選項自動禁用並提示缺料（GetDEOptions :23546-23563），
+                 點擊後自動扣料（ConsumeRequiredThings :23580→:10498）；
+                 交貨用 CQFAction_Spawn 對 Interviewer（對話 targets 內建 key）落地生成 -->
+            <li>
+              <text>CQFExample_Guide_OptBarter</text>
+              <requiredThings>
+                <li Class="QuestEditor_Library.CQFThingDefCount">
+                  <thing>Silver</thing>
+                  <count>30~30</count>
+                </li>
+              </requiredThings>
+              <results>
+                <li>
+                  <resultName>BarterDone</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_Spawn">
+                      <targetsText>
+                        <li>Interviewer</li>
+                      </targetsText>
+                      <datas>
+                        <li>
+                          <dataName>GuideHerbs</dataName>
+                          <chance>1</chance>
+                          <message>CQFExample_Guide_MsgHerbs</message>
+                          <things>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>MedicineHerbal</thing>
+                              <count>10~10</count>
+                            </li>
+                          </things>
+                        </li>
+                      </datas>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 3：接下委託 — 對話接任務。
+                 防重複：全域旗標 CQFExample_CommissionTaken + Reversal 取反
+                 （勿用 DialogCondition_QuestIsGenerated，其 Satisfied :5923 沒用到 quest 欄位）-->
+            <li>
+              <text>CQFExample_Guide_OptCommission</text>
+              <hideWhenDisabled>false</hideWhenDisabled>
+              <conditions>
+                <li Class="QuestEditor_Library.DialogCondition_Reversal">
+                  <failReason>CQFExample_Guide_ReasonTaken</failReason>
+                  <condition Class="QuestEditor_Library.DialogCondition_Bool">
+                    <boolName>CQFExample_CommissionTaken</boolName>
+                  </condition>
+                </li>
+              </conditions>
+              <results>
+                <li>
+                  <resultName>TakeCommission</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                      <keyOfBool>CQFExample_CommissionTaken</keyOfBool>
+                      <valueOfBool>true</valueOfBool>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Quest">
+                      <quest>CQFExample_GuideCommission</quest>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 4：套交情 — 技能門檻選項（社交 >6 才可點；不藏、顯示原因），
+                 通過後提升嚮導所屬派系好感（ChangeGoodwillOfFaction 取目標的派系 :4673） -->
+            <li>
+              <text>CQFExample_Guide_OptBefriend</text>
+              <hideWhenDisabled>false</hideWhenDisabled>
+              <conditions>
+                <li Class="QuestEditor_Library.DialogCondition_Skill">
+                  <failReason>CQFExample_Guide_ReasonSocial</failReason>
+                  <targetText>Interviewer</targetText>
+                  <skill>Social</skill>
+                  <level>6</level>
+                  <needToBeGreater>true</needToBeGreater>
+                </li>
+              </conditions>
+              <results>
+                <li>
+                  <resultName>Befriend</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                      <targetsText>
+                        <li>Interviewee</li>
+                      </targetsText>
+                      <isIncrease>true</isIncrease>
+                      <value>3</value>
+                      <sendLetter>true</sendLetter>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>CQFExample_Guide_MsgBefriend</message>
+                      <type>PositiveEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 5：告辭（無 nextIndex＝關窗） -->
+            <li>
+              <text>CQFExample_Guide_OptLeave</text>
+              <results>
+                <li>
+                  <resultName>Leave</resultName>
+                </li>
+              </results>
+            </li>
+
+          </options>
+        </value>
+      </li>
+
+      <!-- 節點 1：風聲 — extraText 示範（顯示時從 text+extraText 隨機挑一句 :22659-22661） -->
+      <li>
+        <key>1</key>
+        <value>
+          <text>CQFExample_Guide_Rumor1</text>
+          <extraText>
+            <li>CQFExample_Guide_Rumor2</li>
+            <li>CQFExample_Guide_Rumor3</li>
+          </extraText>
+          <index>1</index>
+          <parentIndex>0</parentIndex>
+          <subNodeIndexs />
+          <options>
+            <li>
+              <text>CQFExample_Guide_OptBack</text>
+              <results>
+                <li>
+                  <resultName>BackToStart</resultName>
+                  <nextIndex>0</nextIndex>
+                </li>
+              </results>
+            </li>
+          </options>
+        </value>
+      </li>
+
+      <!-- 節點 2：道別 -->
+      <li>
+        <key>2</key>
+        <value>
+          <text>CQFExample_Guide_Farewell</text>
+          <index>2</index>
+          <parentIndex>0</parentIndex>
+          <subNodeIndexs />
+          <options>
+            <li>
+              <text>CQFExample_Guide_OptLeave</text>
+              <results>
+                <li>
+                  <resultName>Leave</resultName>
+                </li>
+              </results>
+            </li>
+          </options>
+        </value>
+      </li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+</Defs>

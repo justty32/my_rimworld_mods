@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 角色專屬特質。commonality 設極小值防止隨機 pawn 抽到
+       （範式來源：SCMF Sample Traits_Sample.xml）。
+       在 TraitDef.modExtensions 掛 Ariandel Library 的特質級工具：
+       - AL_NoSkillDecay_Extension：全技能不衰退（decompiled.cs:22220 附近）
+       - AL_LockSkill_Extension：鎖定單一技能等級
+       PawnKindDef 端再用 AL_TraitLock_Extension 宣告「此特質為此角色專屬，
+       其他 pawn 生成時若帶有會被自動移除」。 -->
+
+  <TraitDef>
+    <defName>PAS_AEC_AshSoul</defName>
+    <commonality>0.000001</commonality>
+    <degreeDatas>
+      <li>
+        <label>ash soul</label>
+        <description>{PAWN_nameDef}'s soul smolders like a banked coal. {PAWN_pronoun} never forgets a craft once learned, and {PAWN_possessive} voice carries an unnatural heat.</description>
+        <statOffsets>
+          <PsychicSensitivity>0.25</PsychicSensitivity>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <modExtensions>
+      <li Class="AriandelLibrary.AL_NoSkillDecay_Extension"/>
+      <li Class="AriandelLibrary.AL_LockSkill_Extension">
+        <skill>Artistic</skill>
+        <level>15</level>
+        <preventDecay>true</preventDecay>
+      </li>
+    </modExtensions>
+  </TraitDef>
+
+</Defs>

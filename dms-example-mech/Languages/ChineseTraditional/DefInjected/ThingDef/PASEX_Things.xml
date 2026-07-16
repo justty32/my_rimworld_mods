@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PASEX_Mech_Kestrel.label>紅隼</PASEX_Mech_Kestrel.label>
+  <PASEX_Mech_Kestrel.description>超輕型三旋翼偵察無人機。拆除了大部分裝甲板，換取出眾的速度與極低的頻寬佔用；其任務是在重型機兵縱隊之前偵察、標定目標，並在敵人開火前脫離。</PASEX_Mech_Kestrel.description>
+  <PASEX_ScoutCarbine.label>機兵偵察卡賓槍</PASEX_ScoutCarbine.label>
+  <PASEX_ScoutCarbine.description>為超輕型機兵設計的短管消音卡賓槍。以火力換取移動中的精度，讓偵察無人機能在不暴露位置的情況下嚇阻追兵。\n\n本武器為機兵特化設計，但重量夠輕，未改造的人類也能使用。</PASEX_ScoutCarbine.description>
+  <PASEX_OpticSensorSuite.label>光學感測套件</PASEX_OpticSensorSuite.label>
+  <PASEX_OpticSensorSuite.description>一組外掛式微光光學鏡組、雷射測距儀與提前量處理器，設計為栓接在機兵的感測桅杆上，可改善瞄準表現，尤其是遠距離射擊。\n\n安裝在機兵的感測器或雷達部位；每個感測器僅能安裝一件。</PASEX_OpticSensorSuite.description>
+  <PASEX_Module_ReconSensorPod.label>偵察感測莢艙</PASEX_Module_ReconSensorPod.label>
+  <PASEX_Module_ReconSensorPod.description>為龍騎兵框架設計的輕量桅頂感測莢艙。犧牲掛架原本的裝甲或發射器，換取一組協助駕駛員更早發現並接戰目標的光學儀器。</PASEX_Module_ReconSensorPod.description>
+  <PASEX_Apparel_ReconSensorPod.label>偵察感測莢艙</PASEX_Apparel_ReconSensorPod.label>
+  <PASEX_Apparel_ReconSensorPod.description>為龍騎兵框架設計的輕量桅頂感測莢艙。犧牲掛架原本的裝甲或發射器，換取一組協助駕駛員更早發現並接戰目標的光學儀器。</PASEX_Apparel_ReconSensorPod.description>
+</LanguageData>

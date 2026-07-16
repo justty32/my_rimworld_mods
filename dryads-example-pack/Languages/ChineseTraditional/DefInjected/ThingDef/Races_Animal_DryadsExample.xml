@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <DEP_Dryad_Resinmaker.label>樹脂樹精</DEP_Dryad_Resinmaker.label>
+  <DEP_Dryad_Resinmaker.description>專精分泌可燃樹脂的樹精階型。與其加蘭蓮樹協作，此樹精能持續將揮發性樹液凝結為化學燃料。然而牠行動遲緩，工作與戰鬥皆不擅長。\n\n一般而言，樹精是與加蘭蓮樹共生的類哺乳生物。牠們與樹（樹中藏有樹精女王）一同繁衍，並能變形為各種特化階型。</DEP_Dryad_Resinmaker.description>
+
+  <DEP_Dryad_Rescuer.label>救援樹精</DEP_Dryad_Rescuer.label>
+  <DEP_Dryad_Rescuer.description>專精戰場救援的樹精階型。四肢修長、行動迅捷，能將受傷的盟友拖出險境、送回床位。牠不擅戰鬥，也不屑搬運尋常貨物。\n\n一般而言，樹精是與加蘭蓮樹共生的類哺乳生物。牠們與樹（樹中藏有樹精女王）一同繁衍，並能變形為各種特化階型。</DEP_Dryad_Rescuer.description>
+
+</LanguageData>

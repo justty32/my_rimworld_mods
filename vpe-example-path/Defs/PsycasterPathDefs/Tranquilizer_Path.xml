@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 新道路：寧神者。
+       關鍵事實：道路 def 不持有能力清單——AbilityDef 掛 AbilityExtension_Psycast 的 path 欄位反向認領
+       (VanillaPsycastsExpanded.decompiled.cs:7814 ResolveReferences)。
+       未給 background 貼圖時，width/height/backgroundColor 會生成純色佔位背景
+       (VanillaPsycastsExpanded.decompiled.cs:7784-7802)；正式貼圖規格 950x1515 PNG。 -->
+  <VanillaPsycastsExpanded.PsycasterPathDef>
+    <defName>PASVPE_Tranquilizer</defName>
+    <label>tranquilizer</label>
+    <description>Tranquilizer psycasts are focused on pacifying minds: sedating targets, shielding the caster's own psyche, and flooding whole areas with numbing calm or blind panic.</description>
+    <tooltip>Tranquilizers are psycasters who learned to lower the noise of other minds. They can put a single target into deep sedation, harden their own mind into a barrier, spread panic among attackers, or blanket a whole area in a serene field that sedates every hostile mind within it.</tooltip>
+    <tab>Psycasts</tab>
+    <!-- 純色佔位背景（待補正式貼圖 Textures/UI/Backgrounds/TranquilizerPath.png，950x1515）： -->
+    <width>190</width>
+    <height>303</height>
+    <backgroundColor>(0.13, 0.24, 0.34)</backgroundColor>
+  </VanillaPsycastsExpanded.PsycasterPathDef>
+
+</Defs>

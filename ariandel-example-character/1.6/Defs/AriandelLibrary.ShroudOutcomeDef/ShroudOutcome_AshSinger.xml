@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 入場方式：虛境突入儀式（Shroud break-in ritual）的結果池。
+       範式來源（近乎逐欄照抄）：SCMF Sample
+         3668177055/1.6/Mods/Ancot.MiliraRace/Defs/AriandelLibrary.ShroudOutcomeDef/ShroudOutcomeDef_Milira.xml:4-44
+       玩法路徑：建造 Ariandel Library 內建的「Shroud break in ritual spot」
+       （ThingDef AL_RitualSpot，3665997350/1.6/Defs/ThingDef_Building/AL_Buildings_Ritual.xml:5，
+       帶 CompProperties_ShroudRitualSpot :45）→ 執行儀式 → 從含本結果的
+       結果池抽選（ShroudOutcomeDef 欄位總表 decompiled.cs:12019-12049）。
+       shouldBeRegistered=true 時 pawn 生成即強制玩家派系並自動登錄 SCM
+       （ShroudOutcomeDef_Milira.xml:31-33 原註解）。
+       isUnique=true → 只會發生一次，保證唯一性。 -->
+  <AriandelLibrary.ShroudOutcomeDef>
+    <defName>PAS_AEC_Outcome_Join_AshSinger</defName>
+    <label>The Ash Singer answers</label>
+    <description>{0} has returned from the Shroud — and someone came back with them, humming a song of embers.</description>
+    <workerClass>AriandelLibrary.ShroudOutcome_Generator</workerClass>
+    <letterMode>PositiveEvent</letterMode>
+    <qualityRange>0~1.0</qualityRange>
+    <!-- 高權重讓首次儀式幾乎必得（官方範例用 99999 同手法）；isUnique 保證此後不再抽中 -->
+    <weight>99999</weight>
+    <isBadOutcome>false</isBadOutcome>
+    <isUnique>true</isUnique>
+    <minRefireDays>0</minRefireDays>
+
+    <pawnList>
+      <li>
+        <pawnkindDefName>PAS_AEC_AshSinger</pawnkindDefName>
+        <probability>1.0</probability>
+        <independentProbability>true</independentProbability>
+        <shouldBeRegistered>true</shouldBeRegistered>
+        <spawnRule>Colonist</spawnRule>
+        <pawnDescription>Vesper, the Ash Singer, walked out of the Shroud beside {0}.</pawnDescription>
+        <fireAfterTicks>0</fireAfterTicks>
+      </li>
+    </pawnList>
+
+    <comps>
+    </comps>
+  </AriandelLibrary.ShroudOutcomeDef>
+
+</Defs>

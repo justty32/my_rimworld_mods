@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 特殊角色管理器（SCM）中的自訂分頁。
+       欄位極簡：SpecialPawnTabDef 只有 label + order（AriandelLibrary.decompiled.cs:17277）。
+       也可以不定義、直接借用 Ariandel Library 內建分頁（如 AL_Homosapien_Tab，
+       見 3665997350/1.6/Defs/AriandelLibrary.SpecialPawnTabDef/SpecialPawnTabDef.xml:54）。 -->
+  <AriandelLibrary.SpecialPawnTabDef>
+    <defName>PAS_AEC_Tab</defName>
+    <label>PAS Heroes</label>
+    <order>50</order>
+  </AriandelLibrary.SpecialPawnTabDef>
+
+</Defs>

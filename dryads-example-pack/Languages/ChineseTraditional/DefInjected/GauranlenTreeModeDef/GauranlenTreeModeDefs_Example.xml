@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <DEP_Resinmaker.label>樹脂型</DEP_Resinmaker.label>
+  <DEP_Resinmaker.description>專精分泌可燃樹脂的樹精階型。與其加蘭蓮樹協作，此樹精能持續將揮發性樹液凝結為化學燃料。然而牠行動遲緩，工作與戰鬥皆不擅長。</DEP_Resinmaker.description>
+
+  <DEP_Rescuer.label>救援型</DEP_Rescuer.label>
+  <DEP_Rescuer.description>專精戰場救援的樹精階型。四肢修長、行動迅捷，能將受傷的盟友拖出險境、送回床位。牠不擅戰鬥，也不屑搬運尋常貨物。</DEP_Rescuer.description>
+
+</LanguageData>

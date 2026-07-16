@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PAS_AEC_Childhood_AshOrphan.title>灰燼孤兒</PAS_AEC_Childhood_AshOrphan.title>
+  <PAS_AEC_Childhood_AshOrphan.titleShort>孤兒</PAS_AEC_Childhood_AshOrphan.titleShort>
+  <PAS_AEC_Childhood_AshOrphan.description>雷暴之火吞噬村莊時，[PAWN_nameDef]是唯一的倖存者。[PAWN_pronoun]在焦土間流浪長大，對著餘燼哼唱。</PAS_AEC_Childhood_AshOrphan.description>
+  <PAS_AEC_Adulthood_AshSinger.title>燼歌者</PAS_AEC_Adulthood_AshSinger.title>
+  <PAS_AEC_Adulthood_AshSinger.titleShort>燼歌者</PAS_AEC_Adulthood_AshSinger.titleShort>
+  <PAS_AEC_Adulthood_AshSinger.description>[PAWN_nameDef]成了流浪的戰歌者。[PAWN_pronoun]的歌聲所至，火焰不滅——跟隨其後行軍的人也是。</PAS_AEC_Adulthood_AshSinger.description>
+</LanguageData>

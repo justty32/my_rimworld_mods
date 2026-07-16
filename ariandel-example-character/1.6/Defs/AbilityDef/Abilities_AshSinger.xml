@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 主動技能：燼焰戰吼（自我增益，冷卻 1 天）。
+       組裝方式（全部既有積木，零 C#）：
+       - abilityClass = AriandelLibrary.AL_Ability：框架的能力基類，支援多重消耗
+         與動態冷卻（decompiled.cs:2940；官方模板 3665997350/1.6/Defs/AbilityDefs/
+         Abilities_ShroudPower.xml:5）。純自我增益其實用原版 Ability 也行，
+         這裡示範框架接法。
+       - 效果 = 原版 CompProperties_AbilityGiveHediff（類別在核心 Assembly-CSharp，
+         不需 Royalty；XML 形狀藍本 Data/Royalty/Defs/AbilityDefs/Abilities.xml:32-38）。
+       - 條件 = AriandelLibrary.CompProperties_AbilityRequireHediff：
+         必須帶有「餘燼之心」才能施放（decompiled.cs:138）。
+       - 圖示借用核心貼圖 UI/Commands/Attack 佔位；正式版換自製
+         64x64 png（路徑 Textures/PAS_AEC/Ability/AshenWarcry.png，去掉副檔名引用）。
+       技能授予：直接寫在 PawnKindDef 的 <abilities>（vanilla 欄位；下游實例
+       PawnKinds_Milira_Cangyan.xml:72-75）。 -->
+  <AbilityDef>
+    <defName>PAS_AEC_AshenWarcry</defName>
+    <label>ashen warcry</label>
+    <description>Vesper lets out a war-song that stokes the embers in her blood. For one minute she moves faster, dodges better and strikes truer.\n\nRequires her Ember Heart. Cooldown: 1 day.</description>
+    <iconPath>UI/Commands/Attack</iconPath>
+    <abilityClass>AriandelLibrary.AL_Ability</abilityClass>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+    <aiCanUse>false</aiCanUse>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>0</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetLocations>false</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PAS_AEC_WarcryBuff</hediffDef>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+      <li Class="AriandelLibrary.CompProperties_AbilityRequireHediff">
+        <requirements>
+          <li>
+            <hediffDef>PAS_AEC_EmberHeart</hediffDef>
+          </li>
+        </requirements>
+        <disableMsg>{0} has lost the Ember Heart.</disableMsg>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>pas.dryads.examplepack</packageId>
+  <name>Dryads Example Pack: Resinmaker and Rescuer</name>
+  <author>GuanYu Lu</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Ideology</packageId>
+      <displayName>Ideology</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/1826140068</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>VanillaExpanded.Ideo.Dryads</li>
+  </loadAfter>
+  <description>Example pack: two new Gauranlen dryad castes filling niches no vanilla or VIE dryad covers. The resinmaker dryad periodically produces chemfuel; the rescuer dryad can be trained to rescue downed allies from the battlefield. Pure XML, no Harmony, no framework dependencies. Demonstrates the minimal def set (ThingDef race + PawnKindDef + GauranlenTreeModeDef) needed to add a dryad caste to the Gauranlen tree mode menu.</description>
+</ModMetaData>

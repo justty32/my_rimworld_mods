@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <CQFExample_Beacon_Opening>Echo Beacon: The old comms tower has lit itself up, repeating an ancient identification code into deep space. The signal is out — now you wait to see what answers.</CQFExample_Beacon_Opening>
+  <CQFExample_Beacon_Echo>Echo Beacon: A structured reply code has come back from deep space. Something heard the beacon, and it is following the signal here.</CQFExample_Beacon_Echo>
+
+  <CQFExample_Signal_BeaconBonus>Beacon Response: The reply code matches your beacon's identification exactly — this shipment was meant for that tower.</CQFExample_Signal_BeaconBonus>
+
+  <CQFExample_Commission_Opening>The Guide's Cache: The wandering guide has agreed to hand over an old supply cache. He needs to confirm it is still there first — wait for his word.</CQFExample_Commission_Opening>
+
+  <CQFExample_GuideTree_Title>Wandering Guide</CQFExample_GuideTree_Title>
+  <CQFExample_GuideTree_Report>Chatted with the wandering guide.</CQFExample_GuideTree_Report>
+
+  <CQFExample_Guide_Greeting>The dusty traveler looks {Interviewer_labelShort} up and down: "Huh. Still living settlements out here on the rim. I'm a guide — news, herbs, and a few places nobody else knows. All negotiable."</CQFExample_Guide_Greeting>
+  <CQFExample_Guide_Rumor1>"The northern trade road's gone bad lately — mechanoids prowling the old highway. Route your caravans south."</CQFExample_Guide_Rumor1>
+  <CQFExample_Guide_Rumor2>"Heard a caravan dug a whole pod of old-world medicine out of the snowfields. Luck's a strange thing."</CQFExample_Guide_Rumor2>
+  <CQFExample_Guide_Rumor3>"The tribes put up a checkpoint at the mountain pass. Don't ask how I know — my boots see more than your radar."</CQFExample_Guide_Rumor3>
+  <CQFExample_Guide_Farewell>The guide brushes the dust off his coat: "That's all for now. Long road ahead — take care of yourselves."</CQFExample_Guide_Farewell>
+
+  <CQFExample_Guide_OptRumors>Ask for news</CQFExample_Guide_OptRumors>
+  <CQFExample_Guide_OptBarter>Buy the herbs (30 silver)</CQFExample_Guide_OptBarter>
+  <CQFExample_Guide_OptCommission>Take his commission</CQFExample_Guide_OptCommission>
+  <CQFExample_Guide_OptBefriend>Make friends (requires Social 7+)</CQFExample_Guide_OptBefriend>
+  <CQFExample_Guide_OptLeave>Farewell</CQFExample_Guide_OptLeave>
+  <CQFExample_Guide_OptBack>Back to business</CQFExample_Guide_OptBack>
+
+  <CQFExample_Guide_ReasonTaken>You have already taken the guide's commission.</CQFExample_Guide_ReasonTaken>
+  <CQFExample_Guide_ReasonSocial>Social skill below 7.</CQFExample_Guide_ReasonSocial>
+
+  <CQFExample_Guide_MsgHerbs>The guide tosses over a bundle of herbs ({0}): "Keep them dry."</CQFExample_Guide_MsgHerbs>
+  <CQFExample_Guide_MsgBefriend>The guide grins and promises to put in a good word for your colony among his people.</CQFExample_Guide_MsgBefriend>
+
+</LanguageData>

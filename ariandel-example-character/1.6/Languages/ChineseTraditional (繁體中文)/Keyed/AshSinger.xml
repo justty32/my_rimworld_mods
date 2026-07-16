@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- FixedIdentityExtension 姓名 key -->
+  <PAS_AEC_Name_First>薇絲珀</PAS_AEC_Name_First>
+  <PAS_AEC_Name_Last>燼落</PAS_AEC_Name_Last>
+  <PAS_AEC_Name_Nick>薇絲珀</PAS_AEC_Name_Nick>
+
+  <!-- SpecialPawnExtension 面板名稱／描述 key -->
+  <PAS_AEC_SpecialPawn.label>燼歌者・薇絲珀</PAS_AEC_SpecialPawn.label>
+  <PAS_AEC_SpecialPawn.desc>一名流浪的戰歌者，靈魂如封存的餘燼般悶燒。她自虛境中走出並加入殖民地，而虛境不容她死去。</PAS_AEC_SpecialPawn.desc>
+
+</LanguageData>

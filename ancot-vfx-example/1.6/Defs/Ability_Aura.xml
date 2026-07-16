@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       範例 3：常駐煙霧光環（hediff 掛 effecter，全 XML）
+       路線：AbilityDef → AncotLibrary.CompProperties_AbilityGiveHediffOnSelf
+             （AncotLibrary/CompAbilityEffect_GiveHediffOnSelf.cs）
+             → hediff 帶 AncotLibrary.HediffCompProperties_EffecterMaintain
+             （AncotLibrary/HediffComp_EffecterMaintain.cs:13-21：hediff 生成時
+             把 EffecterDef 掛上 pawn 維持 maintainTicks）。
+       effecter 複用 Ancot 內建 Ancot_SmokeReleasing_Fast（持續噴煙＋氣體音）。
+       測試：dev mode → 選 pawn → Give ability → AVE_SmokeAura。
+       注意：EffecterMaintain 只在 hediff 生成當下觸發一次，
+             所以 maintainTicks 與 hediff 存續時間取相同值。
+       ============================================================ -->
+
+  <HediffDef>
+    <defName>AVE_SmokeAuraHediff</defName>
+    <label>smoke veil</label>
+    <description>Wrapped in a maintained smoke effecter (Ancot VFX example).</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7,0.7,0.7)</defaultLabelColor>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="AncotLibrary.HediffCompProperties_EffecterMaintain">
+        <!-- 拼字同源碼：effcterDef（少一個 e） -->
+        <effcterDef>Ancot_SmokeReleasing_Fast</effcterDef>
+        <maintainTicks>600</maintainTicks>
+        <scale>1</scale>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>AVE_SmokeAura</defName>
+    <label>smoke veil</label>
+    <description>Ancot VFX example: veils the caster in smoke for 10 seconds using a hediff-maintained effecter.</description>
+    <!-- 佔位圖示：借 Ancot Library 自帶煙圈貼圖（512x512，散裝檔保證存在）。
+         自製規格＝64x64 或 128x128 RGBA PNG。 -->
+    <iconPath>AncotLibrary/Mote/SmokeCircle</iconPath>
+    <cooldownTicksRange>900</cooldownTicksRange>
+    <hostile>false</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>0</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="AncotLibrary.CompProperties_AbilityGiveHediffOnSelf">
+        <hediffDef>AVE_SmokeAuraHediff</hediffDef>
+        <replaceExisting>true</replaceExisting>
+        <severity>1</severity>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

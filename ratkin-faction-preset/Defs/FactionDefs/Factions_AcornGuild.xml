@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--
+	  橡實大遠征商會（Ratkin Acorn Guild）
+	  範本：NewRatkinPlus 1.6/Defs/FactionDefs/Factions_Misc.xml
+	    - RatkinFactionBase / Rakinia（王國本體，:3-189）
+	    - RK_Faction_Caravan（商隊 hidden 派系，:240-324）
+	  刻意不繼承 RatkinFactionBase（它綁死 categoryTag=Empire、maxConfigurableAtWorldCreation=1、
+	  王國命名器與王國 pawnGroupMakers），改繼承原版 FactionBase 並逐欄寫明。
+	-->
+	<FactionDef ParentName="FactionBase">
+		<defName>RKP_Faction_AcornGuild</defName>
+		<label>acorn expedition guild</label>
+		<description>A guild of ratkins who treat "carrying acorns home" as the greatest quest of their lives. Their caravan maps are usually held upside down, their ledgers get recopied whole pages at a time whenever the last digit refuses to add up, and their warehouses are stuffed until the doors won't open.\n\nNobody can stay mad at them, though - the goods you ordered always arrive in the end. Usually. Sometimes at the town next door.\n\nThey firmly believe that once they have stockpiled one hundred thousand acorns, winter will never come again.</description>
+		<pawnSingular>porter ratkin</pawnSingular>
+		<pawnsPlural>porter ratkins</pawnsPlural>
+		<categoryTag>Outlander</categoryTag>
+		<listOrderPriority>31</listOrderPriority>
+		<settlementGenerationWeight>1</settlementGenerationWeight>
+		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<maxConfigurableAtWorldCreation>3</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>45</configurationListOrderPriority>
+		<leaderTitle>grand acorn steward</leaderTitle>
+		<factionNameMaker>RKP_NamerFaction_AcornGuild</factionNameMaker>
+		<settlementNameMaker>RKP_NamerSettlement_AcornGuild</settlementNameMaker>
+		<!-- 商會不圍城（傻鼠鼠不會算彈道），但關係惡化時仍能組隊打上門 -->
+		<canSiege>false</canSiege>
+		<canStageAttacks>true</canStageAttacks>
+		<factionIconPath>Icon/RKP_AcornGuild</factionIconPath>
+		<settlementTexturePath>Icon/RK_DefaultColony</settlementTexturePath>
+		<techLevel>Industrial</techLevel>
+		<!-- HAR：GetRaceOfFaction 由 basicMemberKind 取種族；缺省會在派系/首領生成時 NRE
+		     （範本註解見 NewRatkinPlus Factions_Misc.xml:18、:262-263） -->
+		<basicMemberKind>RatkinMerchant</basicMemberKind>
+		<melaninRange>0~0.3</melaninRange>
+		<backstoryCategories>
+			<li>Offworld</li>
+		</backstoryCategories>
+		<!-- 商會本業：日用/食材/布料/衣裝/雜貨，全部複用 NewRatkinPlus 王國商隊 TraderKindDef
+		     （1.6/Defs/TraderDefs/TraderKinds_Caravan_Ratkin.xml） -->
+		<caravanTraderKinds>
+			<li>RK_TraderKind_KingdomBulkGoods</li>
+			<li>RK_TraderKind_KingdomFoodMerchant</li>
+			<li>RK_TraderKind_KingdomTextileMerchant</li>
+			<li>RK_TraderKind_KingdomDressMerchant</li>
+			<li>RK_TraderKind_KingdomExotic</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>Visitor_Outlander_Standard</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>RK_TraderKind_Standard</li>
+		</baseTraderKinds>
+		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+		<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Animist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+		</disallowedMemes>
+		<structureMemeWeights>
+			<Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">1</Structure_TheistEmbodied>
+			<Structure_TheistAbstract MayRequire="Ludeon.RimWorld.Ideology">2</Structure_TheistAbstract>
+			<Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
+			<Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
+			<Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginChristian>
+		</structureMemeWeights>
+		<!-- 橡實色：暖蜜金 → 焙栗棕 -->
+		<colorSpectrum>
+			<li>(0.93, 0.70, 0.32)</li>
+			<li>(0.66, 0.44, 0.19)</li>
+		</colorSpectrum>
+		<!-- 曲線抄自 RatkinFactionBase（Factions_Misc.xml:51-59） -->
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,35)</li>
+				<li>(70, 50)</li>
+				<li>(700, 100)</li>
+				<li>(1300, 150)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<!-- 非天生敵對；只有被玩家惹翻才會來，頻率也偏低（護貨隊臨時充當討債隊） -->
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(0, 0.8)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
+		<pawnGroupMakers>
+			<!-- 前期護衛隊：輕傭兵與押運新丁 -->
+			<li>
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<maxTotalPoints>1000</maxTotalPoints>
+				<options>
+					<RatkinMercenaryLight>20</RatkinMercenaryLight>
+					<RatkinCombatant>15</RatkinCombatant>
+					<RatkinVanguard>10</RatkinVanguard>
+				</options>
+			</li>
+			<!-- 中後期正規押運團 -->
+			<li>
+				<kindDef>Combat</kindDef>
+				<commonality>60</commonality>
+				<options>
+					<RatkinSoldier>25</RatkinSoldier>
+					<RatkinMercenary>15</RatkinMercenary>
+					<RatkinDefender>10</RatkinDefender>
+					<RK_PawnKind_StandardBearer>8</RK_PawnKind_StandardBearer>
+				</options>
+			</li>
+			<!-- 精銳護寶隊（少見） -->
+			<li>
+				<kindDef>Combat</kindDef>
+				<disallowedStrategies>
+					<li>Siege</li>
+				</disallowedStrategies>
+				<commonality>20</commonality>
+				<options>
+					<RatkinMercenary>25</RatkinMercenary>
+					<RatkinEliteSoldier>10</RatkinEliteSoldier>
+					<RatkinKnight>5</RatkinKnight>
+				</options>
+			</li>
+			<li>
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<RatkinMerchant>20</RatkinMerchant>
+					<RatkinColonist>15</RatkinColonist>
+					<RatkinServant>10</RatkinServant>
+					<RatkinNoble>5</RatkinNoble>
+					<RatkinPriest>3</RatkinPriest>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<RatkinMerchant>20</RatkinMerchant>
+					<RatkinNoble>5</RatkinNoble>
+				</traders>
+				<carriers>
+					<Ratkin_KingHamster>6</Ratkin_KingHamster>
+				</carriers>
+				<guards>
+					<RatkinMercenaryLight>20</RatkinMercenaryLight>
+					<RatkinMercenary>10</RatkinMercenary>
+					<RatkinCombatant>10</RatkinCombatant>
+					<RatkinSoldier>5</RatkinSoldier>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<RatkinMerchant>8</RatkinMerchant>
+					<RatkinColonist>6</RatkinColonist>
+					<RatkinServant>6</RatkinServant>
+					<RatkinMercenaryLight>8</RatkinMercenaryLight>
+					<RatkinSoldier>5</RatkinSoldier>
+					<RatkinDefender>4</RatkinDefender>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<apparelStuffFilter>
+			<stuffCategoriesToAllow>
+				<li>WeaponMetallic</li>
+				<li>Fabric</li>
+				<li>Leathery</li>
+				<li>Woody</li>
+			</stuffCategoriesToAllow>
+		</apparelStuffFilter>
+		<!-- 複用鼠族王國文化（含 NamerPerson_RatkinKingdom 人名器與信仰命名器） -->
+		<allowedCultures>
+			<li>RK_Culture_Virtuard</li>
+		</allowedCultures>
+		<xenotypeSet>
+			<xenotypeChances>
+				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
+			</xenotypeChances>
+		</xenotypeSet>
+	</FactionDef>
+</Defs>

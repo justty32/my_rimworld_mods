@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- FixedIdentityExtension name keys -->
+  <PAS_AEC_Name_First>Vesper</PAS_AEC_Name_First>
+  <PAS_AEC_Name_Last>Cinderfall</PAS_AEC_Name_Last>
+  <PAS_AEC_Name_Nick>Vesper</PAS_AEC_Name_Nick>
+
+  <!-- SpecialPawnExtension label/desc keys (Special Character Manager panel) -->
+  <PAS_AEC_SpecialPawn.label>Vesper, the Ash Singer</PAS_AEC_SpecialPawn.label>
+  <PAS_AEC_SpecialPawn.desc>A wandering war-singer whose soul smolders like a banked coal. She joined the colony after walking out of the Shroud, and the Shroud refuses to let her die.</PAS_AEC_SpecialPawn.desc>
+
+</LanguageData>

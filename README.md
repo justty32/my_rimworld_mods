@@ -24,6 +24,9 @@ justty32（pas / GuanYu Lu）的 RimWorld **1.6** mod 集合。每個子目錄�
 | Mod | packageId | 一句話 | 相依 |
 | --- | --- | --- | --- |
 | [`cqf-caravan-redemption`](cqf-caravan-redemption/) | `pas.cqf.caravanredemption` | 最小可行驗證：用 Custom Quest Framework 純 XML 路徑證明自訂 QuestScriptDef 可載入並觸發。 | CQF + Harmony |
+| [`cqf-example-quests`](cqf-example-quests/) | `pas.cqf.examplequests` | CQF 教學範例集：任務鏈＋延時排程＋條件分支＋手寫 DialogTreeDef 對話樹（以物易物／對話接任務），全純 XML。 | CQF + Harmony |
+| [`ancot-vfx-example`](ancot-vfx-example/) | `pas.ancot.vfxexample` | Ancot Library 特效系統純 XML 展示：拖尾+命中火花測試槍、刀光測試劍、煙霧光環能力。 | Ancot Library + Harmony |
+| [`vpe-example-path`](vpe-example-path/) | `pas.vpe.examplepath` | 示範在 Vanilla Psycasts Expanded 新增一條完整靈能道路「寧神者」（5 能力 3 層樹），全純 XML 零 C#。 | Royalty + VEF + VPE + Harmony |
 
 ### 實驗 / 工具 Hediff
 | Mod | packageId | 一句話 | 相依 |

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 任務 A：回聲信標（CQFAction_Message.message 過 Translator.Translate :680） -->
+  <CQFExample_Beacon_Opening>回聲信標：舊通訊塔自行點亮，開始向深空重複播送一段古老的識別碼。訊號已經出去了——等著看有什麼會回應。</CQFExample_Beacon_Opening>
+  <CQFExample_Beacon_Echo>回聲信標：深空傳回了一段規整的應答碼。有什麼東西聽見了信標，正循著訊號而來。</CQFExample_Beacon_Echo>
+
+  <!-- 任務 B：信標的回應 -->
+  <CQFExample_Signal_BeaconBonus>信標的回應：應答碼與你的信標識別碼完全吻合——這批補給是衝著那座塔來的。</CQFExample_Signal_BeaconBonus>
+
+  <!-- 任務 C：嚮導的藏匿點 -->
+  <CQFExample_Commission_Opening>嚮導的藏匿點：漂泊嚮導答應把一處舊藏匿點讓給你。他要先確認東西還在——等他的信。</CQFExample_Commission_Opening>
+
+  <!-- 對話樹：漂泊嚮導（text/title 過 GameTools.GetDialogText :10574，支援 {Interviewer_labelShort} 插值） -->
+  <CQFExample_GuideTree_Title>漂泊嚮導</CQFExample_GuideTree_Title>
+  <CQFExample_GuideTree_Report>與漂泊嚮導攀談。</CQFExample_GuideTree_Report>
+
+  <CQFExample_Guide_Greeting>風塵僕僕的旅人上下打量著{Interviewer_labelShort}：「哦？邊陲地帶還有活人聚落。我是個帶路的——消息、草藥、還有些別人不知道的地方，都能談。」</CQFExample_Guide_Greeting>
+  <CQFExample_Guide_Rumor1>「北邊的商路最近不太平，機械體在舊公路附近遊蕩。要運貨就繞南邊走。」</CQFExample_Guide_Rumor1>
+  <CQFExample_Guide_Rumor2>「聽說有支商隊在雪原上撿到一整艙的舊時代藥品。運氣這種東西，說不準的。」</CQFExample_Guide_Rumor2>
+  <CQFExample_Guide_Rumor3>「部落最近在山口設了關卡。別問我怎麼知道的——我的靴子比你們的雷達靈。」</CQFExample_Guide_Rumor3>
+  <CQFExample_Guide_Farewell>嚮導拍了拍身上的塵土：「就聊到這。路還長，各自保重。」</CQFExample_Guide_Farewell>
+
+  <CQFExample_Guide_OptRumors>打聽風聲</CQFExample_Guide_OptRumors>
+  <CQFExample_Guide_OptBarter>買下那批草藥（30 白銀）</CQFExample_Guide_OptBarter>
+  <CQFExample_Guide_OptCommission>接下他的委託</CQFExample_Guide_OptCommission>
+  <CQFExample_Guide_OptBefriend>套套交情（需要社交 7 以上）</CQFExample_Guide_OptBefriend>
+  <CQFExample_Guide_OptLeave>告辭</CQFExample_Guide_OptLeave>
+  <CQFExample_Guide_OptBack>回到正題</CQFExample_Guide_OptBack>
+
+  <!-- failReason 過 Translator.Translate（DialogCondition_Bool.Satisfied :5519 等） -->
+  <CQFExample_Guide_ReasonTaken>已經接過嚮導的委託了。</CQFExample_Guide_ReasonTaken>
+  <CQFExample_Guide_ReasonSocial>社交技能不足 7。</CQFExample_Guide_ReasonSocial>
+
+  <!-- LootData.message（SpawnLoots :15422，{0}＝生成物清單） -->
+  <CQFExample_Guide_MsgHerbs>嚮導把一捆草藥（{0}）拋了過來：「小心保存，別受潮。」</CQFExample_Guide_MsgHerbs>
+  <CQFExample_Guide_MsgBefriend>嚮導咧嘴一笑，答應替你的殖民地在族人面前美言幾句。</CQFExample_Guide_MsgBefriend>
+
+</LanguageData>

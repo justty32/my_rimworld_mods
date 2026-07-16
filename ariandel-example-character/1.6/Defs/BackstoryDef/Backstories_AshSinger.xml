@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 具名角色的固定背景故事（幼年＋成年）。
+       原版人類直接用核心 BackstoryDef（schema 藍本：
+       Data/Core/Defs/BackstoryDefs/Shuffled/Offworld_Glitterworld_Adult.xml:4）。
+       spawnCategories 給一個本 mod 專屬 tag，不塞進任何原版池，
+       避免隨機殖民者抽到；PawnKindDef 再用 FixedIdentityExtension
+       的 childhood/adulthoodBackstoryDef 直接點名。 -->
+
+  <BackstoryDef>
+    <defName>PAS_AEC_Childhood_AshOrphan</defName>
+    <title>ash orphan</title>
+    <titleShort>orphan</titleShort>
+    <description>[PAWN_nameDef] was the only survivor when a zzt-storm fire consumed [PAWN_possessive] village. [PAWN_pronoun] grew up wandering the burn scars, humming to the embers.</description>
+    <slot>Childhood</slot>
+    <skillGains>
+      <Artistic>3</Artistic>
+      <Melee>2</Melee>
+    </skillGains>
+    <spawnCategories>
+      <li>PAS_AEC_AshSinger</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>PAS_AEC_Adulthood_AshSinger</defName>
+    <title>ash singer</title>
+    <titleShort>ash singer</titleShort>
+    <description>[PAWN_nameDef] became a wandering war-singer. Where [PAWN_pronoun] sang, fires refused to die — and so did the people who marched behind [PAWN_objective].</description>
+    <slot>Adulthood</slot>
+    <skillGains>
+      <Artistic>6</Artistic>
+      <Melee>5</Melee>
+      <Social>3</Social>
+    </skillGains>
+    <spawnCategories>
+      <li>PAS_AEC_AshSinger</li>
+    </spawnCategories>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <bodyTypeMale>Male</bodyTypeMale>
+  </BackstoryDef>
+
+</Defs>
