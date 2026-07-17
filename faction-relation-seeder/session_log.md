@@ -12,6 +12,15 @@
     OutlanderRough↔OutlanderCivil 結盟），開新局可實機驗。
   - ⏳ 未部署未實機——待開新局於 Factions 面板/世界視圖/dev dump 核對；再驗舊檔載入不被打擾。
 
+- 2026-07-17 收尾殘留紅字（option C，0.1.2）：0.1.1 的 option A 只擋了收尾 RecalculateAll，但整個
+  Apply() 仍掛在 FinalizeInit（世界生成期）跑——此時 Faction.OfPlayer 未就緒，迴圈裡每次
+  TryAffectGoodwillWith 都讓 vanilla 撲空記「Could not find player faction.」（6 對×2~3 查≈15 條）。
+  改：FinalizeInit 只設 `pendingSeed=true`（新遊戲且未播）、不碰 goodwill；新增 `WorldComponentTick`
+  守衛（`Current.Game!=null && Faction.OfPlayer!=null`，有 Ideology 再等 `PrimaryIdeo!=null`）就緒後
+  播一次，先落 `pendingSeed=false;seeded=true` 再 Apply（冪等）。`pendingSeed` 也 Scribe 持久化。
+  ApplyEntry 邏輯未動，option A 守衛/log 保留。重編 0 警告、healthcheck OK、DLL 確認含
+  WorldComponentTick/pendingSeed/IdeologyActive。打包 dist 0.1.2、symlink 重指、dist/README 更新。未 push。
+
 - 2026-07-17 修世界生成期 NRE（實機回報）：`Apply()` 的 `RecalculateAll` 在世界生成階段跑，此時
   玩家派系 ideo 尚未指派 → vanilla `GoodwillSituationWorker_SameIdeo.GetNaturalGoodwillOffset` 對 null
   PrimaryIdeo 解參考 NRE（並伴「Could not find player faction.」×16）。關係本身已由 `TryAffectGoodwillWith`

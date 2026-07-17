@@ -25,12 +25,17 @@
 
 ## 機制（零 Harmony）
 
-- **原生鉤子**：`WorldComponent.FinalizeInit(bool fromLoad)`——引擎在世界建好後呼叫，
-  此時 `Find.FactionManager` 的派系已生成。WorldComponent 由引擎自動實例化，無需註冊 Def。
+- **原生鉤子（零 Harmony）**：`WorldComponent`，引擎自動實例化，無需註冊 Def。
+- **觸發時機（option C，延後播種）**：`FinalizeInit` **只標記待播**（新遊戲 `fromLoad=false`），
+  實際 `Apply()` 延到 `WorldComponentTick`——因為 FinalizeInit 跑在世界生成期，`Faction.OfPlayer`
+  尚未就緒，提早改善意會讓 vanilla 每次撲空記「Could not find player faction.」。tick 守衛：
+  `Current.Game != null && Faction.OfPlayer != null`（有 Ideology 再加 `PrimaryIdeo != null`）
+  且待播 → 播一次。
 - **設關係**：`fa.TryAffectGoodwillWith(fb, target - current, canSendMessage:false, canSendHostilityLetter:false)`
   ——vanilla 對稱套用雙向並重算 kind（比 Faction Customizer 手動雙寫 `baseGoodwill/kind` 更正規）。
   收尾 `Find.GoodwillSituationManager.RecalculateAll(false)` 讓關係即時生效。
-- **只播一次**：`bool seeded`（Scribe 存檔）+ `fromLoad` 閘。
+- **只播一次 / 冪等**：`seeded` + `pendingSeed` 雙旗標皆 Scribe 持久化；tick 先落旗標再 Apply，
+  已播存檔不重播、不重疊。
 - **善意閾值**（vanilla）：≤-75 敵對、≥75 結盟、其間中立。
 
 ## 檔案結構
@@ -41,7 +46,7 @@
 | `loadFolders.xml` | `/` + `1.6` |
 | `1.6/Assemblies/FactionRelationSeeder.dll` | 建置產物 |
 | `Source/RelationSeedDef.cs` | `RelationSeedDef : Def` + `RelationSeedEntry`（a/b/goodwill）+ ConfigErrors |
-| `Source/WorldComponent_RelationSeeder.cs` | 播種器：FinalizeInit 一次性套用；逐條例外隔離；ExposeData `seeded` |
+| `Source/WorldComponent_RelationSeeder.cs` | 播種器：FinalizeInit 標記待播 → WorldComponentTick 就緒後播一次；逐條例外隔離；ExposeData `seeded`+`pendingSeed` |
 | `Source/Dev/RelationSeederDebug.cs` | dev「重新播種」DebugAction |
 | `tests/healthcheck.py` | 靜態健檢（XML/交叉引用/零-Harmony 不變式/建置產物） |
 

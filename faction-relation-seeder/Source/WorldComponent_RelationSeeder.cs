@@ -6,13 +6,21 @@ using Verse;
 
 namespace pas.relations
 {
-    /// <summary>開局一次性播種派系關係矩陣（讀所有 RelationSeedDef）。
-    /// 零 Harmony：靠 WorldComponent.FinalizeInit 原生鉤子。只在「新世界」播一次
-    /// （fromLoad=false），之後任其被 rimwar 等演化層改動、不每次載檔重刷；
-    /// 舊檔中途裝也不打擾既有關係。WorldComponent 由引擎自動實例化，無需註冊 Def。</summary>
+    /// <summary>開局一次性播種派系關係矩陣（讀所有 RelationSeedDef）。零 Harmony。
+    /// WorldComponent 由引擎自動實例化，無需註冊 Def。
+    ///
+    /// 觸發時機（option C）：FinalizeInit **只標記待播**，實際 Apply() 延到
+    /// WorldComponentTick——因為 FinalizeInit 跑在世界生成期，此時 Faction.OfPlayer 尚未就緒，
+    /// 提早改善意會讓 vanilla 每次撲空記「Could not find player faction.」。等玩家派系
+    /// （有 Ideology 時再等 PrimaryIdeo）就緒後才播一次。
+    ///
+    /// 生命週期：只在「新世界」（FinalizeInit fromLoad=false）標記待播；舊檔載入不打擾既有關係。
+    /// `seeded`/`pendingSeed` 皆 Scribe 持久化 → 已播存檔不重播、冪等。</summary>
     public class WorldComponent_RelationSeeder : WorldComponent
     {
         private bool seeded;
+        /// <summary>已標記待播、但尚未實際 Apply（等玩家派系就緒）。持久化以防「標記後、播種前」被存檔。</summary>
+        private bool pendingSeed;
 
         public WorldComponent_RelationSeeder(World world) : base(world)
         {
@@ -21,13 +29,34 @@ namespace pas.relations
         public override void FinalizeInit(bool fromLoad)
         {
             base.FinalizeInit(fromLoad);
-            // 只在全新遊戲播種；已播過或載入舊檔一律跳過。
-            if (seeded || fromLoad)
+            // 只「標記待播」，不在此碰 goodwill / 玩家派系（世界生成期玩家派系未就緒）。
+            // 新遊戲（fromLoad=false）且尚未播過才標記；舊檔載入一律不打擾既有關係。
+            if (!fromLoad && !seeded)
+            {
+                pendingSeed = true;
+            }
+        }
+
+        public override void WorldComponentTick()
+        {
+            base.WorldComponentTick();
+            if (!pendingSeed || seeded)
             {
                 return;
             }
-            Apply();
+            // 等玩家派系就緒；有 Ideology 時再等玩家 ideo 就緒（SameIdeo 善意情勢需要它）。
+            if (Current.Game == null || Faction.OfPlayer == null)
+            {
+                return;
+            }
+            if (ModsConfig.IdeologyActive && Faction.OfPlayer.ideos?.PrimaryIdeo == null)
+            {
+                return;
+            }
+            // 冪等：先落旗標，再 Apply——即使 Apply 出狀況也不會下一 tick 重播/重疊。
+            pendingSeed = false;
             seeded = true;
+            Apply();
         }
 
         /// <summary>套用所有 RelationSeedDef。逐條例外隔離，一條壞不拖垮其餘。
@@ -127,6 +156,7 @@ namespace pas.relations
         {
             base.ExposeData();
             Scribe_Values.Look(ref seeded, "seeded", defaultValue: false);
+            Scribe_Values.Look(ref pendingSeed, "pendingSeed", defaultValue: false);
         }
     }
 }
