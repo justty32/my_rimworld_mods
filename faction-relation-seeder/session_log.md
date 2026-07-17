@@ -12,6 +12,10 @@
     OutlanderRough↔OutlanderCivil 結盟），開新局可實機驗。
   - ⏳ 未部署未實機——待開新局於 Factions 面板/世界視圖/dev dump 核對；再驗舊檔載入不被打擾。
 
+- 2026-07-17 ✅ **實機 E2E 綠**（使用者回報）：0.1.2 於真實新遊戲——零「Could not find player
+  faction.」、零 NRE、進地圖後印一次播種完成、派系善意正確。engine 首次過實機；opening-world-demo
+  管線同步驗證通過。0.1.2 為首個 E2E-verified cut。
+
 - 2026-07-17 收尾殘留紅字（option C，0.1.2）：0.1.1 的 option A 只擋了收尾 RecalculateAll，但整個
   Apply() 仍掛在 FinalizeInit（世界生成期）跑——此時 Faction.OfPlayer 未就緒，迴圈裡每次
   TryAffectGoodwillWith 都讓 vanilla 撲空記「Could not find player faction.」（6 對×2~3 查≈15 條）。

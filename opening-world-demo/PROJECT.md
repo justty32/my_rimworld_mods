@@ -43,12 +43,11 @@ worldbuilder 源碼自己建議的補法就是「`World.FinalizeInit` 掛鉤遍�
 ## 狀態
 
 - ✅ healthcheck PASS（管線資料一致：5 派系、6 對關係、開關正確、defName 全對原版 Core）。
-- ⏳ **未實機**。E2E 步驟：
-  1. 啟用 Worldbuilder + Faction Relation Seeder + 本 mod → 新遊戲。
-  2. 建世界頁選 preset「兩盟對峙（Demo）」→ 生成。
-  3. 看 log 有 `[relation-seeder] 播種完成：套用 6 對…`。
-  4. 外交/派系面板核對：藍盟兩支互盟、赤盟兩支互盟、藍↔赤全敵對；派系顏色藍/紅、名稱已改。
-  5. 存檔再讀 → 關係不重刷；不裝 worldbuilder 單測 → preset 消失但關係仍套用。
+- ✅ **實機 E2E 綠**（2026-07-17，搭 Faction Relation Seeder 0.1.2）：真實新局 worldbuilder preset
+  + relation seed 管線跑通，零紅字/零 NRE、播種完成印一次、開局兩盟對峙關係正確。
+  這是「開局世界工作流」第一步（worldbuilder + seed）**實機達標**。下一步：接 yc faction editor。
+
+  （原 E2E 步驟保留於 README.md 供回歸測試。）
 
 ## 換成你的主題
 

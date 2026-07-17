@@ -60,7 +60,9 @@ python3 tests/healthcheck.py              # 靜態健檢
 ## 狀態
 
 - ✅ 編譯（net48 / Krafs.Rimworld.Ref 1.6.*，零警告）、✅ healthcheck OK。
-- ⏳ **未實機**：實機驗證由消費端 `opening-world-demo` 承載（開新局 → 該世界的關係表被套用）。
+- ✅ **實機 E2E 綠**（2026-07-17，dist 0.1.2）：真實新局零紅字/零 NRE、播種完成印一次、善意正確。
+  歷程：0.1.0 世界生成期 NRE → 0.1.1（option A 守衛 RecalculateAll）→ 0.1.2（option C 播種延到
+  WorldComponentTick）消除殘留「Could not find player faction.」。
 
 ## 已知限制
 
