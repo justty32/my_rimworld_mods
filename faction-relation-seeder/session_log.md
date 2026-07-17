@@ -12,6 +12,16 @@
     OutlanderRough↔OutlanderCivil 結盟），開新局可實機驗。
   - ⏳ 未部署未實機——待開新局於 Factions 面板/世界視圖/dev dump 核對；再驗舊檔載入不被打擾。
 
+- 2026-07-17 修世界生成期 NRE（實機回報）：`Apply()` 的 `RecalculateAll` 在世界生成階段跑，此時
+  玩家派系 ideo 尚未指派 → vanilla `GoodwillSituationWorker_SameIdeo.GetNaturalGoodwillOffset` 對 null
+  PrimaryIdeo 解參考 NRE（並伴「Could not find player faction.」×16）。關係本身已由 `TryAffectGoodwillWith`
+  套好，RecalculateAll 只是便利收尾。採 A 案：加守衛 `applied>0 && Current.Game!=null &&
+  Faction.OfPlayer?.ideos?.PrimaryIdeo!=null` + try/catch，且「播種完成」log 移到守衛外保證必印；失敗
+  交遊戲自然重算。改 WorldComponent_RelationSeeder.cs 約 6→18 行，未動 ApplyEntry。重編 0 警告、
+  healthcheck OK、DLL 內確認含 PrimaryIdeo/OfPlayer/get_Game 新參照。commit a889722；打包 dist
+  FactionRelationSeeder-0.1.1 並把佈署 symlink（~/rimworld_mods/FactionRelationSeeder）指向 0.1.1；
+  dist/README 產物表更新。未 push。
+
 - 2026-07-17 重構為純引擎：新建消費端 `opening-world-demo`（worldbuilder preset + RelationSeedDef）
   時，把本 mod 的 demo Seeds.xml 移除（數據源/執行層分離、避免兩份 RelationSeedDef 打架）、
   放寬 healthcheck（不再要求自帶 RelationSeedDef）、PROJECT.md 補「純引擎」+ permanentEnemy 守衛
