@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Faction Relation Seeder (Community)</name>
+  <author>justty32</author>
+  <packageId>pas.relations.community</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <loadAfter>
+    <li>ferny.Worldbuilder</li>
+  </loadAfter>
+  <description>Data-driven opening faction-relationship matrix. Author a RelationSeedDef in XML — pairs of faction defNames with a target goodwill — and the mod applies it once when a NEW game starts. After that it never touches relations again, leaving the world free to evolve (Rim War, etc.).\n\nUse it to set the political geometry of a themed start: who begins allied, who begins at war. Factions referenced by defName are resolved softly at runtime — any faction not present (mod not installed / not spawned) is skipped, never an error.\n\nNo Harmony (native WorldComponent.FinalizeInit hook). No hard dependencies. Existing saves are left untouched; seeding fires only on brand-new games.</description>
+</ModMetaData>

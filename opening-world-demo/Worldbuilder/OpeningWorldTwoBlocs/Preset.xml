@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Worldbuilder 世界預設「兩盟對峙（Two Blocs）」。
+  格式依據：worldbuilder Source/WorldPreset.cs::ExposeData（Scribe 存檔式 XML）。
+  掃描點：Source/WorldPresetManager.cs:145-158（每個已載入 mod 的 load folder 下的 Worldbuilder/<名>/）。
+  刻意不開 saveTerrain / saveBases / saveIdeologies：零快照、零衝突面。
+
+  分工：本 preset 只負責「佈景」——派系陣容 + 名稱/顏色/描述主題化 + 生成參數。
+  「開局敵友」由配套的 RelationSeedDef（1.6/Defs/Relations/OpeningRelations.xml）負責，
+  因為 worldbuilder preset 本身不支援關係矩陣（只有 permanentEnemy 布林）。
+-->
+<worldPreset>
+  <!-- ===== 中繼資料（選擇頁顯示） ===== -->
+  <name>OpeningWorldTwoBlocs</name>
+  <label>兩盟對峙（Demo）</label>
+  <description>一顆被兩大陣營瓜分的邊緣星：定居者的「藍盟」與部族的「赤盟」各自抱團、彼此宣戰，海盜在夾縫裡照樣搗蛋。這是「開局世界管線」的中性示範——把陣容與敵友換成你自己的主題即可。</description>
+  <planetType>兩極對峙的邊緣星</planetType>
+  <difficulty>2</difficulty>
+  <sortPriority>50</sortPriority>
+
+  <!-- ===== 生效開關（省略者皆 False） ===== -->
+  <saveFactions>True</saveFactions>
+  <saveFactionCustomizations>True</saveFactionCustomizations>
+  <saveGenerationParameters>True</saveGenerationParameters>
+
+  <!-- ===== 派系陣容（純原版 Core，不引 DLC/其他 mod） ===== -->
+  <savedFactionDefs>
+    <li>OutlanderCivil</li>
+    <li>OutlanderRough</li>
+    <li>TribeCivil</li>
+    <li>TribeRough</li>
+    <li>Pirate</li>
+  </savedFactionDefs>
+
+  <!-- ===== 主題化：名稱（saveFactionCustomizations gate，World_FinalizeInit_Patch.cs:106） =====
+       名字刻意對映關係幾何：藍盟＝定居者兩支、赤盟＝部族兩支。 -->
+  <factionNameOverrides>
+    <keys>
+      <li>OutlanderCivil</li>
+      <li>OutlanderRough</li>
+      <li>TribeCivil</li>
+      <li>TribeRough</li>
+    </keys>
+    <values>
+      <li>藍盟・商邦</li>
+      <li>藍盟・邊民</li>
+      <li>赤盟・聚落</li>
+      <li>赤盟・獵團</li>
+    </values>
+  </factionNameOverrides>
+
+  <!-- ===== 主題化：顏色（World_FinalizeInit_Patch.cs:127；RGBA 浮點字串） =====
+       藍盟藍、赤盟紅——實機一眼可辨兩陣營。 -->
+  <factionColorOverrides>
+    <keys>
+      <li>OutlanderCivil</li>
+      <li>OutlanderRough</li>
+      <li>TribeCivil</li>
+      <li>TribeRough</li>
+    </keys>
+    <values>
+      <li>RGBA(0.20, 0.45, 0.90, 1)</li>
+      <li>RGBA(0.35, 0.60, 1.00, 1)</li>
+      <li>RGBA(0.90, 0.25, 0.20, 1)</li>
+      <li>RGBA(1.00, 0.45, 0.35, 1)</li>
+    </values>
+  </factionColorOverrides>
+
+  <!-- ===== 主題化：描述 ===== -->
+  <factionDescriptionOverrides>
+    <keys>
+      <li>OutlanderCivil</li>
+      <li>TribeCivil</li>
+    </keys>
+    <values>
+      <li>藍盟的商業核心：講秩序、講合約，與同盟邊民共進退，視赤盟為死敵。</li>
+      <li>赤盟的部族主體：敬祖靈、守獵場，與同盟獵團同氣連枝，與藍盟不共戴天。</li>
+    </values>
+  </factionDescriptionOverrides>
+
+  <!-- ===== 世界生成參數（Source/WorldGenerationData.cs:29-62） ===== -->
+  <generationData>
+    <!-- 一項＝一個派系實例（此處各一） -->
+    <factionCountsStrings>
+      <li>OutlanderCivil</li>
+      <li>OutlanderRough</li>
+      <li>TribeCivil</li>
+      <li>TribeRough</li>
+      <li>Pirate</li>
+    </factionCountsStrings>
+    <planetCoverage>0.3</planetCoverage>
+    <rainfall>Normal</rainfall>
+    <temperature>Normal</temperature>
+    <population>Normal</population>
+    <riverDensity>1</riverDensity>
+    <ancientRoadDensity>1</ancientRoadDensity>
+    <settlementRoadDensity>1</settlementRoadDensity>
+    <mountainDensity>1</mountainDensity>
+    <seaLevel>1</seaLevel>
+    <axialTilt>Normal</axialTilt>
+  </generationData>
+</worldPreset>

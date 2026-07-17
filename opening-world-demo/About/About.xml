@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Opening World: Two Blocs (Demo)</name>
+  <author>justty32</author>
+  <packageId>pas.openingworld.demo</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>A runnable demonstration of the "opening world" pipeline: a Worldbuilder preset (the stage/scene) + a matching Faction Relation Seeder table (the opening diplomacy), wired together.\n\nShips a Worldbuilder preset "Two Blocs" that themes vanilla factions into a blue settler bloc and a red tribal bloc, plus a RelationSeedDef that makes each bloc internally allied and the two blocs at war — the opening political geometry the preset alone cannot express.\n\nContent is a NEUTRAL DEMO on vanilla factions (no DLC, no extra faction mods) — replace the roster/relations with your own theme.\n\nData only (no code). Requires Faction Relation Seeder (the engine). Worldbuilder is optional: without it the RelationSeedDef still fires on new games; the preset simply won't appear in the preset list.</description>
+  <modDependencies>
+    <li>
+      <packageId>pas.relations.community</packageId>
+      <displayName>Faction Relation Seeder (Community)</displayName>
+    </li>
+  </modDependencies>
+  <!-- Worldbuilder 刻意不列 modDependencies：preset 掃描在 Worldbuilder 端做
+       （對每個已載入 mod 的 load folder 找 Worldbuilder/ 子目錄）；未裝時本 mod 的
+       Worldbuilder/ 目錄完全惰性，RelationSeedDef 照常在新局套用。 -->
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>ferny.Worldbuilder</li>
+    <li>pas.relations.community</li>
+  </loadAfter>
+</ModMetaData>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--
+    開局關係表，配套 Worldbuilder preset「OpeningWorldTwoBlocs」。
+    型別來自引擎 mod pas.relations.community（faction-relation-seeder）。
+    在新遊戲開局由 WorldComponent_RelationSeeder.FinalizeInit 套用一次。
+
+      goodwill：≤-75 敵對、≥75 結盟、其間中立（vanilla 閾值）。
+      Pirate 為永久敵派系（HasGoodwill=false），本表不列它——列了也會被軟略過。
+  -->
+  <pas.relations.RelationSeedDef>
+    <defName>OWD_OpeningRelations</defName>
+    <relations>
+      <!-- 藍盟（定居者）內部結盟 -->
+      <li><a>OutlanderCivil</a><b>OutlanderRough</b><goodwill>90</goodwill></li>
+      <!-- 赤盟（部族）內部結盟 -->
+      <li><a>TribeCivil</a><b>TribeRough</b><goodwill>85</goodwill></li>
+      <!-- 兩盟交戰：四對交叉全敵對 -->
+      <li><a>OutlanderCivil</a><b>TribeCivil</b><goodwill>-100</goodwill></li>
+      <li><a>OutlanderCivil</a><b>TribeRough</b><goodwill>-100</goodwill></li>
+      <li><a>OutlanderRough</a><b>TribeCivil</b><goodwill>-100</goodwill></li>
+      <li><a>OutlanderRough</a><b>TribeRough</b><goodwill>-100</goodwill></li>
+    </relations>
+  </pas.relations.RelationSeedDef>
+</Defs>
