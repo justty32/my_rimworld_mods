@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到訪信件 -->
+  <RatkinQL_Forge_RedClaw_ArriveLabel>赤爪傭兵團的團長到了</RatkinQL_Forge_RedClaw_ArriveLabel>
+  <RatkinQL_Forge_RedClaw_ArriveText>赤爪傭兵團團長「鋼鐵之誓」帶著一票吊兒郎當的弟兄大搖大擺闖進了你的聚居地，拇指勾著腰帶、咧著嘴，扯著嗓子嚷嚷說是來提那批傢伙事兒的。去跟她談談吧。</RatkinQL_Forge_RedClaw_ArriveText>
+
+  <!-- 對話樹 -->
+  <RatkinQL_Forge_RedClaw_Title>赤爪傭兵團團長·鋼鐵之誓</RatkinQL_Forge_RedClaw_Title>
+  <RatkinQL_Forge_RedClaw_Report>把赤爪傭兵團的傢伙事兒交給團長鋼鐵之誓</RatkinQL_Forge_RedClaw_Report>
+
+  <RatkinQL_Forge_RedClaw_Greeting>喲，這條道上傳得沸沸揚揚的鐵匠鋪，就是「你」啊？我叫鋼鐵之誓，赤爪傭兵團是我帶的。（她一腳踹翻一口箱子，屁股往上一坐，上下打量你。）聽好了，我不要花架子，我要的是——弟兄擋刀的時候那玩意兒別給我斷！品質良好起跳，一件都不許含糊。為了省那點鋼料下葬的兄弟，我埋得夠多了。你給我湊出四到六件夠格的、總價抵得上四把良好鋼劍，這單就成交。還有——{Interviewer_labelShort}——別被我這張破嘴唬住，老娘欠的帳，一個子兒都不會少你的。</RatkinQL_Forge_RedClaw_Greeting>
+
+  <!-- 忠誠獎勵：助戰契約 -->
+  <RatkinQL_Forge_RedClaw_OptReward>收下她一直替你留著的那紙助戰契約</RatkinQL_Forge_RedClaw_OptReward>
+  <RatkinQL_Forge_RedClaw_NeedReward>你在赤爪傭兵團這兒，還沒掙到那份交情</RatkinQL_Forge_RedClaw_NeedReward>
+  <RatkinQL_Forge_RedClaw_MsgReward>鋼鐵之誓把一紙血封的契約「啪」地拍在你胸口按住，那咧著的嘴難得軟了一瞬：「你打的每一把刀，都讓弟兄活著回了家。喏，拿著——往後你要是有難，捏碎它，赤爪的刀，就是你的刀。不問緣由，不收一文。」她朝弟兄們一甩下巴，幾個人把一袋白銀往你腳邊一擱。「別跟老娘在這兒煽情啊。」</RatkinQL_Forge_RedClaw_MsgReward>
+
+  <!-- 交貨（C 挑選視窗） -->
+  <RatkinQL_Forge_RedClaw_OptDeliver>交貨：開挑選視窗，選要交付的傢伙事兒</RatkinQL_Forge_RedClaw_OptDeliver>
+  <RatkinQL_Forge_RedClaw_NeedGoods>你湊不齊夠格的傢伙事兒（四到六件、品質良好以上、總值需抵四把鋼鐵良好長劍）</RatkinQL_Forge_RedClaw_NeedGoods>
+  <RatkinQL_Forge_RedClaw_MsgPaid>鋼鐵之誓抄起每件揮上兩下，拇指刮過刃口，滿意地哼了一聲：「這才對嘛，掄到一半可不會給你撂挑子。幹得漂亮，鐵匠鋪。」她一枚枚數出白銀，童叟無欺，又順手把幾把刀甩給弟兄，一群人歡呼得跟過節似的。</RatkinQL_Forge_RedClaw_MsgPaid>
+  <RatkinQL_Forge_RedClaw_MsgPaidFine>鋼鐵之誓越翻這堆貨，笑得越開、越貪——她這是把整個傭兵團武裝到牙齒了。她一把抄起兩柄刀，放聲大笑：「哈！有這批傢伙，老娘一頓早飯的工夫就能踏平一座村子！」她當場加倍付了款，樂不可支。可等她走遠、四下安靜下來，你卻怎麼也甩不掉那絲不安：你太清楚自己剛把什麼交到了什麼人手裡——也太清楚，這樣一支殺才，會把這樣的火力對準誰。</RatkinQL_Forge_RedClaw_MsgPaidFine>
+
+  <RatkinQL_Forge_RedClaw_OptTerms>問清楚赤爪傭兵團要這批傢伙事兒做什麼</RatkinQL_Forge_RedClaw_OptTerms>
+  <RatkinQL_Forge_RedClaw_Terms1>我們就是拿錢辦事的——護商隊、剿山賊，只要給錢、只要不噁心到老娘，什麼活都接。我這幫弟兄，多半是我從路邊撿回來的孤兒野崽，剛入伙時一半人連刀都握不利索。我管他們飯、給他們配傢伙，再把他們囫圇個兒帶回來。最後這一條，就得指望你了。</RatkinQL_Forge_RedClaw_Terms1>
+  <RatkinQL_Forge_RedClaw_Terms2>你對我們夠意思，赤爪就記著這份情。銀子給得爽快、活兒接得穩當——真要哪天有哪個不長眼的敢打上你鐵匠鋪的門，你立馬就知道誰才是自己人。</RatkinQL_Forge_RedClaw_Terms2>
+  <RatkinQL_Forge_RedClaw_OptBack>回到正題</RatkinQL_Forge_RedClaw_OptBack>
+
+  <RatkinQL_Forge_RedClaw_OptExtort>她正等著這批傢伙——臨時抬價，狠敲她一筆</RatkinQL_Forge_RedClaw_OptExtort>
+  <RatkinQL_Forge_RedClaw_MsgExtort>鋼鐵之誓聽你價錢一路往上竄，整個人僵住了，臉上那抹笑「唰」地就退乾淨了：「……趁老娘的弟兄等著鋼料，敲我竹槓。呵。我還當你是條漢子。」她慢慢站起身，抬手招呼弟兄，一句話都沒再多說就走了。赤爪傭兵團，是不會再登你的門了。</RatkinQL_Forge_RedClaw_MsgExtort>
+  <RatkinQL_Forge_RedClaw_ExtortEnd>（她走了，一群弟兄鐵青著臉跟在後頭。你把多敲的銀子塞進兜裡——卻想起她說，這幫兄弟多半是她從路邊撿回來的野崽。）</RatkinQL_Forge_RedClaw_ExtortEnd>
+  <RatkinQL_Forge_RedClaw_OptShrug>聳聳肩</RatkinQL_Forge_RedClaw_OptShrug>
+
+  <RatkinQL_Forge_RedClaw_ThanksReward>鋼鐵之誓看著弟兄們把箱子扛走，捏得指節「咔咔」響，又咧著嘴轉回頭衝你：「行了！煽情到此為止。正事——我的傢伙事兒呢，鐵匠鋪？」</RatkinQL_Forge_RedClaw_ThanksReward>
+
+  <RatkinQL_Forge_RedClaw_OptDecline>這次先不交，讓她改日再來</RatkinQL_Forge_RedClaw_OptDecline>
+
+</LanguageData>

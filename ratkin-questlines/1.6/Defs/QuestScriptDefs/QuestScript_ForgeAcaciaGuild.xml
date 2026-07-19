@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T2 旗艦 — 金合歡商行·行首金合歡（大遊商商會轉賣委託）。
+    T2＝品質門檻定製：她要一批「良好以上」的好貨轉賣遠方豪客（彈性價值需求，不指定 defName）。
+    gate＝有鐵匠檯(CanForge) ＋ 金合歡可上門(Forge_AcaciaGuild_Available：帳本已內含 T2 名聲門檻 wm≥M1 且未 blocked)。
+    接受即空投 T2 科技藍圖（首個 T2 委託，gateBool 保證每層一次）；延遲 12 天到訪；交貨走 C 挑選視窗＋分級後果；
+    忠誠獎勵（滿意度達 N→RewardReady）＝「稀有材料供貨」一次性珍稀材回饋，由對話分支發（見 Line）。稱呼用 T2 層「鐵匠鋪」。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeAcaciaGuild</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->金合歡商行的轉賣好貨採購</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->金合歡商行的行首「金合歡」捎來一封熱絡的邀約：她手上有幾位遠方豪客的大單，正缺一批良好品質以上的好貨轉手，款式不拘、但要件件拿得出手、總價值夠份量。接下委託後給你約十二天備貨打造，屆時她親自帶著商隊上門收貨、當場結銀。（若你尚未掌握這一層的鍛造，接下時她會先送來商會的工坊圖譜。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Forge_AcaciaGuild_Available</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 大遊商層首個委託：接受即空投 T2 科技藍圖（每層一次） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierTwo</blueprint>
+          <gateBool>RatkinQL_Forge_T2TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T2Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T2Tech_Text</letterText>
+        </li>
+
+        <!-- 收貨延遲：約 12 天 -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>720000</delayTicks>
+          <outSignalComplete>EnvoyArrive</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>EnvoyArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeAcaciaGuildManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Acacia_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Acacia_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>EnvoyArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>EnvoyVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>EnvoyVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

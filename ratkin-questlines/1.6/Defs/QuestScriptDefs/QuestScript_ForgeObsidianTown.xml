@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T2 旗艦 — 黑曜城武備官·懸鈴（城鎮定製委託）。
+    T2＝品質門檻定製：她要一批「良好以上」的守城軍械（彈性價值需求，不指定 defName）。
+    gate＝有鐵匠檯(CanForge) ＋ 懸鈴可上門(Forge_ObsidianTown_Available：帳本已內含 T2 名聲門檻 wm≥M1 且未 blocked)。
+    接受即空投 T2 科技藍圖（首個 T2 委託，gateBool 保證每層一次）；延遲 12 天到訪；交貨走 C 挑選視窗＋分級後果；
+    忠誠獎勵（滿意度達 N→RewardReady）＝「優先供貨」一次性好料回饋，由對話分支發（見 Line）。稱呼用 T2 層「鐵匠鋪」。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeObsidianTown</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->黑曜城的守城軍械定製</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->黑曜城武備官「懸鈴」捎來一紙定製單：城鎮要備一批良好品質以上的守城軍械，款式不拘、但總價值要夠份量。接下委託後給你約十二天備料打造，屆時她親自帶隊上門驗貨取貨。（若你尚未掌握這一層的鍛造，接下時她會先送來城鎮工坊的圖譜。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Forge_ObsidianTown_Available</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 城鎮層首個委託：接受即空投 T2 科技藍圖（每層一次） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierTwo</blueprint>
+          <gateBool>RatkinQL_Forge_T2TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T2Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T2Tech_Text</letterText>
+        </li>
+
+        <!-- 取貨延遲：約 12 天 -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>720000</delayTicks>
+          <outSignalComplete>EnvoyArrive</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>EnvoyArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeObsidianTownManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Obsidian_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Obsidian_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>EnvoyArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>EnvoyVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>EnvoyVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

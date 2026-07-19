@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter -->
+  <RatkinQL_Forge_RedClaw_ArriveLabel>The captain of the Red Claw Band</RatkinQL_Forge_RedClaw_ArriveLabel>
+  <RatkinQL_Forge_RedClaw_ArriveText>Steelvow, captain of the Red Claw Mercenary Band, has come swaggering into your settlement with a knot of her rowdy fighters at her back, thumbs hooked in her belt and a grin on her face, hollering that she's here to collect that batch of hardware. Go have a word with her.</RatkinQL_Forge_RedClaw_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_RedClaw_Title>Steelvow, Captain of the Red Claw Band</RatkinQL_Forge_RedClaw_Title>
+  <RatkinQL_Forge_RedClaw_Report>Hand the Red Claw Band's hardware over to Captain Steelvow</RatkinQL_Forge_RedClaw_Report>
+
+  <RatkinQL_Forge_RedClaw_Greeting>So YOU'RE the smithy the whole road's been yapping about. Name's Steelvow — I run the Red Claw Band. (She kicks a crate over, drops onto it, and looks you up and down.) Listen, I don't need pretty, I need it to NOT snap when some brute's swinging back at my kid. Good quality or better, every last piece — I've buried enough of my people over cheap steel. Put me together four to six that make the cut, worth four good steel swords all told, and we've got a deal. And hey — {Interviewer_labelShort} — don't let the big mouth fool you, I pay what I owe.</RatkinQL_Forge_RedClaw_Greeting>
+
+  <!-- Loyalty reward: aid contract -->
+  <RatkinQL_Forge_RedClaw_OptReward>Take the aid contract she's been holding for you</RatkinQL_Forge_RedClaw_OptReward>
+  <RatkinQL_Forge_RedClaw_NeedReward>You haven't earned that kind of trust with the Red Claw Band yet</RatkinQL_Forge_RedClaw_NeedReward>
+  <RatkinQL_Forge_RedClaw_MsgReward>Steelvow slaps a blood-sealed contract flat against your chest and holds it there, grin gone soft for just a second. "Every blade you've forged us has come home with the kid still breathing. So here — you ever land in it deep, you crush this, and the Red Claw's steel is YOUR steel. No questions, no bill." She jerks a thumb at her fighters, who dump a purse of silver at your feet. "Don't get sappy on me."</RatkinQL_Forge_RedClaw_MsgReward>
+
+  <!-- Delivery (C picker window) -->
+  <RatkinQL_Forge_RedClaw_OptDeliver>Deliver: open the picker window and choose the hardware</RatkinQL_Forge_RedClaw_OptDeliver>
+  <RatkinQL_Forge_RedClaw_NeedGoods>You can't muster hardware that makes the cut (four to six pieces, Good+ quality, total value matching four good steel longswords)</RatkinQL_Forge_RedClaw_NeedGoods>
+  <RatkinQL_Forge_RedClaw_MsgPaid>Steelvow swings each piece a couple times, thumbs the edge, gives one a satisfied grunt. "Now THAT won't quit on you mid-swing. Good work, smithy." She counts out the silver — coin for honest coin — and tosses a few of the blades to her fighters, who whoop like it's a festival.</RatkinQL_Forge_RedClaw_MsgPaid>
+  <RatkinQL_Forge_RedClaw_MsgPaidFine>Steelvow's grin gets wider and hungrier as she works down the pile — she's arming the whole band to the teeth. She hefts two blades at once, laughing. "Ha! With THIS lot we could flatten a village before breakfast!" She pays out double on the spot, delighted. And in the quiet after she's gone, you can't quite shake it: you know exactly what you just put in those hands — and where a warband like hers points that kind of firepower.</RatkinQL_Forge_RedClaw_MsgPaidFine>
+
+  <RatkinQL_Forge_RedClaw_OptTerms>Ask what the Red Claw Band needs all this hardware for</RatkinQL_Forge_RedClaw_OptTerms>
+  <RatkinQL_Forge_RedClaw_Terms1>We're guns for hire — caravan escorts, bandit-clearing, whatever pays and doesn't turn my stomach. My crew's mostly strays and runaways I picked up off the road; half of 'em couldn't hold a sword right when they signed on. I keep 'em fed, I keep 'em armed, and I bring 'em home. That last part's on you.</RatkinQL_Forge_RedClaw_Terms1>
+  <RatkinQL_Forge_RedClaw_Terms2>Do right by us and the Red Claw doesn't forget it. Good coin, steady work — and if the day ever comes some fool marches on your smithy? You'll find out real quick who your friends are.</RatkinQL_Forge_RedClaw_Terms2>
+  <RatkinQL_Forge_RedClaw_OptBack>Back to business</RatkinQL_Forge_RedClaw_OptBack>
+
+  <RatkinQL_Forge_RedClaw_OptExtort>She needs the arms now — jack up the price and squeeze her</RatkinQL_Forge_RedClaw_OptExtort>
+  <RatkinQL_Forge_RedClaw_MsgExtort>Steelvow hears your price shoot up and goes still — the grin drains right off her face. "...Shaking me down when my people need the steel. Huh. And here I had you pegged for one of the good ones." She stands slow, waves her fighters up, and walks out without another word. The Red Claw Band won't be back at your door.</RatkinQL_Forge_RedClaw_MsgExtort>
+  <RatkinQL_Forge_RedClaw_ExtortEnd>(She's gone, her fighters trailing after her in ugly silence. You pocket the extra coin — and remember she said her crew was mostly strays she pulled off the road.)</RatkinQL_Forge_RedClaw_ExtortEnd>
+  <RatkinQL_Forge_RedClaw_OptShrug>Shrug</RatkinQL_Forge_RedClaw_OptShrug>
+
+  <RatkinQL_Forge_RedClaw_ThanksReward>Steelvow watches her fighters lug the crates off, cracks her knuckles, and rounds back on you with the grin back in place. "Right! Enough of the warm and fuzzy. Now — where's my hardware, smithy?"</RatkinQL_Forge_RedClaw_ThanksReward>
+
+  <RatkinQL_Forge_RedClaw_OptDecline>Not this time — let her swing by another day</RatkinQL_Forge_RedClaw_OptDecline>
+
+</LanguageData>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T3 核心《王國採購官·映山紅》對話。信件制、AddDialog 直掛。
+    T3 量大薄利：彈性價值需求 count=8~12、minQuality=Good，band silver 壓低（利薄）；真回報＝忠誠獎勵（王庭厚賞＋Rakinia 好感）＋名聲。
+    ★失手掉派系：敲詐＝背信，重挫 Rakinia 好感（CQFAction_ChangeGoodwillOfFaction Interviewee=Rakinia，isIncrease=false value=15）＋Ev_Betray＋blocked。
+    稱呼＝T3「名匠鋪」。善惡＝正統王庭，只超額(band2)才記 Ev_Charity。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_ForgeCrownProcurerTree</defName>
+    <title>RatkinQL_Forge_Crown_Title</title>
+    <dialogReportKey>RatkinQL_Forge_Crown_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>6</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_Forge_Crown_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- 忠誠獎勵：王庭厚賞（RewardReady 且未領才顯示） -->
+          <li>
+            <text>RatkinQL_Forge_Crown_OptReward</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <conditions>
+              <li Class="QuestEditor_Library.DialogCondition_Bool">
+                <failReason>RatkinQL_Forge_Crown_NeedReward</failReason>
+                <boolName>RatkinQL_Forge_CrownProcurer_RewardReady</boolName>
+              </li>
+              <li Class="QuestEditor_Library.DialogCondition_Reversal">
+                <failReason>RatkinQL_Forge_Crown_NeedReward</failReason>
+                <condition Class="QuestEditor_Library.DialogCondition_Bool">
+                  <boolName>RatkinQL_Forge_CrownProcurer_RewardClaimed</boolName>
+                  <failReason>RatkinQL_Forge_Crown_NeedReward</failReason>
+                </condition>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Reward</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>CrownFavor</dataName>
+                      <message>RatkinQL_Forge_Crown_MsgReward</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RatkinQL_KingdomTally</thing><count>1~1</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Gold</thing><count>80~80</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>400~400</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>8</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Forge_CrownProcurer_RewardClaimed</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>5</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 交貨：量大薄利，8~12 件、良好以上、總值≥8 把鋼鐵良好長劍 → C 挑選視窗＋分級後果 -->
+          <li>
+            <text>RatkinQL_Forge_Crown_OptDeliver</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_WeaponValue">
+                <failReason>RatkinQL_Forge_Crown_NeedGoods</failReason>
+                <count>8~12</count>
+                <minQuality>Good</minQuality>
+                <refThing>RK_LongSword</refThing>
+                <refStuff>Steel</refStuff>
+                <refQuality>Good</refQuality>
+                <refCount>8</refCount>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Deliver</resultName>
+              <actions>
+                <li Class="RatkinQuestlines.CQFAction_OpenDeliveryWindow">
+                  <targetsText><li>Interviewee</li><li>Interviewer</li></targetsText>
+                  <count>8~12</count>
+                  <minQuality>Good</minQuality>
+                  <refThing>RK_LongSword</refThing>
+                  <refStuff>Steel</refStuff>
+                  <refQuality>Good</refQuality>
+                  <refCount>8</refCount>
+                  <bands>
+                    <!-- band1 達標（量大薄利，利薄）：600 銀＋滿意度＋名聲 -->
+                    <li>
+                      <valueMultiple>1</valueMultiple>
+                      <silver>600</silver>
+                      <evFlags>
+                        <li>RatkinQL_Ev_ForgeWellDone_CrownProcurer</li>
+                        <li>RatkinQL_Ev_WeaponDeal</li>
+                      </evFlags>
+                      <message>RatkinQL_Forge_Crown_MsgPaid</message>
+                    </li>
+                    <!-- band2 超額（總值 2×，傾產能供王庭）：1000 銀＋更多名聲＋Charity（超額效忠正統＝善） -->
+                    <li>
+                      <valueMultiple>2</valueMultiple>
+                      <silver>1000</silver>
+                      <evFlags>
+                        <li>RatkinQL_Ev_ForgeWellDone_CrownProcurer</li>
+                        <li>RatkinQL_Ev_WeaponDeal</li>
+                        <li>RatkinQL_Ev_GenericTrade</li>
+                        <li>RatkinQL_Ev_Charity</li>
+                      </evFlags>
+                      <message>RatkinQL_Forge_Crown_MsgPaidFine</message>
+                    </li>
+                  </bands>
+                </li>
+              </actions>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_Crown_OptTerms</text>
+            <results><li><resultName>Terms</resultName><nextIndex>1</nextIndex></li></results>
+          </li>
+
+          <!-- ★以次充好/趁機敲詐王庭 → 背信，重挫 Rakinia 派系關係＋blocked -->
+          <li>
+            <text>RatkinQL_Forge_Crown_OptExtort</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Extort</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message"><message>RatkinQL_Forge_Crown_MsgExtort</message><type>NegativeEvent</type></li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>false</isIncrease><value>15</value><sendLetter>true</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Betray</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ForgeBlocked_CrownProcurer</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="RatkinQuestlines.CQFAction_SendEnvoyAway"><targetsText><li>Interviewee</li></targetsText></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_Crown_OptDecline</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li><resultName>Decline</resultName></li></results>
+          </li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Forge_Crown_Terms1</text>
+        <extraText><li>RatkinQL_Forge_Crown_Terms2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Crown_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_Forge_Crown_ExtortEnd</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Crown_OptShrug</text><results><li><resultName>Shrug</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>5</key><value>
+        <text>RatkinQL_Forge_Crown_ThanksReward</text>
+        <index>5</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Crown_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_ForgeCrownProcurerManager</defName>
+    <tags><li>RatkinQL_ForgeCrownProcurer</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_ForgeCrownProcurerTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

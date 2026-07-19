@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T2 旗艦《黑曜城武備官·懸鈴》對話。信件制、AddDialog 直掛（不需 genrationConditions）。
+    T2 定製：彈性價值需求（DialogCondition_WeaponValue，minQuality=Good、基準＝4 把鋼鐵良好長劍），交貨走 C 挑選視窗＋分級後果。
+    忠誠獎勵：滿意度達 N（帳本回寫 Forge_ObsidianTown_RewardReady）且未領（Reversal RewardClaimed）→ 出現「領取優先供貨回饋」選項，發一批好料、set RewardClaimed。
+    稱呼＝T2 層「鐵匠鋪」。善惡＝正派城鎮，只有超額(band2)才記 Ev_Charity（§6.7）。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_ForgeObsidianTownTree</defName>
+    <title>RatkinQL_Forge_Obsidian_Title</title>
+    <dialogReportKey>RatkinQL_Forge_Obsidian_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>6</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_Forge_Obsidian_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- 忠誠獎勵：老主顧回饋（RewardReady 且未領才顯示） -->
+          <li>
+            <text>RatkinQL_Forge_Obsidian_OptReward</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <conditions>
+              <li Class="QuestEditor_Library.DialogCondition_Bool">
+                <failReason>RatkinQL_Forge_Obsidian_NeedReward</failReason>
+                <boolName>RatkinQL_Forge_ObsidianTown_RewardReady</boolName>
+              </li>
+              <li Class="QuestEditor_Library.DialogCondition_Reversal">
+                <failReason>RatkinQL_Forge_Obsidian_NeedReward</failReason>
+                <condition Class="QuestEditor_Library.DialogCondition_Bool">
+                  <boolName>RatkinQL_Forge_ObsidianTown_RewardClaimed</boolName>
+                  <failReason>RatkinQL_Forge_Obsidian_NeedReward</failReason>
+                </condition>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Reward</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>ObsidianLoyalty</dataName>
+                      <message>RatkinQL_Forge_Obsidian_MsgReward</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Steel</thing><count>150~150</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>ComponentIndustrial</thing><count>10~10</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>200~200</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Forge_ObsidianTown_RewardClaimed</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>5</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 交貨：良好以上、4~6 把、總值≥4 把鋼鐵良好長劍 → 開 C 挑選視窗＋分級後果 -->
+          <li>
+            <text>RatkinQL_Forge_Obsidian_OptDeliver</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_WeaponValue">
+                <failReason>RatkinQL_Forge_Obsidian_NeedGoods</failReason>
+                <count>4~6</count>
+                <minQuality>Good</minQuality>
+                <refThing>RK_LongSword</refThing>
+                <refStuff>Steel</refStuff>
+                <refQuality>Good</refQuality>
+                <refCount>4</refCount>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Deliver</resultName>
+              <actions>
+                <li Class="RatkinQuestlines.CQFAction_OpenDeliveryWindow">
+                  <targetsText><li>Interviewee</li><li>Interviewer</li></targetsText>
+                  <count>4~6</count>
+                  <minQuality>Good</minQuality>
+                  <refThing>RK_LongSword</refThing>
+                  <refStuff>Steel</refStuff>
+                  <refQuality>Good</refQuality>
+                  <refCount>4</refCount>
+                  <bands>
+                    <!-- band1 達標：350 銀＋滿意度＋軍械商名聲（無 karma） -->
+                    <li>
+                      <valueMultiple>1</valueMultiple>
+                      <silver>350</silver>
+                      <evFlags>
+                        <li>RatkinQL_Ev_ForgeWellDone_ObsidianTown</li>
+                        <li>RatkinQL_Ev_WeaponDeal</li>
+                      </evFlags>
+                      <message>RatkinQL_Forge_Obsidian_MsgPaid</message>
+                    </li>
+                    <!-- band2 超額（總值 2×）：650 銀＋更多名聲＋Ev_Charity（超額服務正派城鎮＝善） -->
+                    <li>
+                      <valueMultiple>2</valueMultiple>
+                      <silver>650</silver>
+                      <evFlags>
+                        <li>RatkinQL_Ev_ForgeWellDone_ObsidianTown</li>
+                        <li>RatkinQL_Ev_WeaponDeal</li>
+                        <li>RatkinQL_Ev_GenericTrade</li>
+                        <li>RatkinQL_Ev_Charity</li>
+                      </evFlags>
+                      <message>RatkinQL_Forge_Obsidian_MsgPaidFine</message>
+                    </li>
+                  </bands>
+                </li>
+              </actions>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_Obsidian_OptTerms</text>
+            <results><li><resultName>Terms</resultName><nextIndex>1</nextIndex></li></results>
+          </li>
+
+          <!-- 抬價敲詐 → blocked＋遣離 -->
+          <li>
+            <text>RatkinQL_Forge_Obsidian_OptExtort</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Extort</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message"><message>RatkinQL_Forge_Obsidian_MsgExtort</message><type>NegativeEvent</type></li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>false</isIncrease><value>4</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ForgeBlocked_ObsidianTown</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="RatkinQuestlines.CQFAction_SendEnvoyAway"><targetsText><li>Interviewee</li></targetsText></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_Obsidian_OptDecline</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li><resultName>Decline</resultName></li></results>
+          </li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Forge_Obsidian_Terms1</text>
+        <extraText><li>RatkinQL_Forge_Obsidian_Terms2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Obsidian_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_Forge_Obsidian_ExtortEnd</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Obsidian_OptShrug</text><results><li><resultName>Shrug</resultName></li></results></li></options>
+      </value></li>
+
+      <!-- 忠誠回饋領取後 → 回正題（她仍要她的委託） -->
+      <li><key>5</key><value>
+        <text>RatkinQL_Forge_Obsidian_ThanksReward</text>
+        <index>5</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Obsidian_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_ForgeObsidianTownManager</defName>
+    <tags><li>RatkinQL_ForgeObsidianTown</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_ForgeObsidianTownTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

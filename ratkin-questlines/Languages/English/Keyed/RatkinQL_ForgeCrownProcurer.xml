@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter -->
+  <RatkinQL_Forge_Crown_ArriveLabel>The crown procurement officer</RatkinQL_Forge_Crown_ArriveLabel>
+  <RatkinQL_Forge_Crown_ArriveText>Yingshanhong, procurement officer of the Ratkin Kingdom, has walked into your settlement bearing a crown-sealed writ, with two clerks and a guard detail in tow — come, she says, by order of the court, to inspect that arms-procurement warrant. Go and receive her.</RatkinQL_Forge_Crown_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_Crown_Title>Yingshanhong, Crown Procurement Officer</RatkinQL_Forge_Crown_Title>
+  <RatkinQL_Forge_Crown_Report>Have Yingshanhong inspect the crown procurement warrant</RatkinQL_Forge_Crown_Report>
+
+  <RatkinQL_Forge_Crown_Greeting>Your master-smithy's name has reached the court's desk. (Yingshanhong unrolls the writ; her tone is mild, yet held at the cool distance of official business.) I am Yingshanhong, come by order of the Procurement Bureau. The court asks little — Good-quality arms or better, eight to twelve pieces, to outfit the border army. As for the price, it's set by the Ordnance Code: low, as you well know. What the court pays is never market rate — it is standing. Muster them, worth at least eight good steel swords all told, and this warrant falls to your smithy. {Interviewer_labelShort} — the court's ledger records every last coin.</RatkinQL_Forge_Crown_Greeting>
+
+  <!-- Loyalty reward: crown favor -->
+  <RatkinQL_Forge_Crown_OptReward>Claim the reward the court has recorded for you</RatkinQL_Forge_Crown_OptReward>
+  <RatkinQL_Forge_Crown_NeedReward>Your service on the court's ledger doesn't yet merit a reward</RatkinQL_Forge_Crown_NeedReward>
+  <RatkinQL_Forge_Crown_MsgReward>For once, Yingshanhong sets aside the official tone and presents a gilt wooden case with her own hands: "Supply after supply, every piece to code — the court records a great merit for your smithy." Within lies a Ratkin Kingdom writ of muster sealed with the war-tally, a few bars of gold, and a purse of silver. "Should trouble ever come, invoke that writ — the Kingdom's soldiers will stand for a master smith." She pauses. "This is the court's honor. And you have earned it."</RatkinQL_Forge_Crown_MsgReward>
+
+  <!-- Delivery (C picker window) -->
+  <RatkinQL_Forge_Crown_OptDeliver>Deliver: open the picker window and choose the arms (bulk order)</RatkinQL_Forge_Crown_OptDeliver>
+  <RatkinQL_Forge_Crown_NeedGoods>You can't muster the volume the court wants (eight to twelve pieces, Good+ quality, total value matching eight good steel longswords)</RatkinQL_Forge_Crown_NeedGoods>
+  <RatkinQL_Forge_Crown_MsgPaid>Yingshanhong has her clerks log and inspect each piece, then closes the ledger and pays out the rock-bottom sum set by code: "To code. The court receives them." The margin is thin — but the warrant, at least, now bears your smithy's name.</RatkinQL_Forge_Crown_MsgPaid>
+  <RatkinQL_Forge_Crown_MsgPaidFine>Halfway through logging, the clerk's brush freezes — the grade of this batch runs far past what the Ordnance Code calls for. Yingshanhong inspects a piece herself, something shifting behind her eyes, and rarely adds a line to the foot of the writ: "Supplied in full, beyond code, claiming no credit." She releases an extra sum. "This, I shall report to the court in full."</RatkinQL_Forge_Crown_MsgPaidFine>
+
+  <RatkinQL_Forge_Crown_OptTerms>Ask what the court needs these arms for</RatkinQL_Forge_Crown_OptTerms>
+  <RatkinQL_Forge_Crown_Terms1>The border army re-equips every year. The Kingdom's reach is wide, its garrisons many, and arms wear out fast — so the Bureau apportions the load among master smiths across the land. Bulk is the rule; low pay is the rule. You and I merely act by the Ordnance Code.</RatkinQL_Forge_Crown_Terms1>
+  <RatkinQL_Forge_Crown_Terms2>The margin is thin, I know. But once the court's door opens, it's never just one order. Please the court, and rewards, writs — even the title of "Master Armorer" — all lie ahead. That's a standing no village or town trade can buy.</RatkinQL_Forge_Crown_Terms2>
+  <RatkinQL_Forge_Crown_OptBack>Back to business</RatkinQL_Forge_Crown_OptBack>
+
+  <!-- Extort / pass off shoddy goods -> betrayal, big Rakinia goodwill hit -->
+  <RatkinQL_Forge_Crown_OptExtort>Pass off shoddy goods and gouge the court on the warrant</RatkinQL_Forge_Crown_OptExtort>
+  <RatkinQL_Forge_Crown_MsgExtort>Yingshanhong inspects each piece, her face darkening inch by inch. She closes the ledger, her voice cold as iron: "Passing off shoddy work, deceiving the court... do you know the penalty for this?" She revokes the warrant on the spot, orders her guards to fall in, and leaves only one line behind: "This, I will report in full." You cheated not her alone, but the whole court. The Ratkin Kingdom's regard for you drops sharply.</RatkinQL_Forge_Crown_MsgExtort>
+  <RatkinQL_Forge_Crown_ExtortEnd>(The crown-sealed writ is taken back. You count the ill-gotten coins — and hear, in the distance, the hoofbeats of the Kingdom's envoy departing. That door, it seems, is shut for good.)</RatkinQL_Forge_Crown_ExtortEnd>
+  <RatkinQL_Forge_Crown_OptShrug>Shrug</RatkinQL_Forge_Crown_OptShrug>
+
+  <RatkinQL_Forge_Crown_ThanksReward>Yingshanhong watches her clerk hand the case to you, then unrolls the procurement writ again, the official distance settling back between her brows: "The reward is granted. Now — the court's arms are due for inspection."</RatkinQL_Forge_Crown_ThanksReward>
+
+  <RatkinQL_Forge_Crown_OptDecline>Not this time — let her come back another day</RatkinQL_Forge_Crown_OptDecline>
+
+  <!-- T3 tech blueprint airdrop (crown-tier first commission) -->
+  <RatkinQL_Forge_T3Tech_Label>Tech Blueprint: Crown Armory Records</RatkinQL_Forge_T3Tech_Label>
+  <RatkinQL_Forge_T3Tech_Text>As you take the warrant, Yingshanhong has a clerk present a war-tally-sealed folio of records: "These are from the Kingdom's armory — the making of heavy cannon, gunlances, ballistae, things an ordinary blacksmith never sees in a lifetime. That the court lends you a look is proof it trusts your smithy's hand." A drop pod soon lands beside your trade spot. Study it to master the smithing secrets these signature heavy arms require.</RatkinQL_Forge_T3Tech_Text>
+
+</LanguageData>

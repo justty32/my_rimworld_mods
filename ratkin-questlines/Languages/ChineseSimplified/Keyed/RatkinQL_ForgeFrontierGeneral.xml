@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到访信件 -->
+  <RatkinQL_Forge_Frontier_ArriveLabel>日食·探寻者现身了</RatkinQL_Forge_Frontier_ArriveLabel>
+  <RatkinQL_Forge_Frontier_ArriveText>没有前导、没有随从——一名年轻的鼠族女武者不知何时已立在你聚居地的边缘，风霜斗篷下露出一柄用得极熟的长剑。她自称日食，循着好兵器的名声而来，只想看看名匠铺的手艺。目光淡漠，可扫过你兵器架时，那点藏不住的专注泄了底。去会会她吧。</RatkinQL_Forge_Frontier_ArriveText>
+
+  <!-- 对话树 -->
+  <RatkinQL_Forge_Frontier_Title>日食·探寻者 · 边疆守将</RatkinQL_Forge_Frontier_Title>
+  <RatkinQL_Forge_Frontier_Report>为边疆守将日食·探寻者验看她的传世名器</RatkinQL_Forge_Frontier_Report>
+
+  <RatkinQL_Forge_Frontier_Greeting>“……名匠铺。”（她没行礼，只抱臂立在门边，斗篷还沾着风霜，目光却已扫过你的兵器架，像在估量一柄剑的重量）我是日食。探寻者，也有人唤我边疆守将——名头随你挑，我不在乎。我循着好兵器的名声走，一趟只求一件：配得上我名号的传世名器。杰出品质是底线，材质、款式我不管，只要它出鞘能让我停下脚步。有，订单就是你的；凑得出两件，更好——别误会，这个字我不常说。{Interviewer_labelShort}，让我看看，你的手艺值不值我这趟路。</RatkinQL_Forge_Frontier_Greeting>
+
+  <!-- 忠诚奖励：传家厚赏 -->
+  <RatkinQL_Forge_Frontier_OptReward>领取她搁下的“传家厚赏”</RatkinQL_Forge_Frontier_OptReward>
+  <RatkinQL_Forge_Frontier_NeedReward>你和日食的交情还没到那一步</RatkinQL_Forge_Frontier_NeedReward>
+  <RatkinQL_Forge_Frontier_MsgReward>“你的铁……我信得过。”（她把一只封存的传家药剂往你手里一塞，动作生硬，像不惯做这种事，又压上一袋金、一囊银）别客气，也别道谢——这不算赏，是日食欠你的。你铸的那口兵器，我当它是传世名器带在身边。往后我走到哪，有人问起这是谁的手笔，我就报名匠铺的名号。（她别开脸）……我的传说能传多远，你的名声就传多远。记着就好。</RatkinQL_Forge_Frontier_MsgReward>
+
+  <!-- 交货（C 挑选窗口） -->
+  <RatkinQL_Forge_Frontier_OptDeliver>交货：开挑选窗口，选要交付的传世名器</RatkinQL_Forge_Frontier_OptDeliver>
+  <RatkinQL_Forge_Frontier_NeedGoods>你手上还没有配得上她的传世名器（一至两件、品质杰出以上、单件总值需抵一把钢玉杰出长剑）</RatkinQL_Forge_Frontier_NeedGoods>
+  <RatkinQL_Forge_Frontier_MsgPaid>日食接过兵器，掂了掂，拇指抹过刃口，眼神骤然一凝——那是识货的人才有的专注。半晌，她只吐出两个字：“……可以。”银子一分不少地搁下，干脆利落，像了结一桩本该了结的事。</RatkinQL_Forge_Frontier_MsgPaid>
+  <RatkinQL_Forge_Frontier_MsgPaidFine>日食本想照例只说一句“可以”，可剑一出鞘，那声清越的鸣响让她愣在原地。她试着起了个式，收招时嘴角竟不受控地翘了起来，又硬生生想按下去——没按住。“……好久没见过这样的兵器了。”她难得地多付了一倍银子，声音低了几分，“别到处去说日食笑了。”</RatkinQL_Forge_Frontier_MsgPaidFine>
+
+  <RatkinQL_Forge_Frontier_OptTerms>问日食为何只找名匠、单子少而重</RatkinQL_Forge_Frontier_OptTerms>
+  <RatkinQL_Forge_Frontier_Terms1>我一个人在边疆走，能托付性命的，只有手里这口兵器。凑数的铁给我十柄，不如一柄真家伙。名匠难寻，我便自己去找——找着一个，这趟路就没白走。</RatkinQL_Forge_Frontier_Terms1>
+  <RatkinQL_Forge_Frontier_Terms2>你若铸得出让日食停下脚步的兵器，我不多话，只做一件事：把你的名号，带进我走过的每一座边城、每一场恶战里。传说传到哪，你的名声就响到哪。</RatkinQL_Forge_Frontier_Terms2>
+  <RatkinQL_Forge_Frontier_OptBack>回到正题</RatkinQL_Forge_Frontier_OptBack>
+
+  <RatkinQL_Forge_Frontier_OptExtort>见她如此看重此剑，临时抬价敲一笔</RatkinQL_Forge_Frontier_OptExtort>
+  <RatkinQL_Forge_Frontier_MsgExtort>日食听你临时抬高的价，握剑的手停了一瞬，眼里那点难得的热意瞬间冷透：“……原来如此。”她没动气，只把兵器轻轻放回台上，像忽然不愿再碰它。“拿一口好兵器来要挟——你毁的不是价钱，是铸它的那双手。”她转身，斗篷一扬，“这条路，日食记得绕开。”再无多话，人已没入门外的风里。</RatkinQL_Forge_Frontier_MsgExtort>
+  <RatkinQL_Forge_Frontier_ExtortEnd>（她走了，来时无声，去时亦然。你攥着多敲来的银子，却莫名想起她方才那个没按住的笑——如今，大概再不会有了。）</RatkinQL_Forge_Frontier_ExtortEnd>
+  <RatkinQL_Forge_Frontier_OptShrug>耸耸肩</RatkinQL_Forge_Frontier_OptShrug>
+
+  <RatkinQL_Forge_Frontier_ThanksReward>日食把厚赏随手收进行囊，理了理斗篷，眼神又恢复了那副淡漠：“叙旧到此。——我的兵器，铸好了没？”</RatkinQL_Forge_Frontier_ThanksReward>
+
+  <RatkinQL_Forge_Frontier_OptDecline>这次先不交，让她改日再来</RatkinQL_Forge_Frontier_OptDecline>
+
+</LanguageData>

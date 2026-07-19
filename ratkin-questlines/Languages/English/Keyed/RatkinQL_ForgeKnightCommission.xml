@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter -->
+  <RatkinQL_Forge_Knight_ArriveLabel>The silver knight has come</RatkinQL_Forge_Knight_ArriveLabel>
+  <RatkinQL_Forge_Knight_ArriveText>Luna Amaryllis, a young ratkin knight in mirror-bright silver plate, walks into your settlement with one hand resting on the longsword at her hip, her step measured and correct — she says she's come to inspect the masterwork blade she commissioned in person. Her back is ramrod straight, but her eyes can't quite hide how eager she is for good steel. Go have a word with her.</RatkinQL_Forge_Knight_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_Knight_Title>Luna Amaryllis, of the Silver Ward</RatkinQL_Forge_Knight_Title>
+  <RatkinQL_Forge_Knight_Report>Have the knight Luna Amaryllis inspect the commissioned masterwork weapon</RatkinQL_Forge_Knight_Report>
+
+  <RatkinQL_Forge_Knight_Greeting>Forgive Luna the intrusion — Luna Amaryllis, of the Silver Ward, pays her respects to this smithy. (She drops to one knee in a flawless knight's salute, and when she rises her gaze is already fixed on your weapon rack.) I come for one thing only: a masterwork worthy of a knight's name. Excellent quality is the oath I swear on my blade — the material and the style I leave to you, so long as the moment it clears the sheath makes me hold my breath. Muster one that makes the grade and the commission is yours; and if you have two... all the better — Luna could ask for nothing more. Be warned, {Interviewer_labelShort}: when I judge a blade, I read the very grain of the edge.</RatkinQL_Forge_Knight_Greeting>
+
+  <!-- Loyalty reward: honorable introduction -->
+  <RatkinQL_Forge_Knight_OptReward>Accept the "honorable introduction" she has set aside</RatkinQL_Forge_Knight_OptReward>
+  <RatkinQL_Forge_Knight_NeedReward>Your standing with Luna isn't there yet</RatkinQL_Forge_Knight_NeedReward>
+  <RatkinQL_Forge_Knight_MsgReward>"Your steel has never once dulled Luna's oath." Solemnly, in both hands, she presents a finely sealed heirloom serum, and adds a purse of silver as a token of introduction. "A small courtesy from House Amaryllis. But the greater thing —" she lays a hand to her breast and vows, a rare eagerness in a knight's eyes, "is that I will carry the name of this smithy to the court myself. When someone worthy of your craft comes seeking, Luna will speak for you."</RatkinQL_Forge_Knight_MsgReward>
+
+  <!-- Delivery (C picker window) -->
+  <RatkinQL_Forge_Knight_OptDeliver>Deliver: open the picker window and choose the masterwork weapon</RatkinQL_Forge_Knight_OptDeliver>
+  <RatkinQL_Forge_Knight_NeedGoods>You don't yet have a piece that makes the grade (one or two, Excellent+ quality, value matching one excellent plasteel longsword)</RatkinQL_Forge_Knight_NeedGoods>
+  <RatkinQL_Forge_Knight_MsgPaid>Luna balances the weapon across her palms, weighs it, checks the edge, and runs a fingertip inch by inch along the grain of the steel — then lets out a long breath: "...It is done. This one, Luna accepts." She takes it up in both hands and pays the silver in full, not a coin short, as gravely as one receiving a title.</RatkinQL_Forge_Knight_MsgPaid>
+  <RatkinQL_Forge_Knight_MsgPaidFine>Luna meant to find fault, as she always does — but the moment the weapon is in her grip, her scrutiny finds nowhere to land. She slips slowly into a guard stance, and the sound of steel parting the air undoes the composed knight entirely; her eyes redden. "This... this is no longer a weapon. It is a companion to swear a life beside." She pays double on the spot, her voice trembling: "As long as Luna lives, she will not forget who forged it."</RatkinQL_Forge_Knight_MsgPaidFine>
+
+  <RatkinQL_Forge_Knight_OptTerms>Ask why Luna insists on a masterwork and nothing less</RatkinQL_Forge_Knight_OptTerms>
+  <RatkinQL_Forge_Knight_Terms1>I once watched a comrade march out gripping poor iron — the blade chipped at the one moment it mattered, and she did not come back. From that day Luna swore an oath: one masterwork before ten pieces of makeweight scrap. A good weapon is a knight's second life, and the weight of every life she's sworn to guard.</RatkinQL_Forge_Knight_Terms1>
+  <RatkinQL_Forge_Knight_Terms2>If you can forge a blade that wins Luna's respect, then I swear on my knighthood: this craft has no business buried in the backcountry. The doors ahead, the higher introductions — Luna will keep them in mind for you.</RatkinQL_Forge_Knight_Terms2>
+  <RatkinQL_Forge_Knight_OptBack>Back to business</RatkinQL_Forge_Knight_OptBack>
+
+  <RatkinQL_Forge_Knight_OptExtort>Seeing how she prizes this blade, jack up the price on the spot</RatkinQL_Forge_Knight_OptExtort>
+  <RatkinQL_Forge_Knight_MsgExtort>Luna hears your suddenly inflated price, and her grip on the sword tightens — all that gravity and eagerness hardening into disappointment: "To set a price on the weight of a weapon... it isn't this deal you've soiled, but the hands that forged it." She steps back and returns a salute, precise as ever — the salute of a parting. "Luna takes her leave. As for the court — forgive me, but I can speak no good word for you now." She turns, plates chiming softly, and does not look back.</RatkinQL_Forge_Knight_MsgExtort>
+  <RatkinQL_Forge_Knight_ExtortEnd>(She's gone, her back straighter leaving than it was arriving. You weigh the coins you squeezed out — and remember the tremble in her voice when she called it "a companion to swear a life beside.")</RatkinQL_Forge_Knight_ExtortEnd>
+  <RatkinQL_Forge_Knight_OptShrug>Shrug</RatkinQL_Forge_Knight_OptShrug>
+
+  <RatkinQL_Forge_Knight_ThanksReward>Luna stows the gift of introduction away with care, straightens her plate, and offers another flawless knight's salute: "Enough of fellowship. Now then — is Luna's masterwork ready?"</RatkinQL_Forge_Knight_ThanksReward>
+
+  <RatkinQL_Forge_Knight_OptDecline>Not this time — let her come back another day</RatkinQL_Forge_Knight_OptDecline>
+
+</LanguageData>

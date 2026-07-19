@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter -->
+  <RatkinQL_Forge_Obsidian_ArriveLabel>The armory officer of Obsidian Town</RatkinQL_Forge_Obsidian_ArriveLabel>
+  <RatkinQL_Forge_Obsidian_ArriveText>Xuanling, armory officer of Obsidian Town, has walked into your settlement with a small guard detail, trim and sharp in her fitted gear, saying she's come to inspect that batch of wall-defense arms. Go have a word with her.</RatkinQL_Forge_Obsidian_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_Obsidian_Title>Xuanling, Armory Officer of Obsidian Town</RatkinQL_Forge_Obsidian_Title>
+  <RatkinQL_Forge_Obsidian_Report>Have Xuanling of Obsidian Town inspect the wall-defense arms</RatkinQL_Forge_Obsidian_Report>
+
+  <RatkinQL_Forge_Obsidian_Greeting>Your smithy's name has been getting around town lately. I'm Xuanling, armory officer of Obsidian Town. (Her gaze travels slowly over the arms you've laid out.) What goes up on our walls, I judge by quality alone — Good or better, not one piece less. I'm not fussy about the style: put together four to six that make the grade, worth at least four good steel swords all told, and the order's yours. Fair warning, {Interviewer_labelShort} — my eye for a flaw is sharper than the town lord's.</RatkinQL_Forge_Obsidian_Greeting>
+
+  <!-- Loyalty reward: priority supply -->
+  <RatkinQL_Forge_Obsidian_OptReward>Claim the "priority supply" gift she's set aside</RatkinQL_Forge_Obsidian_OptReward>
+  <RatkinQL_Forge_Obsidian_NeedReward>Your standing with Obsidian Town isn't there yet</RatkinQL_Forge_Obsidian_NeedReward>
+  <RatkinQL_Forge_Obsidian_MsgReward>"Your smithy's goods have kept the folk on the wall easy, time and again." Xuanling signals her guards to set down several crates — fine steel, a few precision components, and a purse besides. "From now on, the town's best stock comes to you first. Call it policy — call it friendship."</RatkinQL_Forge_Obsidian_MsgReward>
+
+  <!-- Delivery (C picker window) -->
+  <RatkinQL_Forge_Obsidian_OptDeliver>Deliver: open the picker window and choose the wall-defense arms</RatkinQL_Forge_Obsidian_OptDeliver>
+  <RatkinQL_Forge_Obsidian_NeedGoods>You can't muster goods that make the grade (four to six pieces, Good+ quality, total value matching four good steel longswords)</RatkinQL_Forge_Obsidian_NeedGoods>
+  <RatkinQL_Forge_Obsidian_MsgPaid>Xuanling checks each piece, raps a knuckle on the edge to judge it by the ring, and at last gives a small nod: "Passable. The wall can trust these." She pays the silver to the letter — not a coin more, not a coin less.</RatkinQL_Forge_Obsidian_MsgPaid>
+  <RatkinQL_Forge_Obsidian_MsgPaidFine>Xuanling meant only to run a routine inspection — but piece by piece, her look changes. She lifts one to the light, studying it, and lets slip a rare word of praise: "This batch... it's wasted on a wall." She approves an extra sum on the spot. "Obsidian Town owes your smithy one."</RatkinQL_Forge_Obsidian_MsgPaidFine>
+
+  <RatkinQL_Forge_Obsidian_OptTerms>Ask what Obsidian Town needs these arms for</RatkinQL_Forge_Obsidian_OptTerms>
+  <RatkinQL_Forge_Obsidian_Terms1>Obsidian Town sits on a trade-road chokepoint — high walls, dense with folk. But the borders have been restless of late, and the old gear in the armory is due for replacing. The town lord presses me hard, the people want to feel safe — and I'm caught in between, so I keep the arms stocked solid.</RatkinQL_Forge_Obsidian_Terms1>
+  <RatkinQL_Forge_Obsidian_Terms2>Do good work, and Obsidian Town won't stint you. The town's best materials, and the bigger orders down the road — your smithy will be the first we think of.</RatkinQL_Forge_Obsidian_Terms2>
+  <RatkinQL_Forge_Obsidian_OptBack>Back to business</RatkinQL_Forge_Obsidian_OptBack>
+
+  <RatkinQL_Forge_Obsidian_OptExtort>Jack up the price while the town's in a bind</RatkinQL_Forge_Obsidian_OptExtort>
+  <RatkinQL_Forge_Obsidian_MsgExtort>Xuanling hears your suddenly inflated price, and her face hardens — that flicker of admiration snuffed out in an instant: "Robbing us in a crisis... I misjudged you." She waves a hand, her guards fall in, and she walks out without a backward glance. Obsidian Town's custom is likely closed to you now.</RatkinQL_Forge_Obsidian_MsgExtort>
+  <RatkinQL_Forge_Obsidian_ExtortEnd>(She's gone. You weigh the coins you squeezed out of her — and remember the look on her face when she said it was "wasted on a wall.")</RatkinQL_Forge_Obsidian_ExtortEnd>
+  <RatkinQL_Forge_Obsidian_OptShrug>Shrug</RatkinQL_Forge_Obsidian_OptShrug>
+
+  <RatkinQL_Forge_Obsidian_ThanksReward>Xuanling watches her guards carry the crates into your storehouse and straightens her cuffs: "There. Enough reminiscing. Now — where are my arms?"</RatkinQL_Forge_Obsidian_ThanksReward>
+
+  <RatkinQL_Forge_Obsidian_OptDecline>Not this time — let her come back another day</RatkinQL_Forge_Obsidian_OptDecline>
+
+  <!-- T2 tech blueprint airdrop (town-tier first commission) -->
+  <RatkinQL_Forge_T2Tech_Label>Tech Blueprint: Town Workshop Schematics</RatkinQL_Forge_T2Tech_Label>
+  <RatkinQL_Forge_T2Tech_Text>As you take the commission, Xuanling hands over a finely bound roll of schematics: "These are from Obsidian Town's workshops — metallurgy, mechanisms, it's all in here. What the wall needs, a village's craft won't cut it." A drop pod soon lands beside your trade spot. Study it to master the advanced smithing this tier of commissions requires.</RatkinQL_Forge_T2Tech_Text>
+
+</LanguageData>

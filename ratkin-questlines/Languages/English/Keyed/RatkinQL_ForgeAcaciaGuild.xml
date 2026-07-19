@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter -->
+  <RatkinQL_Forge_Acacia_ArriveLabel>The guildmaster of the Acacia Guild</RatkinQL_Forge_Acacia_ArriveLabel>
+  <RatkinQL_Forge_Acacia_ArriveText>Acacia, guildmaster of the Acacia Guild, has come bustling into your settlement all smiles, a laden caravan trailing behind her, saying she's here to collect that batch of fine goods for resale to her wealthy clients — and settle up in silver on the spot. Go have a word with her.</RatkinQL_Forge_Acacia_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_Acacia_Title>Acacia, Guildmaster of the Acacia Guild</RatkinQL_Forge_Acacia_Title>
+  <RatkinQL_Forge_Acacia_Report>Close the deal on resale goods with Acacia of the Acacia Guild</RatkinQL_Forge_Acacia_Report>
+
+  <RatkinQL_Forge_Acacia_Greeting>Well now, I've come to the right door! Your smithy's craft is the talk of the road, near and far. I'm Acacia — guildmaster of the Acacia Guild. Same name as the sign out front, easy to remember, hm? (Her fan snaps open, but her eyes are already sizing up your wares, keen and bright.) I've got a few big orders from wealthy clients out yonder sitting on my books, and I'm short a batch of goods worth showing off. Good quality or better — not one piece that'll shame the name. I'm not fussy about the style: put together four to six that make the grade, worth at least four good steel swords all told, and the order's yours. Fair warning, {Interviewer_labelShort} — I drive a hard bargain, but I never fleece an honest hand. Good goods, good coin. No tricks.</RatkinQL_Forge_Acacia_Greeting>
+
+  <!-- Loyalty reward: rare-materials supply -->
+  <RatkinQL_Forge_Acacia_OptReward>Claim the "rare-materials supply" gift she's set aside</RatkinQL_Forge_Acacia_OptReward>
+  <RatkinQL_Forge_Acacia_NeedReward>Your standing with the Acacia Guild isn't there yet</RatkinQL_Forge_Acacia_NeedReward>
+  <RatkinQL_Forge_Acacia_MsgReward>"Doing business with your smithy just gets better and better!" Acacia beams, eyes crinkling, and waves her hands to have her clerks set down a few heavy crates — blocks of plasteel, a handful of gold bars, and a small bundle of precision components besides. "Now these rare materials, I hauled them in from way out on the trade roads — nobody else can get their hands on them. Feed them to your line, forge me something even prettier, and we both get rich. Sounds good, doesn't it?"</RatkinQL_Forge_Acacia_MsgReward>
+
+  <!-- Delivery (C picker window) -->
+  <RatkinQL_Forge_Acacia_OptDeliver>Deliver: open the picker window and choose the goods for resale</RatkinQL_Forge_Acacia_OptDeliver>
+  <RatkinQL_Forge_Acacia_NeedGoods>You can't muster goods that make the grade (four to six pieces, Good+ quality, total value matching four good steel longswords)</RatkinQL_Forge_Acacia_NeedGoods>
+  <RatkinQL_Forge_Acacia_MsgPaid>Acacia looks over each piece, fingers running quick along edge and grip, murmuring prices to herself all the while — then claps her fan shut. "Done! Every piece makes the grade, I'll not lose on this run." She counts out the silver right there, not a coin short.</RatkinQL_Forge_Acacia_MsgPaid>
+  <RatkinQL_Forge_Acacia_MsgPaidFine>Acacia means to haggle the price down as usual — but the longer she looks, the brighter her eyes get, until she's forgotten to even wave her fan. She lifts one piece to the sun and studies it, clicking her tongue in delight: "Oh my, this workmanship... set it in front of my clients and who knows how many times over I'll turn it!" A grand sweep of her hand, and she adds a hefty sum on the spot. "Now that's a margin that warms the heart — the Acacia Guild owes your smithy a big one!"</RatkinQL_Forge_Acacia_MsgPaidFine>
+
+  <RatkinQL_Forge_Acacia_OptTerms>Ask who Acacia means to sell these goods to</RatkinQL_Forge_Acacia_OptTerms>
+  <RatkinQL_Forge_Acacia_Terms1>I'll be straight with you — this batch is bound for resale far away. A few clients in grand estates, deep pockets and pickier eyes, who'll take nothing but the finest. I buy off you, haul it clear across the wastes, and sell it on for the margin. You earn the wage, I earn the mileage — everyone gets their share.</RatkinQL_Forge_Acacia_Terms1>
+  <RatkinQL_Forge_Acacia_Terms2>You just make the goods beautiful — the selling's on me! Your craft and my connections: the fine materials from far off, the bigger orders down the road, your smithy is the first name that comes to mind.</RatkinQL_Forge_Acacia_Terms2>
+  <RatkinQL_Forge_Acacia_OptBack>Back to business</RatkinQL_Forge_Acacia_OptBack>
+
+  <RatkinQL_Forge_Acacia_OptExtort>See she's in a hurry to collect, and jack up the price</RatkinQL_Forge_Acacia_OptExtort>
+  <RatkinQL_Forge_Acacia_MsgExtort>Acacia hears your suddenly inflated price, and the smile wipes clean off her face — her fan snapping shut with a crack: "Oh? Squeezing me because I'm pressed to collect, are we? Trade's a long game, friend — and that little move of yours just cut off every deal down the road." Brisk and unbothered, she calls the caravan about-face, not even bothering to haggle you back down. The Acacia Guild's custom is closed to you now.</RatkinQL_Forge_Acacia_MsgExtort>
+  <RatkinQL_Forge_Acacia_ExtortEnd>(The caravan's long gone. You weigh the few extra coins you squeezed out of her — and remember how genuine her smile was when she said "we both get rich.")</RatkinQL_Forge_Acacia_ExtortEnd>
+  <RatkinQL_Forge_Acacia_OptShrug>Shrug</RatkinQL_Forge_Acacia_OptShrug>
+
+  <RatkinQL_Forge_Acacia_ThanksReward>Acacia watches her clerks lug the crates one by one into your storehouse, then dusts off her hands, well pleased: "There now, gift delivered in full! Down to business — that batch I'm reselling, is it ready or not?"</RatkinQL_Forge_Acacia_ThanksReward>
+
+  <RatkinQL_Forge_Acacia_OptDecline>Not this time — let her come back another day</RatkinQL_Forge_Acacia_OptDecline>
+
+  <!-- T2 tech blueprint airdrop (guild-tier first commission) — shares the same key pair as Xuanling; not redefined here -->
+
+</LanguageData>

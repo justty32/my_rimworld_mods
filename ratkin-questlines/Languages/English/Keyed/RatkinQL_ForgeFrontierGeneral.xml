@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter -->
+  <RatkinQL_Forge_Frontier_ArriveLabel>Eclipse the Seeker has appeared</RatkinQL_Forge_Frontier_ArriveLabel>
+  <RatkinQL_Forge_Frontier_ArriveText>No herald, no retinue — a young ratkin warrior is simply standing at the edge of your settlement, when no one saw her arrive, a well-worn longsword showing beneath a weather-beaten cloak. She calls herself Eclipse; she followed the rumor of good weapons here, and only wants to see what the master smith can do. Her gaze is cool and distant — but the way it lingers on your weapon rack gives away a focus she can't quite hide. Go and meet her.</RatkinQL_Forge_Frontier_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_Frontier_Title>Eclipse the Seeker, Warden of the Frontier</RatkinQL_Forge_Frontier_Title>
+  <RatkinQL_Forge_Frontier_Report>Have the frontier warden Eclipse the Seeker inspect her legendary blade</RatkinQL_Forge_Frontier_Report>
+
+  <RatkinQL_Forge_Frontier_Greeting>"...The master smith's shop." (She offers no salute, only stands at the doorway with arms folded, her cloak still flecked with frost — but her eyes are already sweeping your weapon rack, as if weighing the heft of a blade.) I am Eclipse. The Seeker; some call me Warden of the Frontier — take whichever name you like, I don't much care for either. I follow the rumor of good steel, and I come for one thing only: a blade worthy of my name. Excellent quality is the floor; the material and the style I leave to you, so long as the moment it clears the sheath makes me stop where I stand. Have one, and the commission is yours; muster two... better still — don't misread me, I don't say that word often. {Interviewer_labelShort}, let me see whether your craft is worth the road I walked.</RatkinQL_Forge_Frontier_Greeting>
+
+  <!-- Loyalty reward: heirloom bounty -->
+  <RatkinQL_Forge_Frontier_OptReward>Accept the "heirloom bounty" she has set aside</RatkinQL_Forge_Frontier_OptReward>
+  <RatkinQL_Forge_Frontier_NeedReward>Your standing with Eclipse isn't there yet</RatkinQL_Forge_Frontier_NeedReward>
+  <RatkinQL_Forge_Frontier_MsgReward>"Your steel... I trust it." (She pushes a sealed heirloom serum into your hands, the motion stiff, as though unused to this sort of thing, then presses a pouch of gold and a purse of silver on top.) Don't stand on ceremony — and don't thank me. This isn't a reward; it's a debt Eclipse owes you. The blade you forged, I carry it as a legendary weapon. Wherever I go from here, when someone asks whose hand made it, I'll give them the name of the master smith's shop. (She looks away.) ...As far as my legend travels, so will your name. Just remember that.</RatkinQL_Forge_Frontier_MsgReward>
+
+  <!-- Delivery (C picker window) -->
+  <RatkinQL_Forge_Frontier_OptDeliver>Deliver: open the picker window and choose the legendary blade</RatkinQL_Forge_Frontier_OptDeliver>
+  <RatkinQL_Forge_Frontier_NeedGoods>You don't yet have a blade worthy of her (one or two, Excellent+ quality, value matching one excellent plasteel longsword)</RatkinQL_Forge_Frontier_NeedGoods>
+  <RatkinQL_Forge_Frontier_MsgPaid>Eclipse takes up the weapon, tests its weight, drags a thumb along the edge — and her gaze suddenly sharpens, the focus only someone who knows steel can wear. After a long moment, she says just one word: "...Acceptable." She lays down the silver in full, not a coin short, brisk and clean, like closing an account that ought to have been closed.</RatkinQL_Forge_Frontier_MsgPaid>
+  <RatkinQL_Forge_Frontier_MsgPaidFine>Eclipse meant to give her usual one-word "acceptable" — but the instant the blade leaves the sheath, its clear ringing note freezes her where she stands. She slips into a stance, and as she draws the strike back the corner of her mouth curls up beyond her control; she tries to force it down — and fails. "...It's been a long time since I've seen a weapon like this." She pays double, a rarity for her, her voice dropping a notch: "Don't go telling anyone Eclipse smiled."</RatkinQL_Forge_Frontier_MsgPaidFine>
+
+  <RatkinQL_Forge_Frontier_OptTerms>Ask why Eclipse seeks only master smiths, and few but heavy commissions</RatkinQL_Forge_Frontier_OptTerms>
+  <RatkinQL_Forge_Frontier_Terms1>I walk the frontier alone. The only thing I can trust my life to is the weapon in my hand. Give me ten pieces of makeweight iron and I'd trade them all for one real blade. Master smiths are rare — so I go find them myself, and when I find one, the road wasn't walked for nothing.</RatkinQL_Forge_Frontier_Terms1>
+  <RatkinQL_Forge_Frontier_Terms2>Forge me a blade that makes Eclipse stop where she stands, and I won't waste words — I'll do one thing only: carry your name into every border town I pass, every brutal fight I survive. As far as the legend spreads, that's how loud your name will ring.</RatkinQL_Forge_Frontier_Terms2>
+  <RatkinQL_Forge_Frontier_OptBack>Back to business</RatkinQL_Forge_Frontier_OptBack>
+
+  <RatkinQL_Forge_Frontier_OptExtort>Seeing how she prizes this blade, jack up the price on the spot</RatkinQL_Forge_Frontier_OptExtort>
+  <RatkinQL_Forge_Frontier_MsgExtort>Eclipse hears your suddenly inflated price, and her hand on the sword goes still for a heartbeat — that rare warmth in her eyes freezing over completely: "...I see." She doesn't anger; she only sets the weapon gently back on the counter, as if she no longer wishes to touch it. "To hold a good blade hostage for coin — it isn't the price you've ruined, but the hands that forged it." She turns, cloak sweeping wide. "This road, Eclipse will remember to go around." No more words — she's already vanished into the wind past your door.</RatkinQL_Forge_Frontier_MsgExtort>
+  <RatkinQL_Forge_Frontier_ExtortEnd>(She's gone — soundless coming, soundless going. You weigh the coins you squeezed out, and find yourself remembering the smile she couldn't hold back a moment ago — one you'll likely never see again.)</RatkinQL_Forge_Frontier_ExtortEnd>
+  <RatkinQL_Forge_Frontier_OptShrug>Shrug</RatkinQL_Forge_Frontier_OptShrug>
+
+  <RatkinQL_Forge_Frontier_ThanksReward>Eclipse stows the bounty into her pack without ceremony, straightens her cloak, and her eyes settle back into that cool distance: "Enough of old acquaintance. — My weapon. Is it forged yet?"</RatkinQL_Forge_Frontier_ThanksReward>
+
+  <RatkinQL_Forge_Frontier_OptDecline>Not this time — let her come back another day</RatkinQL_Forge_Frontier_OptDecline>
+
+</LanguageData>

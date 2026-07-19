@@ -48,4 +48,95 @@
     </comps>
   </ThingDef>
 
+  <!--
+    ★鐵匠屋科技藍圖（T2）——城鎮層「第一個委託」接受時空投。
+    解 T2 定製武器所需研究（整層）：RK_Research_Metallurgy（進階近戰/雙手劍/戟）＋RK_Research_RatkinEngineering（連弩/飛鏢步槍等工業武器）。
+    每層只送一次由 gateBool（RatkinQL_Forge_T2TechGifted）保證。
+  -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>RatkinQL_TechBlueprint_ForgeTierTwo</defName>
+    <label>ratkin armory blueprint (town)</label>
+    <description>A finer, town-guild set of schematics — advanced smithing patterns and industrial arms diagrams a settlement armorer would kill for. Study it to master the craft. Consumed once read.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Book/Schematic/Schematic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <tradeability>None</tradeability>
+    <statBases>
+      <MarketValue>250</MarketValue>
+      <Mass>0.2</Mass>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseArtifact</useJob>
+        <useLabel>Study {0_label}</useLabel>
+        <showUseGizmo>true</showUseGizmo>
+        <useDuration>240</useDuration>
+      </li>
+      <li Class="RatkinQuestlines.CompProperties_UnlockResearch">
+        <projects>
+          <li>RK_Research_Metallurgy</li>
+          <li>RK_Research_RatkinEngineering</li>
+        </projects>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
+  <!--
+    ★鐵匠屋科技藍圖（T3）——王庭層「第一個委託」接受時空投。
+    解 T3 招牌重武器所需研究（整層）：RK_Research_AngryRatProject（手炮/原型脈衝步槍）＋RK_Research_DragonFlame（銃槍 Gunlance）＋RK_Research_Fortification（大弩）。
+    每層只送一次由 gateBool（RatkinQL_Forge_T3TechGifted）保證。
+  -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>RatkinQL_TechBlueprint_ForgeTierThree</defName>
+    <label>ratkin armory blueprint (crown)</label>
+    <description>Crown-sealed master schematics — heavy ordnance, gunlances, ballistae, the arsenal secrets a kingdom guards jealously. Study it to master the craft. Consumed once read.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Book/Schematic/Schematic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <tradeability>None</tradeability>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>0.2</Mass>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseArtifact</useJob>
+        <useLabel>Study {0_label}</useLabel>
+        <showUseGizmo>true</showUseGizmo>
+        <useDuration>240</useDuration>
+      </li>
+      <li Class="RatkinQuestlines.CompProperties_UnlockResearch">
+        <projects>
+          <li>RK_Research_AngryRatProject</li>
+          <li>RK_Research_DragonFlame</li>
+          <li>RK_Research_Fortification</li>
+        </projects>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
 </Defs>

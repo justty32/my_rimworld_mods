@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到访信件 -->
+  <RatkinQL_Forge_RedClaw_ArriveLabel>赤爪佣兵团的团长到了</RatkinQL_Forge_RedClaw_ArriveLabel>
+  <RatkinQL_Forge_RedClaw_ArriveText>赤爪佣兵团团长“钢铁之誓”带着一票吊儿郎当的弟兄大摇大摆闯进了你的聚居地，拇指勾着腰带、咧着嘴，扯着嗓子嚷嚷说是来提那批家伙事儿的。去跟她谈谈吧。</RatkinQL_Forge_RedClaw_ArriveText>
+
+  <!-- 对话树 -->
+  <RatkinQL_Forge_RedClaw_Title>赤爪佣兵团团长·钢铁之誓</RatkinQL_Forge_RedClaw_Title>
+  <RatkinQL_Forge_RedClaw_Report>把赤爪佣兵团的家伙事儿交给团长钢铁之誓</RatkinQL_Forge_RedClaw_Report>
+
+  <RatkinQL_Forge_RedClaw_Greeting>哟，这条道上传得沸沸扬扬的铁匠铺，就是“你”啊？我叫钢铁之誓，赤爪佣兵团是我带的。（她一脚踹翻一口箱子，屁股往上一坐，上下打量你。）听好了，我不要花架子，我要的是——弟兄挡刀的时候那玩意儿别给我断！品质良好起跳，一件都不许含糊。为了省那点钢料下葬的兄弟，我埋得够多了。你给我凑出四到六件够格的、总价抵得上四把良好钢剑，这单就成交。还有——{Interviewer_labelShort}——别被我这张破嘴唬住，老娘欠的账，一个子儿都不会少你的。</RatkinQL_Forge_RedClaw_Greeting>
+
+  <!-- 忠诚奖励：助战契约 -->
+  <RatkinQL_Forge_RedClaw_OptReward>收下她一直替你留着的那纸助战契约</RatkinQL_Forge_RedClaw_OptReward>
+  <RatkinQL_Forge_RedClaw_NeedReward>你在赤爪佣兵团这儿，还没挣到那份交情</RatkinQL_Forge_RedClaw_NeedReward>
+  <RatkinQL_Forge_RedClaw_MsgReward>钢铁之誓把一纸血封的契约“啪”地拍在你胸口按住，那咧着的嘴难得软了一瞬：“你打的每一把刀，都让弟兄活着回了家。喏，拿着——往后你要是有难，捏碎它，赤爪的刀，就是你的刀。不问缘由，不收一文。”她朝弟兄们一甩下巴，几个人把一袋白银往你脚边一搁。“别跟老娘在这儿煽情啊。”</RatkinQL_Forge_RedClaw_MsgReward>
+
+  <!-- 交货（C 挑选窗口） -->
+  <RatkinQL_Forge_RedClaw_OptDeliver>交货：开挑选窗口，选要交付的家伙事儿</RatkinQL_Forge_RedClaw_OptDeliver>
+  <RatkinQL_Forge_RedClaw_NeedGoods>你凑不齐够格的家伙事儿（四到六件、品质良好以上、总值需抵四把钢铁良好长剑）</RatkinQL_Forge_RedClaw_NeedGoods>
+  <RatkinQL_Forge_RedClaw_MsgPaid>钢铁之誓抄起每件挥上两下，拇指刮过刃口，满意地哼了一声：“这才对嘛，抡到一半可不会给你撂挑子。干得漂亮，铁匠铺。”她一枚枚数出白银，童叟无欺，又顺手把几把刀甩给弟兄，一群人欢呼得跟过节似的。</RatkinQL_Forge_RedClaw_MsgPaid>
+  <RatkinQL_Forge_RedClaw_MsgPaidFine>钢铁之誓越翻这堆货，笑得越开、越贪——她这是把整个佣兵团武装到牙齿了。她一把抄起两柄刀，放声大笑：“哈！有这批家伙，老娘一顿早饭的工夫就能踏平一座村子！”她当场加倍付了款，乐不可支。可等她走远、四下安静下来，你却怎么也甩不掉那丝不安：你太清楚自己刚把什么交到了什么人手里——也太清楚，这样一支杀才，会把这样的火力对准谁。</RatkinQL_Forge_RedClaw_MsgPaidFine>
+
+  <RatkinQL_Forge_RedClaw_OptTerms>问清楚赤爪佣兵团要这批家伙事儿做什么</RatkinQL_Forge_RedClaw_OptTerms>
+  <RatkinQL_Forge_RedClaw_Terms1>我们就是拿钱办事的——护商队、剿山贼，只要给钱、只要不恶心到老娘，什么活都接。我这帮弟兄，多半是我从路边捡回来的孤儿野崽，刚入伙时一半人连刀都握不利索。我管他们饭、给他们配家伙，再把他们囫囵个儿带回来。最后这一条，就得指望你了。</RatkinQL_Forge_RedClaw_Terms1>
+  <RatkinQL_Forge_RedClaw_Terms2>你对我们够意思，赤爪就记着这份情。银子给得爽快、活儿接得稳当——真要哪天有哪个不长眼的敢打上你铁匠铺的门，你立马就知道谁才是自己人。</RatkinQL_Forge_RedClaw_Terms2>
+  <RatkinQL_Forge_RedClaw_OptBack>回到正题</RatkinQL_Forge_RedClaw_OptBack>
+
+  <RatkinQL_Forge_RedClaw_OptExtort>她正等着这批家伙——临时抬价，狠敲她一笔</RatkinQL_Forge_RedClaw_OptExtort>
+  <RatkinQL_Forge_RedClaw_MsgExtort>钢铁之誓听你价钱一路往上蹿，整个人僵住了，脸上那抹笑“唰”地就退干净了：“……趁老娘的弟兄等着钢料，敲我竹杠。呵。我还当你是条汉子。”她慢慢站起身，抬手招呼弟兄，一句话都没再多说就走了。赤爪佣兵团，是不会再登你的门了。</RatkinQL_Forge_RedClaw_MsgExtort>
+  <RatkinQL_Forge_RedClaw_ExtortEnd>（她走了，一群弟兄铁青着脸跟在后头。你把多敲的银子塞进兜里——却想起她说，这帮兄弟多半是她从路边捡回来的野崽。）</RatkinQL_Forge_RedClaw_ExtortEnd>
+  <RatkinQL_Forge_RedClaw_OptShrug>耸耸肩</RatkinQL_Forge_RedClaw_OptShrug>
+
+  <RatkinQL_Forge_RedClaw_ThanksReward>钢铁之誓看着弟兄们把箱子扛走，捏得指节“咔咔”响，又咧着嘴转回头冲你：“行了！煽情到此为止。正事——我的家伙事儿呢，铁匠铺？”</RatkinQL_Forge_RedClaw_ThanksReward>
+
+  <RatkinQL_Forge_RedClaw_OptDecline>这次先不交，让她改日再来</RatkinQL_Forge_RedClaw_OptDecline>
+
+</LanguageData>

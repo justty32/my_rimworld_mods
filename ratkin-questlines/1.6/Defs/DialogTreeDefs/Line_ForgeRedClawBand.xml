@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T2 旗艦《赤爪傭兵團·團長鋼鐵之誓》對話。信件制、AddDialog 直掛。
+    T2 定製：彈性價值需求（DialogCondition_WeaponValue，minQuality=Good、基準＝4 把鋼鐵良好長劍），交貨走 C 挑選視窗＋分級後果。
+    善惡＝中性/灰色傭兵（§6.7）：band1 達標中性不記 karma、band2 超額把傭兵武裝到牙齒→Ev_Cruelty（惡＋，越好兵器給越危險的人越糟）。
+    忠誠獎勵：滿意度達 N（帳本回寫 Forge_RedClawBand_RewardReady）且未領（Reversal RewardClaimed）→ 出現「領取助戰契約」選項，發助戰契約道具＋set RewardClaimed。
+    稱呼＝T2 層「鐵匠鋪」。聲線＝江湖豪氣、嘴上兇實則護短的反差萌女團長。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_ForgeRedClawBandTree</defName>
+    <title>RatkinQL_Forge_RedClaw_Title</title>
+    <dialogReportKey>RatkinQL_Forge_RedClaw_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>6</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_Forge_RedClaw_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- 忠誠獎勵：助戰契約（RewardReady 且未領才顯示） -->
+          <li>
+            <text>RatkinQL_Forge_RedClaw_OptReward</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <conditions>
+              <li Class="QuestEditor_Library.DialogCondition_Bool">
+                <failReason>RatkinQL_Forge_RedClaw_NeedReward</failReason>
+                <boolName>RatkinQL_Forge_RedClawBand_RewardReady</boolName>
+              </li>
+              <li Class="QuestEditor_Library.DialogCondition_Reversal">
+                <failReason>RatkinQL_Forge_RedClaw_NeedReward</failReason>
+                <condition Class="QuestEditor_Library.DialogCondition_Bool">
+                  <boolName>RatkinQL_Forge_RedClawBand_RewardClaimed</boolName>
+                  <failReason>RatkinQL_Forge_RedClaw_NeedReward</failReason>
+                </condition>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Reward</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>RedClawLoyalty</dataName>
+                      <message>RatkinQL_Forge_RedClaw_MsgReward</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RatkinQL_MercenaryContract</thing><count>1~1</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>150~150</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Forge_RedClawBand_RewardClaimed</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>5</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 交貨：良好以上、4~6 件、總值≥4 把鋼鐵良好長劍 → 開 C 挑選視窗＋分級後果 -->
+          <li>
+            <text>RatkinQL_Forge_RedClaw_OptDeliver</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_WeaponValue">
+                <failReason>RatkinQL_Forge_RedClaw_NeedGoods</failReason>
+                <count>4~6</count>
+                <minQuality>Good</minQuality>
+                <refThing>RK_LongSword</refThing>
+                <refStuff>Steel</refStuff>
+                <refQuality>Good</refQuality>
+                <refCount>4</refCount>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Deliver</resultName>
+              <actions>
+                <li Class="RatkinQuestlines.CQFAction_OpenDeliveryWindow">
+                  <targetsText><li>Interviewee</li><li>Interviewer</li></targetsText>
+                  <count>4~6</count>
+                  <minQuality>Good</minQuality>
+                  <refThing>RK_LongSword</refThing>
+                  <refStuff>Steel</refStuff>
+                  <refQuality>Good</refQuality>
+                  <refCount>4</refCount>
+                  <bands>
+                    <!-- band1 達標：400 銀＋滿意度＋軍械商名聲＋傭兵名聲（中性偏灰，無 Cruelty） -->
+                    <li>
+                      <valueMultiple>1</valueMultiple>
+                      <silver>400</silver>
+                      <evFlags>
+                        <li>RatkinQL_Ev_ForgeWellDone_RedClawBand</li>
+                        <li>RatkinQL_Ev_WeaponDeal</li>
+                        <li>RatkinQL_Ev_MercWork</li>
+                      </evFlags>
+                      <message>RatkinQL_Forge_RedClaw_MsgPaid</message>
+                    </li>
+                    <!-- band2 超額（總值 2×）：750 銀＋更多名聲＋Ev_Cruelty（把傭兵武裝到牙齒＝道德代價，惡＋） -->
+                    <li>
+                      <valueMultiple>2</valueMultiple>
+                      <silver>750</silver>
+                      <evFlags>
+                        <li>RatkinQL_Ev_ForgeWellDone_RedClawBand</li>
+                        <li>RatkinQL_Ev_WeaponDeal</li>
+                        <li>RatkinQL_Ev_MercWork</li>
+                        <li>RatkinQL_Ev_GenericTrade</li>
+                        <li>RatkinQL_Ev_Cruelty</li>
+                      </evFlags>
+                      <message>RatkinQL_Forge_RedClaw_MsgPaidFine</message>
+                    </li>
+                  </bands>
+                </li>
+              </actions>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_RedClaw_OptTerms</text>
+            <results><li><resultName>Terms</resultName><nextIndex>1</nextIndex></li></results>
+          </li>
+
+          <!-- 抬價敲詐 → blocked＋遣離 -->
+          <li>
+            <text>RatkinQL_Forge_RedClaw_OptExtort</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Extort</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message"><message>RatkinQL_Forge_RedClaw_MsgExtort</message><type>NegativeEvent</type></li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>false</isIncrease><value>4</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ForgeBlocked_RedClawBand</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="RatkinQuestlines.CQFAction_SendEnvoyAway"><targetsText><li>Interviewee</li></targetsText></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_RedClaw_OptDecline</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li><resultName>Decline</resultName></li></results>
+          </li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Forge_RedClaw_Terms1</text>
+        <extraText><li>RatkinQL_Forge_RedClaw_Terms2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_RedClaw_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_Forge_RedClaw_ExtortEnd</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_RedClaw_OptShrug</text><results><li><resultName>Shrug</resultName></li></results></li></options>
+      </value></li>
+
+      <!-- 忠誠獎勵領取後 → 回正題（她仍要她的軍火） -->
+      <li><key>5</key><value>
+        <text>RatkinQL_Forge_RedClaw_ThanksReward</text>
+        <index>5</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_RedClaw_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_ForgeRedClawBandManager</defName>
+    <tags><li>RatkinQL_ForgeRedClawBand</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_ForgeRedClawBandTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

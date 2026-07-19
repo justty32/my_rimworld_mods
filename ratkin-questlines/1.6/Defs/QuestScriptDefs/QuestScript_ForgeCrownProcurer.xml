@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T3 核心 — 王國採購官·映山紅（王庭大單）。
+    T3＝量大薄利：王國一次要一大批良好以上軍械，出價卻壓得低（利薄考驗產能）；真正的回報在王國厚賞（忠誠獎勵）＋派系好感＋名聲。
+    ★失手掉派系關係：對王國採購官敲詐＝背信，重挫 Rakinia 好感（見 Line 的 extort 分支）。
+    gate＝CanForge ＋ Forge_CrownProcurer_Available（帳本已內含 T3 名聲門檻 wm≥M2）。稱呼＝T3 層「名匠鋪」。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeCrownProcurer</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->王庭的軍械採購令</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->鼠族王國採購官「映山紅」持王庭文書前來：王庭要大批良好品質以上的軍械充實邊軍，量大，但出價依例壓得低——這是王庭的規矩，也是對名匠的考驗。接下委託後給你約十二天備料，屆時她親自帶隊驗收。（利雖薄，但辦得王庭滿意，厚賞與門路在後頭。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Forge_CrownProcurer_Available</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 王庭層首個委託：接受即空投 T3 科技藍圖（每層一次） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierThree</blueprint>
+          <gateBool>RatkinQL_Forge_T3TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T3Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T3Tech_Text</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <delayTicks>720000</delayTicks>
+          <outSignalComplete>EnvoyArrive</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>EnvoyArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeCrownProcurerManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Crown_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Crown_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>EnvoyArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>EnvoyVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>EnvoyVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

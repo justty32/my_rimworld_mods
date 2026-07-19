@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到访信件 -->
+  <RatkinQL_Forge_Obsidian_ArriveLabel>黑曜城的武备官到了</RatkinQL_Forge_Obsidian_ArriveLabel>
+  <RatkinQL_Forge_Obsidian_ArriveText>黑曜城的武备官悬铃带着一小队护卫，一身俐落劲装走进了你的聚居地，说是来验收那批守城军械的。去跟她谈谈吧。</RatkinQL_Forge_Obsidian_ArriveText>
+
+  <!-- 对话树 -->
+  <RatkinQL_Forge_Obsidian_Title>黑曜城武备官·悬铃</RatkinQL_Forge_Obsidian_Title>
+  <RatkinQL_Forge_Obsidian_Report>与黑曜城武备官悬铃验收守城军械</RatkinQL_Forge_Obsidian_Report>
+
+  <RatkinQL_Forge_Obsidian_Greeting>你这铁匠铺的名号，最近在城里传得挺响。我是悬铃，黑曜城的武备官。（她目光在你陈列的军械上缓缓扫过）城墙上要的东西，我只认品质——良好以上，一件都不能含糊。款式我不挑，你凑得出四到六件够格的、总价值抵得上四把良好钢剑，这单就算你的。话说在前头，{Interviewer_labelShort}，我验货的眼睛，比城主还毒。</RatkinQL_Forge_Obsidian_Greeting>
+
+  <!-- 忠诚奖励：优先供货回馈 -->
+  <RatkinQL_Forge_Obsidian_OptReward>领取她备下的“优先供货”回馈</RatkinQL_Forge_Obsidian_OptReward>
+  <RatkinQL_Forge_Obsidian_NeedReward>你与黑曜城的交情还没到那一步</RatkinQL_Forge_Obsidian_NeedReward>
+  <RatkinQL_Forge_Obsidian_MsgReward>“你这铁匠铺的货，回回都让城墙上的兄弟们安心。”悬铃示意护卫卸下几口箱子——上好的钢、几枚精密元件、外加一笔订金。“往后城里的好料，先紧着你这儿供。这是规矩，也是交情。”</RatkinQL_Forge_Obsidian_MsgReward>
+
+  <!-- 交货（C 挑选窗口） -->
+  <RatkinQL_Forge_Obsidian_OptDeliver>交货：开挑选窗口，选要交付的守城军械</RatkinQL_Forge_Obsidian_OptDeliver>
+  <RatkinQL_Forge_Obsidian_NeedGoods>你凑不齐够格的货（四到六件、品质良好以上、总值需抵四把钢铁良好长剑）</RatkinQL_Forge_Obsidian_NeedGoods>
+  <RatkinQL_Forge_Obsidian_MsgPaid>悬铃逐件验过，指节敲了敲刃口，听音辨质，末了微微颔首：“合格。城墙上信得过。”她按单付了白银，一分不多、一分不少。</RatkinQL_Forge_Obsidian_MsgPaid>
+  <RatkinQL_Forge_Obsidian_MsgPaidFine>悬铃本只想例行验货，可一件件看下去，眼神渐渐变了。她拈起一件对着光细看，罕见地露出一丝赞许：“这批……守城是屈才了。”她当场多批了一笔款，“黑曜城记你这铁匠铺一功。”</RatkinQL_Forge_Obsidian_MsgPaidFine>
+
+  <RatkinQL_Forge_Obsidian_OptTerms>问清楚黑曜城要这批军械做什么</RatkinQL_Forge_Obsidian_OptTerms>
+  <RatkinQL_Forge_Obsidian_Terms1>黑曜城卡在商路要冲，墙高人稠，可近来边患不宁，库里的旧械也该换一换了。城主催得紧，百姓也盼着安稳——我夹在中间，只能把军械备得扎实些。</RatkinQL_Forge_Obsidian_Terms1>
+  <RatkinQL_Forge_Obsidian_Terms2>你做得好，黑曜城不会亏待你。城里的好料、往后的大单，都会先想起你这铁匠铺。</RatkinQL_Forge_Obsidian_Terms2>
+  <RatkinQL_Forge_Obsidian_OptBack>回到正题</RatkinQL_Forge_Obsidian_OptBack>
+
+  <RatkinQL_Forge_Obsidian_OptExtort>趁城里吃紧，临时抬价敲一笔</RatkinQL_Forge_Obsidian_OptExtort>
+  <RatkinQL_Forge_Obsidian_MsgExtort>悬铃听完你临时抬高的价，脸色一沉，那点欣赏瞬间收了回去：“趁火打劫……我看错你了。”她一挥手，护卫收队，头也不回地出了门。黑曜城的门路，你怕是就此断了。</RatkinQL_Forge_Obsidian_MsgExtort>
+  <RatkinQL_Forge_Obsidian_ExtortEnd>（她走了。你握着多敲来的银子，却想起她说“守城是屈才了”时的眼神。）</RatkinQL_Forge_Obsidian_ExtortEnd>
+  <RatkinQL_Forge_Obsidian_OptShrug>耸耸肩</RatkinQL_Forge_Obsidian_OptShrug>
+
+  <RatkinQL_Forge_Obsidian_ThanksReward>悬铃看着护卫把箱子搬进你的仓房，理了理袖口：“好了，叙旧到此。正事——我的军械呢？”</RatkinQL_Forge_Obsidian_ThanksReward>
+
+  <RatkinQL_Forge_Obsidian_OptDecline>这次先不交，让她改日再来</RatkinQL_Forge_Obsidian_OptDecline>
+
+  <!-- T2 科技蓝图空投（城镇层首单） -->
+  <RatkinQL_Forge_T2Tech_Label>科技蓝图：城镇工坊图谱</RatkinQL_Forge_T2Tech_Label>
+  <RatkinQL_Forge_T2Tech_Text>接下委托时，悬铃递来一卷装帧精细的图谱：“这是黑曜城工坊的东西——冶金的火候、机括的门道，都在里头。城墙上要的货，光靠村里那点手艺可不够。”一具投放舱随后落在你的贸易点旁。研读它即可掌握这一层委托所需的进阶锻造。</RatkinQL_Forge_T2Tech_Text>
+
+</LanguageData>

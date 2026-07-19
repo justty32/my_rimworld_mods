@@ -36,7 +36,14 @@ namespace RatkinQuestlines
         // 新增客戶＝在此加一列；per-客戶狀態（滿意度/blocked）與回寫 bool 全自動化。
         private static readonly Dictionary<string, int> ForgeClientTier = new Dictionary<string, int>
         {
-            { "AcornVillage", 1 },   // T1 試點：橡實村·村長板栗
+            { "AcornVillage", 1 },      // T1：橡實村·村長板栗
+            { "FluoriteHamlet", 1 },    // T1：螢石塢·村長可可（內容待鋪）
+            { "ObsidianTown", 2 },      // T2：黑曜城武備官·懸鈴
+            { "AcaciaGuild", 2 },       // T2：金合歡商行·行首金合歡
+            { "RedClawBand", 2 },       // T2：赤爪傭兵團·團長鋼鐵之誓
+            { "KnightCommission", 2 },  // T2：白銀之護·露娜·朱頂紅（騎士傑作訂製）
+            { "CrownProcurer", 3 },     // T3：王國採購官·映山紅（量大薄利、失手掉派系）
+            { "FrontierGeneral", 3 },   // T3（選配）：日食·探尋者·邊疆守將（傳奇單件）
         };
 
         private int karma;                        // 善惡值：正=善，負=惡

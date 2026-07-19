@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到訪信件 -->
+  <RatkinQL_Forge_Acacia_ArriveLabel>金合歡商行的行首到了</RatkinQL_Forge_Acacia_ArriveLabel>
+  <RatkinQL_Forge_Acacia_ArriveText>金合歡商行的行首金合歡帶著一列滿載的商隊，笑盈盈地趕進了你的聚居地，說是來收那批要轉賣豪客的好貨、順道當場結銀。去跟她談談吧。</RatkinQL_Forge_Acacia_ArriveText>
+
+  <!-- 對話樹 -->
+  <RatkinQL_Forge_Acacia_Title>金合歡商行·行首金合歡</RatkinQL_Forge_Acacia_Title>
+  <RatkinQL_Forge_Acacia_Report>與金合歡商行行首金合歡交割轉賣好貨</RatkinQL_Forge_Acacia_Report>
+
+  <RatkinQL_Forge_Acacia_Greeting>哎呀，可算找對門啦！你這鐵匠鋪的手藝，遠近都在傳呢。我是金合歡，金合歡商行的行首——花名和商號一個字，好記吧？（她啪地打開摺扇，眼睛卻精光四射地打量你的貨）我手上壓著幾張遠方豪客的大單，正缺一批拿得出手的好貨轉手。品質要良好以上，一件都不能砸招牌；款式我不挑，你湊得出四到六件夠格的、總價值抵得上四把良好鋼劍，這單就是你的。話說在前頭，{Interviewer_labelShort}，我這算盤打得響，可從不坑實在人——好貨我出好價，童叟無欺。</RatkinQL_Forge_Acacia_Greeting>
+
+  <!-- 忠誠獎勵：稀有材料供貨 -->
+  <RatkinQL_Forge_Acacia_OptReward>領取她備下的「稀有材料供貨」回饋</RatkinQL_Forge_Acacia_OptReward>
+  <RatkinQL_Forge_Acacia_NeedReward>你和金合歡商行的交情還沒到那一步</RatkinQL_Forge_Acacia_NeedReward>
+  <RatkinQL_Forge_Acacia_MsgReward>「跟你這鐵匠鋪做生意，我是越做越開心！」金合歡笑得眼睛都彎了，招手讓夥計卸下幾口沉甸甸的箱子——成塊的玻璃鋼、幾根金條、外加一小捆精密元件。「這些珍稀材可是我從老遠的商路上淘來的，別家想買都買不著。餵給你的產線，往後給我打出更漂亮的貨來，咱倆一塊發財，你說好不好？」</RatkinQL_Forge_Acacia_MsgReward>
+
+  <!-- 交貨（C 挑選視窗） -->
+  <RatkinQL_Forge_Acacia_OptDeliver>交貨：開挑選視窗，選要轉賣的好貨</RatkinQL_Forge_Acacia_OptDeliver>
+  <RatkinQL_Forge_Acacia_NeedGoods>你湊不齊夠格的貨（四到六件、品質良好以上、總值需抵四把鋼鐵良好長劍）</RatkinQL_Forge_Acacia_NeedGoods>
+  <RatkinQL_Forge_Acacia_MsgPaid>金合歡一件件過目，手指在刃上、柄上溜得飛快，嘴裡念念有詞地估著行情，末了合扇一拍：「成交！件件夠格，我這趟不虧。」她當場數足白銀，銅板都不差你一枚。</RatkinQL_Forge_Acacia_MsgPaid>
+  <RatkinQL_Forge_Acacia_MsgPaidFine>金合歡本想照例壓一壓價，可越看眼睛越亮，摺扇都忘了搖。她把一件舉到日頭底下細瞧，忍不住嘖嘖出聲：「哎喲喂，這品相……擺到豪客跟前，我不知道能翻幾倍！」她大手一揮，當場多添了一大筆，「這差價賺得心裡舒坦——金合歡商行記你這鐵匠鋪一個大人情！」</RatkinQL_Forge_Acacia_MsgPaidFine>
+
+  <RatkinQL_Forge_Acacia_OptTerms>問清楚金合歡要這批好貨賣給誰</RatkinQL_Forge_Acacia_OptTerms>
+  <RatkinQL_Forge_Acacia_Terms1>不瞞你說，這批貨我是要往遠方轉手的——幾位住深宅大院的豪客，出手闊綽、眼光又刁，就認頂尖的好東西。我從你這兒進貨，運過大半個荒原，賣給他們賺個差價，你賺工錢、我賺腳程，各取所需嘛。</RatkinQL_Forge_Acacia_Terms1>
+  <RatkinQL_Forge_Acacia_Terms2>你只管把貨打漂亮，銷路包在我身上！你的手藝配我的門路，遠方的好料、往後的大單，我頭一個想起的就是你這鐵匠鋪。</RatkinQL_Forge_Acacia_Terms2>
+  <RatkinQL_Forge_Acacia_OptBack>回到正題</RatkinQL_Forge_Acacia_OptBack>
+
+  <RatkinQL_Forge_Acacia_OptExtort>看準她急著收貨，臨時抬價敲一筆</RatkinQL_Forge_Acacia_OptExtort>
+  <RatkinQL_Forge_Acacia_MsgExtort>金合歡聽你臨時抬高的價，臉上那團笑「唰」地收了，摺扇「啪」一聲合攏：「喲，這是拿捏我急著收貨呢？做買賣講究個長遠，你這一手，把往後的財路都掐斷咯。」她乾脆利落地招呼商隊掉頭，連個折扣都懶得跟你磨。金合歡商行的門路，你算是關上了。</RatkinQL_Forge_Acacia_MsgExtort>
+  <RatkinQL_Forge_Acacia_ExtortEnd>（商隊走遠了。你捏著多敲來的那點銀子，忽然想起她說「咱倆一塊發財」時，笑得那叫一個真。）</RatkinQL_Forge_Acacia_ExtortEnd>
+  <RatkinQL_Forge_Acacia_OptShrug>聳聳肩</RatkinQL_Forge_Acacia_OptShrug>
+
+  <RatkinQL_Forge_Acacia_ThanksReward>金合歡看著夥計把箱子一口口搬進你的倉房，滿意地拍拍手上的灰：「好啦好啦，人情我可送到位了！說正事——我那批要轉手的好貨，備齊了沒呀？」</RatkinQL_Forge_Acacia_ThanksReward>
+
+  <RatkinQL_Forge_Acacia_OptDecline>這次先不交，讓她改日再來</RatkinQL_Forge_Acacia_OptDecline>
+
+  <!-- T2 科技藍圖空投（大遊商層首單）——與懸鈴共用同一對 key，此檔不重複定義 -->
+
+</LanguageData>

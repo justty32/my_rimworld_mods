@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T2 旗艦 — 白銀之護·露娜·朱頂紅（年輕騎士傑作訂製）。
+    T2＝高品質單件訂製：她要一件（至多兩件）傑出以上的傑作兵器（彈性價值需求，不指定 defName；門檻高、單件精品）。
+    gate＝有鐵匠檯(CanForge) ＋ 露娜可上門(Forge_KnightCommission_Available：帳本已內含 T2 名聲門檻且未 blocked)。
+    接受即空投 T2 科技藍圖（沿用城鎮層藍圖與 gateBool，保證每層一次）；延遲 12 天到訪；交貨走 C 挑選視窗＋分級後果；
+    忠誠獎勵（滿意度達 N→RewardReady）＝「名譽引薦」一次性傳家引薦禮＋向王庭報名（T3 旗標），由對話分支發（見 Line）。稱呼用 T2 層「鐵匠鋪」。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeKnightCommission</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->白銀騎士的傑作兵器訂製</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->白銀之護的年輕騎士「露娜·朱頂紅」遞來一紙訂製書：她要一件配得上騎士之名的傑作兵器——傑出品質以上，一件足矣，多一件更佳，材質款式任你發揮，但驗貨極嚴。接下委託後給你約十二天精心鍛造，屆時她親自登門驗收。（若你尚未掌握這一層的鍛造，接下時她會先送來工坊圖譜。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Forge_KnightCommission_Available</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- T2 層委託：接受即空投 T2 科技藍圖（沿用城鎮層藍圖與 gateBool，每層一次） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierTwo</blueprint>
+          <gateBool>RatkinQL_Forge_T2TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T2Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T2Tech_Text</letterText>
+        </li>
+
+        <!-- 取貨延遲：約 12 天 -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>720000</delayTicks>
+          <outSignalComplete>EnvoyArrive</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>EnvoyArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeKnightCommissionManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Knight_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Knight_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>EnvoyArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>EnvoyVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>EnvoyVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

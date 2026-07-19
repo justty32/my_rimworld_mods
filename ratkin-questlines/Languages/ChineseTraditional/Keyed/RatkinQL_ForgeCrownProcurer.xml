@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到訪信件 -->
+  <RatkinQL_Forge_Crown_ArriveLabel>王國採購官到了</RatkinQL_Forge_Crown_ArriveLabel>
+  <RatkinQL_Forge_Crown_ArriveText>鼠族王國採購官映山紅持著一卷蓋了王印的文書，領著兩名文吏與一隊護衛走進你的聚居地，說是奉王庭之命，前來驗收那批軍械採購令。去與她相見吧。</RatkinQL_Forge_Crown_ArriveText>
+
+  <!-- 對話樹 -->
+  <RatkinQL_Forge_Crown_Title>王國採購官·映山紅</RatkinQL_Forge_Crown_Title>
+  <RatkinQL_Forge_Crown_Report>與王國採購官映山紅驗收王庭採購令</RatkinQL_Forge_Crown_Report>
+
+  <RatkinQL_Forge_Crown_Greeting>名匠鋪的招牌，已呈至王庭案前。（映山紅展開文書，語氣溫和，卻隔著一層公事的距離）我是映山紅，奉採購司之命而來。王庭要的不多，只一句話——良好以上的軍械，八到十二件，充邊軍之用。至於價，依《軍需例》而定，壓得低，這你早該知道；王庭付的從不是市價，是體面。你若備得出、總值抵得上八把良好鋼劍，這道採購令就落你名匠鋪頭上。{Interviewer_labelShort}，王庭的帳，一絲一毫都記在冊。</RatkinQL_Forge_Crown_Greeting>
+
+  <!-- 忠誠獎勵：王庭厚賞 -->
+  <RatkinQL_Forge_Crown_OptReward>領取王庭記你的那份厚賞</RatkinQL_Forge_Crown_OptReward>
+  <RatkinQL_Forge_Crown_NeedReward>你在王庭案上的功勞還不夠一份厚賞</RatkinQL_Forge_Crown_NeedReward>
+  <RatkinQL_Forge_Crown_MsgReward>映山紅罕見地收起了公事的腔調，親手奉上一只描金木匣：「屢次供械，件件合制，王庭記你名匠鋪一大功。」匣中是一紙鈐了兵符的《王國徵召令狀》、幾錠金、一封賞銀。「往後你若有難，動用這令狀——王國的兵，會替名匠出頭。」她頓了頓，「這是王庭的體面，也是你掙來的。」</RatkinQL_Forge_Crown_MsgReward>
+
+  <!-- 交貨（C 挑選視窗） -->
+  <RatkinQL_Forge_Crown_OptDeliver>交貨：開挑選視窗，選要交付的軍械（量大）</RatkinQL_Forge_Crown_OptDeliver>
+  <RatkinQL_Forge_Crown_NeedGoods>你湊不齊王庭要的量（八到十二件、良好以上、總值需抵八把鋼鐵良好長劍）</RatkinQL_Forge_Crown_NeedGoods>
+  <RatkinQL_Forge_Crown_MsgPaid>映山紅命文吏逐件登冊點驗，末了合上簿子，依例付了那筆壓得極低的貨款：「合制。王庭收訖。」——利雖薄，這道令狀畢竟是落在你名匠鋪頭上了。</RatkinQL_Forge_Crown_MsgPaid>
+  <RatkinQL_Forge_Crown_MsgPaidFine>文吏登冊登到一半，筆都頓住了——這批的成色，遠遠超出《軍需例》的規格。映山紅親自驗過一件，眸光微動，難得地在文書末尾添了一行批註：「傾力供械、逾制而不邀功。」她多撥了一筆款，「此事，我會如實奏報王庭。」</RatkinQL_Forge_Crown_MsgPaidFine>
+
+  <RatkinQL_Forge_Crown_OptTerms>問清楚王庭要這批軍械做什麼</RatkinQL_Forge_Crown_OptTerms>
+  <RatkinQL_Forge_Crown_Terms1>邊軍換裝，年年都要。王庭疆域廣，戍卒眾，軍械耗損快——採購司便按例向各地名匠攤派。量大是規矩，價低也是規矩，你我都只是照著《軍需例》辦事。</RatkinQL_Forge_Crown_Terms1>
+  <RatkinQL_Forge_Crown_Terms2>利薄，我知道。但王庭的門路一旦開了，便不只是這一單。辦得王庭滿意，厚賞、令狀、乃至「軍械名家」的封號，都在後頭——那是村鎮買賣換不來的體面。</RatkinQL_Forge_Crown_Terms2>
+  <RatkinQL_Forge_Crown_OptBack>回到正題</RatkinQL_Forge_Crown_OptBack>
+
+  <!-- ★以次充好/敲詐王庭 → 背信，重挫 Rakinia 派系關係 -->
+  <RatkinQL_Forge_Crown_OptExtort>以次充好、趁採購令抬價敲王庭一筆</RatkinQL_Forge_Crown_OptExtort>
+  <RatkinQL_Forge_Crown_MsgExtort>映山紅逐件驗過，臉色一寸寸沉了下去。她合上簿子，聲音冷得像鐵：「以次充好，欺瞞王庭……你可知這是何罪。」她當場撤了採購令，命護衛收隊，臨去只留一句：「此事，我必如實奏報。」——你欺的不是她一人，是整個王庭。鼠族王國對你的好感，重重跌了一截。</RatkinQL_Forge_Crown_MsgExtort>
+  <RatkinQL_Forge_Crown_ExtortEnd>（王印文書被收走了。你數著那點不義之財，卻聽見遠處傳來王國使者離去的馬蹄——那扇門，怕是關死了。）</RatkinQL_Forge_Crown_ExtortEnd>
+  <RatkinQL_Forge_Crown_OptShrug>聳聳肩</RatkinQL_Forge_Crown_OptShrug>
+
+  <RatkinQL_Forge_Crown_ThanksReward>映山紅看著文吏將木匣交到你手上，重新展開那卷採購文書，公事的距離感又回到了她眉間：「厚賞已頒。接下來——王庭的軍械，該驗了。」</RatkinQL_Forge_Crown_ThanksReward>
+
+  <RatkinQL_Forge_Crown_OptDecline>這次先不交，讓她改日再來</RatkinQL_Forge_Crown_OptDecline>
+
+  <!-- T3 科技藍圖空投（王庭層首單） -->
+  <RatkinQL_Forge_T3Tech_Label>科技藍圖：王庭軍械秘錄</RatkinQL_Forge_T3Tech_Label>
+  <RatkinQL_Forge_T3Tech_Text>接下採購令時，映山紅命文吏奉上一函鈐了兵符的秘錄：「這是王庭武庫的東西——重炮、銃槍、弩砲之制，尋常鐵匠一輩子見不著。王庭肯借你一觀，是信得過你名匠鋪的手藝。」一具投放艙隨後落在你的貿易點旁。研讀它即可掌握這一層招牌重械所需的鍛造秘技。</RatkinQL_Forge_T3Tech_Text>
+
+</LanguageData>

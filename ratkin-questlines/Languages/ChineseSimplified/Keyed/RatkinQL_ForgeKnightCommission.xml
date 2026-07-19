@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到访信件 -->
+  <RatkinQL_Forge_Knight_ArriveLabel>白银骑士登门了</RatkinQL_Forge_Knight_ArriveLabel>
+  <RatkinQL_Forge_Knight_ArriveText>年轻的鼠族骑士露娜·朱顶红，一身擦得雪亮的白银甲胄，扶着腰间长剑，步履端正地走进你的聚居地——她说是来验收那件亲自订制的杰作兵器的。腰杆挺得笔直，眼神却藏不住对好铁的期待。去跟她谈谈吧。</RatkinQL_Forge_Knight_ArriveText>
+
+  <!-- 对话树 -->
+  <RatkinQL_Forge_Knight_Title>白银之护·露娜·朱顶红</RatkinQL_Forge_Knight_Title>
+  <RatkinQL_Forge_Knight_Report>为骑士露娜·朱顶红验收订制的杰作兵器</RatkinQL_Forge_Knight_Report>
+
+  <RatkinQL_Forge_Knight_Greeting>初次登门，恕露娜失礼了——白银之护，露娜·朱顶红，向这间铁匠铺致意。（她单膝微屈，行了个一丝不苟的骑士礼，起身时目光已牢牢黏在你的兵器架上）我此行只求一件事：一柄配得上骑士之名的杰作。杰出品质，是我按剑立誓的底线；材质、款式我不干涉，只要它出鞘那一刻能让我屏息。凑得出一件够格的，订单便是你的；若你有两件……那更好，露娜求之不得。先说明白，{Interviewer_labelShort}，我验兵器，是连刃纹走向都要看的。</RatkinQL_Forge_Knight_Greeting>
+
+  <!-- 忠诚奖励：名誉引荐 -->
+  <RatkinQL_Forge_Knight_OptReward>领取她备下的“名誉引荐”之礼</RatkinQL_Forge_Knight_OptReward>
+  <RatkinQL_Forge_Knight_NeedReward>你与露娜的交情还没到那一步</RatkinQL_Forge_Knight_NeedReward>
+  <RatkinQL_Forge_Knight_MsgReward>“你的铁，从未让露娜的誓言蒙尘。”她郑重地双手奉上一件封存精致的传家药剂，又添了一囊白银作为引荐之礼。“这是我朱顶红家的一点薄意。而更要紧的——”她按胸立誓，眼里是骑士少见的雀跃，“我会把你这铁匠铺的名号，亲自报到王庭去。往后有配得上你手艺的大人物，露娜替你引见。”</RatkinQL_Forge_Knight_MsgReward>
+
+  <!-- 交货（C 挑选窗口） -->
+  <RatkinQL_Forge_Knight_OptDeliver>交货：开挑选窗口，选要交付的杰作兵器</RatkinQL_Forge_Knight_OptDeliver>
+  <RatkinQL_Forge_Knight_NeedGoods>你手上还没有够格的杰作（一至两件、品质杰出以上、单件总值需抵一把钢玉杰出长剑）</RatkinQL_Forge_Knight_NeedGoods>
+  <RatkinQL_Forge_Knight_MsgPaid>露娜将兵器横托于掌，先看配重，再验刃口，指尖顺着刃纹一寸寸抚过，末了长长吐出一口气：“……成了。这一柄，露娜认。”她端正地双手接过，按约付足白银，一分不欠，郑重得像在受封。</RatkinQL_Forge_Knight_MsgPaid>
+  <RatkinQL_Forge_Knight_MsgPaidFine>露娜本要照例挑剔，可兵器一入手，她的挑剔竟无处落脚。她持剑缓缓起式，钢刃划开空气的那一声，让这位守礼的骑士罕见地失了态，眼眶微红：“这……这已不是兵器，是能与人共誓一生的伴当。”她当场加倍付款，声音发颤，“露娜此生，不会忘记是谁铸的它。”</RatkinQL_Forge_Knight_MsgPaidFine>
+
+  <RatkinQL_Forge_Knight_OptTerms>问清楚露娜为何非要一件杰作不可</RatkinQL_Forge_Knight_OptTerms>
+  <RatkinQL_Forge_Knight_Terms1>我曾亲眼见过同袍握着劣铁上阵——剑在最要命的一刻崩了口，人也没能回来。自那日起，露娜便发了誓：宁可一件杰作，不要十件凑数的废铁。一柄好兵器，是骑士的第二条命，也是托付出去的性命的分量。</RatkinQL_Forge_Knight_Terms1>
+  <RatkinQL_Forge_Knight_Terms2>你若铸得出让露娜心服的兵器，我便以骑士之名担保：这份手艺，不该只埋在村野。往后的门路、更高的引荐，露娜都替你记着。</RatkinQL_Forge_Knight_Terms2>
+  <RatkinQL_Forge_Knight_OptBack>回到正题</RatkinQL_Forge_Knight_OptBack>
+
+  <RatkinQL_Forge_Knight_OptExtort>看她如此看重此剑，临时抬价敲一笔</RatkinQL_Forge_Knight_OptExtort>
+  <RatkinQL_Forge_Knight_MsgExtort>露娜听你临时抬高的价，握剑的手一紧，方才的郑重与雀跃尽数凝成失望：“拿兵器的分量来作价……你玷污的不是这笔买卖，是铸它的那双手。”她退后一步，端端正正回了一礼——那是与人道别的礼，“露娜告退。此后王庭那边，恕我不能替你美言了。”转身，甲叶轻响，再无回头。</RatkinQL_Forge_Knight_MsgExtort>
+  <RatkinQL_Forge_Knight_ExtortEnd>（她走了，背影挺得比来时更直。你攥着多敲来的银子，却想起她说“能与人共誓一生的伴当”时，那副发颤的模样。）</RatkinQL_Forge_Knight_ExtortEnd>
+  <RatkinQL_Forge_Knight_OptShrug>耸耸肩</RatkinQL_Forge_Knight_OptShrug>
+
+  <RatkinQL_Forge_Knight_ThanksReward>露娜将引荐之礼妥帖收好，理正甲胄，又是一个一丝不苟的骑士礼：“叙谊到此。那么——露娜的杰作，铸好了吗？”</RatkinQL_Forge_Knight_ThanksReward>
+
+  <RatkinQL_Forge_Knight_OptDecline>这次先不交，让她改日再来</RatkinQL_Forge_Knight_OptDecline>
+
+</LanguageData>

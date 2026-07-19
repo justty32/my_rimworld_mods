@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T3 選配《日食·探尋者·邊疆守將》。綽號級傳奇武人、神出鬼沒的年輕女將，只找名匠、單子少而重。
+    T3＝傳奇單件：極高品質門檻（同露娜的頂級門檻 minQuality=Excellent、count=1~2、基準＝一把鋼玉傑出長劍），交貨走 C 挑選視窗＋分級後果。真回報＝她的忠誠厚賞（傳家名器＋頂級厚賞）＋名聲，隨她的傳說傳開。
+    ★她是遊俠武將、不代表王庭：敲詐＝blocked＋遣離，不動派系好感。
+    gate＝CanForge ＋ Forge_FrontierGeneral_Available（帳本已內含 T3 名聲門檻）。稱呼＝T3 層「名匠鋪」。
+    科技藍圖：同映山紅共用 T3 藍圖（每層一次，gate RatkinQL_Forge_T3TechGifted、letter 沿用 RatkinQL_Forge_T3Tech_* 共用 key）。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeFrontierGeneral</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->邊疆守將的訪匠</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->傳奇武將「日食·探尋者」循著好兵器的名聲找上門來。她神出鬼沒、只找名匠，一趟只求一件配得上她名號的傳世名器——品質要頂到傑出以上，材質款式隨你，只要那口兵器出鞘能讓她點頭。接下委託後給你約十二天備料，屆時她會親自現身驗看。（單子少而重，但入了她的眼，你的名號會隨她的傳說走遍邊疆。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Forge_FrontierGeneral_Available</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 王庭層首個委託：接受即空投 T3 科技藍圖（每層一次，與映山紅共用同一藍圖與 gate） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierThree</blueprint>
+          <gateBool>RatkinQL_Forge_T3TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T3Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T3Tech_Text</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <delayTicks>720000</delayTicks>
+          <outSignalComplete>EnvoyArrive</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>EnvoyArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeFrontierGeneralManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Frontier_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Frontier_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>EnvoyArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>EnvoyVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>EnvoyVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>
