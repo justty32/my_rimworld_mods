@@ -38,7 +38,7 @@
 
   <!-- 科技蓝图空投（村庄层首单） -->
   <RatkinQL_Forge_T1Tech_Label>科技蓝图：边村军械图谱</RatkinQL_Forge_T1Tech_Label>
-  <RatkinQL_Forge_T1Tech_Text>接下委托时，板栗从包袱里翻出一叠翻得起毛边的图谱塞给你：“这是我们村里老铁匠留下的——弩臂怎么绷、矛头怎么淬，都画在上头了。你先照着学，才做得出我要的货呀。”一具投放舱随后落在你的贸易点旁。研读它即可掌握这一层委托所需的锻造技艺。</RatkinQL_Forge_T1Tech_Text>
+  <RatkinQL_Forge_T1Tech_Text>接下委托后不久，一具投放舱落在你的贸易点旁——板栗差人送来了一叠翻得起毛边的图谱，捎话道：“这是俺们村里老铁匠留下的，弩臂怎么绷、矛头怎么淬都画在上头。您先照着学，才赶得出俺要的货呀。”研读它即可掌握这一层委托所需的锻造技艺。</RatkinQL_Forge_T1Tech_Text>
 
   <!-- 科技蓝图使用讯息（{0}＝解锁研究数） -->
   <RatkinQL_TechBlueprint_Used>你研读了科技蓝图，掌握了 {0} 项新的锻造技艺。</RatkinQL_TechBlueprint_Used>

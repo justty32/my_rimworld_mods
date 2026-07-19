@@ -38,7 +38,7 @@
 
   <!-- Tech blueprint airdrop (village-tier first commission) -->
   <RatkinQL_Forge_T1Tech_Label>Tech Blueprint: Frontier Armory Schematics</RatkinQL_Forge_T1Tech_Label>
-  <RatkinQL_Forge_T1Tech_Text>As you take the commission, Chestnut digs a bundle of dog-eared schematics out of her pack and presses them into your hands: "Our village's old smith left these behind — how to string a crossbow arm, how to temper a spearhead, it's all drawn in there. Study it first, or you'll never make what I'm asking for." A drop pod soon lands beside your trade spot. Study it to master the smithing this tier of commissions requires.</RatkinQL_Forge_T1Tech_Text>
+  <RatkinQL_Forge_T1Tech_Text>Not long after you take the commission, a drop pod lands beside your trade spot — Chestnut has sent over a bundle of dog-eared schematics, with word passed along: "Our village's old smith left these behind — how to string a crossbow arm, how to temper a spearhead, it's all drawn in there. Study it first, or you'll never make what I'm asking for in time." Study it to master the smithing this tier of commissions requires.</RatkinQL_Forge_T1Tech_Text>
 
   <!-- Tech blueprint use message ({0} = number of researches unlocked) -->
   <RatkinQL_TechBlueprint_Used>You studied the tech blueprint and mastered {0} new smithing technique(s).</RatkinQL_TechBlueprint_Used>
