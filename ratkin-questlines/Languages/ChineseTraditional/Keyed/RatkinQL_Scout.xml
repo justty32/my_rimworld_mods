@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_ScoutTree_Title>鼠族斥候</RatkinQL_ScoutTree_Title>
+  <RatkinQL_ScoutTree_Report>一名鼠族斥候路過，留下附近危險的警告。</RatkinQL_ScoutTree_Report>
+  <RatkinQL_Scout_Greeting>「嘿，{Interviewer_labelShort}。」斥候壓低嗓子，「來得正好，有麻煩正往你們這邊來，你該聽聽。」</RatkinQL_Scout_Greeting>
+  <RatkinQL_Scout_OptReward>「多謝，這點銀子當作謝禮。」（15 銀）</RatkinQL_Scout_OptReward>
+  <RatkinQL_Scout_OptDetails>「說清楚點——到底是什麼？」</RatkinQL_Scout_OptDetails>
+  <RatkinQL_Scout_OptHeed>「我記下了。謝你通報。」</RatkinQL_Scout_OptHeed>
+  <RatkinQL_Scout_OptLeave>「我沒興趣。你走吧。」</RatkinQL_Scout_OptLeave>
+  <RatkinQL_Scout_OptBack>「我們回到正題吧。」</RatkinQL_Scout_OptBack>
+  <RatkinQL_Scout_Details1>「東邊兩座山丘外有一夥強盜，大概六、七人，正朝這邊移動。」</RatkinQL_Scout_Details1>
+  <RatkinQL_Scout_Details2>「一群發狂的爆炸鹿，嘴邊掛著白沫，剛把北邊一座農場蹧躂了，還在往這來。」</RatkinQL_Scout_Details2>
+  <RatkinQL_Scout_Details3>「山裡有大雪鋒南下，要是不準備，一天之內就會把這裡埋了。」</RatkinQL_Scout_Details3>
+  <RatkinQL_Scout_Farewell>「好了，我還要去巡。自己留神。」他草草一拱手，快步離去。</RatkinQL_Scout_Farewell>
+  <RatkinQL_Scout_MsgReward>斥候接過銀子，嘴角閃過一抹笑意，「多謝，夠吃一頓了。」</RatkinQL_Scout_MsgReward>
+  <RatkinQL_Scout_MsgHeed>「那就好。」他點一下頭，轉眼間消失在灌木叢中。</RatkinQL_Scout_MsgHeed>
+</LanguageData>

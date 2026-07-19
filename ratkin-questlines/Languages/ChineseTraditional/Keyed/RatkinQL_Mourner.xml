@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <RatkinQL_MournerTree_Title>報喪的過客 / 一位鼠族報喪者</RatkinQL_MournerTree_Title>
+    <RatkinQL_MournerTree_Report>一名眼神沉重的鼠人走向你的聚居地。他帶來了死訊。</RatkinQL_MournerTree_Report>
+    <RatkinQL_Mourner_Greeting>「{Interviewer_labelShort}……我走了很遠的路來傳一句話。有同族再也見不到明天的黎明了。我只求你能記得牠們。」</RatkinQL_Mourner_Greeting>
+    <RatkinQL_Mourner_OptDonate>「收下這筆銀子，聊表哀悼（20 銀）。」</RatkinQL_Mourner_OptDonate>
+    <RatkinQL_Mourner_OptCondolence>「致上我真誠的慰問。」</RatkinQL_Mourner_OptCondolence>
+    <RatkinQL_Mourner_OptAsk>「發生了什麼事？」</RatkinQL_Mourner_OptAsk>
+    <RatkinQL_Mourner_OptLeave>「你靜靜地走吧。」</RatkinQL_Mourner_OptLeave>
+    <RatkinQL_Mourner_OptBack>「我們談點別的吧。」</RatkinQL_Mourner_OptBack>
+    <RatkinQL_Mourner_Loss1>「有個軍閥的隊伍三天前從東邊掃過一處洞穴聚落。牠們不是來搶地盤的——因為穀物乾燥、地道安靜，就來了。沒有人活著說出完整的故事。」</RatkinQL_Mourner_Loss1>
+    <RatkinQL_Mourner_Loss2>「深層地道在老含水層附近坍塌了。整支氏族都在底下——探勘者只找到一面石壁和沉默。長老說，大地收回了自己的子民。」</RatkinQL_Mourner_Loss2>
+    <RatkinQL_Mourner_Loss3>「地面的疫病找到了流民營。一開始只是咳嗽，最後變成了一堆柴火。我們能埋的都埋了，但名字已經在消逝。」</RatkinQL_Mourner_Loss3>
+    <RatkinQL_Mourner_Farewell>報喪者低下頭，握緊手杖，沒有再多說一句話便轉身離去。他的腳步緩慢而沉重。</RatkinQL_Mourner_Farewell>
+    <RatkinQL_Mourner_MsgDonate>他用雙手接過銀子，貼在胸前，深深一鞠躬。「亡者會在深土之中記得你的仁慈。」</RatkinQL_Mourner_MsgDonate>
+    <RatkinQL_Mourner_MsgCondolence>他聽著，眼眶泛紅。沉默了很長一段時間，然後靜靜地點了點頭。</RatkinQL_Mourner_MsgCondolence>
+</LanguageData>

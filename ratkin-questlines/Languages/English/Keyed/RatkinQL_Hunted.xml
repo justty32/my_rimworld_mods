@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_HuntedTree_Title>A Hunted Ratkin</RatkinQL_HuntedTree_Title>
+<RatkinQL_HuntedTree_Report>A terrified ratkin has arrived at the colony, pursued by unknown enemies.</RatkinQL_HuntedTree_Report>
+<RatkinQL_Hunted_Greeting>A ratkin stumbles and scrambles to your gate, gasping for breath. "They're right behind me—please, {Interviewer_labelShort}, you have to decide now!"</RatkinQL_Hunted_Greeting>
+<RatkinQL_Hunted_OptFight>Take him in and face the pursuers</RatkinQL_Hunted_OptFight>
+<RatkinQL_Hunted_OptStory>Quickly ask why he’s being hunted</RatkinQL_Hunted_OptStory>
+<RatkinQL_Hunted_OptTurnAway>Send him away before trouble arrives</RatkinQL_Hunted_OptTurnAway>
+<RatkinQL_Hunted_OptLeave>Farewell</RatkinQL_Hunted_OptLeave>
+<RatkinQL_Hunted_OptBack>Back to business</RatkinQL_Hunted_OptBack>
+<RatkinQL_Hunted_Story1>He insulted a Warlord’s lieutenant—now every mercenary in the sector wants his head.</RatkinQL_Hunted_Story1>
+<RatkinQL_Hunted_Story2>A bounty was pinned on him for a crime he didn’t commit. Bounty hunters are closing in.</RatkinQL_Hunted_Story2>
+<RatkinQL_Hunted_Story3>He overheard something in the RKU underground—and they don’t leave loose ends.</RatkinQL_Hunted_Story3>
+<RatkinQL_Hunted_Farewell>He nods grimly and vanishes into the wild.</RatkinQL_Hunted_Farewell>
+<RatkinQL_Hunted_MsgFight>You grab your weapon and shove the ratkin behind you—the pursuers are already at the gate.</RatkinQL_Hunted_MsgFight>
+<RatkinQL_Hunted_MsgTurnAway>You push him out the door. He stumbles into the wilderness, the shadows of his hunters following close behind.</RatkinQL_Hunted_MsgTurnAway>
+</LanguageData>

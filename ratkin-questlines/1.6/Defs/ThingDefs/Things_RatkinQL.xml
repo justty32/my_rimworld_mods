@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★武器商任務線的招牌獎勵道具《鼠族王國徵召令狀》——一紙契約，只能用一次、用過即毀。
+    交付軍械採購令後獲得（Line_ArmsDeliver）。動用（履行契約）後召鼠族王國友軍馳援：
+    C# CompUseEffect_RatkinAid → IncidentDefOf.RaidFriendly + Rakinia + ImmediateAttackFriendly + EdgeWalkIn。
+    一次即毀（CompProperties_UseEffectDestroySelf）。貼圖借原版捲軸/文件（Schematic），主題一致＝一紙令狀。
+    label/description 先內嵌英文；zh DefInjected 由 DeepSeek 另補（見 REVIEW）。
+  -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>RatkinQL_KingdomTally</defName>
+    <label>ratkin kingdom writ of muster</label>
+    <description>A sealed writ from the Ratkin Kingdom, granted to trusted armorers. It is a contract, honoured but once: invoke it and a column of the Kingdom's soldiers will march to your aid. Spent the moment it is called upon.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Book/Schematic/Schematic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <statBases>
+      <MarketValue>250</MarketValue>
+      <Mass>0.2</Mass>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseArtifact</useJob>
+        <useLabel>Invoke {0_label}</useLabel>
+        <showUseGizmo>true</showUseGizmo>
+        <useDuration>120</useDuration>
+      </li>
+      <li Class="RatkinQuestlines.CompProperties_RatkinAid">
+        <points>800</points>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
+</Defs>

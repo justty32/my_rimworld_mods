@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_TollTree_Title>收路錢的</RatkinQL_TollTree_Title>
+  <RatkinQL_TollTree_Report>一名自稱收路錢的鼠族擋在門口，要求過路費。</RatkinQL_TollTree_Report>
+  <RatkinQL_Toll_Greeting>一名鼠族挺著胸堵在大門前：「站住，{Interviewer_labelShort}。這條路不是免費的。想用這條路，就得繳過路費。」</RatkinQL_Toll_Greeting>
+  <RatkinQL_Toll_OptPay>「好吧，銀子拿來。」（25 銀）</RatkinQL_Toll_OptPay>
+  <RatkinQL_Toll_OptWhy>「憑什麼跟你繳錢？」</RatkinQL_Toll_OptWhy>
+  <RatkinQL_Toll_OptSeeThrough>「我看穿你的把戲了。滾吧。」（需要智識 8+）</RatkinQL_Toll_OptSeeThrough>
+  <RatkinQL_Toll_OptRefuse>「一毛都不給。」</RatkinQL_Toll_OptRefuse>
+  <RatkinQL_Toll_OptBack>「我們回到正題吧。」</RatkinQL_Toll_OptBack>
+  <RatkinQL_Toll_OptLeave>「送他走。」</RatkinQL_Toll_OptLeave>
+  <RatkinQL_Toll_Why1>「我是 Rakinia 王國正式任命的道路稅吏。簽了章蓋了印，要不要看文件？」他拍拍空空的衣袋。</RatkinQL_Toll_Why1>
+  <RatkinQL_Toll_Why2>「我們兄弟在維護這段路，補坑、趕野獸——你以為是白做的？要嘛付錢，要嘛繞道。」</RatkinQL_Toll_Why2>
+  <RatkinQL_Toll_Why3>「這是商會的規矩，老兄。使用這條路線的每個聚居點都得繳使用費。別怪我，怪商會去。」他聳聳肩。</RatkinQL_Toll_Why3>
+  <RatkinQL_Toll_Farewell>他整整衣領，「哼」了一聲：「算了。吃虧的是你。」轉過身碎碎唸著「不識好人心」之類的話，慢慢走遠。</RatkinQL_Toll_Farewell>
+  <RatkinQL_Toll_MsgPay>他兩手接過銀子，咧開嘴笑得合不攏，然後趁你還沒反悔，一溜煙鑽進路邊草叢不見了。</RatkinQL_Toll_MsgPay>
+  <RatkinQL_Toll_MsgSeeThrough>他話說到一半僵住，耳朵整個垂下來。「呃……好吧，被你識破了。眼力不錯。」二話不說轉身，灰溜溜地跑走。</RatkinQL_Toll_MsgSeeThrough>
+  <RatkinQL_Toll_MsgRefuse>他哼了一聲，嘟囔幾句「小氣鬼」之類的話，一臉不爽地溜走了。</RatkinQL_Toll_MsgRefuse>
+  <RatkinQL_Toll_ReasonInt>你的談判者智識技能低於 8。</RatkinQL_Toll_ReasonInt>
+</LanguageData>

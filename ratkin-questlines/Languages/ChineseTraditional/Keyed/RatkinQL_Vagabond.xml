@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_VagabondTree_Title>流浪的鼠族</RatkinQL_VagabondTree_Title>
+  <RatkinQL_VagabondTree_Report>一名流浪鼠族上門乞討。</RatkinQL_VagabondTree_Report>
+  <RatkinQL_Vagabond_Greeting>一名衣衫襤褸的鼠族縮在門口，在冷風中瑟瑟發抖。他怯生生地抬起一雙大眼，詢問 {Interviewer_labelShort} 的人能否施捨一口剩飯，或是打發幾個銅板給一個累壞了的可憐鼠。</RatkinQL_Vagabond_Greeting>
+  <RatkinQL_Vagabond_OptStory>問他怎麼落到這步田地</RatkinQL_Vagabond_OptStory>
+  <RatkinQL_Vagabond_OptAlms>慷慨施捨（20 銀）</RatkinQL_Vagabond_OptAlms>
+  <RatkinQL_Vagabond_OptCoin>給幾個銅板（5 銀）</RatkinQL_Vagabond_OptCoin>
+  <RatkinQL_Vagabond_OptTurnAway>把他趕走</RatkinQL_Vagabond_OptTurnAway>
+  <RatkinQL_Vagabond_OptLeave>告辭</RatkinQL_Vagabond_OptLeave>
+  <RatkinQL_Vagabond_OptBack>回去</RatkinQL_Vagabond_OptBack>
+  <RatkinQL_Vagabond_Story1>「強盜把我們的地洞燒成了灰。整個窩，只有我從瓦礫堆裡爬了出來。」</RatkinQL_Vagabond_Story1>
+  <RatkinQL_Vagabond_Story2>「從南境撤退的那場混亂裡，我和家人走散了。從那以後，我就一直在這些路上找他們。」</RatkinQL_Vagabond_Story2>
+  <RatkinQL_Vagabond_Story3>「商路一斷，我那小小的菜攤就垮了。如今除了身上這件破衣裳，什麼都不剩了。」</RatkinQL_Vagabond_Story3>
+  <RatkinQL_Vagabond_Farewell>那落魄的身影默默收拾起寥寥無幾的行囊，緩緩沒入了荒野。</RatkinQL_Vagabond_Farewell>
+  <RatkinQL_Vagabond_MsgAlms>被你的慷慨打動，他哽咽著道謝：「謝謝您，好心人……願您的家園永遠不識飢餓。」</RatkinQL_Vagabond_MsgAlms>
+  <RatkinQL_Vagabond_MsgCoin>他緊緊攥著那幾枚銀幣，低聲道謝：「謝謝……這夠我換一塊硬麵包了。」</RatkinQL_Vagabond_MsgCoin>
+</LanguageData>

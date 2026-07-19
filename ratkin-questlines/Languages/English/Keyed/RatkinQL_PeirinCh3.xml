@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PeirinCh3Tree_Title>Peirin Returns</RatkinQL_PeirinCh3Tree_Title>
+  <RatkinQL_PeirinCh3Tree_Report>Walnut returns again—and something about her has changed, for better or worse.</RatkinQL_PeirinCh3Tree_Report>
+  <RatkinQL_Peirin_Ch3_Greeting>A familiar silhouette appears at your gate. It's Walnut, but she walks differently now—lighter, or maybe heavier. She looks at {Interviewer_labelShort} and gives a slow, careful nod. "Been a while."</RatkinQL_Peirin_Ch3_Greeting>
+  <RatkinQL_Peirin_Ch3_OptCelebrate>(She's made it) Reunite and congratulate her</RatkinQL_Peirin_Ch3_OptCelebrate>
+  <RatkinQL_Peirin_Ch3_OptTakeIn>(She's destitute) Take her in—let her join your settlement</RatkinQL_Peirin_Ch3_OptTakeIn>
+  <RatkinQL_Peirin_Ch3_OptSendOff>(She's destitute) Give her a few words and send her away</RatkinQL_Peirin_Ch3_OptSendOff>
+  <RatkinQL_Peirin_Ch3_OptFarewell>Farewell</RatkinQL_Peirin_Ch3_OptFarewell>
+  <RatkinQL_Peirin_Ch3_OptBye>Part ways here</RatkinQL_Peirin_Ch3_OptBye>
+  <RatkinQL_Peirin_Ch3_GoodFarewell>Walnut stands tall now, the marks of a proper trader on her. "I owe you everything. I finally built my route." She pauses, then looks you in the eye, voice dropping low. "I never told you my full name. It's Walnut Peirin. Third daughter of the Peirin hold—a tiny noble house in Rakinia. I ran from an arranged match. Now I'm my own rat. And I'd be honored if you called me Peirin." She holds out a gift bundle, ears flushed. "I'll come through every season. This is a promise."</RatkinQL_Peirin_Ch3_GoodFarewell>
+  <RatkinQL_Peirin_Ch3_Welcome>Walnut's voice cracks. "I… I've got nothing left. But if you'll have me, I'll work. I'll learn. I'll make this my home. I swear it." She bows deeply, shoulders trembling.</RatkinQL_Peirin_Ch3_Welcome>
+  <RatkinQL_Peirin_Ch3_Somber>Walnut listens, then nods once, slowly. She turns without another word, dragging her broken pack down the road until she's a smudge in the distance. A bitter end to a bright young dream.</RatkinQL_Peirin_Ch3_Somber>
+  <RatkinQL_Peirin_Ch3_MsgGift>Walnut presses a fine bundle into your hands—her gratitude, made solid.</RatkinQL_Peirin_Ch3_MsgGift>
+  <RatkinQL_Peirin_Ch3_MsgJoin>Walnut joins your settlement, head bowed but resolve kindling.</RatkinQL_Peirin_Ch3_MsgJoin>
+</LanguageData>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PeirinCh1Tree_Title>A Young Peddler</RatkinQL_PeirinCh1Tree_Title>
+  <RatkinQL_PeirinCh1Tree_Report>A scruffy young ratkin peddler shows up at your gate, hawking wares.</RatkinQL_PeirinCh1Tree_Report>
+  <RatkinQL_Peirin_Ch1_Greeting>A young ratkin with a patched pack and a hopeful grin pushes through your doorway, calling out to {Interviewer_labelShort} in a bright, breathless voice: "Good day! Fresh goods from the road—hardtack, herbs, little trinkets! Fair prices, I swear!" She puffs her chest a bit too much, as if daring you to doubt her.</RatkinQL_Peirin_Ch1_Greeting>
+  <RatkinQL_Peirin_Ch1_Story1>"Me? Oh, just call me Walnut—a young rat out to see the road. Family? Well… that's a story for another day, eh? Maybe when we're old friends." She winks, clearly dodging the question with practiced ease.</RatkinQL_Peirin_Ch1_Story1>
+  <RatkinQL_Peirin_Ch1_Story2>"All I'll say is this: I'm out to make my own name, carve my own trade route. No one's shadow but my own." She nods firmly, as if convincing herself as much as you.</RatkinQL_Peirin_Ch1_Story2>
+  <RatkinQL_Peirin_Ch1_OptTrade>Buy her wares at face price (15 silver)</RatkinQL_Peirin_Ch1_OptTrade>
+  <RatkinQL_Peirin_Ch1_OptFund>Give her a grant, no goods needed (50 silver)</RatkinQL_Peirin_Ch1_OptFund>
+  <RatkinQL_Peirin_Ch1_OptFleece>Haggle her down to a pittance (5 silver)</RatkinQL_Peirin_Ch1_OptFleece>
+  <RatkinQL_Peirin_Ch1_OptStory>Ask about her background</RatkinQL_Peirin_Ch1_OptStory>
+  <RatkinQL_Peirin_Ch1_OptLeave>Not today—send her away</RatkinQL_Peirin_Ch1_OptLeave>
+  <RatkinQL_Peirin_Ch1_OptBack>Back to business</RatkinQL_Peirin_Ch1_OptBack>
+  <RatkinQL_Peirin_Ch1_OptBye>That's all—farewell</RatkinQL_Peirin_Ch1_OptBye>
+  <RatkinQL_Peirin_Ch1_Farewell>"Right then! Next time I'll bring better stock, you'll see!" She beams, slinging her pack over her shoulder as she heads out, already chattering to herself about next season's route.</RatkinQL_Peirin_Ch1_Farewell>
+  <RatkinQL_Peirin_Ch1_MsgTrade>Walnut hands over the goods with a proud grin, pocketing the silver neatly.</RatkinQL_Peirin_Ch1_MsgTrade>
+  <RatkinQL_Peirin_Ch1_MsgFund>Walnut stares at the silver in disbelief, then bows her head. "I… I won't forget this. You have my word." She straightens, eyes bright with resolve.</RatkinQL_Peirin_Ch1_MsgFund>
+  <RatkinQL_Peirin_Ch1_MsgFleece>Walnut's ears flatten. She shoves the goods at you without a word, her cheerful mask gone. "…Deal."</RatkinQL_Peirin_Ch1_MsgFleece>
+</LanguageData>

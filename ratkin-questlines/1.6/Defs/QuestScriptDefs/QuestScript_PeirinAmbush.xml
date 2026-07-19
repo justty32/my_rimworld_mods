@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《替胡桃擊退追兵》— 商團首領線 Ch2「幫她打」分支觸發的 site 攻打任務。
+    骨架照抄本包已驗證的 QuestScript_RaidOutpost（§I 原版 site 骨架，Util_GenerateSite 內接 site.AllEnemiesDefeated）。
+    差別：成功清場時，除了投放賞金，另用 QuestNode_DoCQFActions 設 RatkinQL_Peirin_Rescued（供 Ch3 風光結局判定）
+    ＋ RatkinQL_Ev_ProtectWeak（善惡值＋，F8 帳本消費）。敵派系＝永久敵對的軍閥（Rakinia_Warlord 行為源）。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_PeirinAmbush</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->替胡桃擊退追兵</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->年輕的鼠族行商胡桃被軍閥的討債隊盯上了——他們在你聚居點附近紮下一處據點，堵著她的商路。把據點的人馬清光，替她解圍。戰利品歸你，胡桃也會記著這份人情。據點已標在地圖上；拖太久，他們得手後就會拔營，機會就沒了。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="QuestNode_SubScript"><def>Util_RandomizePointsChallengeRating</def></li>
+        <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+        <li Class="QuestNode_GetSiteTile"><storeAs>siteTile</storeAs><preferCloserTiles>true</preferCloserTiles></li>
+        <li Class="QuestNode_QuestUnique"><tag>RatkinQL_PeirinAmbush</tag></li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>siteFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags><li><tag>Outpost</tag></li></sitePartsTags>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$siteFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_GenerateSite</def></li>
+        <li Class="QuestNode_SpawnWorldObjects"><worldObjects>$site</worldObjects></li>
+
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(10,18)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>追兵得手</label>
+                <text>你沒能及時出手。軍閥的討債隊得手後撤走了，胡桃的商路被斷——往後的日子，她只能自己扛。</text>
+              </li>
+              <li Class="QuestNode_End"><outcome>Fail</outcome></li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End" />
+        </li>
+
+        <!-- ★成功清場：投放賞金 ＋ 記 Peirin_Rescued（Ch3 風光結局）＋ Ev_ProtectWeak（善惡值＋） -->
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_BountyReward</thingSetMaker>
+                <storeAs>ratkinPeirinReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$ratkinPeirinReward</contents>
+                <sendStandardLetter>true</sendStandardLetter>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <customLetterLabel>胡桃的謝禮</customLetterLabel>
+                <customLetterText>追兵被清光了。胡桃循著商路捎來一批謝禮——她說，這份人情她記下了。</customLetterText>
+              </li>
+              <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+                <inSignal>site.AllEnemiesDefeated</inSignal>
+                <actions>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Peirin_Rescued</keyOfBool><valueOfBool>true</valueOfBool></li>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ProtectWeak</keyOfBool><valueOfBool>true</valueOfBool></li>
+                </actions>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

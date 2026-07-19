@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《請求庇護的鼠族難民》— F3 收容/加入 proof-slice。
+    收留選項：CQFAction_Faction 把 Interviewee 設為玩家派系（faction.isPlayer → SetFaction(Faction.OfPlayer)）
+    ＝該鼠族當場加入殖民地成為殖民者。純對話、用已驗證的 CQFAction，避開原版 lodger 機制。
+    另可只給補給送走（charity 不收編）／問身世／拒絕。記「庇護所」身份傾向旗標。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_RefugeeTree</defName>
+    <title>RatkinQL_RefugeeTree_Title</title>
+    <dialogReportKey>RatkinQL_RefugeeTree_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>3</curIndex>
+    <nodeMoulds>
+      <li><key>0</key><value>
+        <text>RatkinQL_Refugee_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li><li>2</li></subNodeIndexs>
+        <options>
+
+          <!-- 收留＝收編加入 -->
+          <li>
+            <text>RatkinQL_Refugee_OptTakeIn</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>TookIn</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>2</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                  <keyOfBool>RatkinQL_Ident_Sanctuary</keyOfBool><valueOfBool>true</valueOfBool>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_Faction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <faction>PlayerColony</faction>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>RatkinQL_Refugee_MsgJoin</message><type>PositiveEvent</type>
+                </li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <li><text>RatkinQL_Refugee_OptStory</text><results><li><resultName>GoStory</resultName><nextIndex>1</nextIndex></li></results></li>
+
+          <!-- 給補給送走（不收編）-->
+          <li>
+            <text>RatkinQL_Refugee_OptSupplies</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <requiredThings>
+              <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RK_Food_Hardtack</thing><count>5~5</count></li>
+            </requiredThings>
+            <results><li>
+              <resultName>GaveSupplies</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>1</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                  <keyOfBool>RatkinQL_Rep_Charitable</keyOfBool><valueOfBool>true</valueOfBool>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>RatkinQL_Refugee_MsgSupplies</message><type>NeutralEvent</type>
+                </li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <li><text>RatkinQL_Refugee_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Refugee_Story1</text>
+        <extraText><li>RatkinQL_Refugee_Story2</li><li>RatkinQL_Refugee_Story3</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Refugee_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_Refugee_Farewell</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Refugee_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_RefugeeManager</defName>
+    <tags><li>RatkinQL_Refugee</li></tags>
+    <genrationConditions>
+      <li Class="QuestEditor_Library.DialogCondition_Or">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <condition>
+          <li Class="QuestEditor_Library.DialogCondition_Faction"><targetText>Interviewee</targetText><faction>Rakinia</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="RKU.RatkinUnderground"><targetText>Interviewee</targetText><faction>RKU_Faction</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="W.ZHP"><targetText>Interviewee</targetText><faction>ZHP_Faction</faction></li>
+        </condition>
+      </li>
+    </genrationConditions>
+    <trees><li><tree>RatkinQL_RefugeeTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

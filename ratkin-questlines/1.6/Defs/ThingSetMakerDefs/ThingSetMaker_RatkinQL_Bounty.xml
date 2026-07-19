@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- F5 軍閥據點懸賞的清場獎勵——比 F2 供貨約分期款更豐厚，畢竟要打一場仗。
+       沿用原版 ThingSetMaker_Sum + StackCount 寫法（同 ThingSetMaker_RatkinQL.xml）。 -->
+  <ThingSetMakerDef>
+    <defName>RatkinQL_BountyReward</defName>
+    <root Class="ThingSetMaker_Sum">
+      <options>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Silver</li>
+                </thingDefs>
+              </filter>
+              <countRange>200~350</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>

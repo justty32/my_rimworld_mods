@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_MinstrelTree_Title>Ratkin Minstrel</RatkinQL_MinstrelTree_Title>
+  <RatkinQL_MinstrelTree_Report>A wandering performer stopped by, offering songs and old tales for a few coins.</RatkinQL_MinstrelTree_Report>
+  <RatkinQL_Minstrel_Greeting>Clutching a battered lute, she gives you a warm smile. “{Interviewer_labelShort}, care to toss a coin and hear a tune? I know all the old ones.”</RatkinQL_Minstrel_Greeting>
+  <RatkinQL_Minstrel_OptSong>Toss her a few coins and hear a song (5 silver)</RatkinQL_Minstrel_OptSong>
+  <RatkinQL_Minstrel_OptTale>Ask her to tell a Ratkin legend.</RatkinQL_Minstrel_OptTale>
+  <RatkinQL_Minstrel_OptLeave>Politely wave her off.</RatkinQL_Minstrel_OptLeave>
+  <RatkinQL_Minstrel_OptBack>Get back to business.</RatkinQL_Minstrel_OptBack>
+  <RatkinQL_Minstrel_Tale1>“They say Mother Earth dug the first burrow with her own claws, and we’ve been crawling through her tunnels ever since.”</RatkinQL_Minstrel_Tale1>
+  <RatkinQL_Minstrel_Tale2>“The first rat to brew beer stole fire from a sleeping human. He got drunk, burned his whiskers, but we’ve toasted him every harvest since.”</RatkinQL_Minstrel_Tale2>
+  <RatkinQL_Minstrel_Tale3>“When the Great Flood came, our ancestors floated on a hollow log with a pregnant mother and a bag of seeds. That’s where all the little clans come from.”</RatkinQL_Minstrel_Tale3>
+  <RatkinQL_Minstrel_Farewell>She tucks her lute under her arm, gives a small bow, and heads off.</RatkinQL_Minstrel_Farewell>
+  <RatkinQL_Minstrel_MsgSong>She plucks the strings and sings a merry little tune, drawing smiles from everyone nearby.</RatkinQL_Minstrel_MsgSong>
+</LanguageData>

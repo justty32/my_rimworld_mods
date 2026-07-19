@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_HuntedTree_Title>被追杀的鼠族</RatkinQL_HuntedTree_Title>
+<RatkinQL_HuntedTree_Report>一名惊慌失措的鼠族逃到聚居点，身后有追兵紧追不舍。</RatkinQL_HuntedTree_Report>
+<RatkinQL_Hunted_Greeting>一只鼠族连滚带爬冲到门口，上气不接下气地说："他们就在我后面——{Interviewer_labelShort}，你得快点决定！"</RatkinQL_Hunted_Greeting>
+<RatkinQL_Hunted_OptFight>掩护他，跟追兵开打</RatkinQL_Hunted_OptFight>
+<RatkinQL_Hunted_OptStory>快问他为什么被追杀</RatkinQL_Hunted_OptStory>
+<RatkinQL_Hunted_OptTurnAway>把他赶走，别惹祸上身</RatkinQL_Hunted_OptTurnAway>
+<RatkinQL_Hunted_OptLeave>告辞</RatkinQL_Hunted_OptLeave>
+<RatkinQL_Hunted_OptBack>回到正题</RatkinQL_Hunted_OptBack>
+<RatkinQL_Hunted_Story1>他得罪了一名军阀 Warlord 的手下——现在整个星区的佣兵都在悬赏他的脑袋。</RatkinQL_Hunted_Story1>
+<RatkinQL_Hunted_Story2>他被栽赃了罪名，赏金猎人正在一步步逼近。</RatkinQL_Hunted_Story2>
+<RatkinQL_Hunted_Story3>他在地下组织 RKU 听到了不该听的——他们从不留活口。</RatkinQL_Hunted_Story3>
+<RatkinQL_Hunted_Farewell>他沉重地点了点头，转身消失在荒野中。</RatkinQL_Hunted_Farewell>
+<RatkinQL_Hunted_MsgFight>你当即操起武器、把鼠族护在身后——追兵已经杀到门口。</RatkinQL_Hunted_MsgFight>
+<RatkinQL_Hunted_MsgTurnAway>你把他推出门外，他绝望地逃向荒野，追兵的身影也跟着远去。</RatkinQL_Hunted_MsgTurnAway>
+</LanguageData>

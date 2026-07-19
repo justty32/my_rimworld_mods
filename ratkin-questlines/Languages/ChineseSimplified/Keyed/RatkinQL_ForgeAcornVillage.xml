@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 到访信件（QuestNode_SpawnRatkinEnvoy） -->
+  <RatkinQL_Forge_Acorn_ArriveLabel>橡实村的村长到了</RatkinQL_Forge_Acorn_ArriveLabel>
+  <RatkinQL_Forge_Acorn_ArriveText>橡实村的年轻村长板栗带着两名村民，抱着她那块宝贝记账板走进了你的聚居地。她说想当面跟你这铁匠谈谈那批军械的事——去跟她聊聊吧。</RatkinQL_Forge_Acorn_ArriveText>
+
+  <!-- 对话树 -->
+  <RatkinQL_Forge_Acorn_Title>橡实村·村长板栗</RatkinQL_Forge_Acorn_Title>
+  <RatkinQL_Forge_Acorn_Report>与橡实村村长板栗商谈军械委托</RatkinQL_Forge_Acorn_Report>
+
+  <RatkinQL_Forge_Acorn_Greeting>听说你们这儿新来了个会打军械的铁匠？我是橡实村的板栗，村长！（她把记账板往怀里抱紧了些）秋天要到了，山里的野物越发不安分……我盘算过，防野物远近都得有：想要三把十字弩、外加两杆矛。现货就好、不用多漂亮，能射能刺就成。价钱嘛——我可都算过了的，{Interviewer_labelShort}，别想坑我一颗栗子。</RatkinQL_Forge_Acorn_Greeting>
+
+  <RatkinQL_Forge_Acorn_OptDeliver>就交三把十字弩＋两杆矛的现货给她</RatkinQL_Forge_Acorn_OptDeliver>
+  <RatkinQL_Forge_Acorn_NeedStock>你手边凑不齐她要的现货（三把十字弩＋两杆矛）</RatkinQL_Forge_Acorn_NeedStock>
+  <RatkinQL_Forge_Acorn_MsgPaid>板栗一把接一把地验过弩、又掂了掂矛杆，满意地点头，数出讲好的白银——又偷偷多塞了一小袋炒栗子给你。“这个……不算钱啊，纯粹谢谢。”她耳朵尖都红了。</RatkinQL_Forge_Acorn_MsgPaid>
+
+  <RatkinQL_Forge_Acorn_OptTerms>问她村里到底什么情况</RatkinQL_Forge_Acorn_OptTerms>
+  <RatkinQL_Forge_Acorn_Terms1>橡实村不大，就山脚下那片橡树林边上，种点作物、囤点坚果过冬。往年也就防防松鼠抢粮，可今年野物特别凶……村里年轻人手不够，远的用弩、近的靠矛，总得备上些。</RatkinQL_Forge_Acorn_Terms1>
+  <RatkinQL_Forge_Acorn_Terms2>放心，我虽然算钱算得紧，该给的一分不少。做得好，往后村里的生意都找你——我记账板上，可是会给你记一笔好的。</RatkinQL_Forge_Acorn_Terms2>
+  <RatkinQL_Forge_Acorn_OptBack>回到正题</RatkinQL_Forge_Acorn_OptBack>
+
+  <RatkinQL_Forge_Acorn_OptExtort>趁机抬价，敲她一笔狠的</RatkinQL_Forge_Acorn_OptExtort>
+  <RatkinQL_Forge_Acorn_MsgExtort>板栗听完你临时抬高的价，脸一下子沉了。她把记账板抱得死紧，一个字一个字地说：“……原来你是这种鼠。”她招呼村民转身就走，连头都没回。橡实村，往后怕是不会再来找你了。</RatkinQL_Forge_Acorn_MsgExtort>
+  <RatkinQL_Forge_Acorn_ExtortEnd>（她走了。你数着多敲来的那几枚银子，总觉得没有想象中沉。）</RatkinQL_Forge_Acorn_ExtortEnd>
+  <RatkinQL_Forge_Acorn_OptShrug>耸耸肩</RatkinQL_Forge_Acorn_OptShrug>
+
+  <RatkinQL_Forge_Acorn_Thanks>板栗把短弓一一分给村民背好，又低头在记账板上划了两笔，抬头冲你笑：“合作愉快！下回还找你——记得给我留现货啊！”</RatkinQL_Forge_Acorn_Thanks>
+  <RatkinQL_Forge_Acorn_OptBye>目送她一行离开</RatkinQL_Forge_Acorn_OptBye>
+
+  <RatkinQL_Forge_Acorn_OptDecline>这次先不接，让她改天再来</RatkinQL_Forge_Acorn_OptDecline>
+
+  <!-- ★分级后果 band-2：精品交货（良好以上）→ 完美击退 -->
+  <RatkinQL_Forge_Acorn_OptDeliverFine>交精品：三把良好以上的十字弩＋两杆良好以上的矛</RatkinQL_Forge_Acorn_OptDeliverFine>
+  <RatkinQL_Forge_Acorn_NeedFine>你凑不齐良好品质以上的货（三弩＋两矛，都要良好以上）</RatkinQL_Forge_Acorn_NeedFine>
+  <RatkinQL_Forge_Acorn_MsgPaidFine>板栗拿起一把弩，拉满、松手，弦音清亮；又掂了掂矛尖的分量，眼睛一下亮了：“这……这哪是防身的货，这是能打硬仗的家伙啊！”她二话不说多添了一大袋白银，连炒栗子都塞了双份。</RatkinQL_Forge_Acorn_MsgPaidFine>
+  <RatkinQL_Forge_Acorn_ThanksFine>几天后，橡实村捎来喜讯：有了你这批好家伙，村民不但挡住了下山的野物，还干净利落地把兽群赶回了深山，一个人都没伤着。板栗特地在记账板最显眼那页，给你记了大大一笔——“这铁匠，往后就是咱橡实村的自己人了！”</RatkinQL_Forge_Acorn_ThanksFine>
+
+  <!-- 科技蓝图空投（村庄层首单） -->
+  <RatkinQL_Forge_T1Tech_Label>科技蓝图：边村军械图谱</RatkinQL_Forge_T1Tech_Label>
+  <RatkinQL_Forge_T1Tech_Text>接下委托时，板栗从包袱里翻出一叠翻得起毛边的图谱塞给你：“这是我们村里老铁匠留下的——弩臂怎么绷、矛头怎么淬，都画在上头了。你先照着学，才做得出我要的货呀。”一具投放舱随后落在你的贸易点旁。研读它即可掌握这一层委托所需的锻造技艺。</RatkinQL_Forge_T1Tech_Text>
+
+  <!-- 科技蓝图使用讯息（{0}＝解锁研究数） -->
+  <RatkinQL_TechBlueprint_Used>你研读了科技蓝图，掌握了 {0} 项新的锻造技艺。</RatkinQL_TechBlueprint_Used>
+
+</LanguageData>

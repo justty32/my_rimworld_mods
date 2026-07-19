@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_CourierTree_Title>鼠族信使</RatkinQL_CourierTree_Title>
+  <RatkinQL_CourierTree_Report>帮了一名鼠族信使指路。</RatkinQL_CourierTree_Report>
+  <RatkinQL_Courier_Greeting>信使背着沉重的邮包，汗水湿透了胡须。他疲惫地张望，低声询问这里是不是 {Interviewer_labelShort}，并坦承自己在蜿蜒的小路上迷了方向。</RatkinQL_Courier_Greeting>
+  <RatkinQL_Courier_OptDirections>替他指一条安全的路</RatkinQL_Courier_OptDirections>
+  <RatkinQL_Courier_OptNews>问问他路上见了什么</RatkinQL_Courier_OptNews>
+  <RatkinQL_Courier_OptFood>给他一些旅途干粮（5 份硬饼干）</RatkinQL_Courier_OptFood>
+  <RatkinQL_Courier_OptLeave>送他上路</RatkinQL_Courier_OptLeave>
+  <RatkinQL_Courier_OptBack>回到正题</RatkinQL_Courier_OptBack>
+  <RatkinQL_Courier_News1>“东边山谷的商道被封锁了，听说地下游击队和王国卫兵又在旧桥附近起了冲突。”</RatkinQL_Courier_News1>
+  <RatkinQL_Courier_News2>“王国今年的秋收看来不错，只是重税压得农夫们对着啤酒直叹气。”</RatkinQL_Courier_News2>
+  <RatkinQL_Courier_News3>“北边山头正吹来一股冷锋，过路的旅人都说山道已经开始结冰了。”</RatkinQL_Courier_News3>
+  <RatkinQL_Courier_Farewell>信使重新拉紧背带，客气地朝你扶了扶帽子，转身走回了小路。</RatkinQL_Courier_Farewell>
+  <RatkinQL_Courier_MsgReward>为了感谢你指路，信使塞给你一小把银币。</RatkinQL_Courier_MsgReward>
+  <RatkinQL_Courier_MsgFood>信使紧紧捧着硬饼干，对你在这荒凉路途上的善意感激不已。</RatkinQL_Courier_MsgFood>
+</LanguageData>

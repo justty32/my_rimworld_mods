@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PeirinCh3Tree_Title>久别重逢</RatkinQL_PeirinCh3Tree_Title>
+  <RatkinQL_PeirinCh3Tree_Report>胡桃又来了——她的模样变了，好坏难说。</RatkinQL_PeirinCh3Tree_Report>
+  <RatkinQL_Peirin_Ch3_Greeting>一个熟悉的身影出现在你门前。是胡桃，但她走路的方式不一样了——轻盈了，或沉重了。她望着 {Interviewer_labelShort}，缓缓点了一下头："好久不见。"</RatkinQL_Peirin_Ch3_Greeting>
+  <RatkinQL_Peirin_Ch3_OptCelebrate>（她显然发达了）与她叙旧、道贺</RatkinQL_Peirin_Ch3_OptCelebrate>
+  <RatkinQL_Peirin_Ch3_OptTakeIn>（她已一无所有）收留她，让她加入聚居点</RatkinQL_Peirin_Ch3_OptTakeIn>
+  <RatkinQL_Peirin_Ch3_OptSendOff>（她已一无所有）给她几句话，打发她走</RatkinQL_Peirin_Ch3_OptSendOff>
+  <RatkinQL_Peirin_Ch3_OptFarewell>道别</RatkinQL_Peirin_Ch3_OptFarewell>
+  <RatkinQL_Peirin_Ch3_OptBye>就此别过</RatkinQL_Peirin_Ch3_OptBye>
+  <RatkinQL_Peirin_Ch3_GoodFarewell>胡桃如今站得笔挺，浑身散发着正经行商的气派。"我欠你一切。我终于跑出了自己的商路。"她顿了顿，直视你的眼睛，声音放低："我从没告诉你我的全名。我是胡桃·佩林——Rakinia乡下一个小贵族'佩林家'的三女。当年受不了联姻的安排，偷跑出来闯。如今，我是我自己的鼠了。如果你愿意，叫我'佩林'我也欢喜。"她把一份扎好的厚礼捧到你面前，耳朵红红的："往后每一季我都会来走这条路。这是约定。"</RatkinQL_Peirin_Ch3_GoodFarewell>
+  <RatkinQL_Peirin_Ch3_Welcome>胡桃的声音哑了："我……我什么都没有了。但如果你愿意收留我，我会做工、我会学。我会把这里当成家。我发誓。"她深深鞠躬，肩膀轻轻发抖。</RatkinQL_Peirin_Ch3_Welcome>
+  <RatkinQL_Peirin_Ch3_Somber>胡桃静静听着，然后缓缓点了一下头。她一句话也没说，转过身，拖着破烂的包袱沿着路走去，直到变成远方一个模糊的小点。一个明亮的年轻的梦，如此收场。</RatkinQL_Peirin_Ch3_Somber>
+  <RatkinQL_Peirin_Ch3_MsgGift>胡桃把一份精致的礼物塞进你手中——她的感激，化作实物。</RatkinQL_Peirin_Ch3_MsgGift>
+  <RatkinQL_Peirin_Ch3_MsgJoin>胡桃加入了你的聚居点，低着头，眼底却重新燃起决心。</RatkinQL_Peirin_Ch3_MsgJoin>
+</LanguageData>

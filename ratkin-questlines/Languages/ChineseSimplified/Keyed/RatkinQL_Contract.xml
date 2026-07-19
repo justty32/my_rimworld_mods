@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_ContractTree_Title>鼠族供货约</RatkinQL_ContractTree_Title>
+	<RatkinQL_ContractTree_Report>一名路过的鼠族客商提议了一笔供货约。</RatkinQL_ContractTree_Report>
+	<RatkinQL_Contract_Greeting>哟，{Interviewer_labelShort}，听说你仓里存粮不少。不如这样——你先交三十份干肉饼给我，我跑一趟商路，货款分两期用投放舱送回，外加一成佣金。公道吧？</RatkinQL_Contract_Greeting>
+	<RatkinQL_Contract_OptAccept>接下这份约，交付 30 份干肉饼</RatkinQL_Contract_OptAccept>
+	<RatkinQL_Contract_OptTerms>问清楚这约怎么算</RatkinQL_Contract_OptTerms>
+	<RatkinQL_Contract_OptLeave>暂时不接</RatkinQL_Contract_OptLeave>
+	<RatkinQL_Contract_OptBack>回到正题</RatkinQL_Contract_OptBack>
+	<RatkinQL_Contract_Terms1>头期款大概十天后用投放舱送来，尾款再隔一周到。</RatkinQL_Contract_Terms1>
+	<RatkinQL_Contract_Terms2>鼠族商团最重信誉，ZHP 从不赖帐，击掌就算数。</RatkinQL_Contract_Terms2>
+	<RatkinQL_Contract_Terms3>你拿全额货款外加一成佣金，公平买卖就是这样。</RatkinQL_Contract_Terms3>
+	<RatkinQL_Contract_Farewell>跟你做生意真爽快。祝你仓库永远满满。</RatkinQL_Contract_Farewell>
+	<RatkinQL_Contract_MsgAccept>你交付了三十份干肉饼，跟鼠族客商击掌成交。客商把粮包甩上肩，转身上路。</RatkinQL_Contract_MsgAccept>
+	<RatkinQL_Contract_MsgSealed>鼠族客商已经带着你的干肉饼出发了。货款将分两期用投放舱送达——头期约十天后到，尾款再等一周。</RatkinQL_Contract_MsgSealed>
+</LanguageData>

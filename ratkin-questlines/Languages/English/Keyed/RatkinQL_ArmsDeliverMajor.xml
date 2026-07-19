@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsDeliverMajorTree_Title>The Kingdom War-Detail</RatkinQL_ArmsDeliverMajorTree_Title>
+<RatkinQL_ArmsDeliverMajorTree_Report>A kingdom war-detail arrived to inspect the major arms order.</RatkinQL_ArmsDeliverMajorTree_Report>
+<RatkinQL_ArmsMajor_Deliver_Greeting>We are the war-detail from Rakinia, {Interviewer_labelShort}. We've come to inspect the top-grade arms—five longswords of Excellent quality, as agreed with the envoy.</RatkinQL_ArmsMajor_Deliver_Greeting>
+<RatkinQL_ArmsMajor_Deliver_OptDeliver>Deliver the arms (5 longswords, Excellent or better)</RatkinQL_ArmsMajor_Deliver_OptDeliver>
+<RatkinQL_ArmsMajor_Deliver_OptLater>Goods not ready; ask them to wait</RatkinQL_ArmsMajor_Deliver_OptLater>
+<RatkinQL_ArmsMajor_Deliver_OptBye>Say goodbye</RatkinQL_ArmsMajor_Deliver_OptBye>
+<RatkinQL_ArmsMajor_Deliver_Thanks>The war-detail examines every blade edge with care, then gives a solemn nod. They present 450 silver and a "Kingdom Conscription Writ." "The court has your name on the rolls," says the leader. "Well done."</RatkinQL_ArmsMajor_Deliver_Thanks>
+<RatkinQL_ArmsMajor_Deliver_MsgPaid>You delivered the major arms order: 450 silver and a Kingdom Conscription Writ received.</RatkinQL_ArmsMajor_Deliver_MsgPaid>
+<RatkinQL_ArmsMajor_NeedQuality>You don't yet have enough top-grade arms—need 5 longswords of "Excellent" quality or better.</RatkinQL_ArmsMajor_NeedQuality>
+</LanguageData>

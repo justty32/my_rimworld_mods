@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《示警的斥候》— F1：一名鼠族斥候路過，捎來附近的危險警訊（劫匪/野獸/風暴）。
+    玩家可打賞謝他（付 15 銀→好感）／問詳情（世界感）／道謝領情（免費小好感）／不當回事。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_ScoutTree</defName>
+    <title>RatkinQL_ScoutTree_Title</title>
+    <dialogReportKey>RatkinQL_ScoutTree_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>3</curIndex>
+    <nodeMoulds>
+      <li>
+        <key>0</key>
+        <value>
+          <text>RatkinQL_Scout_Greeting</text>
+          <index>0</index>
+          <subNodeIndexs><li>1</li><li>2</li></subNodeIndexs>
+          <options>
+            <li>
+              <text>RatkinQL_Scout_OptReward</text>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <requiredThings>
+                <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>15~15</count></li>
+              </requiredThings>
+              <results>
+                <li>
+                  <resultName>Rewarded</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                      <targetsText><li>Interviewee</li></targetsText>
+                      <isIncrease>true</isIncrease><value>2</value><sendLetter>true</sendLetter>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                      <keyOfBool>RatkinQL_Rep_Helpful</keyOfBool><valueOfBool>true</valueOfBool>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>RatkinQL_Scout_MsgReward</message><type>PositiveEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+            <li>
+              <text>RatkinQL_Scout_OptDetails</text>
+              <results><li><resultName>GoDetails</resultName><nextIndex>1</nextIndex></li></results>
+            </li>
+            <li>
+              <text>RatkinQL_Scout_OptHeed</text>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <results>
+                <li>
+                  <resultName>Heeded</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                      <targetsText><li>Interviewee</li></targetsText>
+                      <isIncrease>true</isIncrease><value>1</value><sendLetter>false</sendLetter>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>RatkinQL_Scout_MsgHeed</message><type>NeutralEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+            <li>
+              <text>RatkinQL_Scout_OptLeave</text>
+              <results><li><resultName>Leave</resultName></li></results>
+            </li>
+          </options>
+        </value>
+      </li>
+      <li>
+        <key>1</key>
+        <value>
+          <text>RatkinQL_Scout_Details1</text>
+          <extraText><li>RatkinQL_Scout_Details2</li><li>RatkinQL_Scout_Details3</li></extraText>
+          <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+          <options>
+            <li><text>RatkinQL_Scout_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li>
+          </options>
+        </value>
+      </li>
+      <li>
+        <key>2</key>
+        <value>
+          <text>RatkinQL_Scout_Farewell</text>
+          <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+          <options>
+            <li><text>RatkinQL_Scout_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+          </options>
+        </value>
+      </li>
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_ScoutManager</defName>
+    <tags><li>RatkinQL_Scout</li></tags>
+    <genrationConditions>
+      <li Class="QuestEditor_Library.DialogCondition_Or">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <condition>
+          <li Class="QuestEditor_Library.DialogCondition_Faction"><targetText>Interviewee</targetText><faction>Rakinia</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="RKU.RatkinUnderground"><targetText>Interviewee</targetText><faction>RKU_Faction</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="W.ZHP"><targetText>Interviewee</targetText><faction>ZHP_Faction</faction></li>
+        </condition>
+      </li>
+    </genrationConditions>
+    <trees><li><tree>RatkinQL_ScoutTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

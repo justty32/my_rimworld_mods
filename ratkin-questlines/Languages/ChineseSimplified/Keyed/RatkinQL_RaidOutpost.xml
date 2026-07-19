@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_RaidOutpostTree_Title>军阀据点悬赏</RatkinQL_RaidOutpostTree_Title>
+	<RatkinQL_RaidOutpostTree_Report>一名鼠族佣兵掮客带来一份军阀据点的悬赏。</RatkinQL_RaidOutpostTree_Report>
+	<RatkinQL_RaidOutpost_Greeting>听好了，{Interviewer_labelShort}。附近盘踞着一处军阀据点，把周围每个鼠窝都榨得一干二净。我们公会开了悬赏——把那地方清掉，战利品全归你，我们再加送一袋沉甸甸的白银。有兴趣吗？</RatkinQL_RaidOutpost_Greeting>
+	<RatkinQL_RaidOutpost_OptAccept>接下悬赏——出兵攻打据点。</RatkinQL_RaidOutpost_OptAccept>
+	<RatkinQL_RaidOutpost_OptDetails>再说说这据点的事。</RatkinQL_RaidOutpost_OptDetails>
+	<RatkinQL_RaidOutpost_OptLeave>现在还不想接。</RatkinQL_RaidOutpost_OptLeave>
+	<RatkinQL_RaidOutpost_OptBack>回到悬赏的事。</RatkinQL_RaidOutpost_OptBack>
+	<RatkinQL_RaidOutpost_Details1>我们的斥候已经在你的地图上标出据点位置。派支队伍去，军阀的守卫可不好对付。</RatkinQL_RaidOutpost_Details1>
+	<RatkinQL_RaidOutpost_Details2>你们从据点里搜出来的东西全归你，悬赏金另外算，等最后一个守卫倒下就会送到。</RatkinQL_RaidOutpost_Details2>
+	<RatkinQL_RaidOutpost_Details3>别拖太久——那种据点不会一直待在原地。要么尽快动手，要么这笔悬赏就作废了。</RatkinQL_RaidOutpost_Details3>
+	<RatkinQL_RaidOutpost_Farewell>愿你的刀锋保持锋利，祝狩猎顺利。</RatkinQL_RaidOutpost_Farewell>
+	<RatkinQL_RaidOutpost_MsgAccept>你接下了这份悬赏。一名鼠族佣兵掮客在你的地图上标出了军阀据点的位置——集结战士，去把它解决掉。</RatkinQL_RaidOutpost_MsgAccept>
+</LanguageData>

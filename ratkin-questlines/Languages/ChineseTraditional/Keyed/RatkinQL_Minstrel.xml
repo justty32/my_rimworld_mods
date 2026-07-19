@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_MinstrelTree_Title>鼠族伶人</RatkinQL_MinstrelTree_Title>
+  <RatkinQL_MinstrelTree_Report>一名流浪藝人停下來，想用歌謠和傳說換幾個錢。</RatkinQL_MinstrelTree_Report>
+  <RatkinQL_Minstrel_Greeting>她抱著一把舊琴，笑吟吟地說：「{Interviewer_labelShort}，要不要丟幾個錢聽支曲？老曲子我都會唱。」</RatkinQL_Minstrel_Greeting>
+  <RatkinQL_Minstrel_OptSong>投幾個錢，聽一曲（5 銀）</RatkinQL_Minstrel_OptSong>
+  <RatkinQL_Minstrel_OptTale>請她說一段鼠族傳說。</RatkinQL_Minstrel_OptTale>
+  <RatkinQL_Minstrel_OptLeave>擺手婉謝。</RatkinQL_Minstrel_OptLeave>
+  <RatkinQL_Minstrel_OptBack>回到正題。</RatkinQL_Minstrel_OptBack>
+  <RatkinQL_Minstrel_Tale1>「傳說地母用自己的爪子挖出第一個洞穴，我們從那天起就在她的地道裡爬來爬去。」</RatkinQL_Minstrel_Tale1>
+  <RatkinQL_Minstrel_Tale2>「第一隻學會釀酒的老鼠，從睡著的人類那兒偷了火種。他喝醉了，燒掉鬍子，但我們每年豐收都敬他一杯。」</RatkinQL_Minstrel_Tale2>
+  <RatkinQL_Minstrel_Tale3>「大洪水來的時候，老祖宗抱著一袋種子、帶一個懷孕的婦人，躲在一根空心木頭上漂著。所有小氏族都是從那來的。」</RatkinQL_Minstrel_Tale3>
+  <RatkinQL_Minstrel_Farewell>她收好琴，微微鞠躬，轉身走了。</RatkinQL_Minstrel_Farewell>
+  <RatkinQL_Minstrel_MsgSong>她撥弦唱了一支輕快小調，惹得眾人會心一笑。</RatkinQL_Minstrel_MsgSong>
+</LanguageData>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PilgrimTree_Title>鼠族香客</RatkinQL_PilgrimTree_Title>
+  <RatkinQL_PilgrimTree_Report>一名疲惫的鼠族香客讨一顿饭与歇脚处。</RatkinQL_PilgrimTree_Report>
+  <RatkinQL_Pilgrim_Greeting>一位灰扑扑的鼠族拄着拐杖。"我正在前往圣祠的路上。能否在 {Interviewer_labelShort} 讨一顿饭、一个角落歇歇脚？"</RatkinQL_Pilgrim_Greeting>
+  <RatkinQL_Pilgrim_OptMeal>供他一顿饭与歇脚（3 份硬饼干）。</RatkinQL_Pilgrim_OptMeal>
+  <RatkinQL_Pilgrim_OptStory>问他此行朝的是什么圣地。</RatkinQL_Pilgrim_OptStory>
+  <RatkinQL_Pilgrim_OptBlessing>请他为聚居地祝祷。</RatkinQL_Pilgrim_OptBlessing>
+  <RatkinQL_Pilgrim_OptLeave>送他上路。</RatkinQL_Pilgrim_OptLeave>
+  <RatkinQL_Pilgrim_OptBack>回到正题。</RatkinQL_Pilgrim_OptBack>
+  <RatkinQL_Pilgrim_Story1>"我要去山巅的古祠还愿。饥荒那年我对地母发过誓，会赤脚走上她的祭坛。"</RatkinQL_Pilgrim_Story1>
+  <RatkinQL_Pilgrim_Story2>"我哥哥去年春天咳着咳着就走了。我把他的骨灰带到祖灵祠，希望他的灵魂能找到温暖的巢穴。"</RatkinQL_Pilgrim_Story2>
+  <RatkinQL_Pilgrim_Story3>"我对老石头发过誓，孩子退烧之后，每五年走一次这条路。这是第三次了。"</RatkinQL_Pilgrim_Story3>
+  <RatkinQL_Pilgrim_Farewell>他合十，弯腰，拖着脚步走进暮色。"大地会记住您的好。"</RatkinQL_Pilgrim_Farewell>
+  <RatkinQL_Pilgrim_MsgMeal>他慢慢吃完，伸手轻触你的炉灶。"愿这个炉灶永远不缺粮食与暖意。"</RatkinQL_Pilgrim_MsgMeal>
+  <RatkinQL_Pilgrim_MsgBlessing>他闭上眼，低声念了一段祝祷，然后睁眼微笑。"深土已经看顾这块地方了。"</RatkinQL_Pilgrim_MsgBlessing>
+</LanguageData>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_GratefulTree_Title>A Grateful Ratkin</RatkinQL_GratefulTree_Title>
+  <RatkinQL_GratefulTree_Report>A ratkin paid a visit to repay an old debt.</RatkinQL_GratefulTree_Report>
+  <RatkinQL_Grateful_Greeting>A ratkin stands at the gate, ears low, clutching a small pouch. "I have not forgotten what {Interviewer_labelShort} did for my kin. Please, let me repay that kindness."</RatkinQL_Grateful_Greeting>
+  <RatkinQL_Grateful_OptAccept>Accept the gift with gratitude.</RatkinQL_Grateful_OptAccept>
+  <RatkinQL_Grateful_OptStory>Ask which deed they mean.</RatkinQL_Grateful_OptStory>
+  <RatkinQL_Grateful_OptDecline>Decline, saying it was nothing.</RatkinQL_Grateful_OptDecline>
+  <RatkinQL_Grateful_OptLeave>Send them away.</RatkinQL_Grateful_OptLeave>
+  <RatkinQL_Grateful_OptBack>Return to the matter at hand.</RatkinQL_Grateful_OptBack>
+  <RatkinQL_Grateful_Story1>"That blizzard, three winters ago? My family was caught outside. Your people opened the door when no one else would."</RatkinQL_Grateful_Story1>
+  <RatkinQL_Grateful_Story2>"A Rakinia caravan lay bleeding on the road. Your medic bound their wounds and gave them water. I was that caravan's lead."</RatkinQL_Grateful_Story2>
+  <RatkinQL_Grateful_Story3>"My little brother had a fever that wouldn't break. Your doctor sat up all night with herbs and a wet cloth. He still speaks of that kindness."</RatkinQL_Grateful_Story3>
+  <RatkinQL_Grateful_Farewell>"May your fields stay fertile and your hearth never go cold." He bows once, then vanishes into the tall grass.</RatkinQL_Grateful_Farewell>
+  <RatkinQL_Grateful_MsgAccept>Beaming, the ratkin presses a bag of silver into your hands. "It's not much, but it's from the heart."</RatkinQL_Grateful_MsgAccept>
+  <RatkinQL_Grateful_MsgDecline>He stands still for a moment, then bows low. "Then I will remember your humility as well as your help."</RatkinQL_Grateful_MsgDecline>
+</LanguageData>

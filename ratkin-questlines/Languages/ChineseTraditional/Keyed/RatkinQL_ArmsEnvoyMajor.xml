@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsEnvoyMajorTree_Title>王國軍務特使</RatkinQL_ArmsEnvoyMajorTree_Title>
+<RatkinQL_ArmsEnvoyMajorTree_Report>王國軍務特使到訪，帶著一筆大軍械單。</RatkinQL_ArmsEnvoyMajorTree_Report>
+<RatkinQL_ArmsMajor_Envoy_Greeting>我是 Rakinia 的軍務特使。你造軍械的名聲已經傳到王庭，{Interviewer_labelShort}。王國要下一筆真正的大單，不是普通信使跑腿的小買賣。</RatkinQL_ArmsMajor_Envoy_Greeting>
+<RatkinQL_ArmsMajor_Envoy_Terms1>條件很直接：限期內交付五把「精良」以上的長劍。王國酬你四百五十白銀，外加一紙「王國徵召令狀」——一紙契約、用過即毀，憑它可以叫來一隊王國友軍馳援。</RatkinQL_ArmsMajor_Envoy_Terms1>
+<RatkinQL_ArmsMajor_Envoy_Terms2>王國大軍即將開拔，只有你這樣的匠人打出來的好貨，才配得上他們的配劍。交貨交得漂亮，王廷的功冊上會記下你的名字——這不光是銀子的事。</RatkinQL_ArmsMajor_Envoy_Terms2>
+<RatkinQL_ArmsMajor_Envoy_OptAccept>接下這紙大單</RatkinQL_ArmsMajor_Envoy_OptAccept>
+<RatkinQL_ArmsMajor_Envoy_OptTerms>先問清楚條件</RatkinQL_ArmsMajor_Envoy_OptTerms>
+<RatkinQL_ArmsMajor_Envoy_OptDecline>婉拒這筆大單</RatkinQL_ArmsMajor_Envoy_OptDecline>
+<RatkinQL_ArmsMajor_Envoy_OptBack>回到正題</RatkinQL_ArmsMajor_Envoy_OptBack>
+<RatkinQL_ArmsMajor_Envoy_OptBye>送特使離開</RatkinQL_ArmsMajor_Envoy_OptBye>
+<RatkinQL_ArmsMajor_Envoy_Sealed>特使鄭重收好蓋印的契約文書，說：「軍務隊會如期前來驗收。別讓王國失望。」</RatkinQL_ArmsMajor_Envoy_Sealed>
+<RatkinQL_ArmsMajor_Envoy_MsgAccept>你接下了王國的軍械大單：備妥五把精良以上的長劍，等軍務隊到訪交付。</RatkinQL_ArmsMajor_Envoy_MsgAccept>
+</LanguageData>

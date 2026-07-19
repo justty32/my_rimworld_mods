@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <RatkinQL_Forge_Buyer_ArriveLabel>慕名而来的散客</RatkinQL_Forge_Buyer_ArriveLabel>
+  <RatkinQL_Forge_Buyer_ArriveText>一名风尘仆仆的鼠族散客{PAWN_labelShort}走进了你的聚居地，说是听了一路的名号，特地来向你这铁匠采购军械。去招呼一下这位客人吧。</RatkinQL_Forge_Buyer_ArriveText>
+
+  <RatkinQL_Forge_Buyer_Title>慕名而来的散客</RatkinQL_Forge_Buyer_Title>
+  <RatkinQL_Forge_Buyer_Report>与慕名而来的散客商谈军械交易</RatkinQL_Forge_Buyer_Report>
+
+  <RatkinQL_Forge_Buyer_Greeting>是你吗？路上都在传，这一带有个手艺了得的铁匠。我要买武器——四把，什么款式我不挑，好用就行；只有一条，品质得过得去，别拿烂铁糊弄我。价我出得起，总值抵得上四把像样的钢剑，成交！</RatkinQL_Forge_Buyer_Greeting>
+
+  <RatkinQL_Forge_Buyer_OptDeliver>交货：开挑选窗口，亲手选要交的武器</RatkinQL_Forge_Buyer_OptDeliver>
+  <RatkinQL_Forge_Buyer_OptDeliverTrade>交货：开交易界面，把武器卖给他</RatkinQL_Forge_Buyer_OptDeliverTrade>
+  <RatkinQL_Forge_Buyer_NeedGoods>你凑不齐够格的货（四把、品质普通以上、总值需抵四把钢铁普通长剑）</RatkinQL_Forge_Buyer_NeedGoods>
+  <RatkinQL_Forge_Buyer_MsgPaid>散客一件件掂过你交出的武器，越看越满意，痛快地数出白银：“好手艺！没白跑这一趟。往后我还会再来——也会替你把名声传出去。”</RatkinQL_Forge_Buyer_MsgPaid>
+
+  <RatkinQL_Forge_Buyer_OptTerms>问他要这批武器做什么</RatkinQL_Forge_Buyer_OptTerms>
+  <RatkinQL_Forge_Buyer_Terms1>（他含糊带过。）“防身、看家、走商路……用得着武器的地方多了去了。你只管打得好，我只管付得爽，其余的就别多问啦。”</RatkinQL_Forge_Buyer_Terms1>
+  <RatkinQL_Forge_Buyer_OptBack>回到正题</RatkinQL_Forge_Buyer_OptBack>
+
+  <RatkinQL_Forge_Buyer_Thanks>散客把武器仔细裹好塞进行囊，冲你一抱拳：“痛快！有缘再会，铁匠。”说完便又踏上了路。</RatkinQL_Forge_Buyer_Thanks>
+  <RatkinQL_Forge_Buyer_OptBye>目送他离开</RatkinQL_Forge_Buyer_OptBye>
+
+  <RatkinQL_Forge_Buyer_OptDecline>手头没货，这回不做这单</RatkinQL_Forge_Buyer_OptDecline>
+
+  <!-- 散客分级后果讯息 -->
+  <RatkinQL_Forge_Buyer_BandMsg1>散客清点了你交付的武器，满意成交，如数付了白银。</RatkinQL_Forge_Buyer_BandMsg1>
+  <RatkinQL_Forge_Buyer_BandMsg2>散客没想到你竟拿得出这等好货，喜出望外地加码付款，连声说要替你把名声传遍整条商路！</RatkinQL_Forge_Buyer_BandMsg2>
+
+  <!-- ★自制交货挑选窗口（C 方案）通用文案 -->
+  <RatkinQL_Forge_DeliverWindow_Title>挑选要交付的军械</RatkinQL_Forge_DeliverWindow_Title>
+  <RatkinQL_Forge_DeliverWindow_Req>需要 {0}~{1} 把武器，品质 {2} 以上；交付总价值越高，回报与名声越好（目标基准约 {3} 银）。</RatkinQL_Forge_DeliverWindow_Req>
+  <RatkinQL_Forge_DeliverWindow_Band>已选 {0} 把，总值 {1} 银——达第 {2} 级交付。</RatkinQL_Forge_DeliverWindow_Band>
+  <RatkinQL_Forge_DeliverWindow_Short>已选 {0} 把，总值 {1} 银（尚未达交付门槛）。</RatkinQL_Forge_DeliverWindow_Short>
+  <RatkinQL_Forge_DeliverWindow_SilverUnit>银</RatkinQL_Forge_DeliverWindow_SilverUnit>
+  <RatkinQL_Forge_DeliverWindow_Confirm>确认交货</RatkinQL_Forge_DeliverWindow_Confirm>
+  <RatkinQL_Forge_DeliverWindow_Cancel>取消</RatkinQL_Forge_DeliverWindow_Cancel>
+
+</LanguageData>

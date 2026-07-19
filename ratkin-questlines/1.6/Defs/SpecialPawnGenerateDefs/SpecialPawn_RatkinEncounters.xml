@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    全包唯一的訪客對話掛載器（照官方 QE_RandomDialog 範例：單一 SpecialPawnGenerateDef，
+    dialogs 列出所有任務線 tag，每批訪客按 commonality 加權「只抽一個」→ 一位訪客最多一個對話圖示）。
+    每條 F1 對話線只要在下面 dialogs 加一個 <li><tag>…</tag><commonality>…</commonality></li>，
+    並各自有一個 DialogManagerDef（同 tag + genrationConditions 鼠族派系篩選 + 自己的 tree）。
+    AddDialog 會按每個 tag 的 manager.genrationConditions 逐 pawn 過濾（限鼠族），再加權抽一個綁上。
+  -->
+  <QuestEditor_Library.SpecialPawnGenerateDef>
+    <defName>RatkinQL_EncounterSpawn</defName>
+    <commonality>0.5</commonality>
+    <generator Class="QuestEditor_Library.SpecialPawnGenerator_AddDialog">
+      <dialogs>
+        <li><tag>RatkinQL_Peddler</tag><commonality>0.7</commonality></li>
+        <li><tag>RatkinQL_Courier</tag><commonality>0.6</commonality></li>
+        <li><tag>RatkinQL_Vagabond</tag><commonality>0.5</commonality></li>
+        <li><tag>RatkinQL_Grateful</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_Pilgrim</tag><commonality>0.5</commonality></li>
+        <li><tag>RatkinQL_Scout</tag><commonality>0.5</commonality></li>
+        <li><tag>RatkinQL_LostKit</tag><commonality>0.4</commonality></li>
+        <li><tag>RatkinQL_Toll</tag><commonality>0.4</commonality></li>
+        <li><tag>RatkinQL_Veteran</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_Minstrel</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_Healer</tag><commonality>0.5</commonality></li>
+        <li><tag>RatkinQL_Junk</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_Contract</tag><commonality>0.35</commonality></li>
+        <li><tag>RatkinQL_Refugee</tag><commonality>0.4</commonality></li>
+        <li><tag>RatkinQL_Hunted</tag><commonality>0.3</commonality></li>
+        <li><tag>RatkinQL_Festival</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_Lorekeeper</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_Mourner</tag><commonality>0.35</commonality></li>
+        <li><tag>RatkinQL_RaidOutpost</tag><commonality>0.3</commonality></li>
+        <li><tag>RatkinQL_Monument</tag><commonality>0.3</commonality></li>
+        <!-- ★商團首領佩林 三章劇情弧（分章由各 DialogManager 的 genrationConditions 全域 bool 閂，同時只有一章可綁） -->
+        <li><tag>RatkinQL_PeirinCh1</tag><commonality>0.6</commonality></li>
+        <li><tag>RatkinQL_PeirinCh2</tag><commonality>0.6</commonality></li>
+        <li><tag>RatkinQL_PeirinCh3</tag><commonality>0.6</commonality></li>
+        <!-- ★武器商任務線（王國信使發採購令 → 軍需官收貨） -->
+        <li><tag>RatkinQL_ArmsEnvoy</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_ArmsDeliver</tag><commonality>0.6</commonality></li>
+        <!-- 武器商大單（名聲夠高解鎖，與標準線互斥） -->
+        <li><tag>RatkinQL_ArmsEnvoyMajor</tag><commonality>0.45</commonality></li>
+        <li><tag>RatkinQL_ArmsDeliverMajor</tag><commonality>0.6</commonality></li>
+      </dialogs>
+    </generator>
+  </QuestEditor_Library.SpecialPawnGenerateDef>
+
+</Defs>

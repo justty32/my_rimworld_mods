@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Arrival letter (QuestNode_SpawnRatkinEnvoy) -->
+  <RatkinQL_Forge_Acorn_ArriveLabel>The headwoman of Acorn Village</RatkinQL_Forge_Acorn_ArriveLabel>
+  <RatkinQL_Forge_Acorn_ArriveText>Chestnut, the young headwoman of Acorn Village, has walked into your settlement with two villagers, hugging her beloved ledger board. She wants to talk to you — the blacksmith — about that arms order in person. Go have a word with her.</RatkinQL_Forge_Acorn_ArriveText>
+
+  <!-- Dialog tree -->
+  <RatkinQL_Forge_Acorn_Title>Chestnut, Headwoman of Acorn Village</RatkinQL_Forge_Acorn_Title>
+  <RatkinQL_Forge_Acorn_Report>Discuss the arms commission with Chestnut of Acorn Village</RatkinQL_Forge_Acorn_Report>
+
+  <RatkinQL_Forge_Acorn_Greeting>So there's a blacksmith who makes arms turned up around here? I'm Chestnut, headwoman of Acorn Village! (She hugs her ledger board a little tighter.) Autumn's coming, and the beasts up in the hills are getting bolder by the day... I've reckoned it out — for fending off beasts you need both reach and close-in: I'd like three crossbows, plus two spears. Off the shelf is fine — doesn't have to be pretty, just needs to shoot and stab. As for the price — I've done the sums, {Interviewer_labelShort}, so don't you try to cheat me out of a single chestnut.</RatkinQL_Forge_Acorn_Greeting>
+
+  <RatkinQL_Forge_Acorn_OptDeliver>Hand over three crossbows and two spears from stock</RatkinQL_Forge_Acorn_OptDeliver>
+  <RatkinQL_Forge_Acorn_NeedStock>You can't put together what she's asking for (three crossbows + two spears)</RatkinQL_Forge_Acorn_NeedStock>
+  <RatkinQL_Forge_Acorn_MsgPaid>Chestnut checks each crossbow one by one, hefts the spear shafts, nods with satisfaction, and counts out the agreed silver — then sneaks a little bag of roasted chestnuts into your hands too. "This... doesn't count toward the price, all right? Just a thank-you." The tips of her ears go red.</RatkinQL_Forge_Acorn_MsgPaid>
+
+  <RatkinQL_Forge_Acorn_OptTerms>Ask what's actually going on in her village</RatkinQL_Forge_Acorn_OptTerms>
+  <RatkinQL_Forge_Acorn_Terms1>Acorn Village isn't big — just at the edge of that oak wood at the foot of the hills. We grow a few crops, store up nuts for winter. Most years it's only squirrels raiding the granary, but this year the beasts are vicious... and we're short on young hands. Crossbows for range, spears up close — we really do need to stock up.</RatkinQL_Forge_Acorn_Terms1>
+  <RatkinQL_Forge_Acorn_Terms2>Don't worry — I count my coins tight, but I never short what's owed. Do good work, and the village's business is yours from here on. And on my ledger board, you'll get a very fine mark indeed.</RatkinQL_Forge_Acorn_Terms2>
+  <RatkinQL_Forge_Acorn_OptBack>Back to business</RatkinQL_Forge_Acorn_OptBack>
+
+  <RatkinQL_Forge_Acorn_OptExtort>Jack up the price and squeeze her hard</RatkinQL_Forge_Acorn_OptExtort>
+  <RatkinQL_Forge_Acorn_MsgExtort>Chestnut hears your suddenly inflated price, and her face falls. Hugging her ledger board tight, she says, one word at a time: "...So you're that kind of ratkin." She waves her villagers along and turns to leave, not looking back once. Acorn Village likely won't come to you again.</RatkinQL_Forge_Acorn_MsgExtort>
+  <RatkinQL_Forge_Acorn_ExtortEnd>(She's gone. You count the extra coins you squeezed out of her — somehow they don't feel as heavy as you'd imagined.)</RatkinQL_Forge_Acorn_ExtortEnd>
+  <RatkinQL_Forge_Acorn_OptShrug>Shrug</RatkinQL_Forge_Acorn_OptShrug>
+
+  <RatkinQL_Forge_Acorn_Thanks>Chestnut hands out the short bows for her villagers to shoulder, scratches two more marks on her ledger board, and looks up with a grin: "A pleasure doing business! I'll be back — and mind you keep some in stock for me!"</RatkinQL_Forge_Acorn_Thanks>
+  <RatkinQL_Forge_Acorn_OptBye>Watch her party leave</RatkinQL_Forge_Acorn_OptBye>
+
+  <RatkinQL_Forge_Acorn_OptDecline>Not this time — let her come back another day</RatkinQL_Forge_Acorn_OptDecline>
+
+  <!-- Banded outcome band-2: fine delivery (Good+) -> perfect repel -->
+  <RatkinQL_Forge_Acorn_OptDeliverFine>Deliver the fine goods: three Good+ crossbows and two Good+ spears</RatkinQL_Forge_Acorn_OptDeliverFine>
+  <RatkinQL_Forge_Acorn_NeedFine>You can't put together goods of Good quality or better (three crossbows + two spears, all Good+)</RatkinQL_Forge_Acorn_NeedFine>
+  <RatkinQL_Forge_Acorn_MsgPaidFine>Chestnut takes up a crossbow, draws it full, lets go — the string sings clean. She hefts a spearhead, and her eyes light up: "This... this isn't gear for shooing off critters, this is what you fight a real battle with!" Without a word she adds a fat extra bag of silver, and doubles the roasted chestnuts too.</RatkinQL_Forge_Acorn_MsgPaidFine>
+  <RatkinQL_Forge_Acorn_ThanksFine>A few days later, good news arrives from Acorn Village: with your fine arms in hand, the villagers not only held off the beasts coming down the hills but drove the whole pack cleanly back into the deep woods — not a soul hurt. Chestnut marks it in big letters on the proudest page of her ledger board: "This blacksmith? From now on, they're one of us Acorn folk!"</RatkinQL_Forge_Acorn_ThanksFine>
+
+  <!-- Tech blueprint airdrop (village-tier first commission) -->
+  <RatkinQL_Forge_T1Tech_Label>Tech Blueprint: Frontier Armory Schematics</RatkinQL_Forge_T1Tech_Label>
+  <RatkinQL_Forge_T1Tech_Text>As you take the commission, Chestnut digs a bundle of dog-eared schematics out of her pack and presses them into your hands: "Our village's old smith left these behind — how to string a crossbow arm, how to temper a spearhead, it's all drawn in there. Study it first, or you'll never make what I'm asking for." A drop pod soon lands beside your trade spot. Study it to master the smithing this tier of commissions requires.</RatkinQL_Forge_T1Tech_Text>
+
+  <!-- Tech blueprint use message ({0} = number of researches unlocked) -->
+  <RatkinQL_TechBlueprint_Used>You studied the tech blueprint and mastered {0} new smithing technique(s).</RatkinQL_TechBlueprint_Used>
+
+</LanguageData>

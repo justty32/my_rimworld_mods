@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PeirinCh1Tree_Title>年輕的行商</RatkinQL_PeirinCh1Tree_Title>
+  <RatkinQL_PeirinCh1Tree_Report>一隻毛躁的年輕鼠族行商擠上你的門，兜售貨物。</RatkinQL_PeirinCh1Tree_Report>
+  <RatkinQL_Peirin_Ch1_Greeting>一隻背著補丁包袱的年輕鼠族擠進門口，朝 {Interviewer_labelShort} 揚起燦爛笑容，嗓音明亮又急：「您好！路上雜貨——硬餅乾、草藥、小玩意兒，價格公道，我保證！」她挺了挺胸膛，像在等著人家質疑她。</RatkinQL_Peirin_Ch1_Greeting>
+  <RatkinQL_Peirin_Ch1_Story1>「我？叫我胡桃就好啦，一隻出來跑商路的年輕鼠。來歷嘛……嗯，等咱們夠熟了再聊，說不定是個好故事喔？」她眨眨眼，熟練地岔開話題。</RatkinQL_Peirin_Ch1_Story1>
+  <RatkinQL_Peirin_Ch1_Story2>「總之呢，我要靠自己走出自己的商路、闖出自己的名號。不做誰的影子。」她重重點頭，像是在說服自己。</RatkinQL_Peirin_Ch1_Story2>
+  <RatkinQL_Peirin_Ch1_OptTrade>照價向她買些雜貨（15 銀）</RatkinQL_Peirin_Ch1_OptTrade>
+  <RatkinQL_Peirin_Ch1_OptFund>不要貨，直接資助她一筆（50 銀）</RatkinQL_Peirin_Ch1_OptFund>
+  <RatkinQL_Peirin_Ch1_OptFleece>壓到骨折價，賤價收了她的貨（5 銀）</RatkinQL_Peirin_Ch1_OptFleece>
+  <RatkinQL_Peirin_Ch1_OptStory>問她到底是什麼來歷</RatkinQL_Peirin_Ch1_OptStory>
+  <RatkinQL_Peirin_Ch1_OptLeave>今天不需要，請她走</RatkinQL_Peirin_Ch1_OptLeave>
+  <RatkinQL_Peirin_Ch1_OptBack>回到正題</RatkinQL_Peirin_Ch1_OptBack>
+  <RatkinQL_Peirin_Ch1_OptBye>就這樣，道別</RatkinQL_Peirin_Ch1_OptBye>
+  <RatkinQL_Peirin_Ch1_Farewell>「好嘞！下回帶更好的貨來，您等著瞧！」她笑瞇瞇地背起包袱，邊走邊自顧自地盤算起下個季節的路線。</RatkinQL_Peirin_Ch1_Farewell>
+  <RatkinQL_Peirin_Ch1_MsgTrade>胡桃得意地把雜貨遞過來，俐落地收下銀幣。</RatkinQL_Peirin_Ch1_MsgTrade>
+  <RatkinQL_Peirin_Ch1_MsgFund>胡桃愣愣地看著那筆銀子，低下頭來：「我……我不會忘記這份恩情。我發誓。」她直起身，眼底閃過堅決的光。</RatkinQL_Peirin_Ch1_MsgFund>
+  <RatkinQL_Peirin_Ch1_MsgFleece>胡桃的耳朵垂了下來。她悶不吭聲把貨塞給你，臉上的笑容消失無蹤：「……成交。」</RatkinQL_Peirin_Ch1_MsgFleece>
+</LanguageData>

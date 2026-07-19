@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_LostKitTree_Title>A Lost Kit</RatkinQL_LostKitTree_Title>
+  <RatkinQL_LostKitTree_Report>A frantic ratkin parent came to us, looking for a lost child.</RatkinQL_LostKitTree_Report>
+  <RatkinQL_LostKit_Greeting>A ratkin parent bursts through the door, eyes wide. “Please—my little one! We were passing through, and now they’re gone. I don’t know where. Please, {Interviewer_labelShort}, help me find them.”</RatkinQL_LostKit_Greeting>
+  <RatkinQL_LostKit_OptSearch>“I’ll rally some people to help search.”</RatkinQL_LostKit_OptSearch>
+  <RatkinQL_LostKit_OptStory>“How did they get lost?”</RatkinQL_LostKit_OptStory>
+  <RatkinQL_LostKit_OptComfort>“Here, have some food and wait with me.” (2 hardtack)</RatkinQL_LostKit_OptComfort>
+  <RatkinQL_LostKit_OptLeave>“I can’t help. Sorry.”</RatkinQL_LostKit_OptLeave>
+  <RatkinQL_LostKit_OptBack>“Let’s get back on track.”</RatkinQL_LostKit_OptBack>
+  <RatkinQL_LostKit_Story1>“We stopped to rest, and she saw a butterfly… chased it into the tall grass and just—vanished.”</RatkinQL_LostKit_Story1>
+  <RatkinQL_LostKit_Story2>“Something spooked the pack animals—a boomrat, maybe. Everyone scattered, and when I counted heads, he wasn’t there.”</RatkinQL_LostKit_Story2>
+  <RatkinQL_LostKit_Story3>“I thought he was right behind me the whole time. Must’ve crawled into a bush for a nap. By the time I noticed, we’d already moved on.”</RatkinQL_LostKit_Story3>
+  <RatkinQL_LostKit_Farewell>The parent clutches their chest and bows deeply. “Thank you—thank you. I won’t forget this.” They hurry away, still trembling.</RatkinQL_LostKit_Farewell>
+  <RatkinQL_LostKit_MsgReunion>With your help, the lost kit was found safe. The parent scoops them up, both crying and laughing at once.</RatkinQL_LostKit_MsgReunion>
+  <RatkinQL_LostKit_MsgComfort>The parent accepts the food with shaking hands. They take a few bites, shoulders slowly relaxing. “You’re kind. Thank you.”</RatkinQL_LostKit_MsgComfort>
+</LanguageData>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《鼠族供貨約》— F2 多階段委託 proof-slice。
+    由對話（Line_Contract 的接約選項，CQFAction_Quest）觸發，不經說書人（rootSelectionWeight=0）。
+    流程（信號接力，仿 cqf-example-quests GuideCommission）：
+      玩家在對話交付首批貨（requiredThings，在對話端） → 觸發本任務
+      → 開場訊息 + DelayExecute 半天 → SentSignal Payout1
+      → Payout1: 投放第一期白銀 + DelayExecute 半天 → SentSignal Payout2
+      → Payout2: 投放第二期白銀 → End Success
+    半天 = 30000 tick。發實體獎勵一律走原版節點（CQF action 空 targets 發不了獎）。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_SupplyContract</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->鼠族供貨約</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->你和一位鼠族客商談成了一筆供貨約——你先交付了一批存糧，對方會在轉手售出後，分兩期把貨款（外加一點佣金）送回你的殖民地。等他們的投放艙。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>true</canBeSpace>
+        </li>
+
+        <!-- (1) 開場：任務生成時（inSignal 留空＝吃 initiate 信號）跳訊息 + 半天後發 Payout1 -->
+        <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+          <actions>
+            <li Class="QuestEditor_Library.CQFAction_Message">
+              <message>RatkinQL_Contract_MsgSealed</message>
+              <type>PositiveEvent</type>
+            </li>
+            <li Class="QuestEditor_Library.CQFAction_DelayExecute">
+              <delayTime>30000</delayTime>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_SentSignal">
+                  <signal>Payout1</signal>
+                  <addQuestPrefix>true</addQuestPrefix>
+                </li>
+              </actions>
+            </li>
+          </actions>
+        </li>
+
+        <!-- (2) Payout1：投放第一期白銀 -->
+        <li Class="QuestNode_GenerateThingSet">
+          <thingSetMaker>RatkinQL_ContractPay</thingSetMaker>
+          <storeAs>ratkinContractPay1</storeAs>
+        </li>
+        <li Class="QuestNode_DropPods">
+          <inSignal>Payout1</inSignal>
+          <contents>$ratkinContractPay1</contents>
+          <sendStandardLetter>true</sendStandardLetter>
+          <useTradeDropSpot>true</useTradeDropSpot>
+          <customLetterLabel>供貨約：第一期貨款</customLetterLabel>
+          <customLetterText>鼠族客商把第一批貨脫手了，循舊路送回第一期貨款。</customLetterText>
+        </li>
+
+        <!-- (3) Payout1 後再等半天 → Payout2 -->
+        <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+          <inSignal>Payout1</inSignal>
+          <actions>
+            <li Class="QuestEditor_Library.CQFAction_DelayExecute">
+              <delayTime>30000</delayTime>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_SentSignal">
+                  <signal>Payout2</signal>
+                  <addQuestPrefix>true</addQuestPrefix>
+                </li>
+              </actions>
+            </li>
+          </actions>
+        </li>
+
+        <!-- (4) Payout2：投放第二期白銀（含佣金） -->
+        <li Class="QuestNode_GenerateThingSet">
+          <thingSetMaker>RatkinQL_ContractPay</thingSetMaker>
+          <storeAs>ratkinContractPay2</storeAs>
+        </li>
+        <li Class="QuestNode_DropPods">
+          <inSignal>Payout2</inSignal>
+          <contents>$ratkinContractPay2</contents>
+          <sendStandardLetter>true</sendStandardLetter>
+          <useTradeDropSpot>true</useTradeDropSpot>
+          <customLetterLabel>供貨約：尾期貨款</customLetterLabel>
+          <customLetterText>尾期貨款連同一點佣金送到了。這筆供貨約圓滿結清——客商說，往後還有生意找你。</customLetterText>
+        </li>
+
+        <!-- (5) Payout2 結案 -->
+        <li Class="QuestNode_End">
+          <inSignal>Payout2</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

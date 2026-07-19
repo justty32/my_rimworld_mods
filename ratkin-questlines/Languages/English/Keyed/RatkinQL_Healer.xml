@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_HealerTree_Title>Ratkin Herbalist</RatkinQL_HealerTree_Title>
+  <RatkinQL_HealerTree_Report>A traveling healer passed through, offering herbs and home remedies.</RatkinQL_HealerTree_Report>
+  <RatkinQL_Healer_Greeting>He shifts his basket of leaves on his back. “{Interviewer_labelShort}, stocking up on herbs? Or just need a wise old rat’s advice on what ails you?”</RatkinQL_Healer_Greeting>
+  <RatkinQL_Healer_OptBuy>Buy a batch of mixed herbs (30 silver)</RatkinQL_Healer_OptBuy>
+  <RatkinQL_Healer_OptRemedy>Ask him for a few folk remedies.</RatkinQL_Healer_OptRemedy>
+  <RatkinQL_Healer_OptLeave>Say you don't need anything right now.</RatkinQL_Healer_OptLeave>
+  <RatkinQL_Healer_OptBack>Get back to business.</RatkinQL_Healer_OptBack>
+  <RatkinQL_Healer_Remedy1>“Got a fever? Chew on the root of the yellow-blossom weed. Tastes like dirt, but it’ll sweat it out of you by morning.”</RatkinQL_Healer_Remedy1>
+  <RatkinQL_Healer_Remedy2>“For a cut that won't stop oozing, pack it with fresh moss from the north side of a tree. Keeps the rot out and the blood in.”</RatkinQL_Healer_Remedy2>
+  <RatkinQL_Healer_Remedy3>“Can’t sleep? Stuff a pinch of dried night-clover into your pillow. You’ll dream of running through wheat fields.”</RatkinQL_Healer_Remedy3>
+  <RatkinQL_Healer_Farewell>He hoists his basket and nods goodbye.</RatkinQL_Healer_Farewell>
+  <RatkinQL_Healer_MsgBuy>He counts out a dozen little bundles of herbs, showing you how to brew each one, and pockets your silver with a satisfied nod.</RatkinQL_Healer_MsgBuy>
+</LanguageData>

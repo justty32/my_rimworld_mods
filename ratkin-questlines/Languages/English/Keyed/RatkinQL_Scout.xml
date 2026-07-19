@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_ScoutTree_Title>Ratkin Scout</RatkinQL_ScoutTree_Title>
+  <RatkinQL_ScoutTree_Report>A ratkin scout passed by and warned us about nearby danger.</RatkinQL_ScoutTree_Report>
+  <RatkinQL_Scout_Greeting>“Hey, {Interviewer_labelShort}.” The ratkin scout keeps his voice low. “Got here just in time. There’s trouble heading your way. Something you’ll want to know about.</RatkinQL_Scout_Greeting>
+  <RatkinQL_Scout_OptReward>“Thanks, have some silver for the tip.” (15 silver)</RatkinQL_Scout_OptReward>
+  <RatkinQL_Scout_OptDetails>“Tell me more — what exactly is it?”</RatkinQL_Scout_OptDetails>
+  <RatkinQL_Scout_OptHeed>“I’ll keep an eye out. Appreciate the warning.”</RatkinQL_Scout_OptHeed>
+  <RatkinQL_Scout_OptLeave>“Not interested. Go on your way.”</RatkinQL_Scout_OptLeave>
+  <RatkinQL_Scout_OptBack>“Let’s get back on track.”</RatkinQL_Scout_OptBack>
+  <RatkinQL_Scout_Details1>“Bandit crew — maybe six or seven of them — were spotted two hills east. They’re driftin’ this direction fast.”</RatkinQL_Scout_Details1>
+  <RatkinQL_Scout_Details2>“A pack of mad boomalopes, foamin’ at the mouth. They tore through a farm north of here and they’re not stopping.”</RatkinQL_Scout_Details2>
+  <RatkinQL_Scout_Details3>“Big snow front coming down from the mountains. Could bury this place in a day if you’re not ready.”</RatkinQL_Scout_Details3>
+  <RatkinQL_Scout_Farewell>“Right. I got rounds to make. Stay sharp.” He gives a quick salute and pads away.</RatkinQL_Scout_Farewell>
+  <RatkinQL_Scout_MsgReward>The scout pockets the silver and nods, a quick grin flickering on his face. “Obliged. That’ll buy my next meal.”</RatkinQL_Scout_MsgReward>
+  <RatkinQL_Scout_MsgHeed>“Good.” He nods once, then slips away into the underbrush.</RatkinQL_Scout_MsgHeed>
+</LanguageData>

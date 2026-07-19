@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <RatkinQL_PeddlerTree_Title>Ratkin Peddler</RatkinQL_PeddlerTree_Title>
+  <RatkinQL_PeddlerTree_Report>Traded with a ratkin peddler on the road.</RatkinQL_PeddlerTree_Report>
+
+  <RatkinQL_Peddler_Greeting>A small ratkin traveller shrugs off a heavy pack and gives {Interviewer_labelShort} a once-over. "Oh — a proper settlement, all the way out here. I walk the long roads between the burrows. I've road-bread and a bottle or two to spare, if your larder's looking thin. What'll it be?"</RatkinQL_Peddler_Greeting>
+
+  <RatkinQL_Peddler_OptNews>Ask what's happening out on the roads</RatkinQL_Peddler_OptNews>
+  <RatkinQL_Peddler_OptHaggle>Haggle hard for a cut-rate deal — 25 silver (requires Social 7+)</RatkinQL_Peddler_OptHaggle>
+  <RatkinQL_Peddler_OptFair>Trade at a fair price — 40 silver</RatkinQL_Peddler_OptFair>
+  <RatkinQL_Peddler_OptGenerous>Pay generously and see them off well — 60 silver</RatkinQL_Peddler_OptGenerous>
+  <RatkinQL_Peddler_OptLeave>Farewell</RatkinQL_Peddler_OptLeave>
+  <RatkinQL_Peddler_OptBack>Back to trading</RatkinQL_Peddler_OptBack>
+
+  <RatkinQL_Peddler_ReasonSocial>Your negotiator's Social skill is below 7.</RatkinQL_Peddler_ReasonSocial>
+
+  <RatkinQL_Peddler_MsgGoods>The ratkin unpacks a stack of hardtack and a couple of bottles onto the ground, and tucks the silver away.</RatkinQL_Peddler_MsgGoods>
+  <RatkinQL_Peddler_MsgHaggle>The peddler counts the silver twice, ears flat. "...Fine. Fine. Highway robbery, is what it is." They won't forget being squeezed like that.</RatkinQL_Peddler_MsgHaggle>
+  <RatkinQL_Peddler_MsgGenerous>The peddler blinks at the extra coin, then bows low. "May your burrow never flood. I'll tell the others you're good folk out here."</RatkinQL_Peddler_MsgGenerous>
+
+  <RatkinQL_Peddler_News1>"The Kingdom's grain barges are running late this season — everyone's tightening their belts. Good time to be selling food, if you've got a surplus."</RatkinQL_Peddler_News1>
+  <RatkinQL_Peddler_News2>"They say the warlord's press-gangs are out again past the eastern ridge. If some ragged ratkin comes begging at your gate one night, well... you didn't hear it from me."</RatkinQL_Peddler_News2>
+  <RatkinQL_Peddler_News3>"The general store's caravans have been asking after this stretch of road. If they come knocking, deal square with them — that lot remembers a face."</RatkinQL_Peddler_News3>
+
+  <RatkinQL_Peddler_Farewell>The peddler swings the pack back up onto both shoulders. "Long road ahead. Mind how you go — and keep a light in the window for travellers."</RatkinQL_Peddler_Farewell>
+
+  <RatkinQL_NotRatkin>Not one of the ratkin folk.</RatkinQL_NotRatkin>
+
+</LanguageData>

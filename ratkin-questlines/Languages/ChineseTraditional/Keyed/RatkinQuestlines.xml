@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <RatkinQL_PeddlerTree_Title>鼠族旅販</RatkinQL_PeddlerTree_Title>
+  <RatkinQL_PeddlerTree_Report>與路過的鼠族旅販做了筆買賣。</RatkinQL_PeddlerTree_Report>
+
+  <RatkinQL_Peddler_Greeting>一隻小小的鼠族旅人卸下沉重的行囊，上下打量了{Interviewer_labelShort}一番：「哎呀——這麼偏遠的地方，居然有個像樣的聚落。我是走地洞之間長路的行腳商，帶了些旅途乾糧，還有一兩瓶啤酒可以勻給你們。要是你們糧倉見底了，看看要不要?」</RatkinQL_Peddler_Greeting>
+
+  <RatkinQL_Peddler_OptNews>打聽路上最近有什麼風聲</RatkinQL_Peddler_OptNews>
+  <RatkinQL_Peddler_OptHaggle>狠狠殺價，撿個便宜 — 25 銀（需要社交 7+）</RatkinQL_Peddler_OptHaggle>
+  <RatkinQL_Peddler_OptFair>照行情價成交 — 40 銀</RatkinQL_Peddler_OptFair>
+  <RatkinQL_Peddler_OptGenerous>大方付錢、好好送客 — 60 銀</RatkinQL_Peddler_OptGenerous>
+  <RatkinQL_Peddler_OptLeave>告辭</RatkinQL_Peddler_OptLeave>
+  <RatkinQL_Peddler_OptBack>回到買賣</RatkinQL_Peddler_OptBack>
+
+  <RatkinQL_Peddler_ReasonSocial>你的談判者社交技能低於 7。</RatkinQL_Peddler_ReasonSocial>
+
+  <RatkinQL_Peddler_MsgGoods>鼠族旅人把一疊硬餅乾和兩瓶啤酒卸在地上，把銀子收進了懷裡。</RatkinQL_Peddler_MsgGoods>
+  <RatkinQL_Peddler_MsgHaggle>旅販把銀子數了兩遍，耳朵貼得平平的：「……好啦、好啦，這根本是搶劫。」被這樣宰了一筆，他是不會忘的。</RatkinQL_Peddler_MsgHaggle>
+  <RatkinQL_Peddler_MsgGenerous>旅販盯著多出來的銀子愣了一下，深深一鞠躬：「願你們的地洞永遠不淹水。我會跟大夥兒說，這邊住的是好人。」</RatkinQL_Peddler_MsgGenerous>
+
+  <RatkinQL_Peddler_News1>「王國今年的運糧船隊遲了——大家都在勒緊褲帶。你們要是有餘糧，這可是賣糧的好時候。」</RatkinQL_Peddler_News1>
+  <RatkinQL_Peddler_News2>「聽說軍閥的抓丁隊又在東邊那道山脊後頭出沒了。哪天要是有隻衣衫襤褸的鼠族半夜來你們門口討飯……嗯，這話可不是我說的。」</RatkinQL_Peddler_News2>
+  <RatkinQL_Peddler_News3>「雜貨鋪的商隊最近一直在打聽這段路。他們要是找上門，跟他們老實做買賣——那幫傢伙可是記臉的。」</RatkinQL_Peddler_News3>
+
+  <RatkinQL_Peddler_Farewell>旅販把行囊重新甩上雙肩：「前頭路還長。你們自己多保重——記得替趕路的人在窗邊留盞燈。」</RatkinQL_Peddler_Farewell>
+
+  <RatkinQL_NotRatkin>不是鼠族的人。</RatkinQL_NotRatkin>
+
+</LanguageData>

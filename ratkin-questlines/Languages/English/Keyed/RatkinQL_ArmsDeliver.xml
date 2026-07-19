@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsDeliverTree_Title>The Kingdom Quartermaster</RatkinQL_ArmsDeliverTree_Title>
+<RatkinQL_ArmsDeliverTree_Report>The quartermaster has arrived to inspect and collect the consignment.</RatkinQL_ArmsDeliverTree_Report>
+<RatkinQL_Arms_Deliver_Greeting>"We meet at last, {Interviewer_labelShort}. I am the quartermaster sent to inspect the arms you've forged for the kingdom. Show me your work."</RatkinQL_Arms_Deliver_Greeting>
+<RatkinQL_Arms_Deliver_OptDeliver>Deliver the weapons (3 longswords of Good or better quality)</RatkinQL_Arms_Deliver_OptDeliver>
+<RatkinQL_Arms_Deliver_OptLater>Hold on, the goods aren't ready yet</RatkinQL_Arms_Deliver_OptLater>
+<RatkinQL_Arms_Deliver_OptBye>Farewell</RatkinQL_Arms_Deliver_OptBye>
+<RatkinQL_Arms_Deliver_Thanks>The quartermaster inspects each blade, nods in satisfaction, then hands over a pouch of silver and a sealed scroll. "This is the royal writ of conscription. Use it once, and once only. When you are in dire need, invoke it—our forces will come to your aid."</RatkinQL_Arms_Deliver_Thanks>
+<RatkinQL_Arms_Deliver_MsgPaid>You have delivered the qualified arms. In return, you received silver and a royal writ of conscription.</RatkinQL_Arms_Deliver_MsgPaid>
+<RatkinQL_Arms_NeedQuality>You do not have enough qualified weapons on hand—you need 3 longswords of 'Good' quality or better.</RatkinQL_Arms_NeedQuality>
+<RatkinQL_Aid_NoFaction>You attempted to invoke the writ, but there is no Rakinian faction capable of responding, or your relations have soured beyond repair.</RatkinQL_Aid_NoFaction>
+</LanguageData>

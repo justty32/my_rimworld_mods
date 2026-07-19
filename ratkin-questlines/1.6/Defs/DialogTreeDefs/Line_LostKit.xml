@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《走失的幼崽》— F1：一名心急的鼠族家長，途經時幼崽走失，上門求助尋找。
+    （訪客為成年鼠族，任何鼠族訪客皆成立。）玩家可幫忙搜尋（→團圓，好感）／問經過（世界感）／
+    給食物安撫等待（給 2 硬餅乾→好感）／愛莫能助（關窗）。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_LostKitTree</defName>
+    <title>RatkinQL_LostKitTree_Title</title>
+    <dialogReportKey>RatkinQL_LostKitTree_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>3</curIndex>
+    <nodeMoulds>
+      <li>
+        <key>0</key>
+        <value>
+          <text>RatkinQL_LostKit_Greeting</text>
+          <index>0</index>
+          <subNodeIndexs><li>1</li><li>2</li></subNodeIndexs>
+          <options>
+            <li>
+              <text>RatkinQL_LostKit_OptSearch</text>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <results>
+                <li>
+                  <resultName>Searched</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                      <targetsText><li>Interviewee</li></targetsText>
+                      <isIncrease>true</isIncrease><value>3</value><sendLetter>true</sendLetter>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                      <keyOfBool>RatkinQL_Rep_Kind</keyOfBool><valueOfBool>true</valueOfBool>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>RatkinQL_LostKit_MsgReunion</message><type>PositiveEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+            <li>
+              <text>RatkinQL_LostKit_OptStory</text>
+              <results><li><resultName>GoStory</resultName><nextIndex>1</nextIndex></li></results>
+            </li>
+            <li>
+              <text>RatkinQL_LostKit_OptComfort</text>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <requiredThings>
+                <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RK_Food_Hardtack</thing><count>2~2</count></li>
+              </requiredThings>
+              <results>
+                <li>
+                  <resultName>Comforted</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                      <targetsText><li>Interviewee</li></targetsText>
+                      <isIncrease>true</isIncrease><value>2</value><sendLetter>true</sendLetter>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                      <keyOfBool>RatkinQL_Rep_Kind</keyOfBool><valueOfBool>true</valueOfBool>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>RatkinQL_LostKit_MsgComfort</message><type>PositiveEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+            <li>
+              <text>RatkinQL_LostKit_OptLeave</text>
+              <results><li><resultName>Leave</resultName></li></results>
+            </li>
+          </options>
+        </value>
+      </li>
+      <li>
+        <key>1</key>
+        <value>
+          <text>RatkinQL_LostKit_Story1</text>
+          <extraText><li>RatkinQL_LostKit_Story2</li><li>RatkinQL_LostKit_Story3</li></extraText>
+          <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+          <options>
+            <li><text>RatkinQL_LostKit_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li>
+          </options>
+        </value>
+      </li>
+      <li>
+        <key>2</key>
+        <value>
+          <text>RatkinQL_LostKit_Farewell</text>
+          <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+          <options>
+            <li><text>RatkinQL_LostKit_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+          </options>
+        </value>
+      </li>
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_LostKitManager</defName>
+    <tags><li>RatkinQL_LostKit</li></tags>
+    <genrationConditions>
+      <li Class="QuestEditor_Library.DialogCondition_Or">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <condition>
+          <li Class="QuestEditor_Library.DialogCondition_Faction"><targetText>Interviewee</targetText><faction>Rakinia</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="RKU.RatkinUnderground"><targetText>Interviewee</targetText><faction>RKU_Faction</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="W.ZHP"><targetText>Interviewee</targetText><faction>ZHP_Faction</faction></li>
+        </condition>
+      </li>
+    </genrationConditions>
+    <trees><li><tree>RatkinQL_LostKitTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

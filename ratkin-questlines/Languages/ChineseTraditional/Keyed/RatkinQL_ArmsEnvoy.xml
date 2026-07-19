@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsEnvoyTree_Title>王國信使</RatkinQL_ArmsEnvoyTree_Title>
+<RatkinQL_ArmsEnvoyTree_Report>一位 Rakinia 王國信使帶著王室採購令上門。</RatkinQL_ArmsEnvoyTree_Report>
+<RatkinQL_Arms_Envoy_Greeting>「向您致意，{Interviewer_labelShort}。我奉陛下後勤部之命，從拉齊尼亞前來。聽說貴地產的軍械精良，王庭想請您為王室效力。」</RatkinQL_Arms_Envoy_Greeting>
+<RatkinQL_Arms_Envoy_Terms1>「條件很簡單：限期內交付一批品質『優良（Good）』以上的刀劍。王國以豐厚白銀報酬，外加一件王室信物——一紙王國徵召令狀，蓋了王印。」</RatkinQL_Arms_Envoy_Terms1>
+<RatkinQL_Arms_Envoy_Terms2>「王國正值用兵之際，刀劍寧缺勿濫。這批交得漂亮，往後還有大單。」</RatkinQL_Arms_Envoy_Terms2>
+<RatkinQL_Arms_Envoy_OptAccept>接下這紙採購令</RatkinQL_Arms_Envoy_OptAccept>
+<RatkinQL_Arms_Envoy_OptTerms>先問清楚條件</RatkinQL_Arms_Envoy_OptTerms>
+<RatkinQL_Arms_Envoy_OptDecline>婉拒王國的委託</RatkinQL_Arms_Envoy_OptDecline>
+<RatkinQL_Arms_Envoy_OptBack>回到正題</RatkinQL_Arms_Envoy_OptBack>
+<RatkinQL_Arms_Envoy_OptBye>送信使離開</RatkinQL_Arms_Envoy_OptBye>
+<RatkinQL_Arms_Envoy_Sealed>信使頷首，鄭重收起契約，蓋上火漆。他說：「好。軍需官會在約定的日期前來驗貨、收貨。別讓王國失望。」</RatkinQL_Arms_Envoy_Sealed>
+<RatkinQL_Arms_Envoy_MsgAccept>你接下了王國的軍械採購令；備妥品質「優良」以上的軍械，等軍需官到訪交付。</RatkinQL_Arms_Envoy_MsgAccept>
+</LanguageData>

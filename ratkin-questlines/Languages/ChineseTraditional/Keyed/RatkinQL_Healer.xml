@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_HealerTree_Title>鼠族郎中</RatkinQL_HealerTree_Title>
+  <RatkinQL_HealerTree_Report>一名行腳郎中經過，兜售草藥和土偏方。</RatkinQL_HealerTree_Report>
+  <RatkinQL_Healer_Greeting>他挪了挪背上的藥簍：「{Interviewer_labelShort}，要備點草藥嗎？還是身上不爽快，想聽聽老老鼠的意見？」</RatkinQL_Healer_Greeting>
+  <RatkinQL_Healer_OptBuy>買一批草藥備著（30 銀）</RatkinQL_Healer_OptBuy>
+  <RatkinQL_Healer_OptRemedy>討教幾個土偏方。</RatkinQL_Healer_OptRemedy>
+  <RatkinQL_Healer_OptLeave>暫時不需要。</RatkinQL_Healer_OptLeave>
+  <RatkinQL_Healer_OptBack>回到正題。</RatkinQL_Healer_OptBack>
+  <RatkinQL_Healer_Remedy1>「發燒？找那種黃花雜草的根嚼一嚼。味道跟泥巴差不多，不過喝下去，到早上汗就發出來了。」</RatkinQL_Healer_Remedy1>
+  <RatkinQL_Healer_Remedy2>「傷口一直滲水？找樹北面的青苔，厚厚敷一層。能擋爛肉、也能止血。」</RatkinQL_Healer_Remedy2>
+  <RatkinQL_Healer_Remedy3>「睡不著？在枕頭裡塞一小撮乾夜草。保管你夢見自己在麥田裡跑。」</RatkinQL_Healer_Remedy3>
+  <RatkinQL_Healer_Farewell>他背起藥簍，點頭告別。</RatkinQL_Healer_Farewell>
+  <RatkinQL_Healer_MsgBuy>他數出一包包草藥，一一教你怎么沖泡，然後滿意地收起銀子。</RatkinQL_Healer_MsgBuy>
+</LanguageData>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_RefugeeTree_Title>Ratkin Refugee</RatkinQL_RefugeeTree_Title>
+<RatkinQL_RefugeeTree_Report>A refugee Ratkin has arrived, seeking shelter.</RatkinQL_RefugeeTree_Report>
+<RatkinQL_Refugee_Greeting>A haggard Ratkin stands at the door. He sets down his only bag and begs {Interviewer_labelShort} for a place to stay.</RatkinQL_Refugee_Greeting>
+<RatkinQL_Refugee_OptTakeIn>Take him in. Let him join the colony.</RatkinQL_Refugee_OptTakeIn>
+<RatkinQL_Refugee_OptStory>Ask where he came from and what happened.</RatkinQL_Refugee_OptStory>
+<RatkinQL_Refugee_OptSupplies>Can't take him in, but give him some supplies (5 hardtack).</RatkinQL_Refugee_OptSupplies>
+<RatkinQL_Refugee_OptLeave>Turn him away.</RatkinQL_Refugee_OptLeave>
+<RatkinQL_Refugee_OptBack>Back to the main topic.</RatkinQL_Refugee_OptBack>
+<RatkinQL_Refugee_Story1>Warlord's men burned our village. Those who ran were shot.</RatkinQL_Refugee_Story1>
+<RatkinQL_Refugee_Story2>Famine scattered everyone. I walked until I could not feel my feet.</RatkinQL_Refugee_Story2>
+<RatkinQL_Refugee_Story3>Rakinia and RKU tore our home apart. I was one of the lucky ones.</RatkinQL_Refugee_Story3>
+<RatkinQL_Refugee_Farewell>He nods once, his fate weighing on his shoulders.</RatkinQL_Refugee_Farewell>
+<RatkinQL_Refugee_MsgJoin>With tears in his eyes, he bows in solemn respect. This will be his new home.</RatkinQL_Refugee_MsgJoin>
+<RatkinQL_Refugee_MsgSupplies>He takes the rations, murmurs thanks, and drags his tired body onward.</RatkinQL_Refugee_MsgSupplies>
+</LanguageData>

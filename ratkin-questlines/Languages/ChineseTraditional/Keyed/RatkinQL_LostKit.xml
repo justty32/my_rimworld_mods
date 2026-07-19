@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_LostKitTree_Title>走失的幼崽</RatkinQL_LostKitTree_Title>
+  <RatkinQL_LostKitTree_Report>一名心急的鼠族家長上門求助，說孩子走失了。</RatkinQL_LostKitTree_Report>
+  <RatkinQL_LostKit_Greeting>一名鼠族家長慌張地衝進門，眼眶紅紅的：「拜託——我的小傢伙！我們路過這裡，然後就不見了。我不知道牠跑去哪了。{Interviewer_labelShort}，求求你幫我找找。」</RatkinQL_LostKit_Greeting>
+  <RatkinQL_LostKit_OptSearch>「我召集人手幫忙搜。」</RatkinQL_LostKit_OptSearch>
+  <RatkinQL_LostKit_OptStory>「是怎麼走失的？」</RatkinQL_LostKit_OptStory>
+  <RatkinQL_LostKit_OptComfort>「來，先吃點東西，我陪你等。」（2 份硬餅乾）</RatkinQL_LostKit_OptComfort>
+  <RatkinQL_LostKit_OptLeave>「我幫不上忙。抱歉。」</RatkinQL_LostKit_OptLeave>
+  <RatkinQL_LostKit_OptBack>「我們回到正題吧。」</RatkinQL_LostKit_OptBack>
+  <RatkinQL_LostKit_Story1>「我們停下來休息，牠看到一隻蝴蝶……追進草叢裡，然後就不見了。」</RatkinQL_LostKit_Story1>
+  <RatkinQL_LostKit_Story2>「有東西嚇到了馱畜——好像是隻爆炸鼠。大家亂成一團，等我點人時，牠已經不在隊伍裡了。」</RatkinQL_LostKit_Story2>
+  <RatkinQL_LostKit_Story3>「我以為牠一直跟在後面。大概是自己鑽進灌木叢睡著了，等我發現時隊伍已經走遠了。」</RatkinQL_LostKit_Story3>
+  <RatkinQL_LostKit_Farewell>家長按著胸口深深一鞠躬：「謝謝……謝謝你。這份恩情我不會忘的。」他顫抖著身子快步離去。</RatkinQL_LostKit_Farewell>
+  <RatkinQL_LostKit_MsgReunion>在你的幫助下，走失的幼崽平安找回。家長一把抱起孩子，兩人又哭又笑。</RatkinQL_LostKit_MsgReunion>
+  <RatkinQL_LostKit_MsgComfort>家長顫抖著接過食物，吃了幾口，肩膀漸漸放鬆下來。「你是個好人。謝謝。」</RatkinQL_LostKit_MsgComfort>
+</LanguageData>

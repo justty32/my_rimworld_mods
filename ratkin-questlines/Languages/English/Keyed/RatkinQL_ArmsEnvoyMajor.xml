@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsEnvoyMajorTree_Title>A Kingdom War-Envoy</RatkinQL_ArmsEnvoyMajorTree_Title>
+<RatkinQL_ArmsEnvoyMajorTree_Report>A kingdom war-envoy arrived, carrying a major arms order.</RatkinQL_ArmsEnvoyMajorTree_Report>
+<RatkinQL_ArmsMajor_Envoy_Greeting>I am a war-envoy of Rakinia. Your reputation as an armorer has reached the court, {Interviewer_labelShort}. The kingdom requires your finest steel—a proper order, not a common request.</RatkinQL_ArmsMajor_Envoy_Greeting>
+<RatkinQL_ArmsMajor_Envoy_Terms1>The terms are plain: deliver five longswords of "Excellent" quality or better, within the set time. The kingdom offers 450 silver and a single-use "Kingdom Conscription Writ"—one paper, one call, one host of our fighters at your side.</RatkinQL_ArmsMajor_Envoy_Terms1>
+<RatkinQL_ArmsMajor_Envoy_Terms2>The army stirs for war. Only work from a master like you is fit for their hands. Complete this well, and your name will be recorded in the court scrolls—a matter of honor, not just coin.</RatkinQL_ArmsMajor_Envoy_Terms2>
+<RatkinQL_ArmsMajor_Envoy_OptAccept>Accept the major order</RatkinQL_ArmsMajor_Envoy_OptAccept>
+<RatkinQL_ArmsMajor_Envoy_OptTerms>First, hear the full terms</RatkinQL_ArmsMajor_Envoy_OptTerms>
+<RatkinQL_ArmsMajor_Envoy_OptDecline>Decline this order</RatkinQL_ArmsMajor_Envoy_OptDecline>
+<RatkinQL_ArmsMajor_Envoy_OptBack>Back to the matter at hand</RatkinQL_ArmsMajor_Envoy_OptBack>
+<RatkinQL_ArmsMajor_Envoy_OptBye>Send the envoy off</RatkinQL_ArmsMajor_Envoy_OptBye>
+<RatkinQL_ArmsMajor_Envoy_Sealed>The envoy folds the sealed contract with care. "The war-detail will come to inspect on the appointed day. Do not disappoint the kingdom."</RatkinQL_ArmsMajor_Envoy_Sealed>
+<RatkinQL_ArmsMajor_Envoy_MsgAccept>You have accepted a major arms contract: deliver 5 longswords of Excellent quality or better to the kingdom war-detail.</RatkinQL_ArmsMajor_Envoy_MsgAccept>
+</LanguageData>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋科技藍圖（T1）——村莊層「第一個委託」接受時空投給玩家的一紙圖譜。
+    用了即解鎖 T1 委託武器所需研究（整層）：RK_Research_Carpentry（十字弩）＋RK_Research_SwordAndShield（矛/近戰）。
+    敘事＝客戶「先墊技術」，讓你這新鐵匠做得出貨。可用道具、玩家自選時機、用過即毀（同令狀寫法）。
+    每層只送一次由 QuestNode_DropTechBlueprintOnce 的 gateBool（RatkinQL_Forge_T1TechGifted）保證。
+    label/description 走 DefInjected（三語另補）；貼圖借原版圖紙 Schematic。
+  -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>RatkinQL_TechBlueprint_ForgeTierOne</defName>
+    <label>ratkin armory blueprint (village)</label>
+    <description>A bundle of well-thumbed schematics a village headwoman pressed into your hands — crossbow staves, spear-forging jigs, the know-how a frontier smith needs to arm a hamlet. Study it to master the craft. Consumed once read.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Book/Schematic/Schematic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <tradeability>None</tradeability>
+    <statBases>
+      <MarketValue>120</MarketValue>
+      <Mass>0.2</Mass>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseArtifact</useJob>
+        <useLabel>Study {0_label}</useLabel>
+        <showUseGizmo>true</showUseGizmo>
+        <useDuration>240</useDuration>
+      </li>
+      <li Class="RatkinQuestlines.CompProperties_UnlockResearch">
+        <projects>
+          <li>RK_Research_Carpentry</li>
+          <li>RK_Research_SwordAndShield</li>
+        </projects>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
+</Defs>

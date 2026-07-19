@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_CourierTree_Title>Ratkin Courier</RatkinQL_CourierTree_Title>
+  <RatkinQL_CourierTree_Report>Guided a lost ratkin courier.</RatkinQL_CourierTree_Report>
+  <RatkinQL_Courier_Greeting>The courier shifts a heavy mailbag, sweat dripping from their whiskers. They look around wearily, then ask if this is {Interviewer_labelShort} — admitting they lost their way along the winding trail.</RatkinQL_Courier_Greeting>
+  <RatkinQL_Courier_OptDirections>Point out a safe path.</RatkinQL_Courier_OptDirections>
+  <RatkinQL_Courier_OptNews>Ask what they have seen on the road.</RatkinQL_Courier_OptNews>
+  <RatkinQL_Courier_OptFood>Give them travel rations (5 hardtack).</RatkinQL_Courier_OptFood>
+  <RatkinQL_Courier_OptLeave>Send them on their way.</RatkinQL_Courier_OptLeave>
+  <RatkinQL_Courier_OptBack>Back to the matter at hand.</RatkinQL_Courier_OptBack>
+  <RatkinQL_Courier_News1>"The trade route through the eastern valley is shut — RKU partisans and kingdom guards have been skirmishing near the old bridge again."</RatkinQL_Courier_News1>
+  <RatkinQL_Courier_News2>"The autumn harvest in Rakinia is looking good, though the high taxes have the farmers grumbling into their beer."</RatkinQL_Courier_News2>
+  <RatkinQL_Courier_News3>"A cold front is sweeping down from the northern peaks — travellers say the mountain passes are already freezing over."</RatkinQL_Courier_News3>
+  <RatkinQL_Courier_Farewell>The courier tightens the straps, tips their cap politely, and steps back onto the road.</RatkinQL_Courier_Farewell>
+  <RatkinQL_Courier_MsgReward>To thank you for the directions, the courier slips you a small handful of silver.</RatkinQL_Courier_MsgReward>
+  <RatkinQL_Courier_MsgFood>Clutching the hardtack, the courier is deeply grateful for your kindness on the lonely road.</RatkinQL_Courier_MsgFood>
+</LanguageData>

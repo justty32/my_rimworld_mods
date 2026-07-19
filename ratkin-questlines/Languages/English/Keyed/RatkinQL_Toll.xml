@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_TollTree_Title>The Toll Collector</RatkinQL_TollTree_Title>
+  <RatkinQL_TollTree_Report>A ratkin claiming to be a toll collector blocked our path and demanded payment.</RatkinQL_TollTree_Report>
+  <RatkinQL_Toll_Greeting>A ratkin plants himself at your gate, chest puffed. “Hold it right there, {Interviewer_labelShort}. This road don’t come free. Gotta pay the toll if you wanna keep using it.”</RatkinQL_Toll_Greeting>
+  <RatkinQL_Toll_OptPay>“Fine, here’s your silver.” (25 silver)</RatkinQL_Toll_OptPay>
+  <RatkinQL_Toll_OptWhy>“What gives you the right to charge me?”</RatkinQL_Toll_OptWhy>
+  <RatkinQL_Toll_OptSeeThrough>“I can see right through you. Get lost.” (Requires Intellectual 8+)</RatkinQL_Toll_OptSeeThrough>
+  <RatkinQL_Toll_OptRefuse>“Not a single silver piece.”</RatkinQL_Toll_OptRefuse>
+  <RatkinQL_Toll_OptBack>“Let’s get back on track.”</RatkinQL_Toll_OptBack>
+  <RatkinQL_Toll_OptLeave>“Send him away.”</RatkinQL_Toll_OptLeave>
+  <RatkinQL_Toll_Why1>“I’m a duly appointed road-tax collector for the Kingdom of Rakinia. Signed, sealed, and everything. You want to see the paperwork?” He pats an empty pocket.</RatkinQL_Toll_Why1>
+  <RatkinQL_Toll_Why2>“Me and my kin maintain this stretch. Fill potholes, chase off vermin—the works. You think that’s free? Cough up or find another road.”</RatkinQL_Toll_Why2>
+  <RatkinQL_Toll_Why3>“It’s the Merchants’ Guild regulation, pal. Every settlement using this route has to pay a usage fee. Don’t shoot the messenger—shoot the guild.” He shrugs.</RatkinQL_Toll_Why3>
+  <RatkinQL_Toll_Farewell>He straightens his collar and grunts. “Fine. Your loss.” He turns and shuffles off, muttering about ungrateful folk.</RatkinQL_Toll_Farewell>
+  <RatkinQL_Toll_MsgPay>He snatches the silver with both hands, grinning wide, then melts into the roadside weeds before you can change your mind.</RatkinQL_Toll_MsgPay>
+  <RatkinQL_Toll_MsgSeeThrough>He freezes mid-bluster, ears drooping. “Ah... well. Y-You got me. Good eye.” He turns tail and scurries off without another word.</RatkinQL_Toll_MsgSeeThrough>
+  <RatkinQL_Toll_MsgRefuse>He huffs, muttering something about “small-minded settlers,” then slinks away with a sour look.</RatkinQL_Toll_MsgRefuse>
+  <RatkinQL_Toll_ReasonInt>Your negotiator's Intellectual skill is below 8.</RatkinQL_Toll_ReasonInt>
+</LanguageData>

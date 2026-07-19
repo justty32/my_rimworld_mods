@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_JunkTree_Title>The Rag-and-Bone Ratkin</RatkinQL_JunkTree_Title>
+  <RatkinQL_JunkTree_Report>A junk-dealer with a creaky cart stopped by, looking for scrap and selling odd trinkets.</RatkinQL_JunkTree_Report>
+  <RatkinQL_Junk_Greeting>He leans on his wobbling cart, grinning. “{Interviewer_labelShort}! Got any scrap wood or metal lying around? Want to trade? Or just have a peek at my treasures?”</RatkinQL_Junk_Greeting>
+  <RatkinQL_Junk_OptSell>Sell him spare wood (20 wood)</RatkinQL_Junk_OptSell>
+  <RatkinQL_Junk_OptBrowse>Browse the oddities on his cart.</RatkinQL_Junk_OptBrowse>
+  <RatkinQL_Junk_OptLeave>Say you have nothing to offer.</RatkinQL_Junk_OptLeave>
+  <RatkinQL_Junk_OptBack>Get back to business.</RatkinQL_Junk_OptBack>
+  <RatkinQL_Junk_Ware1>“Look at this—a pocket watch with a chipped face. Still ticks if you tap it. Probably belonged to a human merchant who lost a bet.”</RatkinQL_Junk_Ware1>
+  <RatkinQL_Junk_Ware2>“This copper key? No idea what it opens. Could be a treasure chest, could be a privy door. That’s the fun of it.”</RatkinQL_Junk_Ware2>
+  <RatkinQL_Junk_Ware3>“Half a book of old human recipes. Only the pages about mushroom stew survived. I’ll throw in a free guess at what the rest said.”</RatkinQL_Junk_Ware3>
+  <RatkinQL_Junk_Farewell>He grabs his cart handles and creaks away down the road.</RatkinQL_Junk_Farewell>
+  <RatkinQL_Junk_MsgSell>He hefts the timber, counts out the silver without hesitation, and piles the wood onto his cart. “Pleasure doing business!”</RatkinQL_Junk_MsgSell>
+</LanguageData>

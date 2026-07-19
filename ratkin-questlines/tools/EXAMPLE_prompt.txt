@@ -1,0 +1,43 @@
+你是 RimWorld mod 敘事文案。為三條「鼠族世界」對話線各寫三語（English、繁體中文、簡體中文）RimWorld Keyed。
+
+鼠族設定：嬌小、藏身人類視線外的鼠人，農耕王國 Rakinia、地下游擊隊 RKU、雜貨商團 ZHP、軍閥 Warlord。有濃厚的地下聚落/囤積/信仰文化。訪客是路過玩家聚居點的鼠族。口吻生活感、世界感、可信，避免浮誇。玩家是聚居點管理者。
+
+【嚴格格式】只輸出內容，分 9 個 block，標題如「=== FESTIVAL / English ===」（三線名 FESTIVAL/LOREKEEPER/MOURNER，各三語 English/繁體中文/简体中文），內是完整 <LanguageData>…</LanguageData>。Rakinia/RKU/ZHP/Warlord 保留原樣。可用插值只有 {Interviewer_labelShort}（只在問候語）。絕不出現 {0}{1} 等其他大括號。繁中「」、簡中 ""。每則 1~3 句。
+
+======= FESTIVAL（節慶的邀請）— 鼠族來邀你聚居地共襄節慶（如囤糧節/地底集市/磷光菌信標節）。溫暖文化味。=======
+- RatkinQL_FestivalTree_Title：標題（如「鼠族節慶 / A Ratkin Festival」）
+- RatkinQL_FestivalTree_Report：紀錄一行
+- RatkinQL_Festival_Greeting：鼠族喜孜孜上門，邀 {Interviewer_labelShort} 一同慶祝即將到來的鼠族節慶
+- RatkinQL_Festival_OptGift：選項「送上一份賀禮共襄盛舉（20 銀）」
+- RatkinQL_Festival_OptAsk：選項「問這是什麼節慶」
+- RatkinQL_Festival_OptLeave：選項「婉謝好意」
+- RatkinQL_Festival_OptBack：選項「回到正題」
+- RatkinQL_Festival_Fest1/Fest2/Fest3：三段不同節慶介紹（囤糧節感恩豐足／地底集市換物狂歡／磷光菌信標節替失散同族引路），各一句，帶地下文化味
+- RatkinQL_Festival_Farewell：鼠族道別、期待你來
+- RatkinQL_Festival_MsgGift：鼠族收下賀禮、樂不可支，說會在節上替你美言（訊息語）
+
+======= LOREKEEPER（講古的老者）— 鼠族長者樂於分享鼠族世界掌故傳說。世界感傳承味。=======
+- RatkinQL_LorekeeperTree_Title：標題（如「講古的長者 / A Ratkin Lorekeeper」）
+- RatkinQL_LorekeeperTree_Report：紀錄一行
+- RatkinQL_Lorekeeper_Greeting：一位鼠族老者坐在門邊，眼神悠遠，說願意跟 {Interviewer_labelShort} 講講鼠族的老故事
+- RatkinQL_Lorekeeper_OptListen：選項「洗耳恭聽」
+- RatkinQL_Lorekeeper_OptGift：選項「奉上一點心意謝他（10 銀）」
+- RatkinQL_Lorekeeper_OptLeave：選項「改日再聽」
+- RatkinQL_Lorekeeper_OptBack：選項「回到正題」
+- RatkinQL_Lorekeeper_Lore1/Lore2/Lore3：三段不同的鼠族掌故（祖先如何在人類腳下鑿出第一座地洞王國／王國與軍閥Warlord分裂的舊事／地下游擊隊RKU的由來），各一句，有史詩感但接地氣
+- RatkinQL_Lorekeeper_Farewell：老者拄杖起身作別
+- RatkinQL_Lorekeeper_MsgGift：老者收下心意、含笑點頭，多說了一則秘辛（訊息語）
+
+======= MOURNER（報喪的過客）— 鼠族捎來遠方同族的死訊/災厄，請你以捐輸致哀。沉重有份量。=======
+- RatkinQL_MournerTree_Title：標題（如「報喪的過客 / A Ratkin Mourner」）
+- RatkinQL_MournerTree_Report：紀錄一行
+- RatkinQL_Mourner_Greeting：一位神色哀戚的鼠族上門，向 {Interviewer_labelShort} 捎來遠方同族的噩耗，懇請致哀
+- RatkinQL_Mourner_OptDonate：選項「捐一筆銀子表哀悼（20 銀）」
+- RatkinQL_Mourner_OptCondolence：選項「致上真誠的慰問」
+- RatkinQL_Mourner_OptAsk：選項「問是怎麼回事」
+- RatkinQL_Mourner_OptLeave：選項「默然送他離開」
+- RatkinQL_Mourner_OptBack：選項「回到正題」
+- RatkinQL_Mourner_Loss1/Loss2/Loss3：三段不同的噩耗（一座地下村落被軍閥Warlord血洗／一場地底塌方帶走整個氏族／瘟疫掃過流民營），各一句，沉重克制
+- RatkinQL_Mourner_Farewell：過客低頭致謝、拖著沉重步伐離去
+- RatkinQL_Mourner_MsgDonate：過客雙手接過銀子、深深一躬，說亡者在天有靈會記得你的仁慈（訊息語）
+- RatkinQL_Mourner_MsgCondolence：過客聽了你的慰問、眼眶泛紅、默默頷首（訊息語）

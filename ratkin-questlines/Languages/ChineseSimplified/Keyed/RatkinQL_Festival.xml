@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <RatkinQL_FestivalTree_Title>鼠族节庆 / 一则鼠族节庆</RatkinQL_FestivalTree_Title>
+    <RatkinQL_FestivalTree_Report>几名鼠人叽叽喳喳地到来，满脸兴奋地谈论着一场即将举行的庆典。</RatkinQL_FestivalTree_Report>
+    <RatkinQL_Festival_Greeting>"嘿，{Interviewer_labelShort}！我们是来邀请你去参加我们的节庆的。有吃的、有灯、还有好伙伴。在地面上可看不到这种场面。"</RatkinQL_Festival_Greeting>
+    <RatkinQL_Festival_OptGift>"收下这份贺礼，给你们的节庆添点彩头（20 银）。"</RatkinQL_Festival_OptGift>
+    <RatkinQL_Festival_OptAsk>"这是什么节庆？"</RatkinQL_Festival_OptAsk>
+    <RatkinQL_Festival_OptLeave>"多谢好意，我就不去了。"</RatkinQL_Festival_OptLeave>
+    <RatkinQL_Festival_OptBack>"我们还是谈正事吧。"</RatkinQL_Festival_OptBack>
+    <RatkinQL_Festival_Fest1>"这是囤粮节——我们感谢丰收后满满的储藏室。哪个洞穴能存够过冬的粮食，就能抬头挺胸过个好年。"</RatkinQL_Festival_Fest1>
+    <RatkinQL_Festival_Fest2>"地下集市可不是普通的买卖场——它是一场在灯火下交换小玩意、工具和故事的狂欢。你也许能用一个坏掉的齿轮，换到你的孙子辈都会记得的故事。"</RatkinQL_Festival_Fest2>
+    <RatkinQL_Festival_Fest3>"磷光菌信标节是为了迷途者而办的。我们点亮发光的真菌，好让在深邃黑暗中徘徊的鼠人能重新找到同族。每一团火焰都是一句承诺。"</RatkinQL_Festival_Fest3>
+    <RatkinQL_Festival_Farewell>"我们会在锅旁边给你留个位子。有空就来——地道里会很暖和的！"</RatkinQL_Festival_Farewell>
+    <RatkinQL_Festival_MsgGift>鼠人笑嘻嘻地收下了你的钱，塞进一只小皮袋。"长老们会在宴会上念你的名字——你在 Rakinia 买到了一句好话。"</RatkinQL_Festival_MsgGift>
+</LanguageData>

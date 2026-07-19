@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《軍閥據點懸賞》— F5 攻打清場 site 任務。
+    由對話（Line_RaidOutpost 的接懸賞選項，CQFAction_Quest）觸發，不經說書人（rootSelectionWeight=0）。
+    骨架照抄 brainstorm/quest-mechanics-reference.md §I「原版 site 攻打 quest 標準骨架」
+    （Kiiro Script_KiiroPiratesOutpost_Threat.xml ＋ Milira Script_Milira_Airportattack_VH.xml 雙重確認）：
+      Util_RandomizePointsChallengeRating → GetMap → GetSiteTile → QuestUnique
+      → GetFaction(敵派系) → sitePartsTags=[Outpost] → GetSitePartDefsByTagsAndFaction
+      → GetDefaultSitePartsParams → SubScript Util_GenerateSite（★內接標準信號）
+      → SpawnWorldObjects → WorldObjectTimeout(逾時 Fail) → NoWorldObject(被毀離開 End)
+    敵派系不用 QuestNode_GetPawn 取 asker（對話空 slate 沒有 asker 可用），改用
+    QuestNode_GetFaction(allowEnemy=true, mustBePermanentEnemy=true) 直接撈一個永久敵對派系
+    （鼠族包目前唯一的 naturalEnemy 就是 Rakinia_Warlord，行為上等同直接指定該派系，但寫法更泛用）。
+    成功＝原版 site.AllEnemiesDefeated 信號（Util_GenerateSite 已接好，零自寫偵測）→ 投放白銀賞金。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_RaidOutpost</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->軍閥據點懸賞</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->鼠族傭兵掮客開出的懸賞——附近有一處軍閥據點，仗著人多勢眾榨取周邊鼠窩的貢品。把據點的守衛全部清光，戰利品歸你所有，掮客那邊還會另外送上一筆白銀賞金。據點已標在你的地圖上。逾時不動手，據點就會自行撤走，懸賞跟著作廢。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="QuestNode_SubScript">
+          <def>Util_RandomizePointsChallengeRating</def>
+        </li>
+
+        <!-- 取玩家殖民地地圖：後面成功獎勵投放艙要用 -->
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>true</canBeSpace>
+        </li>
+
+        <li Class="QuestNode_GetSiteTile">
+          <storeAs>siteTile</storeAs>
+          <preferCloserTiles>true</preferCloserTiles>
+        </li>
+
+        <!-- 任務唯一性：避免同時掛多個懸賞據點 -->
+        <li Class="QuestNode_QuestUnique">
+          <tag>RatkinQL_RaidOutpost</tag>
+        </li>
+
+        <!-- 敵派系：對話觸發是空 slate，用 allowEnemy+mustBePermanentEnemy 撈永久敵對派系。
+             鼠族包目前的永久敵對源就是 Rakinia_Warlord；若日後有多個敵對派系，這裡自動隨機挑一個。 -->
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>siteFaction</storeAs>
+        </li>
+
+        <!-- 原版 Outpost site part（久經測試，帶守衛＋GenStep_Outpost 佈局，不自製） -->
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags>
+            <li>
+              <tag>Outpost</tag>
+            </li>
+          </sitePartsTags>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$siteFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <!-- ★原版公用 subscript：內部已接好 site.MapGenerated / site.AllEnemiesDefeated 標準信號 -->
+        <li Class="QuestNode_SubScript">
+          <def>Util_GenerateSite</def>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        <!-- 不作為有代價：15~25 天內不清場，據點撤走，任務失敗 -->
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(15,25)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>懸賞逾期</label>
+                <text>軍閥據點的人馬察覺風聲不對，拔營撤走了。這份懸賞已經作廢。</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <!-- 防呆：site 被外部毀掉（如玩家進去又離開導致地圖被摧毀）就收尾 -->
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End" />
+        </li>
+
+        <!-- ★成功：原版清場信號，Util_GenerateSite 已內接，零自寫偵測 C# -->
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetMap">
+                <canBeSpace>true</canBeSpace>
+              </li>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_BountyReward</thingSetMaker>
+                <storeAs>ratkinBountyReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$ratkinBountyReward</contents>
+                <sendStandardLetter>true</sendStandardLetter>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <customLetterLabel>懸賞金送達</customLetterLabel>
+                <customLetterText>軍閥據點已經清空。掮客循舊路把懸賞的白銀送到了——這趟買賣，公道。</customLetterText>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

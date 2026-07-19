@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PilgrimTree_Title>Ratkin Pilgrim</RatkinQL_PilgrimTree_Title>
+  <RatkinQL_PilgrimTree_Report>A weary ratkin pilgrim asked for shelter and a meal.</RatkinQL_PilgrimTree_Report>
+  <RatkinQL_Pilgrim_Greeting>A dust-coated ratkin leans on a walking stick. "I am on my way to the holy shrine. Might I beg a meal and a corner to rest in, here at {Interviewer_labelShort}?"</RatkinQL_Pilgrim_Greeting>
+  <RatkinQL_Pilgrim_OptMeal>Offer a meal and a place to rest (3 hardtack).</RatkinQL_Pilgrim_OptMeal>
+  <RatkinQL_Pilgrim_OptStory>Ask what shrine he is bound for.</RatkinQL_Pilgrim_OptStory>
+  <RatkinQL_Pilgrim_OptBlessing>Ask him to bless the settlement.</RatkinQL_Pilgrim_OptBlessing>
+  <RatkinQL_Pilgrim_OptLeave>Send him on his way.</RatkinQL_Pilgrim_OptLeave>
+  <RatkinQL_Pilgrim_OptBack>Return to the matter at hand.</RatkinQL_Pilgrim_OptBack>
+  <RatkinQL_Pilgrim_Story1>"I am walking to the peak temple to fulfil a vow from the famine years. I promised the earth-mother I would come barefoot to her altar."</RatkinQL_Pilgrim_Story1>
+  <RatkinQL_Pilgrim_Story2>"My brother died of the creeping cough last spring. I carry his ashes to the shrine of the ancestors, so his spirit may find the warm burrow."</RatkinQL_Pilgrim_Story2>
+  <RatkinQL_Pilgrim_Story3>"I swore to the old stones that if my child survived the fever, I would make this journey once every five years. This is my third time."</RatkinQL_Pilgrim_Story3>
+  <RatkinQL_Pilgrim_Farewell>He presses his palms together, bows, and shuffles out into the dusk. "The earth will remember your kindness."</RatkinQL_Pilgrim_Farewell>
+  <RatkinQL_Pilgrim_MsgMeal>He eats slowly, then lays a hand on your stove. "May this hearth never run short of grain or warmth."</RatkinQL_Pilgrim_MsgMeal>
+  <RatkinQL_Pilgrim_MsgBlessing>He closes his eyes and murmurs a low chant, then opens them and smiles. "The deep earth watches over this place now."</RatkinQL_Pilgrim_MsgBlessing>
+</LanguageData>

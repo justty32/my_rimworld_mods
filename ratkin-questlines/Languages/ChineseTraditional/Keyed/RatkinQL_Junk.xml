@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_JunkTree_Title>收舊貨的</RatkinQL_JunkTree_Title>
+  <RatkinQL_JunkTree_Report>一名推著吱嘎小車的收荒商停了下來，想收廢料、也賣稀奇舊物。</RatkinQL_JunkTree_Report>
+  <RatkinQL_Junk_Greeting>他靠在搖晃的小車上，咧嘴笑道：「{Interviewer_labelShort}！有沒有用不著的木頭或鐵件？要換點銀子嗎？還是想看看我車上的寶貝？」</RatkinQL_Junk_Greeting>
+  <RatkinQL_Junk_OptSell>把用不著的木料賣給他（20 木材）</RatkinQL_Junk_OptSell>
+  <RatkinQL_Junk_OptBrowse>翻翻他車上的舊貨。</RatkinQL_Junk_OptBrowse>
+  <RatkinQL_Junk_OptLeave>沒什麼好出的。</RatkinQL_Junk_OptLeave>
+  <RatkinQL_Junk_OptBack>回到正題。</RatkinQL_Junk_OptBack>
+  <RatkinQL_Junk_Ware1>「看看這個——一隻缺角的懷錶。拍一下還會走。八成是哪個輸了賭的人類商人留下的。」</RatkinQL_Junk_Ware1>
+  <RatkinQL_Junk_Ware2>「這把銅鑰匙？不知道開什麼門。可能是寶箱，也可能是茅廁。這才有趣嘛。」</RatkinQL_Junk_Ware2>
+  <RatkinQL_Junk_Ware3>「半本人類老食譜。只剩下燉蘑菇那幾頁還留著。其餘的部分我免費送你猜。」</RatkinQL_Junk_Ware3>
+  <RatkinQL_Junk_Farewell>他抓起車把，吱吱嘎嘎地推著車走了。</RatkinQL_Junk_Farewell>
+  <RatkinQL_Junk_MsgSell>他掂了掂木料，爽快地數出銀子，把木料堆上小車。「合作愉快！」</RatkinQL_Junk_MsgSell>
+</LanguageData>

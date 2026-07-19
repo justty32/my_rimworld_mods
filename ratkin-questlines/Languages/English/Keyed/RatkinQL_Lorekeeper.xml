@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <RatkinQL_LorekeeperTree_Title>Lorekeeper / A Ratkin Lorekeeper</RatkinQL_LorekeeperTree_Title>
+    <RatkinQL_LorekeeperTree_Report>An elderly ratkin sits by the entrance, his eyes carrying the weight of many burrow-years. He seems willing to talk.</RatkinQL_LorekeeperTree_Report>
+    <RatkinQL_Lorekeeper_Greeting>"You're the one in charge here, aren't you, {Interviewer_labelShort}? My old bones don't travel much anymore, but I figured I'd share some of what I know. These stories won't tell themselves."</RatkinQL_Lorekeeper_Greeting>
+    <RatkinQL_Lorekeeper_OptListen>"I'm listening."</RatkinQL_Lorekeeper_OptListen>
+    <RatkinQL_Lorekeeper_OptGift>"Take this for your trouble (10 silver)."</RatkinQL_Lorekeeper_OptGift>
+    <RatkinQL_Lorekeeper_OptLeave>"Another time, perhaps."</RatkinQL_Lorekeeper_OptLeave>
+    <RatkinQL_Lorekeeper_OptBack>"Let's talk about something else."</RatkinQL_Lorekeeper_OptBack>
+    <RatkinQL_Lorekeeper_Lore1>"Our ancestors were small, clever, and quiet. They dug the first kingdom not with steel, but with patience — scooping clay and stone beneath the feet of giants who never looked down."</RatkinQL_Lorekeeper_Lore1>
+    <RatkinQL_Lorekeeper_Lore2>"The old kingdom split when the Warlords decided that peace was a leash. They took their clans into the deep dark, and ever since, every passage has had two loyalties: one to the soil, and one to the gun."</RatkinQL_Lorekeeper_Lore2>
+    <RatkinQL_Lorekeeper_Lore3>"The RKU started not as soldiers, but as scavengers who refused to pay tithes to the surface kings. They learned to fight when the tunnels started closing. Now they're the teeth of the underground."</RatkinQL_Lorekeeper_Lore3>
+    <RatkinQL_Lorekeeper_Farewell>The elder ratkin picks up his walking stick, joints creaking. "The earth keeps its records. You just have to know where to listen."</RatkinQL_Lorekeeper_Farewell>
+    <RatkinQL_Lorekeeper_MsgGift>He pockets the coin with a soft chuckle, then adds quietly: "There's a rumor that the first RKU hideout was a grain silo — they never forgot the smell of bread they had to steal."</RatkinQL_Lorekeeper_MsgGift>
+</LanguageData>

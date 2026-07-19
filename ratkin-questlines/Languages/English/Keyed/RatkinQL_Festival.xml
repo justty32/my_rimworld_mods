@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <RatkinQL_FestivalTree_Title>Ratkin Festival / A Ratkin Festival</RatkinQL_FestivalTree_Title>
+    <RatkinQL_FestivalTree_Report>A group of ratkins arrives, chittering with excitement about an upcoming celebration.</RatkinQL_FestivalTree_Report>
+    <RatkinQL_Festival_Greeting>“Ho there, {Interviewer_labelShort}! We've come to invite you to our coming festival. There'll be food, lights, and good company. You'll not see anything like it on the surface.”</RatkinQL_Festival_Greeting>
+    <RatkinQL_Festival_OptGift>“Take this gift for your festival (20 silver).”</RatkinQL_Festival_OptGift>
+    <RatkinQL_Festival_OptAsk>“What festival is this?”</RatkinQL_Festival_OptAsk>
+    <RatkinQL_Festival_OptLeave>“I'll pass. Thank you.”</RatkinQL_Festival_OptLeave>
+    <RatkinQL_Festival_OptBack>“Let's return to business.”</RatkinQL_Festival_OptBack>
+    <RatkinQL_Festival_Fest1>“This is the Hoarding Festival — we give thanks for full storerooms after the harvest. Any burrow with enough grain to last the winter can hold its head high.”</RatkinQL_Festival_Fest1>
+    <RatkinQL_Festival_Fest2>“The Underground Bazaar is no mere market; it's a frenzy where trinkets, tools, and stories change hands under lantern light. You might trade a broken gear for a tale your grandkits will remember.”</RatkinQL_Festival_Fest2>
+    <RatkinQL_Festival_Fest3>“The Phosphor Beacon Festival is for the lost. We light the glowing fungi so that any ratkin wandering the deep dark can find kin again. Every flame is a promise.”</RatkinQL_Festival_Fest3>
+    <RatkinQL_Festival_Farewell>“We'll save you a spot by the big pot. Come when you can — the tunnels will be warm!”</RatkinQL_Festival_Farewell>
+    <RatkinQL_Festival_MsgGift>The ratkin accepts your coin with a grin, tucking it into a small leather pouch. “The elders will sing your name during the feast — you've bought yourself a good word in Rakinia.”</RatkinQL_Festival_MsgGift>
+</LanguageData>

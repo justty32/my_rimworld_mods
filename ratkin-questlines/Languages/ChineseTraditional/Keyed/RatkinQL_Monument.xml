@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_MonumentTree_Title>鼠信眾紀念碑委託</RatkinQL_MonumentTree_Title>
+	<RatkinQL_MonumentTree_Report>一位鼠族信仰使者委託你建造紀念碑。</RatkinQL_MonumentTree_Report>
+	<RatkinQL_Monument_Greeting>「{Interviewer_labelShort}，我們的信仰需要在貴地立一座紀念碑，用來供奉祖靈與諸神。把它建好，完工後守住七天，我們必有厚報。你願意接下這份委託嗎？」</RatkinQL_Monument_Greeting>
+	<RatkinQL_Monument_OptAccept>接下這份委託。</RatkinQL_Monument_OptAccept>
+	<RatkinQL_Monument_OptTerms>先說說這是怎麼回事。</RatkinQL_Monument_OptTerms>
+	<RatkinQL_Monument_OptLeave>暫時不接。</RatkinQL_Monument_OptLeave>
+	<RatkinQL_Monument_OptBack>回到正題。</RatkinQL_Monument_OptBack>
+	<RatkinQL_Monument_Terms1>投放艙會送來一件壓縮的紀念碑標記。找個地方安置好，用你們殖民地自己的物資把它建完。</RatkinQL_Monument_Terms1>
+	<RatkinQL_Monument_Terms2>建完之後，你要守護它七天。這段期間內若有任何一部分被毀，我們的執法者會前來討回公道。</RatkinQL_Monument_Terms2>
+	<RatkinQL_Monument_Terms3>守滿七天，我們會送上白銀答謝，一分不少，絕不食言。</RatkinQL_Monument_Terms3>
+	<RatkinQL_Monument_Farewell>「願你的紀念碑巍然不倒，{Interviewer_labelShort}。我們會看著。」</RatkinQL_Monument_Farewell>
+	<RatkinQL_Monument_MsgAccept>你答應為鼠信眾建造紀念碑。載著壓縮標記的投放艙已經在路上了。</RatkinQL_Monument_MsgAccept>
+</LanguageData>

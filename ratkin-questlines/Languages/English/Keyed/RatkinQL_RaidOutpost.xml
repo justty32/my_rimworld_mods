@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_RaidOutpostTree_Title>Warlord's Outpost Bounty</RatkinQL_RaidOutpostTree_Title>
+	<RatkinQL_RaidOutpostTree_Report>A ratkin mercenary broker has a bounty on a warlord outpost.</RatkinQL_RaidOutpostTree_Report>
+	<RatkinQL_RaidOutpost_Greeting>Listen up, {Interviewer_labelShort}. There's a warlord outpost squatting nearby, shaking down every burrow in reach for tribute. My guild's put a bounty on it — clear the place out, keep whatever you loot, and we'll drop a fat purse of silver on top. Interested?</RatkinQL_RaidOutpost_Greeting>
+	<RatkinQL_RaidOutpost_OptAccept>Accept the bounty — march on the outpost.</RatkinQL_RaidOutpost_OptAccept>
+	<RatkinQL_RaidOutpost_OptDetails>Tell me more about this outpost.</RatkinQL_RaidOutpost_OptDetails>
+	<RatkinQL_RaidOutpost_OptLeave>Not right now.</RatkinQL_RaidOutpost_OptLeave>
+	<RatkinQL_RaidOutpost_OptBack>Back to the offer.</RatkinQL_RaidOutpost_OptBack>
+	<RatkinQL_RaidOutpost_Details1>Our scouts marked the outpost on your map. Send a war party — the warlord's guards won't go down easy.</RatkinQL_RaidOutpost_Details1>
+	<RatkinQL_RaidOutpost_Details2>Whatever you strip from their stores is yours to keep. The bounty comes on top of that, paid out once the last of them falls.</RatkinQL_RaidOutpost_Details2>
+	<RatkinQL_RaidOutpost_Details3>Don't dawdle — camps like that don't sit still forever. Hit it soon, or the offer's off the table.</RatkinQL_RaidOutpost_Details3>
+	<RatkinQL_RaidOutpost_Farewell>May your blades stay sharp. Good hunting.</RatkinQL_RaidOutpost_Farewell>
+	<RatkinQL_RaidOutpost_MsgAccept>You've taken the bounty. A ratkin mercenary broker marked a warlord outpost on your map — muster your fighters and go finish it.</RatkinQL_RaidOutpost_MsgAccept>
+</LanguageData>

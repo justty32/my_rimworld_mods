@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_RaidOutpostTree_Title>軍閥據點懸賞</RatkinQL_RaidOutpostTree_Title>
+	<RatkinQL_RaidOutpostTree_Report>一名鼠族傭兵掮客帶來一份軍閥據點的懸賞。</RatkinQL_RaidOutpostTree_Report>
+	<RatkinQL_RaidOutpost_Greeting>聽好了，{Interviewer_labelShort}。附近盤踞著一處軍閥據點，把周圍每個鼠窩都榨得一乾二淨。我們公會開了懸賞——把那地方清掉，戰利品全歸你，我們再加送一袋沉甸甸的白銀。有興趣嗎？</RatkinQL_RaidOutpost_Greeting>
+	<RatkinQL_RaidOutpost_OptAccept>接下懸賞——出兵攻打據點。</RatkinQL_RaidOutpost_OptAccept>
+	<RatkinQL_RaidOutpost_OptDetails>再說說這據點的事。</RatkinQL_RaidOutpost_OptDetails>
+	<RatkinQL_RaidOutpost_OptLeave>現在還不想接。</RatkinQL_RaidOutpost_OptLeave>
+	<RatkinQL_RaidOutpost_OptBack>回到懸賞的事。</RatkinQL_RaidOutpost_OptBack>
+	<RatkinQL_RaidOutpost_Details1>我們的斥候已經在你的地圖上標出據點位置。派支隊伍去，軍閥的守衛可不好對付。</RatkinQL_RaidOutpost_Details1>
+	<RatkinQL_RaidOutpost_Details2>你們從據點裡搜出來的東西全歸你，懸賞金另外算，等最後一個守衛倒下就會送到。</RatkinQL_RaidOutpost_Details2>
+	<RatkinQL_RaidOutpost_Details3>別拖太久——那種據點不會一直待在原地。要嘛盡快動手，要嘛這筆懸賞就作廢了。</RatkinQL_RaidOutpost_Details3>
+	<RatkinQL_RaidOutpost_Farewell>願你的刀鋒保持鋒利，祝狩獵順利。</RatkinQL_RaidOutpost_Farewell>
+	<RatkinQL_RaidOutpost_MsgAccept>你接下了這份懸賞。一名鼠族傭兵掮客在你的地圖上標出了軍閥據點的位置——集結戰士，去把它解決掉。</RatkinQL_RaidOutpost_MsgAccept>
+</LanguageData>

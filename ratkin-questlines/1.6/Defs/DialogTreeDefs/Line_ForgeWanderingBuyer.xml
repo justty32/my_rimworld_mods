@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T1 匿名散客《慕名而來的採購》對話。
+    由 QuestScript_ForgeWanderingBuyer 接受後召訪客並 AddDialog 掛本 Manager（信件制、直掛不需 genrationConditions）。
+    散客＝不知哪來的鼠族（訪客隨機名），慕你這鐵匠之名而來。不記忠誠度、只給軍械商名聲。
+    ★彈性需求（DialogCondition_WeaponValue）：4 把武器、品質普通(Normal)以上、總價值 ≥「4 把鋼鐵普通鼠族長劍」的基準
+      → 玩家用任何達標武器湊滿即可（隨機性/打造自由）；交貨消費值最高的 4 件。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_ForgeWanderingBuyerTree</defName>
+    <title>RatkinQL_Forge_Buyer_Title</title>
+    <dialogReportKey>RatkinQL_Forge_Buyer_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>3</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_Forge_Buyer_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- 彈性交貨：4~6 把、品質≥普通、總值≥4 把鋼鐵普通鼠族長劍。★開自製交貨挑選視窗（C 方案），玩家親手挑貨＋看價值進度條分級後果 -->
+          <li>
+            <text>RatkinQL_Forge_Buyer_OptDeliver</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_WeaponValue">
+                <failReason>RatkinQL_Forge_Buyer_NeedGoods</failReason>
+                <count>4~6</count>
+                <minQuality>Normal</minQuality>
+                <refThing>RK_LongSword</refThing>
+                <refStuff>Steel</refStuff>
+                <refQuality>Normal</refQuality>
+                <refCount>4</refCount>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Deliver</resultName>
+              <actions>
+                <li Class="RatkinQuestlines.CQFAction_OpenDeliveryWindow">
+                  <targetsText><li>Interviewee</li><li>Interviewer</li></targetsText>
+                  <count>4~6</count>
+                  <minQuality>Normal</minQuality>
+                  <refThing>RK_LongSword</refThing>
+                  <refStuff>Steel</refStuff>
+                  <refQuality>Normal</refQuality>
+                  <refCount>4</refCount>
+                  <bands>
+                    <!-- band1 達標：280 銀＋軍械商名聲 -->
+                    <li>
+                      <valueMultiple>1</valueMultiple>
+                      <silver>280</silver>
+                      <evFlags><li>RatkinQL_Ev_WeaponDeal</li></evFlags>
+                      <message>RatkinQL_Forge_Buyer_BandMsg1</message>
+                    </li>
+                    <!-- band2 超額（總值達 2×）：520 銀＋更多名聲，散客替你揚名 -->
+                    <li>
+                      <valueMultiple>2</valueMultiple>
+                      <silver>520</silver>
+                      <evFlags><li>RatkinQL_Ev_WeaponDeal</li><li>RatkinQL_Ev_GenericTrade</li></evFlags>
+                      <message>RatkinQL_Forge_Buyer_BandMsg2</message>
+                    </li>
+                  </bands>
+                </li>
+              </actions>
+            </li></results>
+          </li>
+
+          <!-- 交貨 B 方案：開原生交易界面挑貨（Harmony postfix 偵測賣出武器判定 band）。與上方 C 視窗並存，玩家擇一 -->
+          <li>
+            <text>RatkinQL_Forge_Buyer_OptDeliverTrade</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_WeaponValue">
+                <failReason>RatkinQL_Forge_Buyer_NeedGoods</failReason>
+                <count>4~6</count>
+                <minQuality>Normal</minQuality>
+                <refThing>RK_LongSword</refThing>
+                <refStuff>Steel</refStuff>
+                <refQuality>Normal</refQuality>
+                <refCount>4</refCount>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>DeliverTrade</resultName>
+              <actions>
+                <li Class="RatkinQuestlines.CQFAction_OpenTradeDelivery">
+                  <targetsText><li>Interviewee</li><li>Interviewer</li></targetsText>
+                  <traderKindDef>RatkinQL_ForgeBuyerTrader</traderKindDef>
+                  <count>4~6</count>
+                  <minQuality>Normal</minQuality>
+                  <refThing>RK_LongSword</refThing>
+                  <refStuff>Steel</refStuff>
+                  <refQuality>Normal</refQuality>
+                  <refCount>4</refCount>
+                  <bands>
+                    <li>
+                      <valueMultiple>1</valueMultiple>
+                      <evFlags><li>RatkinQL_Ev_WeaponDeal</li></evFlags>
+                      <message>RatkinQL_Forge_Buyer_BandMsg1</message>
+                    </li>
+                    <li>
+                      <valueMultiple>2</valueMultiple>
+                      <evFlags><li>RatkinQL_Ev_WeaponDeal</li><li>RatkinQL_Ev_GenericTrade</li></evFlags>
+                      <message>RatkinQL_Forge_Buyer_BandMsg2</message>
+                    </li>
+                  </bands>
+                </li>
+              </actions>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_Buyer_OptTerms</text>
+            <results><li><resultName>Terms</resultName><nextIndex>1</nextIndex></li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_Forge_Buyer_OptDecline</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li><resultName>Decline</resultName></li></results>
+          </li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Forge_Buyer_Terms1</text>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Buyer_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_Forge_Buyer_Thanks</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Buyer_OptBye</text><results><li><resultName>Bye</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_ForgeWanderingBuyerManager</defName>
+    <tags><li>RatkinQL_ForgeWanderingBuyer</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_ForgeWanderingBuyerTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- F2 供貨約的分期結算（每期白銀）。沿用原版 ThingSetMaker_Sum + StackCount 寫法
+       （參照 cqf-example-quests / cqf-caravan-redemption 的 ThingSetMakerDef）。 -->
+  <ThingSetMakerDef>
+    <defName>RatkinQL_ContractPay</defName>
+    <root Class="ThingSetMaker_Sum">
+      <options>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_StackCount">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>Silver</li>
+                </thingDefs>
+              </filter>
+              <countRange>40~40</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>

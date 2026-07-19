@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsDeliverTree_Title>王国军需官</RatkinQL_ArmsDeliverTree_Title>
+<RatkinQL_ArmsDeliverTree_Report>军需官到访，前来验收军械。</RatkinQL_ArmsDeliverTree_Report>
+<RatkinQL_Arms_Deliver_Greeting>"终于见面了，{Interviewer_labelShort}。我是前来验收那批军械的军需官。让我看货。"</RatkinQL_Arms_Deliver_Greeting>
+<RatkinQL_Arms_Deliver_OptDeliver>交付军械（3 把优良以上的长剑）</RatkinQL_Arms_Deliver_OptDeliver>
+<RatkinQL_Arms_Deliver_OptLater>货还没齐，请稍候</RatkinQL_Arms_Deliver_OptLater>
+<RatkinQL_Arms_Deliver_OptBye>道别</RatkinQL_Arms_Deliver_OptBye>
+<RatkinQL_Arms_Deliver_Thanks>军需官一一验过刀锋，满意地颔首，交出一袋白银与一封密卷："这是王国征召令状。只能用一次。危急时履行它，我族兵马便会赶来相助。"</RatkinQL_Arms_Deliver_Thanks>
+<RatkinQL_Arms_Deliver_MsgPaid>你交付了合格军械，换得王国的酬劳与一纸王国征召令状。</RatkinQL_Arms_Deliver_MsgPaid>
+<RatkinQL_Arms_NeedQuality>你手上还没有足够的合格军械——需要 3 把"优良"以上的长剑。</RatkinQL_Arms_NeedQuality>
+<RatkinQL_Aid_NoFaction>你试图动用令状，但此时没有能驰援的鼠族王国，或双方已交恶。</RatkinQL_Aid_NoFaction>
+</LanguageData>

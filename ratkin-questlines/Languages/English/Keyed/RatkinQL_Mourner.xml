@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <RatkinQL_MournerTree_Title>Mourner / A Ratkin Mourner</RatkinQL_MournerTree_Title>
+    <RatkinQL_MournerTree_Report>A ratkin with a heavy look in his eyes approaches your settlement. He carries news of the dead.</RatkinQL_MournerTree_Report>
+    <RatkinQL_Mourner_Greeting>“{Interviewer_labelShort}… I’ve come a long way to bring word. There are kin who won’t see another dawn. I ask only that you remember them.”</RatkinQL_Mourner_Greeting>
+    <RatkinQL_Mourner_OptDonate>“Take this silver in mourning (20 silver).”</RatkinQL_Mourner_OptDonate>
+    <RatkinQL_Mourner_OptCondolence>“I offer my sincere condolences.”</RatkinQL_Mourner_OptCondolence>
+    <RatkinQL_Mourner_OptAsk>“What happened?”</RatkinQL_Mourner_OptAsk>
+    <RatkinQL_Mourner_OptLeave>“I’ll let you go in peace.”</RatkinQL_Mourner_OptLeave>
+    <RatkinQL_Mourner_OptBack>“Let’s return to other matters.”</RatkinQL_Mourner_OptBack>
+    <RatkinQL_Mourner_Loss1>“A Warlord’s band came through a burrow three nights east. They didn’t come for territory. They came because the grain was dry and the tunnels were quiet. No one left alive to tell the full story.”</RatkinQL_Mourner_Loss1>
+    <RatkinQL_Mourner_Loss2>“The deep tunnels collapsed near the old aquifer. A whole clan was below — the scouts found only a wall of stone and silence. The elders say the earth claimed its own.”</RatkinQL_Mourner_Loss2>
+    <RatkinQL_Mourner_Loss3>“The surface sickness found its way into the migrant camp. It started with a cough and ended with a pyre. We buried what we could, but the names are already fading.”</RatkinQL_Mourner_Loss3>
+    <RatkinQL_Mourner_Farewell>The mourner bows his head, grips his staff, and turns without another word. His steps are slow, heavy.</RatkinQL_Mourner_Farewell>
+    <RatkinQL_Mourner_MsgDonate>He takes the silver with both hands, presses it to his chest, then bows deeply. “The dead will remember your kindness in the deep earth.”</RatkinQL_Mourner_MsgDonate>
+    <RatkinQL_Mourner_MsgCondolence>He listens, eyes reddening. For a long moment he says nothing, then gives a single, silent nod.</RatkinQL_Mourner_MsgCondolence>
+</LanguageData>

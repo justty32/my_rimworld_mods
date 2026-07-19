@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T1 試點 — 具名客戶《橡實村·村長板栗》的對話。
+    由 QuestScript_ForgeAcornVillage 接受後，QuestNode_SpawnRatkinEnvoy 生訪客並用 AddDialog 把本 Manager 掛到帶頭那隻。
+    ⇒ 因為是「信件→接受→直接 AddDialog」，本 Manager 不需 genrationConditions（那只給 SpecialPawnGenerator_AddDialog 篩隨機訪客用）。
+    板栗＝年輕、圓臉、抱記帳板的村長；算錢死死的、砍價像松鼠護果，但每次多塞一袋炒栗子（moe 反差萌，見 WORLDVIEW 硬約束）。
+    T1＝買現貨/制式、不挑品質：用自製品質交貨對，minQuality=Awful ⇒ 任何品質皆可交（複用 F8 已驗程式碼）。
+      防野獸＝遠程＋矛組合：交 3 把鼠族十字弩(RK_Crossbow) ＋ 2 桿鼠族矛(RK_Spear)。選項掛兩個條件(AND，:366 全滿足才顯示)，達標才交、依品質各自扣料。
+      交現貨 → 銀＋一點口糧 ＋ Ev_ForgeWellDone_AcornVillage（帳本累加她的滿意度＋軍械商名聲）＋王國好感。
+      抬價敲詐 → Ev_ForgeBlocked_AcornVillage（帳本記她 blocked、此後不再上門，並降名聲/karma）＋王國好感−。
+    ★武器＝鼠族原生（brainstorm/ratkin-weapons-catalog.md，NewRatkinPlus 本體硬依賴恆存在）。「每次委託隨機換武器」列為地基之上的後續增強（需 C# 動態選 def）。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_ForgeAcornVillageTree</defName>
+    <title>RatkinQL_Forge_Acorn_Title</title>
+    <dialogReportKey>RatkinQL_Forge_Acorn_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>4</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_Forge_Acorn_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- ★分級後果 band-2《精品交貨》：3 弩 + 2 矛 皆良好(Good)以上 → 村莊完美擊退、厚禮＋名聲更多 -->
+          <li>
+            <text>RatkinQL_Forge_Acorn_OptDeliverFine</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_ThingQuality">
+                <failReason>RatkinQL_Forge_Acorn_NeedFine</failReason>
+                <thing>RK_Crossbow</thing>
+                <count>3</count>
+                <minQuality>Good</minQuality>
+              </li>
+              <li Class="RatkinQuestlines.DialogCondition_ThingQuality">
+                <failReason>RatkinQL_Forge_Acorn_NeedFine</failReason>
+                <thing>RK_Spear</thing>
+                <count>2</count>
+                <minQuality>Good</minQuality>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>DeliverFine</resultName>
+              <actions>
+                <li Class="RatkinQuestlines.CQFAction_ConsumeQualityThings">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <thing>RK_Crossbow</thing><count>3</count><minQuality>Good</minQuality>
+                </li>
+                <li Class="RatkinQuestlines.CQFAction_ConsumeQualityThings">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <thing>RK_Spear</thing><count>2</count><minQuality>Good</minQuality>
+                </li>
+                <!-- 厚禮：更多白銀＋口糧 -->
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>AcornPayFine</dataName>
+                      <message>RatkinQL_Forge_Acorn_MsgPaidFine</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>200~200</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RK_Food_Hardtack</thing><count>30~30</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>5</value><sendLetter>false</sendLetter>
+                </li>
+                <!-- 名聲更多：滿意度+1（WellDone）＋額外軍械商名聲（WeaponDeal）＋慷慨善舉（Charity, karma+） -->
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ForgeWellDone_AcornVillage</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_WeaponDeal</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Charity</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="RatkinQuestlines.CQFAction_SendEnvoyAway"><targetsText><li>Interviewee</li></targetsText></li>
+              </actions>
+              <nextIndex>4</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 交現貨：遠程＋矛（3 弩 + 2 矛，不挑品質；兩條件 AND，不足會自動禁用＋提示） -->
+          <li>
+            <text>RatkinQL_Forge_Acorn_OptDeliver</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <conditions>
+              <li Class="RatkinQuestlines.DialogCondition_ThingQuality">
+                <failReason>RatkinQL_Forge_Acorn_NeedStock</failReason>
+                <thing>RK_Crossbow</thing>
+                <count>3</count>
+                <minQuality>Awful</minQuality>
+              </li>
+              <li Class="RatkinQuestlines.DialogCondition_ThingQuality">
+                <failReason>RatkinQL_Forge_Acorn_NeedStock</failReason>
+                <thing>RK_Spear</thing>
+                <count>2</count>
+                <minQuality>Awful</minQuality>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Deliver</resultName>
+              <actions>
+                <!-- 依品質各自扣料（minQuality=Awful ⇒ 任何品質皆可） -->
+                <li Class="RatkinQuestlines.CQFAction_ConsumeQualityThings">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <thing>RK_Crossbow</thing>
+                  <count>3</count>
+                  <minQuality>Awful</minQuality>
+                </li>
+                <li Class="RatkinQuestlines.CQFAction_ConsumeQualityThings">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <thing>RK_Spear</thing>
+                  <count>2</count>
+                  <minQuality>Awful</minQuality>
+                </li>
+                <!-- 報酬（T1 小）：白銀＋一點口糧 -->
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>AcornPay</dataName>
+                      <message>RatkinQL_Forge_Acorn_MsgPaid</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>110~110</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RK_Food_Hardtack</thing><count>15~15</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>2</value><sendLetter>false</sendLetter>
+                </li>
+                <!-- 好好完成一次：帳本累加橡實村滿意度＋軍械商名聲（達 N 次→護村隊神祕獎勵，後續實作） -->
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ForgeWellDone_AcornVillage</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="RatkinQuestlines.CQFAction_SendEnvoyAway"><targetsText><li>Interviewee</li></targetsText></li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 詳情 -->
+          <li>
+            <text>RatkinQL_Forge_Acorn_OptTerms</text>
+            <results><li><resultName>Terms</resultName><nextIndex>1</nextIndex></li></results>
+          </li>
+
+          <!-- 抬價敲詐：趁人之危開高價 → 板栗此後不再上門 -->
+          <li>
+            <text>RatkinQL_Forge_Acorn_OptExtort</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Extort</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message"><message>RatkinQL_Forge_Acorn_MsgExtort</message><type>NegativeEvent</type></li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>false</isIncrease><value>3</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ForgeBlocked_AcornVillage</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="RatkinQuestlines.CQFAction_SendEnvoyAway"><targetsText><li>Interviewee</li></targetsText></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 這次先回絕（不 blocked，日後仍會再來） -->
+          <li>
+            <text>RatkinQL_Forge_Acorn_OptDecline</text>
+            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <results><li><resultName>Decline</resultName></li></results>
+          </li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Forge_Acorn_Terms1</text>
+        <extraText><li>RatkinQL_Forge_Acorn_Terms2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Acorn_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_Forge_Acorn_Thanks</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Acorn_OptBye</text><results><li><resultName>Bye</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_Forge_Acorn_ExtortEnd</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Acorn_OptShrug</text><results><li><resultName>Shrug</resultName></li></results></li></options>
+      </value></li>
+
+      <!-- band-2 完美擊退謝辭 -->
+      <li><key>4</key><value>
+        <text>RatkinQL_Forge_Acorn_ThanksFine</text>
+        <index>4</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Forge_Acorn_OptBye</text><results><li><resultName>Bye</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_ForgeAcornVillageManager</defName>
+    <tags><li>RatkinQL_ForgeAcornVillage</li></tags>
+    <!-- 信件制：由 QuestNode_SpawnRatkinEnvoy 直接 AddDialog 掛載，不經隨機訪客 → 無需 genrationConditions -->
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_ForgeAcornVillageTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

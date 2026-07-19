@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★商團首領佩林 — 第三章《結局》。
+    佩林的下場由前兩章累積的旗標決定，用「選項條件 + hideWhenDisabled」動態呈現不同結局：
+      ● 風光重逢（Funded / Helped / Rescued 任一）→ 他成了站穩腳跟的行商，回來答謝、送上厚禮。
+      ● ★破產求收留（Peirin_Broke：你曾趁火打劫或見死不救）→ 他一無所有找上門，求加入殖民地。
+         「收留他」＝CQFAction_Faction 收編 Interviewee 成殖民者 ＋ 自製 CQFAction_SetName 正名為 Peirin
+         （得到的是這條故事線裡認識的那個人，不是隨機路人鼠）。這是本包「具名人物加入」機制的首個落地。
+    善惡值掛鉤：厚待→Ev_Mercy；收留潦倒者→Ev_ProtectWeak。分章閂：Ch2 已結束 且 尚未 Done。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_PeirinCh3Tree</defName>
+    <title>RatkinQL_PeirinCh3Tree_Title</title>
+    <dialogReportKey>RatkinQL_PeirinCh3Tree_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>4</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_Peirin_Ch3_Greeting</text>
+        <index>0</index><subNodeIndexs />
+        <options>
+
+          <!-- 風光重逢：厚禮答謝 -->
+          <li>
+            <text>RatkinQL_Peirin_Ch3_OptCelebrate</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <conditions>
+              <li Class="QuestEditor_Library.DialogCondition_Or">
+                <failReason>RatkinQL_NotRatkin</failReason>
+                <condition>
+                  <li Class="QuestEditor_Library.DialogCondition_Bool"><boolName>RatkinQL_Peirin_Funded</boolName><failReason>RatkinQL_NotRatkin</failReason></li>
+                  <li Class="QuestEditor_Library.DialogCondition_Bool"><boolName>RatkinQL_Peirin_Helped</boolName><failReason>RatkinQL_NotRatkin</failReason></li>
+                  <li Class="QuestEditor_Library.DialogCondition_Bool"><boolName>RatkinQL_Peirin_Rescued</boolName><failReason>RatkinQL_NotRatkin</failReason></li>
+                </condition>
+              </li>
+            </conditions>
+            <results><li>
+              <resultName>Celebrate</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>PeirinGift</dataName>
+                      <message>RatkinQL_Peirin_Ch3_MsgGift</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>120~120</count></li>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>RK_Food_Hardtack</thing><count>25~25</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>5</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Mercy</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Peirin_Done</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>1</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- ★破產求收留：收編成殖民者並正名 -->
+          <li>
+            <text>RatkinQL_Peirin_Ch3_OptTakeIn</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <conditions>
+              <li Class="QuestEditor_Library.DialogCondition_Bool"><boolName>RatkinQL_Peirin_Broke</boolName><failReason>RatkinQL_NotRatkin</failReason></li>
+            </conditions>
+            <results><li>
+              <resultName>TakeIn</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message"><message>RatkinQL_Peirin_Ch3_MsgJoin</message><type>PositiveEvent</type></li>
+                <li Class="QuestEditor_Library.CQFAction_Faction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <faction>PlayerColony</faction>
+                </li>
+                <li Class="RatkinQuestlines.CQFAction_SetName">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <first>Walnut</first><nick>Walnut</nick><last>Peirin</last><gender>Female</gender>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ProtectWeak</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Peirin_Done</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 破產但打發走 -->
+          <li>
+            <text>RatkinQL_Peirin_Ch3_OptSendOff</text>
+            <hideWhenDisabled>true</hideWhenDisabled>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <conditions>
+              <li Class="QuestEditor_Library.DialogCondition_Bool"><boolName>RatkinQL_Peirin_Broke</boolName><failReason>RatkinQL_NotRatkin</failReason></li>
+            </conditions>
+            <results><li>
+              <resultName>SendOff</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Peirin_Done</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 中性／保底告別 -->
+          <li>
+            <text>RatkinQL_Peirin_Ch3_OptFarewell</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Farewell</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Peirin_Done</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_Peirin_Ch3_GoodFarewell</text>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Peirin_Ch3_OptBye</text><results><li><resultName>Bye</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_Peirin_Ch3_Welcome</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Peirin_Ch3_OptBye</text><results><li><resultName>Bye</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_Peirin_Ch3_Somber</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_Peirin_Ch3_OptBye</text><results><li><resultName>Bye</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_PeirinCh3Manager</defName>
+    <tags><li>RatkinQL_PeirinCh3</li></tags>
+    <genrationConditions>
+      <li Class="QuestEditor_Library.DialogCondition_Or">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <condition>
+          <li Class="QuestEditor_Library.DialogCondition_Faction"><targetText>Interviewee</targetText><faction>Rakinia</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="RKU.RatkinUnderground"><targetText>Interviewee</targetText><faction>RKU_Faction</faction></li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="W.ZHP"><targetText>Interviewee</targetText><faction>ZHP_Faction</faction></li>
+        </condition>
+      </li>
+      <li Class="QuestEditor_Library.DialogCondition_Bool">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <boolName>RatkinQL_Peirin_Ch2Done</boolName>
+      </li>
+      <li Class="QuestEditor_Library.DialogCondition_Reversal">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <condition Class="QuestEditor_Library.DialogCondition_Bool">
+          <boolName>RatkinQL_Peirin_Done</boolName>
+          <failReason>RatkinQL_NotRatkin</failReason>
+        </condition>
+      </li>
+    </genrationConditions>
+    <trees><li><tree>RatkinQL_PeirinCh3Tree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

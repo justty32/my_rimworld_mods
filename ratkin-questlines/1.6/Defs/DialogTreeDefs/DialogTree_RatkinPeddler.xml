@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《陳皮餅乾的老交情》— 鼠族旅人以物易物對話樹（首發垂直切片）
+    ============================================================
+    結構逐一對照 cqf-example-quests/DialogTree_WanderingGuide.xml（已驗證 schema）：
+      DialogTreeDef :22474 / DialogNode :22618 / DialogOption :23485 / DialogResult :22768
+      requiredThings=CQFThingDefCount :15687；抽象列表 li 帶 Class 全限定名。
+    節點圖：
+      0 問候 ─┬─ 打聽近況 → 1 近況（隨機台詞）→ 回 0
+              ├─ 講價（社交>6，付 25 銀 → 得乾糧＋啤酒，記「宰過一筆」旗標）→ 2 道別
+              ├─ 照價（付 40 銀 → 同貨）→ 2 道別
+              ├─ 大方（付 60 銀 → 同貨＋提升鼠族好感，記「好客」旗標）→ 2 道別
+              └─ 告辭（關窗）
+      三種交易皆 removeDialogAfterSelect＝一位旅人只成交一次，杜絕銀↔貨套利。
+    綁定：DialogManager_RatkinPeddler（tag + genrationConditions 限鼠族派系）→ SpecialPawn_RatkinPeddler。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_PeddlerTree</defName>
+    <title>RatkinQL_PeddlerTree_Title</title>
+    <dialogReportKey>RatkinQL_PeddlerTree_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>3</curIndex>
+    <nodeMoulds>
+
+      <!-- 節點 0：問候（入口固定 key 0） -->
+      <li>
+        <key>0</key>
+        <value>
+          <text>RatkinQL_Peddler_Greeting</text>
+          <index>0</index>
+          <subNodeIndexs>
+            <li>1</li>
+            <li>2</li>
+          </subNodeIndexs>
+          <options>
+
+            <!-- 選項 1：打聽鼠族世界近況 → 節點 1 -->
+            <li>
+              <text>RatkinQL_Peddler_OptNews</text>
+              <results>
+                <li>
+                  <resultName>GoNews</resultName>
+                  <nextIndex>1</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 2：講價宰一筆 — 社交>6 才可點；付 25 銀 → 得貨，記旗標 -->
+            <li>
+              <text>RatkinQL_Peddler_OptHaggle</text>
+              <hideWhenDisabled>false</hideWhenDisabled>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <conditions>
+                <li Class="QuestEditor_Library.DialogCondition_Skill">
+                  <failReason>RatkinQL_Peddler_ReasonSocial</failReason>
+                  <targetText>Interviewer</targetText>
+                  <skill>Social</skill>
+                  <level>6</level>
+                  <needToBeGreater>true</needToBeGreater>
+                </li>
+              </conditions>
+              <requiredThings>
+                <li Class="QuestEditor_Library.CQFThingDefCount">
+                  <thing>Silver</thing>
+                  <count>25~25</count>
+                </li>
+              </requiredThings>
+              <results>
+                <li>
+                  <resultName>HaggleDone</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_Spawn">
+                      <targetsText>
+                        <li>Interviewer</li>
+                      </targetsText>
+                      <datas>
+                        <li>
+                          <dataName>RatkinQL_PeddlerGoods</dataName>
+                          <chance>1</chance>
+                          <message>RatkinQL_Peddler_MsgGoods</message>
+                          <things>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>RK_Food_Hardtack</thing>
+                              <count>12~12</count>
+                            </li>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>RK_StrawberryBeer</thing>
+                              <count>2~2</count>
+                            </li>
+                          </things>
+                        </li>
+                      </datas>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                      <keyOfBool>RatkinQL_HaggledHard</keyOfBool>
+                      <valueOfBool>true</valueOfBool>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>RatkinQL_Peddler_MsgHaggle</message>
+                      <type>NeutralEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 3：照行情價成交 — 付 40 銀 → 得貨 -->
+            <li>
+              <text>RatkinQL_Peddler_OptFair</text>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <requiredThings>
+                <li Class="QuestEditor_Library.CQFThingDefCount">
+                  <thing>Silver</thing>
+                  <count>40~40</count>
+                </li>
+              </requiredThings>
+              <results>
+                <li>
+                  <resultName>FairDone</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_Spawn">
+                      <targetsText>
+                        <li>Interviewer</li>
+                      </targetsText>
+                      <datas>
+                        <li>
+                          <dataName>RatkinQL_PeddlerGoods</dataName>
+                          <chance>1</chance>
+                          <message>RatkinQL_Peddler_MsgGoods</message>
+                          <things>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>RK_Food_Hardtack</thing>
+                              <count>12~12</count>
+                            </li>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>RK_StrawberryBeer</thing>
+                              <count>2~2</count>
+                            </li>
+                          </things>
+                        </li>
+                      </datas>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 4：大方待客 — 付 60 銀 → 得貨＋提升該鼠族派系好感，記「好客」旗標 -->
+            <li>
+              <text>RatkinQL_Peddler_OptGenerous</text>
+              <removeDialogAfterSelect>true</removeDialogAfterSelect>
+              <requiredThings>
+                <li Class="QuestEditor_Library.CQFThingDefCount">
+                  <thing>Silver</thing>
+                  <count>60~60</count>
+                </li>
+              </requiredThings>
+              <results>
+                <li>
+                  <resultName>GenerousDone</resultName>
+                  <actions>
+                    <li Class="QuestEditor_Library.CQFAction_Spawn">
+                      <targetsText>
+                        <li>Interviewer</li>
+                      </targetsText>
+                      <datas>
+                        <li>
+                          <dataName>RatkinQL_PeddlerGoods</dataName>
+                          <chance>1</chance>
+                          <message>RatkinQL_Peddler_MsgGoods</message>
+                          <things>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>RK_Food_Hardtack</thing>
+                              <count>12~12</count>
+                            </li>
+                            <li Class="QuestEditor_Library.CQFThingDefCount">
+                              <thing>RK_StrawberryBeer</thing>
+                              <count>2~2</count>
+                            </li>
+                          </things>
+                        </li>
+                      </datas>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                      <targetsText>
+                        <li>Interviewee</li>
+                      </targetsText>
+                      <isIncrease>true</isIncrease>
+                      <value>4</value>
+                      <sendLetter>true</sendLetter>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_SetGlobalBool">
+                      <keyOfBool>RatkinQL_GenerousHost</keyOfBool>
+                      <valueOfBool>true</valueOfBool>
+                    </li>
+                    <li Class="QuestEditor_Library.CQFAction_Message">
+                      <message>RatkinQL_Peddler_MsgGenerous</message>
+                      <type>PositiveEvent</type>
+                    </li>
+                  </actions>
+                  <nextIndex>2</nextIndex>
+                </li>
+              </results>
+            </li>
+
+            <!-- 選項 5：告辭（無 nextIndex＝關窗） -->
+            <li>
+              <text>RatkinQL_Peddler_OptLeave</text>
+              <results>
+                <li>
+                  <resultName>Leave</resultName>
+                </li>
+              </results>
+            </li>
+
+          </options>
+        </value>
+      </li>
+
+      <!-- 節點 1：鼠族世界近況 — extraText 隨機挑一句（沉浸感/世界感文本） -->
+      <li>
+        <key>1</key>
+        <value>
+          <text>RatkinQL_Peddler_News1</text>
+          <extraText>
+            <li>RatkinQL_Peddler_News2</li>
+            <li>RatkinQL_Peddler_News3</li>
+          </extraText>
+          <index>1</index>
+          <parentIndex>0</parentIndex>
+          <subNodeIndexs />
+          <options>
+            <li>
+              <text>RatkinQL_Peddler_OptBack</text>
+              <results>
+                <li>
+                  <resultName>BackToStart</resultName>
+                  <nextIndex>0</nextIndex>
+                </li>
+              </results>
+            </li>
+          </options>
+        </value>
+      </li>
+
+      <!-- 節點 2：道別 -->
+      <li>
+        <key>2</key>
+        <value>
+          <text>RatkinQL_Peddler_Farewell</text>
+          <index>2</index>
+          <parentIndex>0</parentIndex>
+          <subNodeIndexs />
+          <options>
+            <li>
+              <text>RatkinQL_Peddler_OptLeave</text>
+              <results>
+                <li>
+                  <resultName>Leave</resultName>
+                </li>
+              </results>
+            </li>
+          </options>
+        </value>
+      </li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+</Defs>

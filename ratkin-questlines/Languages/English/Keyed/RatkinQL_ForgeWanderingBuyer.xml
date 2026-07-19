@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <RatkinQL_Forge_Buyer_ArriveLabel>A buyer drawn by your name</RatkinQL_Forge_Buyer_ArriveLabel>
+  <RatkinQL_Forge_Buyer_ArriveText>A travel-worn ratkin buyer, {PAWN_labelShort}, has walked into your settlement, saying they heard your name all along the road and came specially to buy arms from you, the blacksmith. Go greet your guest.</RatkinQL_Forge_Buyer_ArriveText>
+
+  <RatkinQL_Forge_Buyer_Title>A Buyer Drawn by Your Name</RatkinQL_Forge_Buyer_Title>
+  <RatkinQL_Forge_Buyer_Report>Discuss the arms deal with the wandering buyer</RatkinQL_Forge_Buyer_Report>
+
+  <RatkinQL_Forge_Buyer_Greeting>You're the one? Word on the road is there's a fine blacksmith in these parts. I'm buying weapons — four of them. I'm not picky about the style, just so they work; only one rule: the quality's got to be decent, don't fob me off with scrap iron. I can pay — enough to match four proper steel swords, all told. Deal!</RatkinQL_Forge_Buyer_Greeting>
+
+  <RatkinQL_Forge_Buyer_OptDeliver>Deliver: open the picker window and choose the weapons by hand</RatkinQL_Forge_Buyer_OptDeliver>
+  <RatkinQL_Forge_Buyer_OptDeliverTrade>Deliver: open the trade window and sell them the weapons</RatkinQL_Forge_Buyer_OptDeliverTrade>
+  <RatkinQL_Forge_Buyer_NeedGoods>You can't muster goods that qualify (four weapons, Normal+ quality, total value matching four normal steel longswords)</RatkinQL_Forge_Buyer_NeedGoods>
+  <RatkinQL_Forge_Buyer_MsgPaid>The buyer hefts each weapon you hand over, more pleased by the moment, and counts out silver without a quibble: "Fine work! Worth the trip. I'll be back — and I'll spread your name around, too."</RatkinQL_Forge_Buyer_MsgPaid>
+
+  <RatkinQL_Forge_Buyer_OptTerms>Ask what they want the weapons for</RatkinQL_Forge_Buyer_OptTerms>
+  <RatkinQL_Forge_Buyer_Terms1>(They're vague about it.) "Self-defense, guarding a place, working the trade roads... plenty of uses for a good weapon. You just forge them well, I'll just pay well, and let's neither of us ask more than that."</RatkinQL_Forge_Buyer_Terms1>
+  <RatkinQL_Forge_Buyer_OptBack>Back to business</RatkinQL_Forge_Buyer_OptBack>
+
+  <RatkinQL_Forge_Buyer_Thanks>The buyer wraps the weapons carefully and stows them, then salutes you with a fist-to-palm: "A pleasure! Till we meet again, blacksmith." And with that, they're back on the road.</RatkinQL_Forge_Buyer_Thanks>
+  <RatkinQL_Forge_Buyer_OptBye>Watch them leave</RatkinQL_Forge_Buyer_OptBye>
+
+  <RatkinQL_Forge_Buyer_OptDecline>Nothing on hand — pass on this one</RatkinQL_Forge_Buyer_OptDecline>
+
+  <!-- Wandering buyer banded-outcome messages -->
+  <RatkinQL_Forge_Buyer_BandMsg1>The buyer counts over the weapons you delivered, satisfied with the deal, and pays the silver in full.</RatkinQL_Forge_Buyer_BandMsg1>
+  <RatkinQL_Forge_Buyer_BandMsg2>The buyer never expected you could produce goods this fine — delighted, they add extra to the payment, swearing they'll spread your name up and down the whole trade road!</RatkinQL_Forge_Buyer_BandMsg2>
+
+  <!-- Custom delivery picker window (option C) — shared strings -->
+  <RatkinQL_Forge_DeliverWindow_Title>Choose the arms to deliver</RatkinQL_Forge_DeliverWindow_Title>
+  <RatkinQL_Forge_DeliverWindow_Req>Requires {0}~{1} weapons, quality {2} or better; the higher the total value delivered, the better the pay and reputation (baseline target about {3} silver).</RatkinQL_Forge_DeliverWindow_Req>
+  <RatkinQL_Forge_DeliverWindow_Band>Selected {0} weapons, total value {1} silver — tier {2} delivery.</RatkinQL_Forge_DeliverWindow_Band>
+  <RatkinQL_Forge_DeliverWindow_Short>Selected {0} weapons, total value {1} silver (below the delivery threshold).</RatkinQL_Forge_DeliverWindow_Short>
+  <RatkinQL_Forge_DeliverWindow_SilverUnit>silver</RatkinQL_Forge_DeliverWindow_SilverUnit>
+  <RatkinQL_Forge_DeliverWindow_Confirm>Confirm delivery</RatkinQL_Forge_DeliverWindow_Confirm>
+  <RatkinQL_Forge_DeliverWindow_Cancel>Cancel</RatkinQL_Forge_DeliverWindow_Cancel>
+
+</LanguageData>

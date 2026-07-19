@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    《鼠信眾紀念碑》— F4 proof-slice。
+    由對話（Line_Monument 的接約選項，CQFAction_Quest）觸發，不經說書人（rootSelectionWeight=0）。
+    結構照抄原版 Royalty BuildMonument_TimeProtect + BuildMonumentWorker
+    （Data/Royalty/Defs/QuestScriptDefs/BuildMonument/），簡化掉 GiveRewards/royal favor/
+    Util_DecideRandomAsker 那一整套（本包不需要 asker 文字，也不掛皇室），改用我方慣例
+    ThingSetMaker + DropPods 發獎（同 F2 RatkinQL_SupplyContract 的做法）。
+
+    流程：
+      QuestNode_GetMap
+      → GetLargestClearArea / GetMonumentSketch（純吃 $map，不需要 asker/points）
+      → GenerateMonumentMarker → 縮小成 minified → DropPods 空投給玩家去建
+      → 完工信號 monumentMarker.MonumentCompleted：跳提示信＋開始 7 天守護期倒數
+        （QuestNode_Delay inSignalEnable，撐過 → 發謝禮 → End Success）
+      → 期間信號 monumentMarker.MonumentDestroyed：抓一個對玩家永久敵對的派系
+        （QuestNode_GetFaction mustBePermanentEnemy，原版 Util_Raid 自身也是這樣拿敵源）
+        → SubScript Util_Raid 送一波懲罰性突襲 → End Fail
+
+    ⚠ 未設「建造期限」——只要玩家還沒把紀念碑建完，任務就一直停在「等 MonumentCompleted」，
+    不會因為拖太久而自動失敗。這是刻意簡化（規格書列的節點清單裡沒有建造期限這段），
+    不是遺漏；未來要補可以照原版 BuildMonumentWorker 尾段的
+    constructionTimeoutTicks + inSignalDisable 那段抄。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_Monument</defName>
+    <rootSelectionWeight>0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->鼠信眾紀念碑</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->鼠信眾委託你在殖民地內建造一座紀念碑，用來供奉他們的祖靈與信仰。完工之後，你必須守護紀念碑七天——若在守護期內遭到破壞，信眾會震怒，派人前來問罪。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="QuestNode_GetMap" />
+
+        <!-- 取最大空地 → 生成紀念碑設計圖（只吃 $map，不需要 asker/points 之類的 slate 變數） -->
+        <li Class="QuestNode_GetLargestClearArea">
+          <map>$map</map>
+          <storeAs>largestClearArea</storeAs>
+          <failIfSmaller>10</failIfSmaller>
+          <max>40</max>
+        </li>
+        <li Class="QuestNode_GetMonumentSketch">
+          <storeAs>monumentSketch</storeAs>
+          <pointsPerArea>6.0</pointsPerArea>
+          <useOnlyResourcesAvailableOnMap>$map</useOnlyResourcesAvailableOnMap>
+          <maxSize>$largestClearArea</maxSize>
+        </li>
+
+        <!-- 生成紀念碑標記，縮小後空投給玩家去建 -->
+        <li Class="QuestNode_GenerateMonumentMarker">
+          <storeAs>monumentMarker</storeAs>
+          <sketch>$monumentSketch</sketch>
+        </li>
+        <li Class="QuestNode_DestroyOrPassToWorldOnCleanup">
+          <things>$monumentMarker</things>
+        </li>
+        <li Class="QuestNode_MakeMinified">
+          <storeAs>monumentMarkerMinified</storeAs>
+          <thing>$monumentMarker</thing>
+        </li>
+        <li Class="QuestNode_AddToList">
+          <name>thingsToDrop</name>
+          <value>$monumentMarkerMinified</value>
+        </li>
+        <li Class="QuestNode_DropPods">
+          <contents>$thingsToDrop</contents>
+          <useTradeDropSpot>true</useTradeDropSpot>
+          <sendStandardLetter>false</sendStandardLetter>
+          <customLetterLabel>紀念碑建材送達</customLetterLabel>
+          <customLetterText>鼠信眾把紀念碑的設計圖（壓縮成小件）用投放艙送到了。找塊空地安置好，湊齊材料把它建完——完工後，你要守護它七天。</customLetterText>
+          <thingsToExcludeFromHyperlinks>$monumentMarkerMinified</thingsToExcludeFromHyperlinks>
+        </li>
+
+        <!-- 完工提示信（跟下面的守護期倒數是兩個各自獨立監聽同一信號的節點，互不阻塞） -->
+        <li Class="QuestNode_Signal">
+          <inSignal>monumentMarker.MonumentCompleted</inSignal>
+          <node Class="QuestNode_Letter">
+            <label>紀念碑完工</label>
+            <letterDef>PositiveEvent</letterDef>
+            <text>紀念碑已經完工。接下來的七天裡你必須守護它——若有任何一部分被毀，鼠信眾會震怒，派人前來問罪。</text>
+          </node>
+        </li>
+
+        <!-- 守護期內被毀：抓一個對玩家永久敵對的派系，送一波懲罰性突襲，任務失敗 -->
+        <li Class="QuestNode_Signal">
+          <inSignal>monumentMarker.MonumentDestroyed</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetFaction">
+                <allowEnemy>true</allowEnemy>
+                <mustBePermanentEnemy>true</mustBePermanentEnemy>
+                <storeAs>enemyFaction</storeAs>
+              </li>
+              <li Class="QuestNode_SubScript">
+                <def>Util_Raid</def>
+              </li>
+              <li Class="QuestNode_Message">
+                <text>鼠信眾委託的紀念碑被毀了。他們震怒不已，已經派人前來問罪。</text>
+                <lookTargets>monumentMarker</lookTargets>
+                <messageType>ThreatBig</messageType>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <!-- 守護期撐過去：發謝禮，任務成功 -->
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>monumentMarker.MonumentCompleted</inSignalEnable>
+          <delayTicks>$(7*60000)</delayTicks>
+          <inspectString>守護紀念碑 {0}</inspectString>
+          <inspectStringTargets>$monumentMarker</inspectStringTargets>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_MonumentReward</thingSetMaker>
+                <storeAs>monumentReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$monumentReward</contents>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <sendStandardLetter>false</sendStandardLetter>
+                <customLetterLabel>紀念碑謝禮</customLetterLabel>
+                <customLetterText>你守住了紀念碑整整七天。鼠信眾依約送來了謝禮。</customLetterText>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Success</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

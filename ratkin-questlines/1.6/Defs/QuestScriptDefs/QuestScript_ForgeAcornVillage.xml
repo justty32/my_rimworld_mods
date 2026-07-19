@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T1 試點 — 橡實村的軍械委託（信件制地基第一條）。
+    在講誰的故事：附近農耕小村「橡實村」的年輕村長板栗——秋收後要防野獸/流寇，來向你這位軍械名匠訂一批現貨制式短弓。
+    這是把舊「隨機訪客掛對話」改成信件制的試點（brainstorm/6-forge-and-company.md §0、名冊 6a）：
+      說書人依權重提供本任務信（任務欄可接受/拒絕）
+      → 守衛節點 gate：據點身份＝工匠主導(State_Crafter) ＋ 橡實村可上門(Forge_AcornVillage_Available：T1 已解鎖且未 blocked)
+      → 接受(initiate 信號) → QuestNode_SpawnRatkinEnvoy 生一小隊 Rakinia 訪客 ＋ 把板栗的對話掛到帶頭那隻
+      → 玩家與板栗對話（Line_ForgeAcornVillage）＝現有 DialogTree 機器：交現貨→領銀＋名聲；敲詐→她 blocked
+      → 一天後任務自動結案 Success（純觸發殼，真正互動在對話）。
+    ⚠ 全 runtime 待實機（訪客團生成＋AddDialog＋到訪 Lord 的觸發鏈第一次上機驗證）。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeAcornVillage</defName>
+    <rootSelectionWeight>1</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>   <!-- storyteller-offered（weight>0）強制要，否則 config error -->
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->橡實村的軍械委託</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->附近橡實村的年輕村長「板栗」捎來口信：秋收在即，村裡想向你這位鐵匠訂一批制式軍械（十字弩與矛）防身。接下委託後，她會給你約十二天備料打造，屆時親自帶人上門取貨。（若你尚未學會鍛造這批軍械，接下時她會先送來一份圖譜。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- 守衛：有鐵匠檯（能打鐵）＋橡實村此刻可上門（T1 已解鎖且未被敲詐 blocked，由 F8 帳本回寫） -->
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Forge_AcornVillage_Available</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 接受瞬間即空投 T1 科技藍圖（讓玩家這十二天內研究＋打造；gateBool 保證每層只送一次） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierOne</blueprint>
+          <gateBool>RatkinQL_Forge_T1TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T1Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T1Tech_Text</letterText>
+        </li>
+
+        <!-- 取貨延遲：接受後約 12 天，板栗才帶人來取（給玩家備料打造時間） -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>720000</delayTicks>
+          <outSignalComplete>EnvoyArrive</outSignalComplete>
+        </li>
+
+        <!-- 12 天後 → 召板栗一行 ＋ 掛她的對話 ＋ 到訪信件 -->
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>EnvoyArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeAcornVillageManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Acorn_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Acorn_ArriveText</letterText>
+        </li>
+
+        <!-- 訪客到訪後給 15 天到訪窗口 → 結案（純殼；真正交貨在對話，交完 SendEnvoyAway 會提前遣離） -->
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>EnvoyArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>EnvoyVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>EnvoyVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

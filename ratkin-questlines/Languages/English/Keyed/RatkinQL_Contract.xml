@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_ContractTree_Title>Ratkin Supply Contract</RatkinQL_ContractTree_Title>
+	<RatkinQL_ContractTree_Report>A wandering Ratkin merchant offered a supply contract.</RatkinQL_ContractTree_Report>
+	<RatkinQL_Contract_Greeting>Ah, {Interviewer_labelShort}. Heard your larders are well-stocked. How about this — you front me thirty pemmican, I run a trade route, and send the coin back in two drops. Your cut plus a ten-percent commission. Sound fair?</RatkinQL_Contract_Greeting>
+	<RatkinQL_Contract_OptAccept>Accept the deal — hand over 30 pemmican.</RatkinQL_Contract_OptAccept>
+	<RatkinQL_Contract_OptTerms>Tell me how this contract works.</RatkinQL_Contract_OptTerms>
+	<RatkinQL_Contract_OptLeave>Not interested for now.</RatkinQL_Contract_OptLeave>
+	<RatkinQL_Contract_OptBack>Back to the main topic.</RatkinQL_Contract_OptBack>
+	<RatkinQL_Contract_Terms1>First payment comes by drop pod in about ten days, the second a week after that.</RatkinQL_Contract_Terms1>
+	<RatkinQL_Contract_Terms2>We Ratkin guilds take our word seriously — nobody in ZHP welches on a sealed handshake.</RatkinQL_Contract_Terms2>
+	<RatkinQL_Contract_Terms3>You get the whole cargo price plus an extra ten-percent commission. Fair for fair trade.</RatkinQL_Contract_Terms3>
+	<RatkinQL_Contract_Farewell>Good doing business with you. May your storerooms stay full.</RatkinQL_Contract_Farewell>
+	<RatkinQL_Contract_MsgAccept>You handed over thirty pemmican and sealed the Ratkin supply contract with a firm pawshake. The merchant shouldered the bundle and set off down the road.</RatkinQL_Contract_MsgAccept>
+	<RatkinQL_Contract_MsgSealed>The Ratkin merchant has departed with your pemmican. Two drop pod shipments of silver are scheduled to arrive — the first in about ten days, the second a week later.</RatkinQL_Contract_MsgSealed>
+</LanguageData>

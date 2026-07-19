@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsDeliverMajorTree_Title>王国军务队</RatkinQL_ArmsDeliverMajorTree_Title>
+<RatkinQL_ArmsDeliverMajorTree_Report>王国军务队到访，前来验收大单军械。</RatkinQL_ArmsDeliverMajorTree_Report>
+<RatkinQL_ArmsMajor_Deliver_Greeting>我们是 Rakinia 的军务队，{Interviewer_labelShort}。奉特使之命，来验收那批精良军械——五把精良以上的长剑。</RatkinQL_ArmsMajor_Deliver_Greeting>
+<RatkinQL_ArmsMajor_Deliver_OptDeliver>交付军械（五把精良以上的长剑）</RatkinQL_ArmsMajor_Deliver_OptDeliver>
+<RatkinQL_ArmsMajor_Deliver_OptLater>货还没齐，请他们稍候</RatkinQL_ArmsMajor_Deliver_OptLater>
+<RatkinQL_ArmsMajor_Deliver_OptBye>道别</RatkinQL_ArmsMajor_Deliver_OptBye>
+<RatkinQL_ArmsMajor_Deliver_Thanks>军务队逐一验过刀刃，郑重点头。他们奉上四百五十白银与一纸 "王国征召令状"。带队者说："王廷的功册上已经记下你的名字。做得好。"</RatkinQL_ArmsMajor_Deliver_Thanks>
+<RatkinQL_ArmsMajor_Deliver_MsgPaid>你交付了大单军械，换得王国的重酬与一纸王国征召令状。</RatkinQL_ArmsMajor_Deliver_MsgPaid>
+<RatkinQL_ArmsMajor_NeedQuality>你手上还没有足够的顶级军械——需要五把 "精良" 以上的长剑。</RatkinQL_ArmsMajor_NeedQuality>
+</LanguageData>

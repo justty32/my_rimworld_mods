@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<RatkinQL_MonumentTree_Title>Ratkin Monument Commission</RatkinQL_MonumentTree_Title>
+	<RatkinQL_MonumentTree_Report>A Ratkin faithful envoy asked you to build a monument.</RatkinQL_MonumentTree_Report>
+	<RatkinQL_Monument_Greeting>{Interviewer_labelShort}. Our faith needs a monument raised on your ground, to honor our ancestors and our gods. Build it, keep it standing seven days after it's done, and you'll be well paid for your trouble. Will you take the commission?</RatkinQL_Monument_Greeting>
+	<RatkinQL_Monument_OptAccept>Accept the commission.</RatkinQL_Monument_OptAccept>
+	<RatkinQL_Monument_OptTerms>Tell me how this works.</RatkinQL_Monument_OptTerms>
+	<RatkinQL_Monument_OptLeave>Not right now.</RatkinQL_Monument_OptLeave>
+	<RatkinQL_Monument_OptBack>Back to the main topic.</RatkinQL_Monument_OptBack>
+	<RatkinQL_Monument_Terms1>A drop pod will bring you a minified monument marker. Set it down somewhere and build it out with your own colony's resources.</RatkinQL_Monument_Terms1>
+	<RatkinQL_Monument_Terms2>Once it's finished, you must guard it for seven days. If any part of it is destroyed during that time, our enforcers will come to settle the score.</RatkinQL_Monument_Terms2>
+	<RatkinQL_Monument_Terms3>Stand watch the full seven days and we'll send silver as thanks, no strings attached.</RatkinQL_Monument_Terms3>
+	<RatkinQL_Monument_Farewell>May your monument stand tall, {Interviewer_labelShort}. We'll be watching.</RatkinQL_Monument_Farewell>
+	<RatkinQL_Monument_MsgAccept>You agreed to build the Ratkin faithful's monument. A drop pod carrying the minified marker is on its way.</RatkinQL_Monument_MsgAccept>
+</LanguageData>

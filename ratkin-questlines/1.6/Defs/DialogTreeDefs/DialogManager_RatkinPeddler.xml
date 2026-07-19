@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    對話掛載器：把 RatkinQL_PeddlerTree 綁上到訪的「鼠族」中立訪客。
+    DialogManagerDef :22279  trees / tags / genrationConditions（注意反編譯就是拼 genration）
+    ⚠️ genrationConditions 由 SpecialPawnGenerator_AddDialog.Work 逐 pawn 檢查（targets={Interviewee:pawn}）：
+       全部條件皆須 Satisfied 才會被列為候選（:20244 附近）。
+    以 DialogCondition_Or 包多個 DialogCondition_Faction，只要 Interviewee 屬任一鼠族派系即通過
+    ⇒ 對話只長在鼠族訪客身上，不會出現在其他種族訪客頭上（維持沉浸感）。
+    （AddDialog 本身已排除 trader 與非人形；鼠族為 humanlike，可綁。）
+  -->
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_PeddlerManager</defName>
+    <tags>
+      <li>RatkinQL_Peddler</li>
+    </tags>
+    <genrationConditions>
+      <li Class="QuestEditor_Library.DialogCondition_Or">
+        <failReason>RatkinQL_NotRatkin</failReason>
+        <condition>
+          <!-- Rakinia 來自硬依賴 NewRatkinPlus，恆存在 -->
+          <li Class="QuestEditor_Library.DialogCondition_Faction">
+            <targetText>Interviewee</targetText>
+            <faction>Rakinia</faction>
+          </li>
+          <!-- 其餘鼠族派系來自各別擴充：MayRequire 讓該 mod 缺席時自動略過此 li，避免交叉引用紅字 -->
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="RKU.RatkinUnderground">
+            <targetText>Interviewee</targetText>
+            <faction>RKU_Faction</faction>
+          </li>
+          <li Class="QuestEditor_Library.DialogCondition_Faction" MayRequire="W.ZHP">
+            <targetText>Interviewee</targetText>
+            <faction>ZHP_Faction</faction>
+          </li>
+        </condition>
+      </li>
+    </genrationConditions>
+    <trees>
+      <li>
+        <tree>RatkinQL_PeddlerTree</tree>
+        <conditions />
+      </li>
+    </trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

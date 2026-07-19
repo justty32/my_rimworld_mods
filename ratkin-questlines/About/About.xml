@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>鼠族世界任務包 / Ratkin Questlines</name>
+	<author>justty32</author>
+	<packageId>justty32.ratkinquestlines</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+		<li>
+			<packageId>HaiLuan.CustomQuestFramework</packageId>
+			<displayName>Custom Quest Framework</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2978572782</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>Solaris.RatkinRaceMod</packageId>
+			<displayName>Ratkin Race Mod (NewRatkinPlus)</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>HaiLuan.CustomQuestFramework</li>
+		<li>Solaris.RatkinRaceMod</li>
+	</loadAfter>
+	<description>「有鼠族的世界」沉浸式任務包 — 用 Custom Quest Framework（CQF）製作的一系列鼠族相遇任務，讓玩家以聚居點管理者的身分，遇見鼠族社會不同角落的來客：商販、難民、騎士、掮客、學徒……
+
+An immersion-focused questline pack for a world with ratkin in it. Built on Custom Quest Framework (CQF): a growing set of ratkin encounters where the player, as the manager of a settlement, meets travellers from every corner of ratkin society.
+
+首發垂直切片：《陳皮餅乾的老交情》— 一名路過的鼠族旅人上門，兜售旅途乾糧（硬餅乾與啤酒），你可以照價成交、講價宰一筆，或大方待客換交情。
+First vertical slice: "An Old Bond over Hardtack" — a passing ratkin traveller offers road provisions; trade fairly, drive a hard bargain, or be generous and earn their goodwill.
+
+依賴 / Requires: Harmony, Custom Quest Framework, NewRatkinPlus.
+設計文件見 PROJECT.md。</description>
+</ModMetaData>

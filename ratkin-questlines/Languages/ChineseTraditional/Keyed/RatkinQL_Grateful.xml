@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_GratefulTree_Title>報恩的鼠族</RatkinQL_GratefulTree_Title>
+  <RatkinQL_GratefulTree_Report>一名鼠族登門償還舊恩。</RatkinQL_GratefulTree_Report>
+  <RatkinQL_Grateful_Greeting>一位鼠族站在門口，耳朵垂低，緊握著一隻小布袋。「我沒忘記 {Interviewer_labelShort} 當年對我家人的恩情。請讓我報答。」</RatkinQL_Grateful_Greeting>
+  <RatkinQL_Grateful_OptAccept>欣然收下這份心意。</RatkinQL_Grateful_OptAccept>
+  <RatkinQL_Grateful_OptStory>問他說的是哪樁恩情。</RatkinQL_Grateful_OptStory>
+  <RatkinQL_Grateful_OptDecline>婉拒，說舉手之勞不必掛懷。</RatkinQL_Grateful_OptDecline>
+  <RatkinQL_Grateful_OptLeave>送客。</RatkinQL_Grateful_OptLeave>
+  <RatkinQL_Grateful_OptBack>回到正題。</RatkinQL_Grateful_OptBack>
+  <RatkinQL_Grateful_Story1>「三年前的暴風雪，我的族人在外頭困住。只有你們願意開門。」</RatkinQL_Grateful_Story1>
+  <RatkinQL_Grateful_Story2>「有一隊 Rakinia 商隊倒在路邊淌血。你們的醫者替他們包紮、餵水。我就是那支商隊的領隊。」</RatkinQL_Grateful_Story2>
+  <RatkinQL_Grateful_Story3>「我弟弟高燒不退，你們的醫生整夜沒睡，用藥草和濕布幫他降溫。他到現在還記得那雙手。」</RatkinQL_Grateful_Story3>
+  <RatkinQL_Grateful_Farewell>「願你們的田地永遠肥沃，爐火永遠溫暖。」他深深一鞠躬，轉身消失在長草間。</RatkinQL_Grateful_Farewell>
+  <RatkinQL_Grateful_MsgAccept>鼠族笑得眼睛都彎了，把一袋銀幣塞進你手裡。「不算多，但全是心意。」</RatkinQL_Grateful_MsgAccept>
+  <RatkinQL_Grateful_MsgDecline>他愣住了片刻，然後深深彎下腰。「那麼，您的謙遜我也會記在心裡。」</RatkinQL_Grateful_MsgDecline>
+</LanguageData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_ArmsEnvoyTree_Title>A Kingdom Envoy</RatkinQL_ArmsEnvoyTree_Title>
+<RatkinQL_ArmsEnvoyTree_Report>A Rakinian envoy arrived bearing a royal procurement order.</RatkinQL_ArmsEnvoyTree_Report>
+<RatkinQL_Arms_Envoy_Greeting>"Greetings, {Interviewer_labelShort}. I am a herald of His Majesty's Quartermaster Corps, dispatched from Rakinia. Word of your settlement's armaments has reached the royal court, and we come bearing an invitation to serve the crown."</RatkinQL_Arms_Envoy_Greeting>
+<RatkinQL_Arms_Envoy_Terms1>"The terms are straightforward. Deliver a batch of blades of 'Good' quality or better within the set deadline. In return, the kingdom offers a generous sum of silver, and a royal token—a writ of conscription, sealed in our name."</RatkinQL_Arms_Envoy_Terms1>
+<RatkinQL_Arms_Envoy_Terms2>"The kingdom is at war, and we want tools that won't fail us. Deliver a good batch, and more orders will follow."</RatkinQL_Arms_Envoy_Terms2>
+<RatkinQL_Arms_Envoy_OptAccept>Accept the royal procurement order</RatkinQL_Arms_Envoy_OptAccept>
+<RatkinQL_Arms_Envoy_OptTerms>Clarify the terms</RatkinQL_Arms_Envoy_OptTerms>
+<RatkinQL_Arms_Envoy_OptDecline>Decline the commission</RatkinQL_Arms_Envoy_OptDecline>
+<RatkinQL_Arms_Envoy_OptBack>Return to the main discussion</RatkinQL_Arms_Envoy_OptBack>
+<RatkinQL_Arms_Envoy_OptBye>Dismiss the envoy</RatkinQL_Arms_Envoy_OptBye>
+<RatkinQL_Arms_Envoy_Sealed>The envoy gives a curt nod, rolls the contract, and secures it with a wax seal. "Done. Our quartermaster will come to inspect and collect on the agreed date. Do not disappoint."</RatkinQL_Arms_Envoy_Sealed>
+<RatkinQL_Arms_Envoy_MsgAccept>You have accepted the royal procurement order. Prepare weapons of 'Good' or better quality for the quartermaster's visit.</RatkinQL_Arms_Envoy_MsgAccept>
+</LanguageData>

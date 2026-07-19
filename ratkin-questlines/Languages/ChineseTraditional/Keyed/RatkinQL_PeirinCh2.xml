@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PeirinCh2Tree_Title>栽了跟頭的胡桃</RatkinQL_PeirinCh2Tree_Title>
+  <RatkinQL_PeirinCh2Tree_Report>胡桃回來了，狼狽不堪——麻煩已經找上她。</RatkinQL_PeirinCh2Tree_Report>
+  <RatkinQL_Peirin_Ch2_Greeting>胡桃又出現在你門前，包袱歪斜、額頭滲著薄汗。她朝 {Interviewer_labelShort} 勉強擠出笑容，卻撐不住：「哎……我惹上麻煩了。很大的麻煩。」</RatkinQL_Peirin_Ch2_Greeting>
+  <RatkinQL_Peirin_Ch2_Detail1>「記得那些軍閥的人嗎？有一支討債隊盯上我了。他們在你聚居點附近紮了營，把我的商路全堵死了。」她揉著手臂，聲音發緊。</RatkinQL_Peirin_Ch2_Detail1>
+  <RatkinQL_Peirin_Ch2_Detail2>「我手頭也空了，貨全押著，不穿過那個哨站就動不了。我……卡住了。」她重重嚥了口唾沫，驕傲和絕望正在她臉上打架。</RatkinQL_Peirin_Ch2_Detail2>
+  <RatkinQL_Peirin_Ch2_OptLend>借她一筆週轉金渡難關（80 銀）</RatkinQL_Peirin_Ch2_OptLend>
+  <RatkinQL_Peirin_Ch2_OptFight>出兵替她清掉那些軍閥追兵</RatkinQL_Peirin_Ch2_OptFight>
+  <RatkinQL_Peirin_Ch2_OptExploit>趁她急用錢，賤價買她全部存貨（10 銀）</RatkinQL_Peirin_Ch2_OptExploit>
+  <RatkinQL_Peirin_Ch2_OptTurnAway>愛莫能助，請她另尋門路</RatkinQL_Peirin_Ch2_OptTurnAway>
+  <RatkinQL_Peirin_Ch2_OptDetail>問她到底出了什麼事</RatkinQL_Peirin_Ch2_OptDetail>
+  <RatkinQL_Peirin_Ch2_OptLater>改日再談</RatkinQL_Peirin_Ch2_OptLater>
+  <RatkinQL_Peirin_Ch2_OptBack>回到正題</RatkinQL_Peirin_Ch2_OptBack>
+  <RatkinQL_Peirin_Ch2_OptBye>道別</RatkinQL_Peirin_Ch2_OptBye>
+  <RatkinQL_Peirin_Ch2_FarewellWarm>胡桃眼眶泛紅。她使勁眨了眨眼，聲音哽咽：「我……不會忘記這份恩情。永遠不會。謝謝你。」她緊緊抓著背包帶子，肩膀比來時沉穩多了。</RatkinQL_Peirin_Ch2_FarewellWarm>
+  <RatkinQL_Peirin_Ch2_FarewellCold>胡桃勉強擠出一個苦笑，肩膀塌了下去：「好吧……我再想辦法。謝謝你……願意聽。」她轉過身，腳步沉重，尾巴拖在塵埃裡。</RatkinQL_Peirin_Ch2_FarewellCold>
+  <RatkinQL_Peirin_Ch2_MsgExploit>胡桃把最後一批貨塞進你手中。聲調平淡：「給你。都是你的了。」她沒再多說一句，轉身就走。</RatkinQL_Peirin_Ch2_MsgExploit>
+</LanguageData>

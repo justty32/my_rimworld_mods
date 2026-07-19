@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_PeirinCh2Tree_Title>Walnut in a Bind</RatkinQL_PeirinCh2Tree_Title>
+  <RatkinQL_PeirinCh2Tree_Report>Walnut returns, looking ragged—trouble has caught up with her.</RatkinQL_PeirinCh2Tree_Report>
+  <RatkinQL_Peirin_Ch2_Greeting>Walnut appears at your door again, her pack askew and a thin sheen of sweat on her brow. She tries a grin at {Interviewer_labelShort}, but it falls flat. "Hey. Uh… I'm in a bit of a mess. A big one."</RatkinQL_Peirin_Ch2_Greeting>
+  <RatkinQL_Peirin_Ch2_Detail1>"Remember those Warlord boys? They've got a debt-collection team on my tail. They set up camp not far from here—blocked my whole route." She rubs her arm, voice tight.</RatkinQL_Peirin_Ch2_Detail1>
+  <RatkinQL_Peirin_Ch2_Detail2>"And I'm tapped out. All my goods are tied up, and I can't move 'em without getting through that checkpoint. I'm… stuck." She swallows hard, pride visibly warring with desperation.</RatkinQL_Peirin_Ch2_Detail2>
+  <RatkinQL_Peirin_Ch2_OptLend>Lend her coin to tide her over (80 silver)</RatkinQL_Peirin_Ch2_OptLend>
+  <RatkinQL_Peirin_Ch2_OptFight>Clear out the Warlord camp for her</RatkinQL_Peirin_Ch2_OptFight>
+  <RatkinQL_Peirin_Ch2_OptExploit>Buy her entire stock at rock-bottom price (10 silver)</RatkinQL_Peirin_Ch2_OptExploit>
+  <RatkinQL_Peirin_Ch2_OptTurnAway>Can't help—send her elsewhere</RatkinQL_Peirin_Ch2_OptTurnAway>
+  <RatkinQL_Peirin_Ch2_OptDetail>Ask what happened exactly</RatkinQL_Peirin_Ch2_OptDetail>
+  <RatkinQL_Peirin_Ch2_OptLater>Talk another time</RatkinQL_Peirin_Ch2_OptLater>
+  <RatkinQL_Peirin_Ch2_OptBack>Back to the matter at hand</RatkinQL_Peirin_Ch2_OptBack>
+  <RatkinQL_Peirin_Ch2_OptBye>Farewell</RatkinQL_Peirin_Ch2_OptBye>
+  <RatkinQL_Peirin_Ch2_FarewellWarm>Walnut's eyes rim red. She blinks hard, voice breaking. "I… won't forget this. Not ever. Thank you." She grips her pack straps tight, shoulders steadier than when she arrived.</RatkinQL_Peirin_Ch2_FarewellWarm>
+  <RatkinQL_Peirin_Ch2_FarewellCold>Walnut forces a thin smile, shoulders slumped. "Right. I'll… figure something out. Thanks for… listening." She turns, steps heavy, tail dragging in the dust.</RatkinQL_Peirin_Ch2_FarewellCold>
+  <RatkinQL_Peirin_Ch2_MsgExploit>Walnut shoves the last of her goods into your hands. Her voice is flat. "There. All yours." She leaves without another word.</RatkinQL_Peirin_Ch2_MsgExploit>
+</LanguageData>

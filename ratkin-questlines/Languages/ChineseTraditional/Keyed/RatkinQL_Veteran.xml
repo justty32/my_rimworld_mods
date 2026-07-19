@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_VeteranTree_Title>鼠族老兵</RatkinQL_VeteranTree_Title>
+  <RatkinQL_VeteranTree_Report>一名微醺的老兵停下腳步，想找人喝一杯、講當年。</RatkinQL_VeteranTree_Report>
+  <RatkinQL_Veteran_Greeting>他臉頰泛紅，用粗糙的爪子拍著你的肩：「{Interviewer_labelShort}，來，坐下喝一杯。我說說那些好日子——那些見血的日子。」</RatkinQL_Veteran_Greeting>
+  <RatkinQL_Veteran_OptDrink>請他喝一杯，聽他講古（10 銀）</RatkinQL_Veteran_OptDrink>
+  <RatkinQL_Veteran_OptStory>問他打過什麼仗。</RatkinQL_Veteran_OptStory>
+  <RatkinQL_Veteran_OptLeave>委婉脫身。</RatkinQL_Veteran_OptLeave>
+  <RatkinQL_Veteran_OptBack>回到正題。</RatkinQL_Veteran_OptBack>
+  <RatkinQL_Veteran_War1>「六個鼠仔守石橋，扛了三個時辰。軍閥的人衝了三次，沒一個過得來。」他盯著杯底說。</RatkinQL_Veteran_War1>
+  <RatkinQL_Veteran_War2>「跟軍閥打過照面。他一刀削掉我一隻耳朵，我牽走他的馬。」他咧嘴一笑，露出歪牙。</RatkinQL_Veteran_War2>
+  <RatkinQL_Veteran_War3>「全排十八個人進了那條溝。出來的時候只剩我一身雨。到現在，一下大雨我還能聽見他們的聲音。」他沉默下來。</RatkinQL_Veteran_War3>
+  <RatkinQL_Veteran_Farewell>他舉起空杯敬了一下，放下杯子，蹣跚離去。</RatkinQL_Veteran_Farewell>
+  <RatkinQL_Veteran_MsgDrink>兩人碰杯。他講得眉飛色舞，拍你的肩稱兄道弟，一瞬間好像那些歲月都沒了。</RatkinQL_Veteran_MsgDrink>
+</LanguageData>

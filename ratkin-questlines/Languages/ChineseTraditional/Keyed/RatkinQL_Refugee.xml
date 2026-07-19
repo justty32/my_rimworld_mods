@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+<RatkinQL_RefugeeTree_Title>鼠族難民</RatkinQL_RefugeeTree_Title>
+<RatkinQL_RefugeeTree_Report>一名鼠族難民抵達，懇求庇護。</RatkinQL_RefugeeTree_Report>
+<RatkinQL_Refugee_Greeting>一名憔悴的鼠族難民站在門口，放下僅剩的行囊，懇求 {Interviewer_labelShort} 收留他、給他一個安身之處。</RatkinQL_Refugee_Greeting>
+<RatkinQL_Refugee_OptTakeIn>收留他，讓他加入聚居地。</RatkinQL_Refugee_OptTakeIn>
+<RatkinQL_Refugee_OptStory>問他從哪裡來、遭遇了什麼。</RatkinQL_Refugee_OptStory>
+<RatkinQL_Refugee_OptSupplies>不能收留，但給他一些補給上路（5 份硬餅乾）。</RatkinQL_Refugee_OptSupplies>
+<RatkinQL_Refugee_OptLeave>把他拒於門外。</RatkinQL_Refugee_OptLeave>
+<RatkinQL_Refugee_OptBack>回到正題。</RatkinQL_Refugee_OptBack>
+<RatkinQL_Refugee_Story1>軍閥 Warlord 的手下燒了我們村子，逃走的都被射殺。</RatkinQL_Refugee_Story1>
+<RatkinQL_Refugee_Story2>饑荒讓全村四散，我走到雙腳失去知覺。</RatkinQL_Refugee_Story2>
+<RatkinQL_Refugee_Story3>王國 Rakinia 與游擊隊 RKU 的戰火摧毀了我的家園，我是少數活下來的。</RatkinQL_Refugee_Story3>
+<RatkinQL_Refugee_Farewell>他點了一下頭，命運的重量壓在肩頭。</RatkinQL_Refugee_Farewell>
+<RatkinQL_Refugee_MsgJoin>他熱淚盈眶，鄭重向你行禮，從此把這裡當成新家、成為你聚居地的一員。</RatkinQL_Refugee_MsgJoin>
+<RatkinQL_Refugee_MsgSupplies>他接過補給，低頭道謝，拖著疲憊的身子重新上路。</RatkinQL_Refugee_MsgSupplies>
+</LanguageData>

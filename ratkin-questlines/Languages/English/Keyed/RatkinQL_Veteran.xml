@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_VeteranTree_Title>Old Ratkin Veteran</RatkinQL_VeteranTree_Title>
+  <RatkinQL_VeteranTree_Report>A tipsy old soldier stopped by to share a drink and a story.</RatkinQL_VeteranTree_Report>
+  <RatkinQL_Veteran_Greeting>Face flushed, he claps your shoulder with a leathery paw. “{Interviewer_labelShort}! Sit down, have a drink with me. I’ll tell you about the good old days—the bloody ones.”</RatkinQL_Veteran_Greeting>
+  <RatkinQL_Veteran_OptDrink>Buy him a drink and listen to his tales (10 silver)</RatkinQL_Veteran_OptDrink>
+  <RatkinQL_Veteran_OptStory>Ask him what battles he fought.</RatkinQL_Veteran_OptStory>
+  <RatkinQL_Veteran_OptLeave>Politely excuse yourself.</RatkinQL_Veteran_OptLeave>
+  <RatkinQL_Veteran_OptBack>Get back to business.</RatkinQL_Veteran_OptBack>
+  <RatkinQL_Veteran_War1>“I held the Stonebridge for three hours with six rats. The Warlord’s men came three times. They never crossed.” He stares into his cup.</RatkinQL_Veteran_War1>
+  <RatkinQL_Veteran_War2>“Met a Warlord once, face to face. He took my ear with a sabre. I took his horse.” He grins, toothy and crooked.</RatkinQL_Veteran_War2>
+  <RatkinQL_Veteran_War3>“Whole platoon—eighteen of us—went into that ravine. Only the rain came out with me. Some days I still hear their voices when it pours.” He falls silent.</RatkinQL_Veteran_War3>
+  <RatkinQL_Veteran_Farewell>He raises his empty cup in a toast, then sets it down and shuffles away.</RatkinQL_Veteran_Farewell>
+  <RatkinQL_Veteran_MsgDrink>You clink cups. He talks with wild gestures, pats your back like an old comrade, and for a moment the years melt away.</RatkinQL_Veteran_MsgDrink>
+</LanguageData>

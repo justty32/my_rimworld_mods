@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RatkinQL_VagabondTree_Title>Ratkin Vagabond</RatkinQL_VagabondTree_Title>
+  <RatkinQL_VagabondTree_Report>A wandering ratkin came begging for alms.</RatkinQL_VagabondTree_Report>
+  <RatkinQL_Vagabond_Greeting>A ragged ratkin huddles near the gate, shivering in the wind. They look up with timid, wide eyes, asking if the folk of {Interviewer_labelShort} could spare a scrap of food or a few coins for a weary soul.</RatkinQL_Vagabond_Greeting>
+  <RatkinQL_Vagabond_OptStory>Ask how they fell into this state.</RatkinQL_Vagabond_OptStory>
+  <RatkinQL_Vagabond_OptAlms>Give generous alms (20 silver).</RatkinQL_Vagabond_OptAlms>
+  <RatkinQL_Vagabond_OptCoin>Spare a few coins (5 silver).</RatkinQL_Vagabond_OptCoin>
+  <RatkinQL_Vagabond_OptTurnAway>Turn them away.</RatkinQL_Vagabond_OptTurnAway>
+  <RatkinQL_Vagabond_OptLeave>Farewell.</RatkinQL_Vagabond_OptLeave>
+  <RatkinQL_Vagabond_OptBack>Go back.</RatkinQL_Vagabond_OptBack>
+  <RatkinQL_Vagabond_Story1>"Raiders burned our burrow to the ground. I was the only one who crawled out of the rubble."</RatkinQL_Vagabond_Story1>
+  <RatkinQL_Vagabond_Story2>"I lost my family in the chaos of the retreat from the southern borders. I've walked these roads looking for them ever since."</RatkinQL_Vagabond_Story2>
+  <RatkinQL_Vagabond_Story3>"My little vegetable stall went under when the trade roads collapsed. Now I've nothing but the clothes on my back."</RatkinQL_Vagabond_Story3>
+  <RatkinQL_Vagabond_Farewell>The ragged figure gathers their few belongings and quietly drifts off into the wild.</RatkinQL_Vagabond_Farewell>
+  <RatkinQL_Vagabond_MsgAlms>Moved by your generosity, the vagabond chokes back tears. "Thank you, kind soul... may your home never know hunger."</RatkinQL_Vagabond_MsgAlms>
+  <RatkinQL_Vagabond_MsgCoin>Clutching the silver tightly, the vagabond whispers, "Thank you... this'll buy me a crust of bread."</RatkinQL_Vagabond_MsgCoin>
+</LanguageData>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋 T1 匿名散客 — 慕名而來的採購（不記忠誠度的隨機委託）。
+    對照具名客戶（板栗有名有姓、記滿意度）：本線＝不知哪來的鼠族散客，慕你這鐵匠之名而來，一次性採購軍械。
+    不記客戶關係，只給軍械商名聲（Ev_WeaponDeal）＝世界活水＋隨機性來源（brainstorm/6b §6.3）。
+    需求走彈性條件（DialogCondition_WeaponValue）：不指定 defName，只要「數量＋品質＋總價值達基準」→ 玩家交什麼武器都行＝隨機性。
+    gate＝據點身份工匠主導（State_Crafter）。也帶科技藍圖節點：若這是玩家第一個 T1 委託，一樣空投藍圖（gateBool 保證只送一次）。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_ForgeWanderingBuyer</defName>
+    <rootSelectionWeight>1.2</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>7~15</expireDaysRange>   <!-- storyteller-offered（weight>0）強制要，否則 config error -->
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->慕名而來的軍械採購</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->一名鼠族散客捎來口信：聽聞你這鐵匠打得一手好軍械，想登門採購一批。對方不挑款式，只要數量夠、品質過得去、值那個價。接下委託後給你約八天備料，屆時對方親自上門取貨。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- 守衛：有鐵匠檯（能打鐵）＝能接鐵匠委託（匿名散客只認你會不會打軍械，不看具名關係） -->
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_CanForge</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 若這是玩家第一個 T1 委託，接受即空投 T1 科技藍圖（同 gateBool，只送一次） -->
+        <li Class="RatkinQuestlines.QuestNode_DropTechBlueprintOnce">
+          <blueprint>RatkinQL_TechBlueprint_ForgeTierOne</blueprint>
+          <gateBool>RatkinQL_Forge_T1TechGifted</gateBool>
+          <letterLabel>RatkinQL_Forge_T1Tech_Label</letterLabel>
+          <letterText>RatkinQL_Forge_T1Tech_Text</letterText>
+        </li>
+
+        <!-- 取貨延遲：接受後約 8 天，散客才上門取貨 -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>480000</delayTicks>
+          <outSignalComplete>BuyerArrive</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>BuyerArrive</inSignal>
+          <dialogManager>RatkinQL_ForgeWanderingBuyerManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <letterLabel>RatkinQL_Forge_Buyer_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_Forge_Buyer_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>BuyerArrive</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>BuyerVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>BuyerVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    ★鐵匠屋交貨 B 方案（原生交易界面）用的商人類型——「軍械採購者」。
+    修正 E2E ②：原用 Visitor_Outlander_Standard，其 willTrade 不含武器 → 玩家想賣自製軍械被判「不收」，與委託主旨矛盾。
+    本 traderKind：①用 StockGenerator_Category(WeaponsMelee/WeaponsRanged, countRange 0~0)＝自己不帶武器，但仍 HandlesThingDef →
+      收玩家所有近戰/遠程武器；②帶足白銀付款。由 CQFAction_OpenTradeDelivery 臨時指派給訪客。
+  -->
+  <TraderKindDef>
+    <defName>RatkinQL_ForgeBuyerTrader</defName>
+    <label>arms buyer</label>
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>1000~2000</countRange>
+      </li>
+      <li Class="StockGenerator_Category">
+        <categoryDef>WeaponsMelee</categoryDef>
+        <thingDefCountRange>0~0</thingDefCountRange>
+        <countRange>0~0</countRange>
+      </li>
+      <li Class="StockGenerator_Category">
+        <categoryDef>WeaponsRanged</categoryDef>
+        <thingDefCountRange>0~0</thingDefCountRange>
+        <countRange>0~0</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+</Defs>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <RatkinQL_LorekeeperTree_Title>讲古的长者 / 一位鼠族讲古者</RatkinQL_LorekeeperTree_Title>
+    <RatkinQL_LorekeeperTree_Report>一名老迈的鼠人坐在入口旁边，眼神里藏着许多个地洞年的分量。他似乎愿意聊一聊。</RatkinQL_LorekeeperTree_Report>
+    <RatkinQL_Lorekeeper_Greeting>"你就是这里管事的吧，{Interviewer_labelShort}？我这把老骨头已经不常出门了，但想想还是该把知道的事情分一些给别人。这些故事不会自己开口。"</RatkinQL_Lorekeeper_Greeting>
+    <RatkinQL_Lorekeeper_OptListen>"我洗耳恭听。"</RatkinQL_Lorekeeper_OptListen>
+    <RatkinQL_Lorekeeper_OptGift>"这点心意请你收下（10 银）。"</RatkinQL_Lorekeeper_OptGift>
+    <RatkinQL_Lorekeeper_OptLeave>"改日再听吧。"</RatkinQL_Lorekeeper_OptLeave>
+    <RatkinQL_Lorekeeper_OptBack>"我们聊点别的。"</RatkinQL_Lorekeeper_OptBack>
+    <RatkinQL_Lorekeeper_Lore1>"我们的祖先又小又聪明又安静。它们凿出第一座王国，用的不是钢铁，而是耐心——在那些从不低头看脚下的巨人脚下，一铲一铲地掏出粘土和石头。"</RatkinQL_Lorekeeper_Lore1>
+    <RatkinQL_Lorekeeper_Lore2>"旧王国分裂，是因为军阀们认为'和平'是一条狗链。它们带着自己的部族躲进了深邃的黑暗，从此每一条通道都有两种忠心：一种忠于泥土，一种忠于枪口。"</RatkinQL_Lorekeeper_Lore2>
+    <RatkinQL_Lorekeeper_Lore3>"RKU 一开始不是战士，而是拒绝向地面王国缴纳贡品的拾荒者。等到地道开始被封死的时候，它们才学会了怎么打仗。如今，它们是地底的牙齿。"</RatkinQL_Lorekeeper_Lore3>
+    <RatkinQL_Lorekeeper_Farewell>老迈的鼠人拄起拐杖，骨节嘎吱作响。"大地会保存它的纪录。你只要知道在哪里倾听就行了。"</RatkinQL_Lorekeeper_Farewell>
+    <RatkinQL_Lorekeeper_MsgGift>他低声笑了笑，把银币收进口袋，然后补了一句："有传言说，RKU 的第一个据点是一座谷仓——它们永远忘不了那些必须偷来的面包的气味。"</RatkinQL_Lorekeeper_MsgGift>
+</LanguageData>
