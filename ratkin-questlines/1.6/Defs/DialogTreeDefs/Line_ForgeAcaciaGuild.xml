@@ -124,7 +124,7 @@
           <!-- 抬價敲詐 → blocked＋遣離 -->
           <li>
             <text>RatkinQL_Forge_Acacia_OptExtort</text>
-            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
             <results><li>
               <resultName>Extort</resultName>
               <actions>

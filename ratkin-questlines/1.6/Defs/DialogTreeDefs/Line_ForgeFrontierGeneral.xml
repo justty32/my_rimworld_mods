@@ -126,7 +126,7 @@
           <!-- 趁她看重此劍臨時抬價敲詐 → blocked＋遣離（她是遊俠，不動派系好感） -->
           <li>
             <text>RatkinQL_Forge_Frontier_OptExtort</text>
-            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
             <results><li>
               <resultName>Extort</resultName>
               <actions>

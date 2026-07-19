@@ -31,6 +31,12 @@ namespace RatkinQuestlines
                 return;
             }
             Lord lord = pawn.GetLord();
+            // 防重入：已在離場中（ExitMapBest lord）就 no-op——否則重複呼叫（連點敲詐/交貨回呼重入）
+            //   會 LordMaker.MakeNewLord 第二次，撞「pawn already a member of lord」紅字。
+            if (lord != null && lord.LordJob is LordJob_ExitMapBest)
+            {
+                return;
+            }
             List<Pawn> group = (lord != null && lord.ownedPawns != null && lord.ownedPawns.Count > 0)
                 ? new List<Pawn>(lord.ownedPawns)
                 : new List<Pawn> { pawn };

@@ -128,7 +128,7 @@
           <!-- ★以次充好/趁機敲詐王庭 → 背信，重挫 Rakinia 派系關係＋blocked -->
           <li>
             <text>RatkinQL_Forge_Crown_OptExtort</text>
-            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
             <results><li>
               <resultName>Extort</resultName>
               <actions>

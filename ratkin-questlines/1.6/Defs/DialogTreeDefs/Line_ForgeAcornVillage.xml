@@ -29,7 +29,7 @@
           <li>
             <text>RatkinQL_Forge_Acorn_OptDeliverFine</text>
             <hideWhenDisabled>true</hideWhenDisabled>
-            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
             <conditions>
               <li Class="RatkinQuestlines.DialogCondition_ThingQuality">
                 <failReason>RatkinQL_Forge_Acorn_NeedFine</failReason>
@@ -87,7 +87,7 @@
           <li>
             <text>RatkinQL_Forge_Acorn_OptDeliver</text>
             <hideWhenDisabled>true</hideWhenDisabled>
-            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
             <conditions>
               <li Class="RatkinQuestlines.DialogCondition_ThingQuality">
                 <failReason>RatkinQL_Forge_Acorn_NeedStock</failReason>
@@ -153,7 +153,7 @@
           <!-- 抬價敲詐：趁人之危開高價 → 板栗此後不再上門 -->
           <li>
             <text>RatkinQL_Forge_Acorn_OptExtort</text>
-            <removeDialogAfterSelect>false</removeDialogAfterSelect>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
             <results><li>
               <resultName>Extort</resultName>
               <actions>
