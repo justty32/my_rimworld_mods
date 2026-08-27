@@ -45,7 +45,7 @@ Worldbuilder/Anime2World/
 ├── Preset.xml                           # 世界定義主檔：30 派系陣容 + 生成參數 + savedIdeoFactionMapping
 ├── CULTURE-PLAN.md                      # 信仰對映表（27 個 .rid → 派系，含來源/memes/備註）；改文化前必讀
 ├── CURATION-AUDIT-2026-07-18.md         # 逐派系 lore 貼合度稽核；2 個「接錯神」已修（SnowRatkin/Guild）、4 個小偏未動
-└── CustomIdeos/*.rid                    # 27 份信仰快照（27/30 派系覆蓋；缺檔派系退回隨機，其餘 preset 照常）
+└── CustomIdeos/*.rid                    # 27 份信仰快照，30 個派系全覆蓋（3 份一對多：DMSLegion→DMS_Army+DMS_AncientCorps、RatkinKingdom→Rakinia+RKK_KnightOrders、Ancients→Ancients+AncientsHostile）
 ```
 
 ## 現況（收回時的狀態，2026-08-27）
@@ -61,12 +61,11 @@ Worldbuilder/Anime2World/
 ## 完成定義
 
 - [x] `About.xml`／`Preset.xml` well-formed，defName 全部曾在 pack-2-anime 實測存在。
-- [x] 27 個 `.rid` 對映到位，覆蓋 30 派系中的 27 個。
+- [x] 27 個 `.rid` 與 `savedIdeoFactionMapping` 的 27 個 key **一對一無缺無多**，展開後涵蓋全部 30 個 faction defName（2026-08-27 逐項比對）。
 - [x] `CULTURE-PLAN.md` / `CURATION-AUDIT-2026-07-18.md` 記錄完整、可追溯每個信仰的來源與判定。
 - [ ] 實機：新開局選「二次元定製世界」，30 派系全部出現、無紅字。
 - [ ] 實機：逐派系檢查信仰名稱/precept 顯示正常（尤其 SnowRatkin／Guild 改皮後的風味）。
 - [ ] 待處理：4 個口味小偏（優先 ZHP＞TravelRatkin＞RatkinWarlord＞Kiiro）視使用者意願調整。
-- [ ] 剩餘 3 個未覆蓋派系（30 − 27）視需要補 `.rid` 或接受退回隨機。
 
 ## 改動須知
 
