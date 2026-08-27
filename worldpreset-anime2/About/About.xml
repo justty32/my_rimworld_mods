@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ModMetaData>
+    <name>World Preset: 二次元定製世界 (profile 2-anime)</name>
+    <author>justty32</author>
+    <packageId>justty32.worldpreset.anime2</packageId>
+    <description>給 pack-2-anime（510 mod）用的 Worldbuilder 世界預設：策展好的派系陣容、生成參數、派系改造，以及為各派系指派固定信仰（.rid）以根治隨機亂數文化。需要 Worldbuilder。
+
+信仰檔（CustomIdeos/*.rid）由遊戲產生後放入，見 Worldbuilder/Anime2World/CULTURE-PLAN.md。缺檔的派系會退回隨機信仰，preset 其餘部分照常生效。</description>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>ferny.Worldbuilder</packageId>
+            <displayName>Worldbuilder</displayName>
+            <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=3522102833</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>ferny.Worldbuilder</li>
+    </loadAfter>
+</ModMetaData>

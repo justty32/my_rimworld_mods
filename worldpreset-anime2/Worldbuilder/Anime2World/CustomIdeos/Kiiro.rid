@@ -1,0 +1,3335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedideo>
+	<meta>
+		<gameVersion>1.6.4871 rev600</gameVersion>
+		<modIds>
+			<li>zetrith.prepatcher</li>
+			<li>brrainz.harmony</li>
+			<li>taranchuk.fastergameloading</li>
+			<li>ludeon.rimworld</li>
+			<li>ludeon.rimworld.royalty</li>
+			<li>ludeon.rimworld.ideology</li>
+			<li>ludeon.rimworld.biotech</li>
+			<li>ludeon.rimworld.anomaly</li>
+			<li>ludeon.rimworld.odyssey</li>
+			<li>adaptive.storage.framework</li>
+			<li>ancot.ancotlibrary</li>
+			<li>aoba.framework</li>
+			<li>aoba.usac.core</li>
+			<li>ariandel.ariandellibrary</li>
+			<li>hailuan.customquestframework</li>
+			<li>nozome.mapmodeframework</li>
+			<li>oark.oberoniaaurea.framework</li>
+			<li>oskarpotocki.vanillafactionsexpanded.core</li>
+			<li>aoba.deadmanswitch.core</li>
+			<li>aoba.exosuit.framework</li>
+			<li>shiyuemily.ariandellibraryadapter</li>
+			<li>tradingcontrol.tad.rimworld.core</li>
+			<li>6224y.onewithdeath</li>
+			<li>8z.callforintel</li>
+			<li>ac.mw.sad</li>
+			<li>acct.recycletrader</li>
+			<li>andery233xj.mod.betterresearchtabs</li>
+			<li>aoba.deadmanswitch.ancientcorps</li>
+			<li>aoba.deadmanswitch.expedition</li>
+			<li>aoba.deadmanswitch.synthetic</li>
+			<li>aoba.exosuit.powerloader</li>
+			<li>arandomkiwi.raidsforme</li>
+			<li>arkymn.slowerpawntickrate</li>
+			<li>arylice.rimworld.automaticstumpchopping</li>
+			<li>assssssqwww.pinyinsearchfast</li>
+			<li>avius.prisonlabor</li>
+			<li>azravos.factioncustomizer</li>
+			<li>b4ttl3m3ds.simplebabycarry</li>
+			<li>baigugu.darkestdungeontraits</li>
+			<li>bblkepling.childrensbooks</li>
+			<li>biliislizi.zdprj.autocooker</li>
+			<li>blue.adaptivetps</li>
+			<li>boots.sensiblefactions</li>
+			<li>cain.mineshaft</li>
+			<li>cheatereater.helicopterparenting</li>
+			<li>co.uk.epicguru.factionloadout</li>
+			<li>co.uk.epicguru.whatsthatmod</li>
+			<li>co.uk.epicguru.whatsthatmod.zh.hc</li>
+			<li>codex.customwholesale</li>
+			<li>com.bymarcin.architecticons</li>
+			<li>crtdgd.roomqualitycolors</li>
+			<li>d4egon.pawnchronicles</li>
+			<li>danzinagri.haremleadermeme</li>
+			<li>defi.generipper</li>
+			<li>dhultgren.smarterconstruction</li>
+			<li>drilledhead.hybridpoweredgravships</li>
+			<li>dubwise.dubsmintmenus</li>
+			<li>dubwise.dubsskylights</li>
+			<li>duz.almosttherefork</li>
+			<li>eoralmilk.diiiieyouabandonedcamp</li>
+			<li>eoralmilk.meowcannedfood</li>
+			<li>esvn.rpgdialog</li>
+			<li>falconne.bwm</li>
+			<li>ferny.loadinbackground</li>
+			<li>ferny.resourcedeliveryhelper</li>
+			<li>ferny.worldbuilder</li>
+			<li>flammpfeil.simpleportal</li>
+			<li>floor.mounted.aquarium</li>
+			<li>fluffy.animaltab</li>
+			<li>fluffy.followme</li>
+			<li>frozensnowfox.filthvanisheswithrainandtime</li>
+			<li>0x9527.letrain</li>
+			<li>fuu.punchattack</li>
+			<li>gguake.ai.dsfi</li>
+			<li>ghastly.echoesoftherim</li>
+			<li>gt.sam.tilledsoil</li>
+			<li>gura.babynocry</li>
+			<li>haplo.miscellaneous.training</li>
+			<li>hawkwood.floorsarealmostworthless</li>
+			<li>helldan.economicsdemography</li>
+			<li>imranfish.xmlextensions</li>
+			<li>unlimitedhugs.hugslib</li>
+			<li>avilmask.commonsense</li>
+			<li>jaeger972.factionterritories</li>
+			<li>jamaicancastle.rf.fertilefields</li>
+			<li>jaxe.bubbles</li>
+			<li>cj.rimtalk</li>
+			<li>jaxe.bubbles.zh.hc</li>
+			<li>jaxe.rimhud</li>
+			<li>jdalt.gmmsn</li>
+			<li>jeremie.fully.automatic.hydroponics</li>
+			<li>jl.timetofullymature</li>
+			<li>jm.bettertraders</li>
+			<li>kathanon.floatsubmenu</li>
+			<li>andromeda.nicebilltab</li>
+			<li>andromeda.niceplantsmenu</li>
+			<li>hicon.nicebilltabexpansion</li>
+			<li>kb.pocketdimension</li>
+			<li>kearril.loadinstantly</li>
+			<li>kogasastudio.multiconversion</li>
+			<li>kosiya.vacuumresistimplant</li>
+			<li>kovlakx.factionspawner</li>
+			<li>krelinos.socialexpfromtrade</li>
+			<li>kt.chillout</li>
+			<li>laayoune.author</li>
+			<li>lat.rimstro</li>
+			<li>laureeeeeeeeeeeeeeen.noraids.water</li>
+			<li>leafzxg.masterofcooking</li>
+			<li>leafzxg.masterofcrafting</li>
+			<li>leo.cleanresearchsort</li>
+			<li>likeafox.haulexplicitly</li>
+			<li>lingluo.itemcuter</li>
+			<li>lingluo.pawncuter</li>
+			<li>lyx.ratkinrimmet</li>
+			<li>maeyanie.onebedtosleepwithall</li>
+			<li>marvinkosh.ughyougotme</li>
+			<li>masterpnj.multidoctor</li>
+			<li>maxpaynes.autofactionexpansion</li>
+			<li>maze.rimrecruit</li>
+			<li>md.gotosleep</li>
+			<li>mefus.rimworld.neutroamine</li>
+			<li>mehni.pickupandhaul</li>
+			<li>keyz182.keyzallowutilities</li>
+			<li>memegoddess.runandgun</li>
+			<li>memegoddess.searchanddestroy</li>
+			<li>metalocif.skyislands</li>
+			<li>migcorp.skiptech</li>
+			<li>mlie.callouts</li>
+			<li>mlie.choosebiomecommonality</li>
+			<li>mlie.exportandimportmodsettings</li>
+			<li>mlie.justputitoverthere</li>
+			<li>mlie.pawneducation</li>
+			<li>mlie.prisonersdonthavekeys</li>
+			<li>mlie.realdining</li>
+			<li>mlie.realistichumansounds</li>
+			<li>cyanobot.toddlers</li>
+			<li>cj.rimtalk.toddlers</li>
+			<li>drati.toddlersplayexpanded</li>
+			<li>mlie.rimquest</li>
+			<li>mlie.smartervisitors</li>
+			<li>mlie.varietymattersstockpile</li>
+			<li>mrk.bettercontextmenu</li>
+			<li>mrk.spellbook</li>
+			<li>nals.facialanimation</li>
+			<li>day29zh.facialanimation</li>
+			<li>nals.facialanimationexperimentals</li>
+			<li>erdelf.humanoidalienraces</li>
+			<li>dtrndg.haranimate</li>
+			<li>eoralmilk.meowframework</li>
+			<li>ancot.kiirorace</li>
+			<li>alive.kiiroyeclothes</li>
+			<li>ancot.kiirofacialanimation</li>
+			<li>ancot.milirarace</li>
+			<li>ancot.miliraracefacialanimation</li>
+			<li>eoralmilk.onlineshop</li>
+			<li>fsnw.eoralmilk.onlineshop</li>
+			<li>hentailoliteam.axolotl</li>
+			<li>hentailoliteam.axolotl.fa</li>
+			<li>hentailoliteam.axolotl.factionexpand</li>
+			<li>bert.moelotlevent</li>
+			<li>linruo.miliracultivatedsolarcrystal</li>
+			<li>nalzurin.autoimplanter</li>
+			<li>nay.mod</li>
+			<li>neko.thunderstorm</li>
+			<li>newbird.sleepinmycrib</li>
+			<li>ninagoblin.alliesarehelpful</li>
+			<li>ninagoblin.nooneleftbehind</li>
+			<li>notdvd.fraymod</li>
+			<li>lapis.zh.notdvd.fraymod</li>
+			<li>novsole.showmeyoureyes.ratkin</li>
+			<li>nuanki.unlimitedreborn</li>
+			<li>og.maarx.meditateasworktype.continued</li>
+			<li>og.recruit.guest</li>
+			<li>ordpus.showstorageonbuilding</li>
+			<li>oskarpotocki.vanillafactionsexpanded.settlersmodule</li>
+			<li>owlchemist.smartfarming</li>
+			<li>palpha.godhands</li>
+			<li>paluto22.pawnhealthbar</li>
+			<li>pb3n.simpleleadership</li>
+			<li>pb3n.simplewarrants</li>
+			<li>pikajo.kiirocatmintfoodexpend</li>
+			<li>pikajo.kiirocostumeadaptationexpansion</li>
+			<li>ponpeco.kidsclothes</li>
+			<li>ponpeco.pfkidsroom</li>
+			<li>potatoo.unlimitedgravextend</li>
+			<li>pulllll.kiironameexpansion</li>
+			<li>puremj.mjrimmods.smartmeditation</li>
+			<li>qaq.qaaaq</li>
+			<li>rabiosus.autoblink</li>
+			<li>rabiosus.jumplifter</li>
+			<li>rashomcree.odyssey.orbitalplatforms</li>
+			<li>ravinglegend.workkids</li>
+			<li>ray1203.simplecamerasetting</li>
+			<li>day29zh.simplecamerasetting</li>
+			<li>redmattis.betterchildren</li>
+			<li>redmattis.biggergravship</li>
+			<li>redram.stoneconversion</li>
+			<li>reel.turretpipeline</li>
+			<li>reo.rimrelations</li>
+			<li>rh2.bcd.casevac</li>
+			<li>rh2.bcds.first.aid</li>
+			<li>rh2.cpers.arrest.here</li>
+			<li>rid.miliramorethings</li>
+			<li>runningbugs.limitedletterslots</li>
+			<li>salvador143.shuttledock</li>
+			<li>sanakara.osskinjob</li>
+			<li>sanguo.culinaryarts100</li>
+			<li>sarg.alphaanimals</li>
+			<li>sarg.alphabiomes</li>
+			<li>sarg.alphabooks</li>
+			<li>sarg.alphamemes</li>
+			<li>sarg.smartspeed</li>
+			<li>savestoragesettings.kv.rw.fishtmp</li>
+			<li>sbz.gravshipstorage</li>
+			<li>sbz.neatstoragefridge</li>
+			<li>seekiworksmod.no17</li>
+			<li>day29zh.aaaa</li>
+			<li>seekiworksmod.no19</li>
+			<li>seohyeon.yart</li>
+			<li>shashlichnik.deepanddeeper</li>
+			<li>shunter.uniqueweaponsunbound</li>
+			<li>sierra.rt.generaltraits</li>
+			<li>sierra.rt.vanillatraitcolors</li>
+			<li>silversol.consti</li>
+			<li>silversol.azur</li>
+			<li>sinol.axolotlapparel</li>
+			<li>slimesenpai.endlessgrowth</li>
+			<li>smallmine.heavyshuttle</li>
+			<li>smashphil.dropspot</li>
+			<li>solaris.furniturebase</li>
+			<li>solaris.ratkinracemod</li>
+			<li>bbb.ratkinweapon.morefailure</li>
+			<li>cursedratkinarmor.g1flag</li>
+			<li>dtrndg.rkbodypartanimate</li>
+			<li>fxz.ratkin.facialanimation</li>
+			<li>fxz.ratkinfaction</li>
+			<li>fxz.ratkinlifestyle.update</li>
+			<li>iceorange.rkkjunfu</li>
+			<li>rkk.ratknights.core</li>
+			<li>momanacha.ratkintextureupgrade</li>
+			<li>momanacha.rkhairexpanded</li>
+			<li>oark.ratkinfaction.geneexpand</li>
+			<li>aota.ratkin.ear.tail.animation</li>
+			<li>oark.ratkinfaction.oberoniaaurea</li>
+			<li>chezhou.framework.rimsimmanagementframework</li>
+			<li>pikajo.rimsmframework.haraddon</li>
+			<li>funamusea.ratkinbodyretextured</li>
+			<li>momanacha.ratkinbodyretexturelancy</li>
+			<li>oark.ratkinfaction.scenarioexpand.snowstorm</li>
+			<li>oark.ratkinknightorderfurniture</li>
+			<li>ponpeco.pfkschooldesk</li>
+			<li>rku.ratkinunderground</li>
+			<li>rpowder.ratkinhairplus</li>
+			<li>shenpc.vegetablebasketproject.chefmeowstall</li>
+			<li>soulwolf.ch.smartspeed</li>
+			<li>sr.modrimworld.factionalwarcontinued</li>
+			<li>standalone.rotti.rottihat</li>
+			<li>stokes.simplehoodcape</li>
+			<li>sui.morehydroponicsbasin</li>
+			<li>sumghai.medpod</li>
+			<li>sumika.overflowingflowers</li>
+			<li>taranchuk.performanceoptimizer</li>
+			<li>tashkent.rce.b</li>
+			<li>tawm.ml</li>
+			<li>telardo.dragselect</li>
+			<li>thegoosebehindtheslaughter.noforcedslowdown</li>
+			<li>thewwworld.ratkinnameplus</li>
+			<li>thumb.warbands</li>
+			<li>timmyliang.tradehelper</li>
+			<li>toshtaru.odyssey.transport.shuttle</li>
+			<li>tsa.meleefitness</li>
+			<li>tyjm.armoredup</li>
+			<li>unknown.forcedxenogermimplantation</li>
+			<li>unlimitedhugs.allowtool</li>
+			<li>valeries.miliraexpansion</li>
+			<li>van.foodfamine</li>
+			<li>vanillaexpanded.outposts</li>
+			<li>mlie.vanillaoutpostsexpandedexpandedranch</li>
+			<li>mrhydralisk.voeadditionaloutposts</li>
+			<li>mrhydralisk.voepowergrid</li>
+			<li>mrhydralisk.voedeliverylogistics</li>
+			<li>nightocean.misc.trainingoutpost</li>
+			<li>papercrane1001.uvoee.trading</li>
+			<li>tsa.worlddomination</li>
+			<li>matathias.empire</li>
+			<li>matathias.empire.specialists</li>
+			<li>monian.erzh</li>
+			<li>vanillaexpanded.recycling</li>
+			<li>vanillaexpanded.temperature</li>
+			<li>vanillaexpanded.vanillaanimalsexpanded</li>
+			<li>vanillaexpanded.vanillabackstoriesexpanded</li>
+			<li>vanillaexpanded.vanillasocialinteractionsexpanded</li>
+			<li>vanillaexpanded.vanillatradingexpanded</li>
+			<li>vanillaexpanded.vanillatraitsexpanded</li>
+			<li>vanillaexpanded.vbrewe</li>
+			<li>vanillaexpanded.vbrewecandt</li>
+			<li>vanillaexpanded.vcef</li>
+			<li>vanillaexpanded.vcefaddon</li>
+			<li>vanillaexpanded.vchemfuele</li>
+			<li>vanillaexpanded.vcooke</li>
+			<li>vanillaexpanded.vcookebakery</li>
+			<li>vanillaexpanded.vcookehaute</li>
+			<li>vanillaexpanded.vcookestews</li>
+			<li>vanillaexpanded.vcookesushi</li>
+			<li>vanillaexpanded.vexploratione</li>
+			<li>vanillaexpanded.vfefarming</li>
+			<li>vanillaexpanded.vfespacer</li>
+			<li>vanillaexpanded.vmemese</li>
+			<li>danzinagri.haremleaderrite</li>
+			<li>vanillaexpanded.vnutriente</li>
+			<li>vanillaexpanded.vplantse</li>
+			<li>poncho.automatichydroponics</li>
+			<li>vanillaexpanded.vplantsemore</li>
+			<li>badoaks.campfirestews</li>
+			<li>vanillaexpanded.vplantsemushrooms</li>
+			<li>vanillaexpanded.vplantsesucculents</li>
+			<li>vanillaquestsexpanded.cryptoforge</li>
+			<li>vanillaquestsexpanded.deadlife</li>
+			<li>vanillaquestsexpanded.dronefactory</li>
+			<li>vanillaquestsexpanded.generator</li>
+			<li>vesper.notmyfault</li>
+			<li>victor.wallsaresolid</li>
+			<li>visiblewealth.1trickpwnyta</li>
+			<li>tianti.ch.visiblewealth</li>
+			<li>void.charactereditor</li>
+			<li>jellycreative.isekaileveling</li>
+			<li>poupun.guildfactionaddon</li>
+			<li>poupun.isekaicreaturesaddon</li>
+			<li>voult.betterpawncontrol</li>
+			<li>w.zhp</li>
+			<li>waterbear.moelotlname</li>
+			<li>wenders.rimworld.raceagecurve</li>
+			<li>wowgag.evolvingenemystrongholds</li>
+			<li>wuhuansuiyue.defensivenetworkexpanded</li>
+			<li>xiaoyan.powergeneratinggravengine3000</li>
+			<li>xmb.ancientminingindustry.mo</li>
+			<li>ferny.betterarchitect</li>
+			<li>yancy.factiongearcustomizer</li>
+			<li>yourname.miliratonyhair</li>
+			<li>yourname.painratpie</li>
+			<li>yy.capesandarmor</li>
+			<li>astryl.truerpginventory</li>
+			<li>zal.calltradeships</li>
+			<li>zal.orphanageanddaycare</li>
+			<li>zeracronius.dynamictradeinterface</li>
+			<li>ziri.deadmanswitch.powerarmorexpanded</li>
+			<li>zylle.childboodbackstories</li>
+			<li>zylle.childrensdrawings</li>
+			<li>ancot.kiiroracegenepatch</li>
+			<li>ancot.kiirostoryeventsexpanded</li>
+			<li>zuoyao.kiiroorangecat</li>
+			<li>zuoyao.kiiromainecoon</li>
+			<li>zuoyao.kiirosiamese</li>
+			<li>zuoyao.kiiroragdoll</li>
+			<li>aota.kiiro.ear.tail.animation.plus</li>
+			<li>ancot.miliraracegenepatch</li>
+			<li>hechuanriver.miliraxian.neiyulaw</li>
+			<li>xiyueym.miliraexpandedxy</li>
+			<li>zuoyao.milirayaoyao</li>
+			<li>aota.ratkinchildrenwearingfix</li>
+			<li>birby.isekaicepatch</li>
+			<li>compat.vlvop.crazybody.newratkin</li>
+			<li>corvenik.ratkinlayerfix</li>
+			<li>gloomy.furniture.fix</li>
+			<li>koth.modmedicinepatch</li>
+			<li>kupa.edandftcompatpatch</li>
+			<li>local.codex.ancotglfix</li>
+			<li>local.codex.animechildtexfix</li>
+			<li>local.codex.childapparelfix</li>
+			<li>local.codex.cjkfontfix</li>
+			<li>mapleapple.highdensityhydroponics.fixed.zouhb.zades</li>
+			<li>mingyue.universalraceandxenofix</li>
+			<li>mlie.foodpoisoningstackfix</li>
+			<li>momanacha.ratkinapparelexpanded1.6fix</li>
+			<li>observer.developmode.fix</li>
+			<li>puremj.mjrimmods.vanillafixhaulafterslaughter</li>
+			<li>teiwaz.craftableratkinapparel</li>
+			<li>local.codex.ratkin16compat</li>
+			<li>tinygrox.chs.celocalizationfix</li>
+			<li>user.autotatteredapparel</li>
+			<li>verniy709.realistichumansounds.harpatch</li>
+			<li>weishanmaowei.waitaofix</li>
+			<li>wuren.toddlersfeed</li>
+			<li>andromeda.nicebilltab.zh</li>
+			<li>andromeda.niceplantsmenu.zh</li>
+			<li>arkymn.slowerpawntickrate.zh</li>
+			<li>arylice.rimworld.automaticstumpchopping.zh</li>
+			<li>bblkepling.childrensbooks.zh</li>
+			<li>blue.adaptivetps.zh</li>
+			<li>buyue.callforintel.zh</li>
+			<li>buyue.toddlers.zh</li>
+			<li>bwaoa.unlimitedreborn.chinese</li>
+			<li>cc.chinese.rimworld.betterarchitectmenu</li>
+			<li>cc.chinese.rimworld.callouts</li>
+			<li>cc.chinese.rimworld.mines2</li>
+			<li>chenyifei.simplebabycarry.zh</li>
+			<li>co.uk.epicguru.factionloadout.zh</li>
+			<li>cqss.keyzallowutilities</li>
+			<li>d4egon.pawnchronicles.zh</li>
+			<li>deepanddeeper.language.cnpack</li>
+			<li>drilledhead.hybridpoweredgravships.zh</li>
+			<li>endlessgrowth.zh</li>
+			<li>esvn.rpgdialog.zh</li>
+			<li>gousheng.faminefood.zh.102</li>
+			<li>helldan.economicsdemography.zh</li>
+			<li>iliilili.salvador143.shuttledock.zh</li>
+			<li>jaeger972.factionterritories.zh</li>
+			<li>jellycreative.isekaileveling.zh</li>
+			<li>justty32.zhpack.allowtool</li>
+			<li>justty32.zhpack.alphabiomes</li>
+			<li>justty32.zhpack.autoimplanter</li>
+			<li>justty32.zhpack.capesandarmor</li>
+			<li>justty32.zhpack.cryptoforge</li>
+			<li>justty32.zhpack.dsfi</li>
+			<li>justty32.zhpack.fertilefields</li>
+			<li>justty32.zhpack.generipper</li>
+			<li>justty32.zhpack.helicopterparenting</li>
+			<li>justty32.zhpack.nooneleftbehind</li>
+			<li>justty32.zhpack.orphanageanddaycare</li>
+			<li>justty32.zhpack.punchattack</li>
+			<li>justty32.zhpack.simpleleadership</li>
+			<li>justty32.zhpack.skyislands</li>
+			<li>justty32.zhpack.toddlersplayexpanded</li>
+			<li>lan.ppclothes.zh</li>
+			<li>luoyang.vqe.dronefactory.chinese</li>
+			<li>maiya.rimtalk.zh</li>
+			<li>ast.rimtalk.zh</li>
+			<li>meandssh.tsltn.zhcn.mw.sad</li>
+			<li>meow.wallsaresolid</li>
+			<li>migcorp.skiptech.zh</li>
+			<li>momaomao.ratkinunderground.tc</li>
+			<li>mrk.6224y.onewithdeath.zh</li>
+			<li>mrk.poncho.automatichydroponics.zh</li>
+			<li>nb.charactereditor.chinese</li>
+			<li>nide.chinesepack.childhoodbackstories</li>
+			<li>ninagoblin.alliesarehelpful.zh</li>
+			<li>oninotamasi.falconne.bwm.zh</li>
+			<li>optimizer.zh</li>
+			<li>ouo.toddlers.zh</li>
+			<li>pocketdimension.chinesepack</li>
+			<li>poupun.guildfactionaddon.zh</li>
+			<li>poupun.isekaicreaturesaddon.zh</li>
+			<li>reel.turretpipeline.zh</li>
+			<li>reisende.rimrelations.zh</li>
+			<li>rwzh.chinesepack.dropspot</li>
+			<li>rwzh.chinesepack.dubsmintmenus</li>
+			<li>rwzh.chinesepack.furniturebase</li>
+			<li>rwzh.chinesepack.humanoidalienraces</li>
+			<li>rwzh.chinesepack.pawneducation</li>
+			<li>rwzh.chinesepack.rimquest</li>
+			<li>rwzh.chinesepack.settlersmodule</li>
+			<li>rwzh.chinesepack.vae</li>
+			<li>rwzh.chinesepack.vanillafactionsexpandedcore</li>
+			<li>rwzh.chinesepack.vanillasocialinteractionsexpanded</li>
+			<li>rwzh.chinesepack.vanillatraitsexpanded</li>
+			<li>fwllensagent.rt.vtc.zh</li>
+			<li>rwzh.chinesepack.vcef</li>
+			<li>rwzh.chinesepack.vfe</li>
+			<li>rwzh.leafzxg.animaltab</li>
+			<li>rwzh.leafzxg.followme</li>
+			<li>seekiworksmod.no19.zh</li>
+			<li>shavius.vbe.zh</li>
+			<li>shavius.vce.zh</li>
+			<li>shavius.vie.zh</li>
+			<li>shavius.vpe.zh</li>
+			<li>shouer.chinesepack.rimhud</li>
+			<li>shunter.uniqueweaponsunbound.zh</li>
+			<li>silversol.biotech.zh</li>
+			<li>tradingcontrol.zh.fan</li>
+			<li>ts.zh.leo.cleanresearchsort</li>
+			<li>tsa.meleefitness.zh</li>
+			<li>vanillaexpanded.vanillabackstoriesexpanded.zh</li>
+			<li>vanillaexpanded.vexploratione.zh</li>
+			<li>void.charactereditor.zhpatch</li>
+			<li>wang1qa2.vanillaquestsexpandedtranslationforchinese</li>
+			<li>xhszdhm.odyssey.transport.shuttle.chinese</li>
+			<li>zh.adaptive.storage.neolithic</li>
+			<li>zh.astryl.truerpginventory</li>
+			<li>zh.badoaks.campfirestews</li>
+			<li>zh.clowncat.voee.ranch</li>
+			<li>zh.gt.sam.tilledsoil</li>
+			<li>zh.lat.rimstro</li>
+			<li>zh.maeyanie.onebedtosleepwithall</li>
+			<li>zh.map.mode.framework</li>
+			<li>zh.mlie.smartervisitors</li>
+			<li>zh.mrhydralisk.voeadditionaloutposts</li>
+			<li>zh.mzmgow.ponpeco.pf</li>
+			<li>zh.mzmgow.sarg.alphabooks</li>
+			<li>zh.mzmgow.sbz.gravshipstorage</li>
+			<li>zh.mzmgow.sbz.neatstoragefridge</li>
+			<li>zh.mzmgow.vanillaexpanded.temperature</li>
+			<li>zh.mzmgow.vanillaquestsexpanded.generator</li>
+			<li>zh.new.solaris.ratkinracemod</li>
+			<li>yonata.ratkinideologypatch</li>
+			<li>zh.pb3n.simplewarrants</li>
+			<li>zh.pickupandhaul</li>
+			<li>zh.rabiosus.jumplifter</li>
+			<li>zh.redmattis.biggergravship</li>
+			<li>zh.redram.stoneconversion</li>
+			<li>zh.rh2bcdcasevac</li>
+			<li>zh.rh2bcdfirstaid</li>
+			<li>zh.rh2cpersarresthere</li>
+			<li>zh.sarg.alphamemes</li>
+			<li>zh.sumika.overflowingflowers</li>
+			<li>zh.tradingcontrol</li>
+			<li>zh.vanillaexpanded.outposts</li>
+			<li>zh.vanillaexpanded.recycling</li>
+			<li>zh.vanillaexpanded.vanillatradingexpanded</li>
+			<li>zh.vanillaexpanded.vchemfuele</li>
+			<li>zh.vanillaexpanded.vnutriente</li>
+		</modIds>
+		<modSteamIds>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>1149640</li>
+			<li>1392840</li>
+			<li>1826140</li>
+			<li>2380740</li>
+			<li>3022790</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+			<li>0</li>
+		</modSteamIds>
+		<modNames>
+			<li>Prepatcher</li>
+			<li>Harmony</li>
+			<li>Faster Game Loading - Continued</li>
+			<li>Core</li>
+			<li>Royalty</li>
+			<li>Ideology</li>
+			<li>Biotech</li>
+			<li>Anomaly</li>
+			<li>Odyssey</li>
+			<li>Adaptive Storage Framework</li>
+			<li>Ancot Library</li>
+			<li>Fortified Features Framework</li>
+			<li>Ascension Megacorp</li>
+			<li>Ariandel Library</li>
+			<li>Custom Quest Framework</li>
+			<li>Map Mode Framework</li>
+			<li>[OA]Oberonia Aurea Framework</li>
+			<li>Vanilla Expanded Framework</li>
+			<li>The Dead Man's Switch</li>
+			<li>Exosuit Framework</li>
+			<li>Ariandel Library Adapter</li>
+			<li>Trading Control</li>
+			<li>One with Death</li>
+			<li>Call For Intel</li>
+			<li>Melee Weapons: Speed and Damage</li>
+			<li>Recycle Trader - 万能回收商</li>
+			<li>Better Research Tabs</li>
+			<li>The Dead Man's Switch - AncientCorps</li>
+			<li>The Dead Man's Switch - Expedition</li>
+			<li>The Dead Man's Switch - Synthetic</li>
+			<li>P–5000 Powered Work Loader</li>
+			<li>Raids For Me</li>
+			<li>Performance - Slower Pawn Tick Rate</li>
+			<li>[ARY] Automatic Stump Chopping [1.5 - 1.6]</li>
+			<li>快速拼音搜索</li>
+			<li>Prison Labor</li>
+			<li>Faction Customizer</li>
+			<li>SimpleBabyCarry</li>
+			<li>Darkest Dungeon Traits</li>
+			<li>Childrens Books</li>
+			<li>自动炒菜机</li>
+			<li>Adaptive TPS</li>
+			<li>Sensible Factions</li>
+			<li>Mines 2.0</li>
+			<li>Helicopter Parenting</li>
+			<li>Rimsential - Total Control: Continued</li>
+			<li>What's That Mod</li>
+			<li>What's That Mod_zh</li>
+			<li>定制与批发</li>
+			<li>Architect Icons</li>
+			<li>Room Quality Colors</li>
+			<li>Pawn Chronicles: Personal Epics</li>
+			<li>Leader's Harem (Ideology Meme)</li>
+			<li>Gene Ripper</li>
+			<li>Smarter Construction</li>
+			<li>[DHM]Hybrid-Powered Gravships</li>
+			<li>Dubs Mint Menus</li>
+			<li>Dubs Skylights</li>
+			<li>Almost There! Fork</li>
+			<li>[Meow] Diiiie You AbandonedCamp</li>
+			<li>[Meow] Canned Food</li>
+			<li>RPG Dialog</li>
+			<li>Better Workbench Management</li>
+			<li>Load in Background</li>
+			<li>Resource Delivery Helper</li>
+			<li>Worldbuilder</li>
+			<li>SimplePortal</li>
+			<li>Floor-Mounted Aquarium</li>
+			<li>Animal Tab (Continued 1.6)</li>
+			<li>Follow Me</li>
+			<li>[FSF] Filth Vanishes With Rain And Time</li>
+			<li>LetRain</li>
+			<li>Punch Button</li>
+			<li>Do Something for Idle</li>
+			<li>Echoes of the Rim</li>
+			<li>Tilled Soil</li>
+			<li>宝宝不哭</li>
+			<li>Misc. Training</li>
+			<li>Floors Are (Absolutely) Worthless</li>
+			<li>Economics &amp; Demography</li>
+			<li>XML Extensions</li>
+			<li>HugsLib</li>
+			<li>Common Sense</li>
+			<li>Faction Territories and Vassalage</li>
+			<li>Fertile Fields 1.6</li>
+			<li>Interaction Bubbles</li>
+			<li>RimTalk</li>
+			<li>Interaction Bubbles_zh</li>
+			<li>RimHUD</li>
+			<li>Growth Moments Make Sense Now</li>
+			<li>全自动水栽培盆 FullyAutomaticHydroponics</li>
+			<li>预计成熟时间Time To Fully Mature</li>
+			<li>Better Traders</li>
+			<li>Float Sub-Menus</li>
+			<li>Nice Bill Tab</li>
+			<li>Nice Plants Menu</li>
+			<li>Nice Bill Tab - Expansion</li>
+			<li>Dimensions RePocketed</li>
+			<li>Load Instantly</li>
+			<li>Multi Conversion</li>
+			<li>theMiniVacuumResistImplant</li>
+			<li>Faction Spawner</li>
+			<li>Social Experience from Trade</li>
+			<li>Chill the Fork Out</li>
+			<li>小登成长阶段更多选择 More Choices at Growth Tiers</li>
+			<li>Rimstro</li>
+			<li>No Water Raids</li>
+			<li>Master of Cooking</li>
+			<li>Master of Crafting</li>
+			<li>Clean Research Sort</li>
+			<li>Haul Explicitly Reborn</li>
+			<li>Auto Cutter</li>
+			<li>Auto Dissector</li>
+			<li>LYX's ratkinrimmet（小鼠美食）</li>
+			<li>One bed to sleep with all - Polycule Edition</li>
+			<li>Ugh You Got Me</li>
+			<li>Multi-Doctor Surgery</li>
+			<li>Faction Auto-Expansion</li>
+			<li>RimRecruit</li>
+			<li>Go the Fork to Sleep</li>
+			<li>Neutro Amine制作中性胺</li>
+			<li>Pick Up And Haul</li>
+			<li>Keyz' Allow Utilities</li>
+			<li>RunAndGun - Continued</li>
+			<li>Search and Destroy (Continued)</li>
+			<li>Sky Islands</li>
+			<li>MigCorp - Skiptech</li>
+			<li>Callouts (Continued)</li>
+			<li>Choose Biome Commonality</li>
+			<li>Export and Import Mod Settings</li>
+			<li>Just Put It Over There</li>
+			<li>Pawn Education (Continued)</li>
+			<li>Prisoners Dont Have Keys</li>
+			<li>RealDining (Continued)</li>
+			<li>Realistic Human Sounds (Continued)</li>
+			<li>Toddlers</li>
+			<li>RimTalk - Expand Toddlers</li>
+			<li>The Children Need To Play</li>
+			<li>RimQuest (Continued)</li>
+			<li>Smarter Visitors</li>
+			<li>Variety Matters Stockpile (Continued)</li>
+			<li>Better Context Menu</li>
+			<li>Spellbook</li>
+			<li>[NL] Facial Animation - WIP</li>
+			<li>[NL] Facial Animation - WIP-zh</li>
+			<li>[NL] Facial Animation - Experimentals</li>
+			<li>Humanoid Alien Races</li>
+			<li>HAR BodyPart Animate FrameWork</li>
+			<li>Meow Framework</li>
+			<li>Kiiro Race</li>
+			<li>哈基夜的绮罗服装扩展</li>
+			<li>Kiiro Race Facial Animation</li>
+			<li>Milira Race</li>
+			<li>Milira Race Facial Animation</li>
+			<li>[Meow] Online Shop</li>
+			<li>【好】喵喵电商</li>
+			<li>MoeLotl Race</li>
+			<li>MoeLotl Facial Animation</li>
+			<li>MoeLotl Faction Expand</li>
+			<li>BertEvent - MoeLotl Event Expansion - 萌螈事件拓展</li>
+			<li>Milira Cultivated SolarCrystal</li>
+			<li>Bionix Automator</li>
+			<li>nay的模组</li>
+			<li>Thunderstorm</li>
+			<li>Sleep in My Crib(Continued)</li>
+			<li>Allies are Helpful</li>
+			<li>No One Left Behind (1.6)</li>
+			<li>Fray of the Fog</li>
+			<li>Fray of the Fog_zh</li>
+			<li>Show Me Your Eyes</li>
+			<li>Un-Limited Reborn</li>
+			<li>Meditate As WorkType (Continued)</li>
+			<li>[Og] Recruit Guest</li>
+			<li>Show Storage On Building</li>
+			<li>Vanilla Factions Expanded - Settlers</li>
+			<li>Smart Farming</li>
+			<li>PA's God Hands</li>
+			<li>Pawn HealthBar</li>
+			<li>Simple Leadership</li>
+			<li>Simple Warrants</li>
+			<li>Kiiro Catmint Food Expanded</li>
+			<li>Kiiro Apparel Expanded: Ported Apparel</li>
+			<li>Ponpeco Kids' Clothes</li>
+			<li>Ponpeco Furnitures : Kids' Room</li>
+			<li>Unlimited Grav Field Extender</li>
+			<li>绮罗名称拓展KiiroNameExpansion</li>
+			<li>Smart Meditation</li>
+			<li>Alpha Animals_zh</li>
+			<li>AutoBlink</li>
+			<li>JumpLifter</li>
+			<li>Orbital Platforms</li>
+			<li>Child Labor (Labour)</li>
+			<li>SimpleCameraSetting</li>
+			<li>SimpleCameraSetting-zh</li>
+			<li>Better Children Skill Learning</li>
+			<li>Bigger Gravships (and other Odyssey spaceship related settings)</li>
+			<li>Stone Conversion Recipes</li>
+			<li>Reel's Turret Pipeline</li>
+			<li>RimRelations</li>
+			<li>[RH2] BCD: CASEVAC</li>
+			<li>[RH2] BCD: First Aid</li>
+			<li>[RH2] CPERS: Arrest Here!</li>
+			<li>米莉拉轻工业扩展</li>
+			<li>Limited Letter Slots 有限信件槽</li>
+			<li>Shuttle Dock</li>
+			<li>Odyssey Shuttle Skin-Job</li>
+			<li>厨间百艺 (Culinary Arts 100)</li>
+			<li>Alpha Animals</li>
+			<li>Alpha Biomes</li>
+			<li>Alpha Books</li>
+			<li>Alpha Memes</li>
+			<li>Smart Speed</li>
+			<li>[KV] Save Storage, Outfit, Crafting, Drug, &amp; Operation Settings [1.5/1.6]</li>
+			<li>[sbz] Gravship Storage</li>
+			<li>[sbz] Fridge</li>
+			<li>AAAA(Allowed Area Automatic Adapter)</li>
+			<li>AAAA-zh</li>
+			<li>Random Relations Blocker &amp; Romance Whitelist</li>
+			<li>Yet Another Research Tree (YART)</li>
+			<li>Deep And Deeper</li>
+			<li>Unique Weapons Unbound</li>
+			<li>RimTraits - General Traits</li>
+			<li>RimTraits - Vanilla Trait Colors</li>
+			<li>Silversol's maidnoid</li>
+			<li>Silversol's Azurtrail</li>
+			<li>SomeMoelotlApparel</li>
+			<li>EndlessGrowth</li>
+			<li>Orca Shuttle</li>
+			<li>Trade Ships Drop Spot</li>
+			<li>GloomyFurniture</li>
+			<li>NewRatkinPlus</li>
+			<li>Ratkin Weapons+</li>
+			<li>Cursed Ratkin Expanded</li>
+			<li>[DG] Ratkin BodyPart Animation</li>
+			<li>Hyacinth's Ratkin Facial Animation</li>
+			<li>Ratkin Faction+</li>
+			<li>Ratkin Lifestyle+</li>
+			<li>Ratkin clothes维多利亚的港湾</li>
+			<li>Ratkin Knights+</li>
+			<li>Ratkin Texture Upgrade</li>
+			<li>Ratkin Hairstyle Expanded</li>
+			<li>[OA]Ratkin Gene Expand</li>
+			<li>Ratkin Ear and Tail Animation</li>
+			<li>[OA]Ratkin Faction: Oberonia aurea</li>
+			<li>RimSimManagementFramework边缘模拟经营框架</li>
+			<li>RimSMF HAR Addon</li>
+			<li>Crazy Copepod`s Ratkin Body Retextured</li>
+			<li>Lancy's Ratkin Body Retexture</li>
+			<li>[OA]Ratkin Scenario: Snowstorm Orphan</li>
+			<li>[OA]Ratkin : Knight Order(Furniture)</li>
+			<li>Ponpeco Furnitures : School Desk</li>
+			<li>Ratkin Underground+</li>
+			<li>Ratkin Hair Plus</li>
+			<li>菜篮子工程-外卖扩展</li>
+			<li>Smart Speed_zh</li>
+			<li>[SR]Factional War (fork)</li>
+			<li>Rotti and Rotti Hat Standalone 家鼠头饰与家鼠动物</li>
+			<li>Simple Cape and Hood Retexture</li>
+			<li>更多水培箱</li>
+			<li>MedPod</li>
+			<li>OverflowingFlowers</li>
+			<li>Performance Optimizer</li>
+			<li>鼠族公社拓展——叙事者及特殊雕像体验版</li>
+			<li>TAWM's MoeLotl</li>
+			<li>DragSelect</li>
+			<li>No Forced Slowdown</li>
+			<li>鼠族名称扩展RatkinNamePlus</li>
+			<li>Warband Warfare</li>
+			<li>TradeHelper</li>
+			<li>Odyssey Transport Shuttle</li>
+			<li>Melee Fitness</li>
+			<li>Armored Up（continue）</li>
+			<li>Forced Xenogerm Implantation</li>
+			<li>Allow Tool</li>
+			<li>瓦莱丽的米莉拉扩展包</li>
+			<li>Famine Food</li>
+			<li>Vanilla Outposts Expanded</li>
+			<li>Vanilla Outposts Expanded Expanded: Ranch (Continued)</li>
+			<li>Vanilla Outposts Expanded: Additional Outposts</li>
+			<li>Vanilla Outposts Expanded: Power Grid</li>
+			<li>Vanilla Outposts Expanded: Delivery Logistics</li>
+			<li>[YH]Misc - Training Outpost</li>
+			<li>[1001] Unofficial Vanilla Outposts Expanded Expanded: Trading (Continued)</li>
+			<li>World Domination</li>
+			<li>Empire Refactored</li>
+			<li>Empire Refactored: Specialists &amp; Governors</li>
+			<li>Empire Refactored ZH</li>
+			<li>Vanilla Recycling Expanded</li>
+			<li>Vanilla Temperature Expanded</li>
+			<li>Vanilla Animals Expanded</li>
+			<li>Vanilla Backstories Expanded</li>
+			<li>Vanilla Social Interactions Expanded</li>
+			<li>Vanilla Trading Expanded</li>
+			<li>Vanilla Traits Expanded</li>
+			<li>Vanilla Brewing Expanded</li>
+			<li>Vanilla Brewing Expanded - Coffees and Teas</li>
+			<li>Vanilla Fishing Expanded</li>
+			<li>Vanilla Fishing Expanded - Fishing Treasures AddOn</li>
+			<li>Vanilla Chemfuel Expanded</li>
+			<li>Vanilla Cooking Expanded</li>
+			<li>Vanilla Cooking Expanded - Bakery</li>
+			<li>Vanilla Cooking Expanded - Haute</li>
+			<li>Vanilla Cooking Expanded - Stews</li>
+			<li>Vanilla Cooking Expanded - Sushi</li>
+			<li>Vanilla Landmarks Expanded</li>
+			<li>Vanilla Furniture Expanded - Farming</li>
+			<li>Vanilla Furniture Expanded - Spacer Module</li>
+			<li>Vanilla Ideology Expanded - Memes and Structures</li>
+			<li>Leader's Harem - Harem Rite</li>
+			<li>Vanilla Nutrient Paste Expanded</li>
+			<li>Vanilla Plants Expanded</li>
+			<li>Automatic Hydroponics</li>
+			<li>Vanilla Plants Expanded - More Plants</li>
+			<li>Campfire Stews</li>
+			<li>Vanilla Plants Expanded - Mushrooms</li>
+			<li>Vanilla Plants Expanded - Succulents</li>
+			<li>Vanilla Quests Expanded - Cryptoforge</li>
+			<li>Vanilla Quests Expanded - Deadlife</li>
+			<li>Vanilla Quests Expanded - Drone Factory</li>
+			<li>Vanilla Quests Expanded - The Generator</li>
+			<li>Not My Fault</li>
+			<li>Walls are solid</li>
+			<li>Visible Wealth</li>
+			<li>Visible Wealth_zh</li>
+			<li>Character Editor</li>
+			<li>ISEKAI RPG LEVELING</li>
+			<li>GUILD FACTION ADD-ON - Isekai RPG Leveling</li>
+			<li>ISEKAI CREATURES ADD-ON - Isekai RPG Leveling</li>
+			<li>Better Pawn Control</li>
+			<li>Ratkin Misc+ 鼠族拓展:边缘杂货铺</li>
+			<li>MoeLotlNameExpansion</li>
+			<li>Race Age Curve</li>
+			<li>Evolving Enemy Strongholds</li>
+			<li>Defensive Network</li>
+			<li>会发电的逆重引擎[3000W版本]</li>
+			<li>Ancient mining industry</li>
+			<li>Better Architect Menu</li>
+			<li>yc's Faction Editor</li>
+			<li>米莉拉托尼老师发型包</li>
+			<li>甜蜜鼠饼</li>
+			<li>Layers: Capes and Armor</li>
+			<li>True RPG Inventory</li>
+			<li>[KV] Call Trade Ships (Continued)</li>
+			<li>Orphanage and Daycare (Continued)</li>
+			<li>Dynamic Trade Interface</li>
+			<li>The Dead Man's Switch - Power Armor Expanded</li>
+			<li>Childhood Backstories</li>
+			<li>Childrens Drawings</li>
+			<li>Kiiro Race Gene Patch</li>
+			<li>Kiiro Story: Events Expanded</li>
+			<li>Kiiro Race - Orange Cat Xenotype (绮罗橘猫异种)</li>
+			<li>Kiiro Race - Maine Coon Xenotype (绮罗缅因异种)</li>
+			<li>Kiiro Race - Siamese Xenotype (绮罗暹罗异种)</li>
+			<li>Kiiro Race - Ragdoll Xenotype (绮罗布偶异种)</li>
+			<li>Kiiro Ear and Tail Animation+</li>
+			<li>Milira Race Gene Patch</li>
+			<li>米莉拉角色拓展 v1.1</li>
+			<li>Xiyue's Milira Expanded</li>
+			<li>Milira Expansion: YaoYao</li>
+			<li>Ratkin Children Wearing Fix</li>
+			<li>Isekai RPG Leveling - Character Editor Support</li>
+			<li>Ratkin Body Retextured - NewRatkin 1.6 Toddler Fix</li>
+			<li>Ratkin Apparel Layer Fix</li>
+			<li>Gloomy Furniture Fix</li>
+			<li>Mod Medicine Patch 1.6</li>
+			<li>ED x FT Compatibility Patch</li>
+			<li>Local Ancot GL Fix</li>
+			<li>Local Anime Child Apparel Texture Fix</li>
+			<li>Local Child Apparel Fix (Ratkin only)</li>
+			<li>Local CJK Font Fix</li>
+			<li>High Density Hydroponics</li>
+			<li>[HAR]Universal Race and Xeno Fix - 通用种族异种基因修复</li>
+			<li>Food Poisoning Stack Fix (Continued)</li>
+			<li>Ratkin Apparel Expanded (1.6 fix)</li>
+			<li>DevelopMode fix</li>
+			<li>Vanilla Fix: Haul After Slaughter</li>
+			<li>[Patch]Craftable NewRatkinPlus Apparel &amp; Weapon</li>
+			<li>Local Ratkin 1.6 Compat</li>
+			<li>Character Editor Localization Extension</li>
+			<li>自动补衣 [Fixed]</li>
+			<li>Realistic Humansounds HAR Patch</li>
+			<li>原版服饰渲染层修复</li>
+			<li>Toddlers Interaction Patch</li>
+			<li>Nice Bill Tab zh-pack</li>
+			<li>Nice Plants Menu zh-pack</li>
+			<li>Performance - Slower Pawn Tick Rate 中文化</li>
+			<li>[ARY] Automatic Stump Chopping [1.5-1.6] zh-pack</li>
+			<li>Childrens Books-儿童读物-简繁汉化包</li>
+			<li>Adaptive TPS 中文汉化</li>
+			<li>Call For Intel简中汉化</li>
+			<li>Toddlers简繁汉化</li>
+			<li>Un-Limited Reborn 简体中文汉化</li>
+			<li>Better Architect Menu 汉化</li>
+			<li>Callouts 汉化</li>
+			<li>Mines 2.0 汉化</li>
+			<li>simplebabycarry_zh</li>
+			<li>Rimsential - Total Control: Continued zh-pack</li>
+			<li>Keyz Allow Utilities 中文汉化</li>
+			<li>Pawn Chronicles: Personal Epics zh-pack</li>
+			<li>[1.6]Deep And Deeper-简繁汉化</li>
+			<li>[DHM]Hybrid-Powered Gravships自用汉化</li>
+			<li>EndlessGrowth_zh</li>
+			<li>RPG Dialog_zh RPG对话框</li>
+			<li>Famine Food 简体中文汉化</li>
+			<li>Economics &amp; Demography简繁汉化</li>
+			<li>Shuttle Dock简体中文汉化</li>
+			<li>Faction Territories and Vassalage zh-pack</li>
+			<li>ISEKAI RPG LEVELING zh-pack</li>
+			<li>Allow Tool zh-pack (Linux case fix)</li>
+			<li>Alpha Biomes zh-pack</li>
+			<li>Bionix Automator zh-pack</li>
+			<li>Layers: Capes and Armor zh-pack</li>
+			<li>Vanilla Quests Expanded - Cryptoforge zh-pack</li>
+			<li>Do Something for Idle zh-pack</li>
+			<li>Fertile Fields 1.6 zh-pack</li>
+			<li>Gene Ripper zh-pack</li>
+			<li>Helicopter Parenting zh-pack</li>
+			<li>No One Left Behind (1.6) zh-pack</li>
+			<li>Orphanage and Daycare (Continued) zh-pack</li>
+			<li>Punch Button zh-pack</li>
+			<li>Simple Leadership zh-pack</li>
+			<li>Sky Islands zh-pack</li>
+			<li>The Children Need To Play zh-pack</li>
+			<li>Ponpeco Kids' Clothes_zh</li>
+			<li>Vanilla Quests Expanded - Drone Factory 简体中文汉化包 [Chinese Simplified]</li>
+			<li>RimTalk（边缘世谭）简繁中文汉化</li>
+			<li>Rimtalk预设提示词优化</li>
+			<li>Melee Weapons: Speed and Damage - 简中汉化</li>
+			<li>Walls are solid_简体汉化_Unofficial</li>
+			<li>MigCorp - Skiptech zh-pack</li>
+			<li>Ratkin Underground+ 繁簡中文翻譯</li>
+			<li>One with Death_zh</li>
+			<li>Automatic Hydroponics_zh</li>
+			<li>Character Editor 中文化</li>
+			<li>Childhood Backstories 简繁中文汉化包</li>
+			<li>Allies are Helpful_zh 友军之助</li>
+			<li>Better Workbench Management繁簡漢化</li>
+			<li>Performance Optimizer zh</li>
+			<li>Toddlers zh</li>
+			<li>Pocket_Dimension_zh_1.5</li>
+			<li>GUILD FACTION ADD-ON - Isekai RPG Leveling zh-pack</li>
+			<li>ISEKAI CREATURES ADD-ON - Isekai RPG Leveling zh-pack</li>
+			<li>Reel's Turret Pipeline zh -炮塔管道- 简繁汉化包</li>
+			<li>RimRelations边缘关系 简体汉化</li>
+			<li>Trade Ships Drop Spot zh-pack</li>
+			<li>Dubs Mint Menus zh-pack</li>
+			<li>GloomyFurniture zh-pack</li>
+			<li>Humanoid Alien Races zh-pack</li>
+			<li>Pawn Education zh-pack</li>
+			<li>RimQuest zh-pack</li>
+			<li>Vanilla Factions Expanded - Settlers zh-pack</li>
+			<li>Vanilla Animals Expanded zh-pack</li>
+			<li>Vanilla Expanded Framework zh-pack</li>
+			<li>Vanilla Social Interactions Expanded zh-pack</li>
+			<li>Vanilla Traits Expanded zh-pack</li>
+			<li>RimTraits_Vanilla_Trait_Colors_zh</li>
+			<li>Vanilla Fishing Expanded zh-pack</li>
+			<li>Vanilla Furniture Expanded zh-pack</li>
+			<li>Animal_Tab_zh</li>
+			<li>Follow_Me_zh</li>
+			<li>Random Relations Blocker &amp; Romance Whitelist zh-pack</li>
+			<li>Vanilla Brewing Expanded zh pack</li>
+			<li>Vanilla Cooking Expanded zh pack</li>
+			<li>Vanilla Ideology Expanded 原版文化扩展 简繁汉化包</li>
+			<li>Vanilla Plants Expanded zh  pack</li>
+			<li>RimHUD_zh</li>
+			<li>Unique Weapons Unbound zh-pack</li>
+			<li>Silversol's - CHS</li>
+			<li>Trading Control的简繁中文汉化</li>
+			<li>Clean Research Sort - 汉化</li>
+			<li>Melee Fitness_zh 强健体魄 - 简繁中文汉化包</li>
+			<li>Vanilla Backstories Expanded中文汉化</li>
+			<li>Vanilla Landmarks Expanded zh-pack</li>
+			<li>Character Editor 简体中文汉化补丁</li>
+			<li>Vanilla Quests Expanded - Deadlife个人汉化</li>
+			<li>[汉化]Odyssey Transport Shuttle更多奥德赛运输机</li>
+			<li>Adaptive Storage_zh</li>
+			<li>True RPG Inventory 简体中文汉化</li>
+			<li>Campfire Stews简体中文翻译</li>
+			<li>Vanilla Outposts Expanded Expanded: Ranch&amp;Trading_zh</li>
+			<li>Tilled Soil_zh</li>
+			<li>Rimstro_zh</li>
+			<li>One bed to sleep with all - Polycule Edition（多妻（夫）轮流睡觉-多边）简中汉化</li>
+			<li>zh Map Mode Framework</li>
+			<li>Smarter Visitors_zh</li>
+			<li>Vanilla Outposts Expanded: Additional Outposts_zh</li>
+			<li>Ponpeco Furnitures_zh</li>
+			<li>Alpha Books_zh</li>
+			<li>[sbz] Gravship Storage_zh</li>
+			<li>[sbz] Fridge_zh</li>
+			<li>Vanilla Temperature Expanded_zh</li>
+			<li>Vanilla Quests Expanded_zh</li>
+			<li>NewRatkinPlus_zh</li>
+			<li>Ratkin Ideology+</li>
+			<li>Simple Warrants_zh</li>
+			<li>Pick Up And Haul_zh</li>
+			<li>JumpLifter 简体汉化包</li>
+			<li>更大的飞船（以及奥德赛其它设置）</li>
+			<li>Stone Conversion Recipes_zh</li>
+			<li>[RH2] BCD: CASEVAC_zh</li>
+			<li>[RH2] BCD: First Aid_zh</li>
+			<li>[RH2] CPERS: Arrest Here!_zh</li>
+			<li>Alpha Memes_zh</li>
+			<li>OverflowingFlowers_zh</li>
+			<li>Trading Control汉化</li>
+			<li>Vanilla Outposts Expanded_zh</li>
+			<li>Vanilla Recycling Expanded_zh</li>
+			<li>Vanilla Trading Expanded_zh</li>
+			<li>Vanilla Chemfuel Expanded_zh</li>
+			<li>Vanilla Nutrient Paste Expanded_zh</li>
+		</modNames>
+		<PrisonLaborVersion>v1_6_3</PrisonLaborVersion>
+	</meta>
+	<compatibilityFrayMod>
+		<replacedAbilityJumpFray>True</replacedAbilityJumpFray>
+	</compatibilityFrayMod>
+	<ideo>
+		<foundation Class="IdeoFoundation_Deity">
+			<def>Deity</def>
+			<place>Boccocarro</place>
+			<deities />
+		</foundation>
+		<name>文化-肉体派</name>
+		<adjective>肉体</adjective>
+		<memberName>血肉者</memberName>
+		<leaderTitleMale>道德酋长</leaderTitleMale>
+		<leaderTitleFemale>道德酋长</leaderTitleFemale>
+		<description>"我追随者中的前十人用双手硬生生的从他们皮肤上撕下了各种装置，在灰暗地板上溅起的血花中，我突然领悟到了我们都错过的真实：每个人都是独特而有价值的，必须走自己的路。但这也只是我自己的道路--你的道路会是什么？"
+
+  ——Filip 'Fish' Fritsch，在被处决之前</description>
+		<descriptionTemplate>"我追随者中的前十人用双手硬生生的从他们皮肤上撕下了各种装置，在灰暗地板上溅起的血花中，我突然领悟到了我们都错过的真实：每个人都是独特而有价值的，必须走自己的路。但这也只是我自己的道路--你的道路会是什么？"
+
+  ——Filip 'Fish' Fritsch，在被处决之前</descriptionTemplate>
+		<culture>KiiroTraditionalCulture</culture>
+		<iconDef>Dotcircle</iconDef>
+		<colorDef>LightPurple</colorDef>
+		<primaryFactionColor>RGBA(0.992, 0.859, 0.729, 1.000)</primaryFactionColor>
+		<memes>
+			<li>Structure_Ideological</li>
+			<li>Individualist</li>
+			<li>FleshPurity</li>
+		</memes>
+		<precepts>
+			<li>
+				<name>身体改造</name>
+				<def>BodyMod_Abhorrent</def>
+				<ID>24</ID>
+				<randomSeed>-648868255</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+			</li>
+			<li Class="Precept_Ritual">
+				<name>葬礼（没有尸体）</name>
+				<def>AM_FuneralNoCorpse</def>
+				<ID>28</ID>
+				<randomSeed>-1209399008</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<ritualExpectedDesc>如果一位{IDEO}成员去世，尸体遗失，其他{MEMBERS}会聚集在一个空坟墓旁举行{RITUAL_labelDef}。</ritualExpectedDesc>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>AM_FuneralNoCorpsePattern</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_AnyEmptyGrave">
+					<def>AnyEmptyGrave</def>
+					<parent>Precept_28</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior Class="RitualBehaviorWorker_Funeral">
+					<def>Funeral</def>
+				</behavior>
+				<triggers>
+					<li Class="AlphaMemes.RitualObligationTrigger_NoCorpse">
+						<mustBePlayerIdeo>True</mustBePlayerIdeo>
+					</li>
+				</triggers>
+				<outcomeEffect Class="RitualOutcomeEffectWorker_FromQuality">
+					<def>AttendedFuneralNoCorpse</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>自主墓地</name>
+				<def>AM_RumBurial</def>
+				<ID>56</ID>
+				<randomSeed>590001462</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<nameMaker>NamerRitualFuneral</nameMaker>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<ritualExpectedDesc>如果一位{IDEO}成员去世，其他{MEMBERS}就会在指定地点处举行葬礼，以将死者转化为美味的朗姆酒。</ritualExpectedDesc>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>AM_RumBurialPattern</sourcePattern>
+				<obligationTargetFilter Class="AlphaMemes.RitualObligationTargetWorker_FuneralThingExtended">
+					<def>AM_RumFuneralExtended</def>
+					<parent>Precept_56</parent>
+					<filters>
+						<li Class="AlphaMemes.RitualObligationTargetWorker_FuneralHolderThings">
+							<def>AM_RumBurialTarget</def>
+							<parent>Precept_56</parent>
+						</li>
+					</filters>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior Class="AlphaMemes.RitualBehaviorWorker_RumBurial">
+					<def>AM_RumBurialBehavior</def>
+					<corpse>null</corpse>
+					<effecterpawn>null</effecterpawn>
+					<spawnEffectThings />
+				</behavior>
+				<triggers>
+					<li Class="RitualObligationTrigger_MemberDied">
+						<mustBePlayerIdeo>True</mustBePlayerIdeo>
+					</li>
+				</triggers>
+				<outcomeEffect Class="AlphaMemes.RitualOutcomeEffectWorker_RumBurial">
+					<def>AM_RumBurialOutcome</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>自我之庆典</name>
+				<def>Festival</def>
+				<ID>33</ID>
+				<randomSeed>-879331759</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<descOverride>释放天灯的仪式。参与者将在社交时组装木制的天灯，然后释放它们，看着它们飘走。</descOverride>
+				<nameMaker>NamerRitualFestival</nameMaker>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<ritualExpectedDesc>每年{DATE}, {MEMBERS}可以有一个特别的庆祝活动。</ritualExpectedDesc>
+				<shortDescOverride>天灯节</shortDescOverride>
+				<iconPathOverride>UI/Icons/Rituals/CelebrationPartySkylanterns</iconPathOverride>
+				<patternGroupTag>CelebratedDate</patternGroupTag>
+				<canBeAnytime>True</canBeAnytime>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>CelebrationSkyLanterns</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_SkyLanterns">
+					<def>CampfireSkylanterns</def>
+					<parent>Precept_33</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior>
+					<def>CelebrationSkyLanterns</def>
+				</behavior>
+				<triggers>
+					<li Class="RitualObligationTrigger_Date">
+						<mustBePlayerIdeo>True</mustBePlayerIdeo>
+						<triggerDaysSinceStartOfYear>53</triggerDaysSinceStartOfYear>
+					</li>
+				</triggers>
+				<attachableOutcomeEffect>RandomRecruit</attachableOutcomeEffect>
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Skylantern">
+					<def>CelebrationSkyLanterns</def>
+					<compDatas>
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist>
+					<li>Orbit</li>
+				</layerBlacklist>
+			</li>
+			<li Class="Precept_RitualSeat">
+				<name>仪式坐席</name>
+				<def>IdeoRitualSeat</def>
+				<ID>34</ID>
+				<randomSeed>1018938519</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<thingDef>KneelPillow</thingDef>
+			</li>
+			<li Class="Precept_Ritual">
+				<name>突入虚境</name>
+				<def>AL_DummyPrecept_ShroudBreakIn</def>
+				<ID>35</ID>
+				<randomSeed>-996335276</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<nameMaker>AL_RulePack_ShroudBreakIn</nameMaker>
+				<ritualExpectedDesc>灵潜仪式</ritualExpectedDesc>
+				<iconPathOverride>AriandelLibrary/Icon/ShroudBreakIn</iconPathOverride>
+				<isAnytime>True</isAnytime>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>AL_RitualPattern_ShroudBreakIn</sourcePattern>
+				<obligationTargetFilter Class="AriandelLibrary.RitualObligationTargetWorker_ShroudRitual">
+					<def>AL_RitualObligationTargetFilter_ShroudBreakIn</def>
+					<parent>Precept_35</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior Class="AriandelLibrary.RitualBehaviorWorker_ShroudBreakIn">
+					<def>AL_RitualBehavior_ShroudBreakIn</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="AriandelLibrary.RitualOutcomeEffectWorker_ShroudBreakIn">
+					<def>AL_ShroudBreakIn_Outcome</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>仙树共鸣</name>
+				<def>AnimaTreeLinking</def>
+				<ID>36</ID>
+				<randomSeed>-890588019</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<isAnytime>True</isAnytime>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>AnimaTreeLinking</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_AnimaTree">
+					<def>AnimaTree</def>
+					<parent>Precept_36</parent>
+				</obligationTargetFilter>
+				<targetFilter Class="RitualTargetFilter_SelectedThing">
+					<def>SelectedThing</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_AnimaLinking">
+					<def>AnimaTreeLinking</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_AnimaTreeLinking">
+					<def>AnimaTreeLinking</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>分娩</name>
+				<def>ChildBirth</def>
+				<ID>37</ID>
+				<randomSeed>342523681</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<isAnytime>True</isAnytime>
+				<allowOtherInstances>True</allowOtherInstances>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>ChildBirth</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_ChildBirth">
+					<def>ChildBirth</def>
+					<parent>Precept_37</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior Class="RitualBehaviorWorker_ChildBirth">
+					<def>ChildBirth</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_ChildBirth">
+					<def>ChildBirth</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li IsNull="True" />
+						<li IsNull="True" />
+						<li IsNull="True" />
+						<li Class="RitualOutcomeComp_DataRoomStatCached" />
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>教化仪式</name>
+				<def>Conversion</def>
+				<ID>38</ID>
+				<randomSeed>-1091746848</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<isAnytime>True</isAnytime>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<ritualExplanation>在成功的情况下，他们的认可度将减少，或者他们将立即归化。如果适得其反，他们对自己文化的认可度就会增加。</ritualExplanation>
+				<canMergeGizmosFromDifferentIdeos>False</canMergeGizmosFromDifferentIdeos>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>Conversion</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_AnyRitualSpotOrAltar">
+					<def>RitualSpotOrAltar</def>
+					<parent>Precept_38</parent>
+				</obligationTargetFilter>
+				<targetFilter Class="RitualTargetFilter_Altar">
+					<def>AltarOrRitualSpot</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_Conversion">
+					<def>Conversion</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Conversion">
+					<def>Conversion</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataRoomStatCached" />
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li IsNull="True" />
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>公开处决</name>
+				<def>Execution</def>
+				<ID>39</ID>
+				<randomSeed>2111058285</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<isAnytime>True</isAnytime>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>Execution</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_AnyRitualSpotIdeogramOrAltar">
+					<def>RitualSpotIdeogramOrAltar</def>
+					<parent>Precept_39</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior Class="RitualBehaviorWorker_Execution">
+					<def>Execution</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Execution">
+					<def>Execution</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_GravshipLaunch">
+				<name>发射逆重飞船</name>
+				<def>GravshipLaunch</def>
+				<ID>40</ID>
+				<randomSeed>1029311917</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<iconPathOverride>UI/Commands/LaunchGravship</iconPathOverride>
+				<isAnytime>True</isAnytime>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>GravshipLaunch</sourcePattern>
+				<ignoreExtremeTemperatures>True</ignoreExtremeTemperatures>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_GravshipLaunch">
+					<def>GravshipLaunch</def>
+					<parent>Precept_40</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior Class="RitualBehaviorWorker_GravshipLaunch">
+					<def>GravshipLaunch</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_GravshipLaunch">
+					<def>GravshipLaunch</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li IsNull="True" />
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li IsNull="True" />
+						<li IsNull="True" />
+						<li IsNull="True" />
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>领袖演讲</name>
+				<def>LeaderSpeech</def>
+				<ID>41</ID>
+				<randomSeed>-1051706312</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<isAnytime>True</isAnytime>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<canMergeGizmosFromDifferentIdeos>False</canMergeGizmosFromDifferentIdeos>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>LeaderSpeech</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_IdeoBuildingOrRitualSpot">
+					<def>AnyIdeoBuildingOrRitualSpot</def>
+					<parent>Precept_41</parent>
+				</obligationTargetFilter>
+				<targetFilter Class="RitualTargetFilter_IdeoBuildingOrRitualSpot">
+					<def>IdeoBuildingOrRitualSpot</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_Speech">
+					<def>LeaderSpeech</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Speech">
+					<def>AttendedSpeech</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li Class="RitualOutcomeComp_DataRoomStatCached" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>prisoner interrogation</name>
+				<def>PL_Interrogation</def>
+				<ID>42</ID>
+				<randomSeed>390630557</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<isAnytime>True</isAnytime>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>PL_Interrogation</sourcePattern>
+				<obligationTargetFilter Class="PrisonLabor.Core.Interrogation.Ritual.RitualObligationTargetWorker_Interrogation">
+					<def>PL_InterrogationRoom</def>
+					<parent>Precept_42</parent>
+				</obligationTargetFilter>
+				<targetFilter Class="RitualTargetFilter_SelectedThing">
+					<def>PL_SelectedThing</def>
+				</targetFilter>
+				<behavior Class="PrisonLabor.Core.Interrogation.Ritual.RitualBehaviorWorker_Interrogation">
+					<def>PL_Interrogation</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="PrisonLabor.Core.Interrogation.Ritual.RitualOutcomeEffectWorker_Interrogation">
+					<def>PL_Interrogation</def>
+					<compDatas>
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>职位变更</name>
+				<def>RoleChange</def>
+				<ID>43</ID>
+				<randomSeed>934767586</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<isAnytime>True</isAnytime>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>RoleChange</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_AnyRitualSpotIdeogramOrAltar">
+					<def>RitualSpotIdeogramOrAltar</def>
+					<parent>Precept_43</parent>
+				</obligationTargetFilter>
+				<targetFilter Class="RitualTargetFilter_AltarOrIdeogram">
+					<def>AltarIdeogramOrRitualSpot</def>
+				</targetFilter>
+				<behavior>
+					<def>RoleChange</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_RoleChange">
+					<def>RoleChange</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataRoleChangeParticipants">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>威严演讲</name>
+				<def>ThroneSpeech</def>
+				<ID>44</ID>
+				<randomSeed>100008758</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>ThroneSpeech</sourcePattern>
+				<obligationTargetFilter IsNull="True" />
+				<targetFilter Class="RitualTargetFilter_UsableThrone">
+					<def>UsableThrone</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_ThroneSpeech">
+					<def>ThroneSpeech</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Speech">
+					<def>AttendedSpeech</def>
+					<compDatas>
+						<li IsNull="True" />
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li Class="RitualOutcomeComp_DataRoomStatCached" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>母树共鸣仪式</name>
+				<def>TreeConnection</def>
+				<ID>45</ID>
+				<randomSeed>-1903686662</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<iconPathOverride>UI/Icons/Rituals/TreeConnection</iconPathOverride>
+				<isAnytime>True</isAnytime>
+				<playsIdeoMusic>True</playsIdeoMusic>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>TreeConnection</sourcePattern>
+				<obligationTargetFilter Class="RitualObligationTargetWorker_UnconnectedGauranlenTree">
+					<def>GauranlenTree</def>
+					<parent>Precept_45</parent>
+				</obligationTargetFilter>
+				<targetFilter IsNull="True" />
+				<behavior>
+					<def>TreeConnection</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_ConnectToTree">
+					<def>ConnectToTree</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>审判</name>
+				<def>Trial</def>
+				<ID>46</ID>
+				<randomSeed>-1230629987</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>Trial</sourcePattern>
+				<obligationTargetFilter IsNull="True" />
+				<targetFilter Class="RitualTargetFilter_IdeoBuildingOrRitualSpot">
+					<def>IdeoBuildingOrRitualSpot</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_Trial">
+					<def>Trial</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Trial">
+					<def>Trial</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li IsNull="True" />
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>审判</name>
+				<def>TrialMentalState</def>
+				<ID>47</ID>
+				<randomSeed>-1953647450</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>TrialMentalState</sourcePattern>
+				<obligationTargetFilter IsNull="True" />
+				<targetFilter Class="RitualTargetFilter_IdeoBuildingOrRitualSpot">
+					<def>IdeoBuildingOrRitualSpot</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_Trial">
+					<def>TrialMentalState</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Trial">
+					<def>TrialMentalState</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_Ritual">
+				<name>审判</name>
+				<def>TrialPrisoner</def>
+				<ID>48</ID>
+				<randomSeed>1009215392</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
+				<generatedAttachedReward>True</generatedAttachedReward>
+				<sourcePattern>TrialPrisoner</sourcePattern>
+				<obligationTargetFilter IsNull="True" />
+				<targetFilter Class="RitualTargetFilter_IdeoBuildingOrRitualSpot">
+					<def>IdeoBuildingOrRitualSpot</def>
+				</targetFilter>
+				<behavior Class="RitualBehaviorWorker_Trial">
+					<def>TrialPrisoner</def>
+				</behavior>
+				<triggers />
+				<outcomeEffect Class="RitualOutcomeEffectWorker_Trial">
+					<def>Trial</def>
+					<compDatas>
+						<li Class="RitualOutcomeComp_DataThingPresence">
+							<presentForTicks>
+								<keys />
+								<values />
+							</presentForTicks>
+						</li>
+						<li IsNull="True" />
+						<li IsNull="True" />
+					</compDatas>
+				</outcomeEffect>
+				<layerWhitelist IsNull="True" />
+				<layerBlacklist IsNull="True" />
+			</li>
+			<li Class="Precept_RoleSingle">
+				<name>道德酋长</name>
+				<def>IdeoRole_Leader</def>
+				<ID>49</ID>
+				<randomSeed>775802635</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<apparelRequirements>
+					<li>
+						<allowedFactionCategoryTags IsNull="True" />
+						<disallowedFactionCategoryTags IsNull="True" />
+						<anyMemeRequired IsNull="True" />
+						<requirement>
+							<bodyPartGroupsMatchAny>
+								<li>UpperHead</li>
+								<li>FullHead</li>
+							</bodyPartGroupsMatchAny>
+							<requiredDefs>
+								<li>Apparel_Headwrap</li>
+							</requiredDefs>
+							<requiredTags IsNull="True" />
+							<allowedTags IsNull="True" />
+						</requirement>
+					</li>
+				</apparelRequirements>
+				<restrictToSupremeGender>True</restrictToSupremeGender>
+				<chosenPawn>
+					<pawn>null</pawn>
+					<abilities>
+						<li>
+							<def>LeaderSpeech</def>
+							<Id>0</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_0_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_0</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>WorkDrive</def>
+							<Id>1</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_1_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_1</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>CombatCommand</def>
+							<Id>2</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_2_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_2</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>Trial</def>
+							<Id>3</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_3_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_3</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>AM_ChangeStyle</def>
+							<Id>4</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_4_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_4</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>VME_LeaderConversionRitual</def>
+							<Id>5</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_5_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_5</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>VME_LeaderConvert</def>
+							<Id>6</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_6_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_6</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>VME_LeaderPreachHealth</def>
+							<Id>7</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_7_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_7</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>VME_LeaderReassure</def>
+							<Id>8</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_8_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_8</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>VME_LeaderCounsel</def>
+							<Id>9</Id>
+							<sourcePrecept>Precept_49</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_9_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_9</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+					</abilities>
+				</chosenPawn>
+			</li>
+			<li Class="Precept_RoleSingle">
+				<name>干净伦理学家</name>
+				<def>IdeoRole_Moralist</def>
+				<ID>50</ID>
+				<randomSeed>1387648505</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<apparelRequirements>
+					<li>
+						<allowedFactionCategoryTags IsNull="True" />
+						<disallowedFactionCategoryTags IsNull="True" />
+						<anyMemeRequired IsNull="True" />
+						<requirement>
+							<bodyPartGroupsMatchAny>
+								<li>UpperHead</li>
+								<li>Neck</li>
+								<li>Shoulders</li>
+								<li>FullHead</li>
+							</bodyPartGroupsMatchAny>
+							<requiredDefs>
+								<li>Apparel_Broadwrap</li>
+							</requiredDefs>
+							<requiredTags IsNull="True" />
+							<allowedTags IsNull="True" />
+						</requirement>
+					</li>
+					<li>
+						<allowedFactionCategoryTags IsNull="True" />
+						<disallowedFactionCategoryTags IsNull="True" />
+						<anyMemeRequired IsNull="True" />
+						<requirement>
+							<bodyPartGroupsMatchAny>
+								<li>Torso</li>
+								<li>FullHead</li>
+								<li>UpperHead</li>
+								<li>Legs</li>
+								<li>Arms</li>
+							</bodyPartGroupsMatchAny>
+							<requiredDefs>
+								<li>Apparel_Burka</li>
+							</requiredDefs>
+							<requiredTags IsNull="True" />
+							<allowedTags IsNull="True" />
+						</requirement>
+					</li>
+				</apparelRequirements>
+				<chosenPawn>
+					<pawn>null</pawn>
+					<abilities>
+						<li>
+							<def>Convert</def>
+							<Id>10</Id>
+							<sourcePrecept>Precept_50</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_10_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_10</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>Counsel</def>
+							<Id>11</Id>
+							<sourcePrecept>Precept_50</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_11_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_11</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>Reassure</def>
+							<Id>12</Id>
+							<sourcePrecept>Precept_50</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_12_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_12</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>ConversionRitual</def>
+							<Id>13</Id>
+							<sourcePrecept>Precept_50</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_13_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_13</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>PreachHealth</def>
+							<Id>14</Id>
+							<sourcePrecept>Precept_50</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbilityTouch">
+										<loadID>Ability_14_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_14</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+					</abilities>
+				</chosenPawn>
+			</li>
+			<li Class="Precept_RoleSingle">
+				<name>风格大师</name>
+				<def>AM_IdeoRole_MasterStylist</def>
+				<ID>51</ID>
+				<randomSeed>2138053634</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<apparelRequirements IsNull="True" />
+				<chosenPawn>
+					<pawn>null</pawn>
+					<abilities>
+						<li>
+							<def>AM_ChangeStyle</def>
+							<Id>15</Id>
+							<sourcePrecept>Precept_51</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_15_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_15</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>AM_ChangeStyleRandom</def>
+							<Id>16</Id>
+							<sourcePrecept>Precept_51</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_16_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_16</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>AM_ChangeStyleRadius</def>
+							<Id>17</Id>
+							<sourcePrecept>Precept_51</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_17_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_17</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>AM_ChangeStyle_AllMap</def>
+							<Id>18</Id>
+							<sourcePrecept>Precept_51</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_18_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_18</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+						<li>
+							<def>AM_ChangeStyle_AllMap_Swap</def>
+							<Id>19</Id>
+							<sourcePrecept>Precept_51</sourcePrecept>
+							<verbTracker>
+								<verbs>
+									<li Class="Verb_CastAbility">
+										<loadID>Ability_19_0</loadID>
+										<currentTarget>(0, 0, 0)</currentTarget>
+										<currentDestination>(0, 0, 0)</currentDestination>
+										<lastShotTick>-999999</lastShotTick>
+										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
+										<ability>Ability_19</ability>
+									</li>
+								</verbs>
+							</verbTracker>
+							<maxCharges>0</maxCharges>
+							<charges>0</charges>
+						</li>
+					</abilities>
+				</chosenPawn>
+			</li>
+			<li Class="Precept_Building">
+				<name>自由祭坛</name>
+				<def>IdeoBuilding</def>
+				<ID>52</ID>
+				<randomSeed>1228389610</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<thingDef>Altar_Grand</thingDef>
+				<presenceDemand>
+					<ID>0</ID>
+					<minExpectation>High</minExpectation>
+					<roomRequirements>
+						<li Class="RoomRequirement_ThingAnyOfCount">
+							<things>
+								<li>Column</li>
+								<li>OA_RK_Zhuzi</li>
+								<li>OA_RK_Zhuzi_B</li>
+								<li>OA_RK_Zhuzi_C</li>
+							</things>
+							<count>4</count>
+						</li>
+						<li Class="RoomRequirement_ForbiddenBuildings">
+							<labelKey>RoomRequirementNoBeds</labelKey>
+							<buildingTags>
+								<li>Bed</li>
+							</buildingTags>
+						</li>
+						<li Class="RoomRequirement_ForbiddenBuildings">
+							<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+							<buildingTags>
+								<li>Production</li>
+							</buildingTags>
+						</li>
+					</roomRequirements>
+				</presenceDemand>
+			</li>
+			<li Class="Precept_Relic">
+				<name>海洋之形</name>
+				<def>IdeoRelic</def>
+				<ID>55</ID>
+				<randomSeed>-1596487148</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<thingDef>Axolotl_MoeLotlCrossBow_Intermediate</thingDef>
+			</li>
+			<li Class="Precept_Relic">
+				<name>Juliette</name>
+				<def>IdeoRelic</def>
+				<ID>53</ID>
+				<randomSeed>1781334295</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<thingDef>Melee_Cursed_Ratkin_ciHalberd</thingDef>
+			</li>
+			<li Class="Precept_Relic">
+				<name>文化-圣物</name>
+				<def>IdeoRelic</def>
+				<ID>54</ID>
+				<randomSeed>-1486857074</randomSeed>
+				<usesDefiniteArticle>True</usesDefiniteArticle>
+				<thingDef>RKU_PistolB</thingDef>
+			</li>
+		</precepts>
+		<thingStyleCategories />
+		<usedSymbols>
+			<li>文化-肉体派</li>
+			<li>肉体</li>
+			<li>血肉者</li>
+		</usedSymbols>
+		<usedSymbolPacks>
+			<li>肉体派</li>
+		</usedSymbolPacks>
+		<style>
+			<hairFrequencies>
+				<vals>
+					<li />
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li />
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li />
+					<li />
+					<li>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>FemaleUsually</gender>
+					</li>
+					<li>
+						<frequency>Common</frequency>
+						<gender>FemaleUsually</gender>
+					</li>
+					<li>
+						<frequency>Common</frequency>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<frequency>Common</frequency>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>FemaleUsually</gender>
+					</li>
+					<li>
+						<gender>FemaleUsually</gender>
+					</li>
+					<li>
+						<gender>FemaleUsually</gender>
+					</li>
+					<li />
+					<li>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<frequency>Common</frequency>
+						<gender>Any</gender>
+					</li>
+					<li />
+					<li>
+						<frequency>Common</frequency>
+						<gender>MaleUsually</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li />
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<frequency>Normal</frequency>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<frequency>Normal</frequency>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Female</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+				</vals>
+			</hairFrequencies>
+			<beardFrequencies>
+				<vals>
+					<li>
+						<frequency>Uncommon</frequency>
+						<gender>Any</gender>
+					</li>
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li />
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li />
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li />
+					<li />
+					<li>
+						<frequency>Normal</frequency>
+					</li>
+					<li />
+					<li />
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+				</vals>
+			</beardFrequencies>
+			<tattooFrequencies>
+				<vals>
+					<li>
+						<frequency>Normal</frequency>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<frequency>Normal</frequency>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+					<li>
+						<gender>Any</gender>
+					</li>
+				</vals>
+			</tattooFrequencies>
+			<styleForThingDef>
+				<keys />
+				<values />
+			</styleForThingDef>
+		</style>
+	</ideo>
+</savedideo>

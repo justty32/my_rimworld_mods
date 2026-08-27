@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ============================================================================
+  二次元定製世界 — Worldbuilder preset（給 pack-2-anime / profile 2-anime）
+  ============================================================================
+  格式依據：projects/rimworld_mods/worldbuilder/Source/WorldPreset.cs::ExposeData
+           （原生 Scribe 存檔式 XML；Dict = <keys>/<values> 平行清單、Color = RGBA(...)）
+  掃描位置：本 mod 根 Worldbuilder/Anime2World/Preset.xml（WorldPresetManager.cs:145-158）
+
+  解決什麼：pack-2-anime 有 42 個會生成的 NPC 派系，其中 41 個開局隨機滾意識形態
+           = 亂數 meme 沙拉 = 使用者受夠的垃圾文化。根治：(a) 策展陣容、
+           (b) 給每派系指派固定 .rid 信仰（savedIdeoFactionMapping + CustomIdeos/*.rid）。
+
+  口味定位（使用者 2026-07-17 選：均衡＋兩難多敵對＋鼠族大雜燴＋溫馨多盟友）：
+    → 豐富多樣的大世界。30 派系：7 二次元盟友 + 9 鼠族大雜燴 + 6 原版錨點 + 8 敵對。
+    盟友多、敵對也多、鼠族諸邦林立。coverage 拉到 0.5 給這批派系喘息空間。
+
+  ⚠️ CustomIdeos/ 目前空。缺 .rid 的派系優雅退回隨機，preset 其餘照常。
+     文化怎麼補、每個 key 什麼味道 → 同資料夾 CULTURE-PLAN.md。
+     產出路線：使用者 dump 一個世界 → 我從隨機 .rid 策展改寫（路 B）。
+  ⚠️ 所有清單「加/刪一行 <li>」就能調。defName 全部實測存在於本包。
+-->
+<worldPreset>
+  <!-- ===== 選擇頁中繼資料 ===== -->
+  <name>Anime2World</name><!-- 存檔回查鍵：別改；改顯示名改 label -->
+  <label>二次元定製世界</label>
+  <description>為 pack-2-anime 策展的豐饒世界：天羽、奇羅、萌螈、星械與冒險者公會為友，鼠族諸邦（王庭/騎士/地下/游牧/雜貨）星羅棋布，海盜、食人部族與敵對遠古人在外圍游弋。各派系信仰固定，不再隨機亂滾。</description>
+  <planetType>溫帶定製星</planetType>
+  <difficulty>3</difficulty>
+  <sortPriority>10</sortPriority>
+
+  <!-- ===== 生效開關 ===== -->
+  <saveFactions>True</saveFactions>
+  <saveFactionCustomizations>True</saveFactionCustomizations>
+  <saveIdeologies>True</saveIdeologies>
+  <saveGenerationParameters>True</saveGenerationParameters>
+  <!-- 刻意不開 saveTerrain / saveBases（快照只能遊戲內匯出；saveBases 清空重建聚落有衝突面）。 -->
+
+  <!-- ========================================================================
+       派系陣容（FactionDef defName）。實際各生成幾個看 generationData.factionCountsStrings。
+       ======================================================================== -->
+  <savedFactionDefs>
+    <!-- 二次元盟友/中立（本包主角，溫馨多盟友） -->
+    <li>Milira_Faction</li>          <!-- 天空精靈 -->
+    <li>Milira_AngelismChurch</li>   <!-- 天羽教會 -->
+    <li>Kiiro_Faction</li>           <!-- 奇羅 -->
+    <li>AxolotlWanderingDynasty</li> <!-- 萌螈王朝 -->
+    <li>USAC_Faction</li>            <!-- 星械軍備企業 -->
+    <li>GuildFaction_AdventurersGuild</li> <!-- 冒險者公會 -->
+    <li>PC_Faction_LucifersCartel</li>     <!-- 路西法商團（Pawn Chronicles） -->
+    <!-- 鼠族大雜燴（本包鼠族 mod 很多，這裡全開） -->
+    <li>Rakinia</li>                 <!-- 鼠族王國（solaris） -->
+    <li>OA_RK_Faction</li>           <!-- 金鳶尾蘭帝國前哨 -->
+    <li>RKK_KnightOrders</li>        <!-- 鼠族騎士團 -->
+    <li>RKU_Faction</li>             <!-- 鼠族游擊隊（地下） -->
+    <li>Rakinia_RockRatkin</li>      <!-- 岩鼠王國 -->
+    <li>Rakinia_SnowRatkin</li>      <!-- 雪鼠王國 -->
+    <li>Rakinia_TravelRatkin</li>    <!-- 旅鼠聯邦（游牧） -->
+    <li>ZHP_Faction</li>             <!-- 鼠族邊緣雜貨鋪（商販） -->
+    <li>Rakinia_Warlord</li>         <!-- 鼠族軍閥（敵對） -->
+    <!-- 原版錨點（貿易/任務/皇權地基，均衡） -->
+    <li>OutlanderCivil</li>          <!-- 邊民市鎮 -->
+    <li>OutlanderRough</li>          <!-- 粗獷邊民 -->
+    <li>TribeCivil</li>              <!-- 溫和部族 -->
+    <li>Empire</li>                  <!-- 破碎帝國（Royalty） -->
+    <li>TradersGuild</li>            <!-- 貿易公會（Odyssey） -->
+    <li>Ancients</li>                <!-- 中立遠古人 -->
+    <!-- 敵對（兩難/多敵對） -->
+    <li>Pirate</li>                  <!-- 海盜團 -->
+    <li>PirateYttakin</li>           <!-- 伊塔金海盜 -->
+    <li>CannibalPirate</li>          <!-- 食人海盜 -->
+    <li>TribeCannibal</li>           <!-- 食人部族 -->
+    <li>SettlerSavage</li>           <!-- 匪幫（VFE） -->
+    <li>AncientsHostile</li>         <!-- 敵對遠古人 -->
+    <li>DMS_Army</li>                <!-- 殖民軍團（機甲） -->
+    <li>DMS_AncientCorps</li>        <!-- 遠古軍團（機甲） -->
+  </savedFactionDefs>
+
+  <!--
+    候選池（想再加就搬進上面 + factionCountsStrings）：
+      種族：Kiiro_PlayerFaction_ValorStart
+      原版：TribeRough / TribeRoughNeanderthal / TribeSavageImpid / OutlanderRoughPig / NudistTribe
+      拓荒者(VFE)：SettlerCivil / SettlerRough
+      更多敵對：PirateWaster
+      其他：PlayerWarband
+  -->
+
+  <!-- ========================================================================
+       派系改造（鍵 = FactionDef defName）。v1 只輕改原版泛用派系示範；種族保留 mod 原名。
+       ======================================================================== -->
+  <factionNameOverrides>
+    <keys>
+      <li>Pirate</li>
+      <li>OutlanderCivil</li>
+      <li>TribeCivil</li>
+    </keys>
+    <values>
+      <li>鏽刃劫掠團</li>
+      <li>灰港自由市鎮</li>
+      <li>青苗氏族</li>
+    </values>
+  </factionNameOverrides>
+
+  <factionColorOverrides>
+    <!-- Color = RGBA(r, g, b, a)，0–1 浮點 -->
+    <keys>
+      <li>Pirate</li>
+      <li>OutlanderCivil</li>
+      <li>TribeCivil</li>
+    </keys>
+    <values>
+      <li>RGBA(0.55, 0.15, 0.15, 1.0)</li>
+      <li>RGBA(0.35, 0.55, 0.65, 1.0)</li>
+      <li>RGBA(0.45, 0.65, 0.30, 1.0)</li>
+    </values>
+  </factionColorOverrides>
+
+  <factionPopulationOverrides>
+    <keys>
+      <li>Pirate</li>
+      <li>TribeCivil</li>
+    </keys>
+    <values>
+      <li>
+        <leaderTitle>劫主</leaderTitle>
+      </li>
+      <li>
+        <pawnSingular>青苗民</pawnSingular>
+        <pawnsPlural>青苗族人</pawnsPlural>
+        <leaderTitle>族長</leaderTitle>
+        <techLevel>Neolithic</techLevel>
+      </li>
+    </values>
+  </factionPopulationOverrides>
+
+  <!-- ========================================================================
+       信仰對映：CustomIdeos/<key>.rid → 指派給 value.factionDefNames 的派系。
+       檔名(去.rid) = key。缺檔優雅退回隨機，補檔零改動生效。
+
+       ★ v2（2026-07-17）：改為「逐派系凍結」——.rid 直接取自使用者 dump 的世界
+         （危宿三-IV），每個派系用它自己那份「文化正確」的信仰（Kiiro→KiiroCulture、
+         Milira→MiliraCulture、OA 鼠→OA 文化…），不再是共用泛型原型（那會把錯的文化
+         套到種族派系上）。少數亂滾到垃圾 meme 的已換：Rakinia/Outlander/TribeCivil。
+       27 份信仰覆蓋全部 30 派系（0 個退回隨機）。細節與待調味 → CULTURE-PLAN.md
+       ======================================================================== -->
+  <savedIdeoFactionMapping>
+    <keys>
+      <li>Milira</li>
+      <li>MiliraChurch</li>
+      <li>Kiiro</li>
+      <li>Moelotl</li>
+      <li>StellarCorp</li>
+      <li>DMSLegion</li>
+      <li>OARatkin</li>
+      <li>RatkinUnderground</li>
+      <li>RatkinWarlord</li>
+      <li>ZHP</li>
+      <li>RatkinKingdom</li>
+      <li>RockRatkin</li>
+      <li>SnowRatkin</li>
+      <li>TravelRatkin</li>
+      <li>Frontier</li>
+      <li>FrontierRough</li>
+      <li>Traders</li>
+      <li>Tribal</li>
+      <li>Imperial</li>
+      <li>Corsair</li>
+      <li>CorsairYttakin</li>
+      <li>CannibalPirate</li>
+      <li>CannibalTribe</li>
+      <li>Bandit</li>
+      <li>Guild</li>
+      <li>LucifersCartel</li>
+      <li>Ancients</li>
+    </keys>
+    <values>
+      <li><factionDefNames><li>Milira_Faction</li></factionDefNames></li>
+      <li><factionDefNames><li>Milira_AngelismChurch</li></factionDefNames></li>
+      <li><factionDefNames><li>Kiiro_Faction</li></factionDefNames></li>
+      <li><factionDefNames><li>AxolotlWanderingDynasty</li></factionDefNames></li>
+      <li><factionDefNames><li>USAC_Faction</li></factionDefNames></li>
+      <li><factionDefNames><li>DMS_Army</li><li>DMS_AncientCorps</li></factionDefNames></li>
+      <li><factionDefNames><li>OA_RK_Faction</li></factionDefNames></li>
+      <li><factionDefNames><li>RKU_Faction</li></factionDefNames></li>
+      <li><factionDefNames><li>Rakinia_Warlord</li></factionDefNames></li>
+      <li><factionDefNames><li>ZHP_Faction</li></factionDefNames></li>
+      <li><factionDefNames><li>Rakinia</li><li>RKK_KnightOrders</li></factionDefNames></li>
+      <li><factionDefNames><li>Rakinia_RockRatkin</li></factionDefNames></li>
+      <li><factionDefNames><li>Rakinia_SnowRatkin</li></factionDefNames></li>
+      <li><factionDefNames><li>Rakinia_TravelRatkin</li></factionDefNames></li>
+      <li><factionDefNames><li>OutlanderCivil</li></factionDefNames></li>
+      <li><factionDefNames><li>OutlanderRough</li></factionDefNames></li>
+      <li><factionDefNames><li>TradersGuild</li></factionDefNames></li>
+      <li><factionDefNames><li>TribeCivil</li></factionDefNames></li>
+      <li><factionDefNames><li>Empire</li></factionDefNames></li>
+      <li><factionDefNames><li>Pirate</li></factionDefNames></li>
+      <li><factionDefNames><li>PirateYttakin</li></factionDefNames></li>
+      <li><factionDefNames><li>CannibalPirate</li></factionDefNames></li>
+      <li><factionDefNames><li>TribeCannibal</li></factionDefNames></li>
+      <li><factionDefNames><li>SettlerSavage</li></factionDefNames></li>
+      <li><factionDefNames><li>GuildFaction_AdventurersGuild</li></factionDefNames></li>
+      <li><factionDefNames><li>PC_Faction_LucifersCartel</li></factionDefNames></li>
+      <li><factionDefNames><li>Ancients</li><li>AncientsHostile</li></factionDefNames></li>
+    </values>
+  </savedIdeoFactionMapping>
+
+  <!-- ========================================================================
+       世界生成參數（Source/WorldGenerationData.cs）
+       ======================================================================== -->
+  <generationData>
+    <!-- 一項 = 一個派系實例；重複 defName = 多個同型。v1 每派系各 1。 -->
+    <factionCountsStrings>
+      <li>Milira_Faction</li>
+      <li>Milira_AngelismChurch</li>
+      <li>Kiiro_Faction</li>
+      <li>AxolotlWanderingDynasty</li>
+      <li>USAC_Faction</li>
+      <li>GuildFaction_AdventurersGuild</li>
+      <li>PC_Faction_LucifersCartel</li>
+      <li>Rakinia</li>
+      <li>OA_RK_Faction</li>
+      <li>RKK_KnightOrders</li>
+      <li>RKU_Faction</li>
+      <li>Rakinia_RockRatkin</li>
+      <li>Rakinia_SnowRatkin</li>
+      <li>Rakinia_TravelRatkin</li>
+      <li>ZHP_Faction</li>
+      <li>Rakinia_Warlord</li>
+      <li>OutlanderCivil</li>
+      <li>OutlanderRough</li>
+      <li>TribeCivil</li>
+      <li>Empire</li>
+      <li>TradersGuild</li>
+      <li>Ancients</li>
+      <li>Pirate</li>
+      <li>PirateYttakin</li>
+      <li>CannibalPirate</li>
+      <li>TribeCannibal</li>
+      <li>SettlerSavage</li>
+      <li>AncientsHostile</li>
+      <li>DMS_Army</li>
+      <li>DMS_AncientCorps</li>
+    </factionCountsStrings>
+
+    <!-- 固定種子：地圖佈局可重現。想每局重滾地理但保留派系＋文化 → 清空這行。 -->
+    <seedString>anime2</seedString>
+    <planetCoverage>0.5</planetCoverage><!-- 30 派系→拉大世界給喘息空間 -->
+    <rainfall>Normal</rainfall>
+    <temperature>Normal</temperature>
+    <population>Normal</population>
+    <riverDensity>1</riverDensity>
+    <ancientRoadDensity>1</ancientRoadDensity>
+    <settlementRoadDensity>1</settlementRoadDensity>
+    <mountainDensity>1</mountainDensity>
+    <seaLevel>1</seaLevel>
+    <axialTilt>Normal</axialTilt>
+    <pollution>0.05</pollution>
+    <landmarkDensity>Normal</landmarkDensity>
+  </generationData>
+</worldPreset>
