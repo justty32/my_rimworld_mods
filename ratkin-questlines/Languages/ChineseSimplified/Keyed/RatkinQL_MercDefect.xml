@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 佣兵团 §2 B3《保卫客户》的倒戈分支：不肯报名字的掮客。 -->
+
+  <RatkinQL_MercDefect_Title>不肯报名字的掮客</RatkinQL_MercDefect_Title>
+  <RatkinQL_MercDefect_Report>有人带着另一边的价码上门了。</RatkinQL_MercDefect_Report>
+
+  <RatkinQL_MercDefect_ArriveLabel>有客人，不是村子派来的</RatkinQL_MercDefect_ArriveLabel>
+  <RatkinQL_MercDefect_ArriveText>一个穿得很体面的鼠族在门口站了一会儿，等人来问他，才开口。\n\n他没有报名字，也没有说替谁做事，只说「有一桩买卖想跟管事的当面谈」。他身上没有武器，带的随从也都空着手。\n\n他知道你接了那个村子的活。</RatkinQL_MercDefect_ArriveText>
+
+  <RatkinQL_MercDefect_Greeting>他把一个布包放在桌上，没有打开。\n\n「{Interviewer_labelShort}，我就不绕路了。你接了那个村子的活，酬劳我知道大概是多少——那不是钱，那是几户人家把箱底刮干净凑出来的东西。」\n\n「我这边出的是这个数的六倍，现银，现在就付。你什么都不必做，只要不去那处营地。」\n\n他往后靠了靠。\n\n「这不是要你动手害谁。营地那边也不想打——打起来他们也要死人。你不去，两边就都坐下来谈，谈成了村子留一成人、粮照数交，没有人流血。你收你的钱，我交我的差。」</RatkinQL_MercDefect_Greeting>
+
+  <RatkinQL_MercDefect_OptTake>收下布包 — 900 银，这趟你不去</RatkinQL_MercDefect_OptTake>
+  <RatkinQL_MercDefect_OptRefuse>把布包推回去 — 收了村子的钱，就得去</RatkinQL_MercDefect_OptRefuse>
+  <RatkinQL_MercDefect_OptDetails>先问清楚：谈成之后那个村子会变成什么样</RatkinQL_MercDefect_OptDetails>
+  <RatkinQL_MercDefect_OptBack>回到那个布包</RatkinQL_MercDefect_OptBack>
+  <RatkinQL_MercDefect_OptLeave>结束谈话</RatkinQL_MercDefect_OptLeave>
+
+  <RatkinQL_MercDefect_Details1>「变成什么样？」他想了想，像是这问题很少有人问。\n\n「今年的存粮交出去，明年开春他们得跟别的村借种。人口那一项，本来开的是三成，谈下来大概一成——都是挑年轻的、能做工的。村子还在，门牌不换，村长也还是那个村长。」</RatkinQL_MercDefect_Details1>
+  <RatkinQL_MercDefect_Details2>「你要问我这样算不算好结局，我只能说：比打起来好。打起来，走的就不是一成人了，而且走的是死的那种。」\n\n他把布包往你那边推了半寸。\n\n「这一行的道理很简单。你能救的，救；救不了的，别站在中间挡着，最后两边都恨你。」</RatkinQL_MercDefect_Details2>
+
+  <RatkinQL_MercDefect_FarewellTake>他收起手，站起来的时候连椅子都没有碰响。\n\n「痛快。往后有活，我还来找你。」\n\n走到门口他回过头，补了一句，语气跟谈生意时一模一样：\n\n「那个村子派来的人，你就别再见了。省得大家难看。」</RatkinQL_MercDefect_FarewellTake>
+  <RatkinQL_MercDefect_FarewellRefuse>他看着被推回去的布包，没有生气，也没有再劝。\n\n「行。」他把包收进怀里，「我这一行见过太多说得漂亮、拿了钱一样不去的。你这样的，少。」\n\n站起来的时候他停了一下。\n\n「那我照实回报。你自己保重——他们在那边扎营，不是扎着好看的。」</RatkinQL_MercDefect_FarewellRefuse>
+
+  <RatkinQL_MercDefect_MsgTake>你收下了那个布包。这趟活，你不去了。</RatkinQL_MercDefect_MsgTake>
+  <RatkinQL_MercDefect_MsgRefuse>你推回了那个布包。收了村子的钱，就得去。</RatkinQL_MercDefect_MsgRefuse>
+
+</LanguageData>

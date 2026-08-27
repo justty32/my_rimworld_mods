@@ -122,6 +122,11 @@ namespace RatkinQuestlines
             editor.SetBool("RatkinQL_Rep_Mercenary", Rep("mercenary") >= 25);
             editor.SetBool("RatkinQL_Rep_Assassin", Rep("assassin") >= 25);
 
+            // 傭兵團家族（brainstorm/6-forge-and-company.md §2）：
+            //   Rep_MercenaryHigh＝打出名號了，具名老兵才會來投（B5）。
+            //   Merc_VeteranJoined 是一次性旗標，由對話端 set，這裡不動它，只是留個註記說明它歸誰寫。
+            editor.SetBool("RatkinQL_Rep_MercenaryHigh", Rep("mercenary") >= 80);
+
             // (2b) 鐵匠屋層級制：分級名聲門檻 ＋ per-客戶關係狀態（滿意度/blocked）。
             //   對話端每次交貨用 CQFAction_SetGlobalBool 設 per-客戶事件旗標；本帳本消費它、累加狀態、回寫 gate bool。
             int wm = Rep("weaponMerchant");
@@ -168,6 +173,16 @@ namespace RatkinQuestlines
                 float chance = Mathf.Clamp01((karma + 25f) / 45f);           // karma -25→0%，+20→100%
                 chance *= Mathf.Clamp01(1f - Rep("assassin") / 100f);        // 暗殺名聲抑制
                 editor.SetBool("RatkinQL_Soft_OrphanOk", Rand.Chance(chance));
+
+                // 髒活委託（§2 B4）：**壞名聲招來髒活**。出現機率隨暗黑傾向升高——
+                //   暗殺名聲越高越容易被找上，善惡值越負也越容易；但前提是你先得是個接活的傭兵
+                //   （merc 名聲當乘數），否則掮客根本不會想到你。這條刻意做成幾率而非硬鎖：
+                //   「傭兵自然滑向暗殺——不是專線，是接髒活接出來的」。
+                float dirty = Mathf.Max(
+                    Mathf.Clamp01(Rep("assassin") / 80f),
+                    Mathf.Clamp01((-karma - 10f) / 40f));                    // karma -10→0%，-50→100%
+                dirty *= Mathf.Clamp01(Rep("mercenary") / 40f);
+                editor.SetBool("RatkinQL_Soft_DirtyWorkOk", Rand.Chance(dirty));
             }
         }
 

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B3《保衛客戶》— 受威脅的鼠族村落僱你守衛，中途軍閥出更高價收買你倒戈。
+    設計權威：brainstorm/6-forge-and-company.md §2 B3（「★選項分支（juicy）」＝傭兵的經典道德困境）。
+
+    骨架＝本包已驗證的 F5 site 攻打（QuestScript_RaidOutpost／PeirinAmbush 同一套：
+      Util_RandomizePointsChallengeRating → GetSiteTile → QuestUnique → GetFaction(永久敵對)
+      → sitePartsTags=[Outpost] → Util_GenerateSite → SpawnWorldObjects → 逾時Fail / 清場Success）。
+    敘事上不是「你被攻打」而是「圍村的營地紮在那裡，你出兵拔掉它」——與 PeirinAmbush 同一種寫法，
+    用久經測試的 site.AllEnemiesDefeated 當成功條件，零自寫偵測。
+
+    ★新東西＝倒戈分支：
+      接單後第 5 天，一個「不肯說替誰做事」的掮客上門（QuestNode_SpawnRatkinEnvoy ＋ 收買對話）。
+      - 趕他走     → 什麼都不變，照原定計畫打。
+      - 收錢倒戈   → 對話端發 Defect 信號（CQFAction_SentSignal＋addQuestPrefix，作法同 QuestScript_SupplyContract
+                     已驗證的 Payout1/Payout2）＋大筆白銀＋Ev_Betray＋重挫 Rakinia 好感 → 任務 Fail 收場。
+      使者刻意設定成**中立掮客而非軍閥本人**：軍閥是永久敵對派系，直接生一個敵對 pawn 當「訪客」
+      會立刻開打、對話根本掛不上。用掮客當中間人既避開這個坑，也更像軍閥的實際作風。
+
+    ⚠ 未實機：CQFAction_SentSignal 從**對話端**發、由 QuestNode_Signal 接得到嗎，只在
+      QuestScript_SupplyContract 的「任務腳本自己發」情境驗過。萬一對話端的 quest context 接不上，
+      失敗模式是良性的——Defect 信號沒發出＝當作你沒倒戈，任務照常進行，不會卡死或報錯。
+
+    ★倒戈的代價刻意寫成「Rakinia 好感重挫」而不是設計稿寫的「軍閥好感＋」：
+      軍閥是永久敵對派系，對它的好感在機制上沒有意義；而 CQFAction_ChangeGoodwillOfFaction
+      只能改「目標 pawn 所屬派系」的好感，掮客屬 Rakinia。賣掉一個鼠族村落 → 鼠族王國記你一筆，
+      機制上做得到、敘事上也更痛。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_MercDefend</defName>
+    <rootSelectionWeight>0.7</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>4~8</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->守住那個村子</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->一個鼠族村子派人來求援。\n\n軍閥的隊伍在他們外圍紮了營，說是「等他們想清楚」——想清楚要不要把今年的存糧和三成人口交出去。村子裡能拿武器的不到二十個，其中一半是老的。\n\n他們湊出來的酬勞不多，是把幾戶人家的積蓄併在一起。來人把錢袋放下時說：「我們知道這不夠。但我們也只有這些。」\n\n把那處營地拔掉，村子就保住了。拖久了他們自己會談成——那對村子來說不是好結局。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_State_Martial</key>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_RandomizePointsChallengeRating</def></li>
+        <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+        <li Class="QuestNode_GetSiteTile"><storeAs>siteTile</storeAs><preferCloserTiles>true</preferCloserTiles></li>
+        <li Class="QuestNode_QuestUnique"><tag>RatkinQL_MercDefend</tag></li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>siteFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags><li><tag>Outpost</tag></li></sitePartsTags>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$siteFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_GenerateSite</def></li>
+        <li Class="QuestNode_SpawnWorldObjects"><worldObjects>$site</worldObjects></li>
+
+        <!-- ★倒戈分支：接單後約 5 天，掮客帶著軍閥的價碼上門。
+             已經打完（site.AllEnemiesDefeated）就不再派人——沒有東西好收買了。 -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>300000</delayTicks>
+          <inSignalDisable>site.AllEnemiesDefeated</inSignalDisable>
+          <outSignalComplete>BribeArrives</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>BribeArrives</inSignal>
+          <dialogManager>RatkinQL_MercDefectManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <points>40~55</points>
+          <letterLabel>RatkinQL_MercDefect_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_MercDefect_ArriveText</letterText>
+        </li>
+
+        <!-- 收錢倒戈：對話端發 Defect（addQuestPrefix=true） -->
+        <li Class="QuestNode_Signal">
+          <inSignal>Defect</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>村子談成了</label>
+                <text>你收了錢，人就沒有再往那邊去。\n\n第四天，村子和營地談成了：存糧照他們開的數交，人口那一項砍到一成，算是給了村長面子。沒有人死。\n\n來求援的那個鼠族沒有再上門，也沒有來要回錢袋。有人說他被村裡人罵得很難聽，因為錢是他經手的。\n\n這一行本來就是拿錢辦事。只是往後鼠族王國那邊聽到你的名字時，會多想一秒。</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(12,20)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>村子自己談成了</label>
+                <text>你沒有動身。村子撐不住，把條件全接了下來。\n\n營地拔走的那天，村裡送走了三成的人。錢袋原封不動地退了回來，沒有附任何話。</text>
+              </li>
+              <li Class="QuestNode_End"><outcome>Fail</outcome></li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End" />
+        </li>
+
+        <!-- ★守約打完：賞金＋名聲（受僱動武 Ev_MercWork ＋ 護弱 Ev_ProtectWeak） -->
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_BountyReward</thingSetMaker>
+                <storeAs>ratkinDefendReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$ratkinDefendReward</contents>
+                <sendStandardLetter>true</sendStandardLetter>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <customLetterLabel>村子還在</customLetterLabel>
+                <customLetterText>營地清空了。\n\n村子送來的東西比當初講好的多——多出來的那部分是各家湊的，有幾樣一看就是傳了幾代的物件。附的話只有一句：\n\n「今年的糧，我們自己吃。」</customLetterText>
+              </li>
+              <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+                <inSignal>site.AllEnemiesDefeated</inSignal>
+                <actions>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_MercWork</keyOfBool><valueOfBool>true</valueOfBool></li>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ProtectWeak</keyOfBool><valueOfBool>true</valueOfBool></li>
+                </actions>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

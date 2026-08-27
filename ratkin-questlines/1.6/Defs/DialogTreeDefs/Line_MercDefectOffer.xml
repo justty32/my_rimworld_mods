@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B3 的倒戈分支對話《不肯報名字的掮客》。
+    由 QuestScript_MercDefend 接單後第 5 天用 QuestNode_SpawnRatkinEnvoy 召來。
+
+    這個角色刻意不是軍閥本人：軍閥是永久敵對派系，生一個敵對 pawn 當「訪客」會立刻開打、
+    對話根本掛不上。掮客屬 Rakinia（和平王國），既能正常上門，也比較像軍閥的實際作風。
+
+    三個出口：
+      - 趕他走（守約）：什麼都不設，任務照原定計畫走。
+      - 收錢倒戈：白銀 900 ＋ Ev_Betray（karma −12）＋ 重挫 Rakinia 好感 15
+                  ＋ CQFAction_SentSignal(Defect, addQuestPrefix) → 任務腳本收到後 Fail 收場。
+      - 聽細節：只是把價碼講清楚，不做任何事，可以回頭。
+    倒戈與趕人兩個選項都 removeDialogAfterSelect＝一次定生死，不能反覆點。
+
+    聲線＝做慣髒錢生意的中間人：客氣、不威脅、把背信講成一樁「大家都省事」的買賣。
+    刻意不寫成反派——§2 要的是「善惡完全由玩家一念」，掮客只負責把價碼放在桌上。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_MercDefectTree</defName>
+    <title>RatkinQL_MercDefect_Title</title>
+    <dialogReportKey>RatkinQL_MercDefect_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>4</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_MercDefect_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- ★收錢倒戈 -->
+          <li>
+            <text>RatkinQL_MercDefect_OptTake</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Defect</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>DefectPay</dataName>
+                      <message>RatkinQL_MercDefect_MsgTake</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>900~900</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <!-- 賣掉一個鼠族村子：鼠族王國記你一筆 -->
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>false</isIncrease><value>15</value><sendLetter>true</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Betray</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <!-- ★通知任務腳本：走倒戈結局（作法同 QuestScript_SupplyContract 的 Payout1/Payout2） -->
+                <li Class="QuestEditor_Library.CQFAction_SentSignal">
+                  <signal>Defect</signal>
+                  <addQuestPrefix>true</addQuestPrefix>
+                </li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 守約：趕他走 -->
+          <li>
+            <text>RatkinQL_MercDefect_OptRefuse</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Refused</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>RatkinQL_MercDefect_MsgRefuse</message>
+                  <type>PositiveEvent</type>
+                </li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li><text>RatkinQL_MercDefect_OptDetails</text><results><li><resultName>GoDetails</resultName><nextIndex>1</nextIndex></li></results></li>
+          <li><text>RatkinQL_MercDefect_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_MercDefect_Details1</text>
+        <extraText><li>RatkinQL_MercDefect_Details2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDefect_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_MercDefect_FarewellTake</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDefect_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_MercDefect_FarewellRefuse</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDefect_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_MercDefectManager</defName>
+    <tags><li>RatkinQL_MercDefect</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_MercDefectTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

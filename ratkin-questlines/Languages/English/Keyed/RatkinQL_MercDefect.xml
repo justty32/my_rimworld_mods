@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Mercenary Company §2 B3 "Defend the client" - the defection branch: the broker who will not give a name. -->
+
+  <RatkinQL_MercDefect_Title>The broker who gives no name</RatkinQL_MercDefect_Title>
+  <RatkinQL_MercDefect_Report>Someone has come with an offer from the other side.</RatkinQL_MercDefect_Report>
+
+  <RatkinQL_MercDefect_ArriveLabel>A visitor, and not from the village</RatkinQL_MercDefect_ArriveLabel>
+  <RatkinQL_MercDefect_ArriveText>A well-dressed ratkin waits at the gate for a while, and only speaks once someone comes out to ask his business.\n\nHe gives no name and does not say who he works for. He only says he has "a piece of business to put to whoever is in charge here". He carries no weapon, and neither do the two who came with him.\n\nHe knows you took the village's job.</RatkinQL_MercDefect_ArriveText>
+
+  <RatkinQL_MercDefect_Greeting>He sets a cloth bundle on the table and does not open it.\n\n"{Interviewer_labelShort}, I will not take the long way round. You took that village's job. I know roughly what they are paying you - that is not a fee, that is several households scraping the bottom of their boxes."\n\n"What I am offering is six times that. Hard silver, paid now. You do not have to do anything. You simply do not go to that camp."\n\nHe sits back.\n\n"This is not asking you to harm anyone. The camp does not want a fight either - a fight costs them people too. If you stay away, both sides sit down and talk. They settle, the village keeps nine in ten of its people, the grain goes across, and nobody bleeds. You take your money, I do my job."</RatkinQL_MercDefect_Greeting>
+
+  <RatkinQL_MercDefect_OptTake>Take the bundle - 900 silver, and you do not go</RatkinQL_MercDefect_OptTake>
+  <RatkinQL_MercDefect_OptRefuse>Push the bundle back - you took the village's money, so you go</RatkinQL_MercDefect_OptRefuse>
+  <RatkinQL_MercDefect_OptDetails>Ask first: what happens to that village after they settle</RatkinQL_MercDefect_OptDetails>
+  <RatkinQL_MercDefect_OptBack>Back to the bundle on the table</RatkinQL_MercDefect_OptBack>
+  <RatkinQL_MercDefect_OptLeave>End the conversation</RatkinQL_MercDefect_OptLeave>
+
+  <RatkinQL_MercDefect_Details1>"What happens to it?" He considers, as though the question is rarely asked.\n\n"This year's stores go across. Come spring they borrow seed from the next village over. As for people - the opening demand was three in ten; it will settle near one in ten, and they will pick the young ones, the ones who can work. The village stands. The name over the gate does not change. The headman is still the headman."</RatkinQL_MercDefect_Details1>
+  <RatkinQL_MercDefect_Details2>"If you want me to say whether that is a good ending, all I can tell you is: it is better than a fight. In a fight it is not one in ten who leave, and the ones who leave do not walk."\n\nHe nudges the bundle half an inch towards you.\n\n"The logic of this trade is simple. Save what you can save. What you cannot save, do not stand in the middle of - you only end up hated by both sides."</RatkinQL_MercDefect_Details2>
+
+  <RatkinQL_MercDefect_FarewellTake>He withdraws his hand and rises without so much as scraping the chair.\n\n"Sensible. I will come to you again when there is work."\n\nAt the door he turns back and adds one more thing, in exactly the tone he used for the business:\n\n"That fellow the village sent - do not see him again. It spares everyone the ugliness."</RatkinQL_MercDefect_FarewellTake>
+  <RatkinQL_MercDefect_FarewellRefuse>He looks at the bundle pushed back across the table. He is not angry, and he does not press.\n\n"Right." He tucks it back into his coat. "In my line I have met plenty who talk well and stay home once the money is in hand. Your sort is rarer."\n\nHe pauses as he stands.\n\n"Then I will report it as it is. Look after yourself - they are not camped out there for the view."</RatkinQL_MercDefect_FarewellRefuse>
+
+  <RatkinQL_MercDefect_MsgTake>You took the bundle. You will not be going on this one.</RatkinQL_MercDefect_MsgTake>
+  <RatkinQL_MercDefect_MsgRefuse>You pushed the bundle back. You took the village's money, so you go.</RatkinQL_MercDefect_MsgRefuse>
+
+</LanguageData>

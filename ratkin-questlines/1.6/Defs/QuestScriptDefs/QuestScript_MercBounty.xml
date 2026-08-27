@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B1《掮客的懸賞信》— 軍閥據點懸賞的**信件觸發版**。
+    設計權威：brainstorm/6-forge-and-company.md §2 B1（「現況＝QuestScript_RaidOutpost，動作：改信件制」）。
+
+    與既有 RatkinQL_RaidOutpost 的關係：**這條是加開的入口，不是取代**。
+      - 舊的 RatkinQL_RaidOutpost（rootSelectionWeight=0）仍由 Line_RaidOutpost 的掮客訪客觸發，照舊可用。
+      - 本條 rootSelectionWeight>0，由說書人直接發懸賞信，符合 §0「信件 → 接受/拒絕」的家族地基，
+        不必等一位掮客剛好路過。兩條共用同一個 QuestUnique tag，所以不會同時掛兩個據點。
+    刪掉舊入口是回歸性變更、使用者沒要求，故不動它。
+
+    gate＝RatkinQL_State_Martial（武力主導的聚居點才會被掮客想到；F7 側寫器依主導技能寫）。
+    site 骨架與獎勵完全沿用 QuestScript_RaidOutpost（原版 Outpost site part ＋ site.AllEnemiesDefeated）。
+    名聲：清場成功＝Ev_MercWork（傭兵名聲＋、karma 微負，受僱動武本身不是善行）
+          ＋Ev_ProtectWeak（打的是壓榨周邊鼠窩的劫掠者＝乾淨活，karma＋）。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_MercBounty</defName>
+    <rootSelectionWeight>0.8</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>5~10</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->掮客的懸賞信</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->一封沒有落款的信塞在你的門縫裡，字跡潦草得像是趕路時寫的。\n\n寫信的是個做中間人的鼠族——他不說自己是誰，只說附近有一處軍閥據點，仗著人多勢眾，按月向周邊幾個鼠窩收「保平安」的貢品。收不上來就拆屋抓人。那幾個鼠窩湊了一筆錢請他找人動手。\n\n條件寫得很直白：清光據點裡的守衛，裡頭的東西全歸你，他那邊另外送一筆白銀。據點的位置已經標在地圖上了。\n\n信的最後一行：「拖久了他們就換地方，這錢我也不好拿去還人。」</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- 身份 gate：武力主導的聚居點才接得到這種活 -->
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_State_Martial</key>
+        </li>
+
+        <li Class="QuestNode_SubScript">
+          <def>Util_RandomizePointsChallengeRating</def>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>true</canBeSpace>
+        </li>
+
+        <li Class="QuestNode_GetSiteTile">
+          <storeAs>siteTile</storeAs>
+          <preferCloserTiles>true</preferCloserTiles>
+        </li>
+
+        <!-- ★與 RatkinQL_RaidOutpost 共用 tag：兩個入口不會同時掛出兩個懸賞據點 -->
+        <li Class="QuestNode_QuestUnique">
+          <tag>RatkinQL_RaidOutpost</tag>
+        </li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>siteFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags>
+            <li>
+              <tag>Outpost</tag>
+            </li>
+          </sitePartsTags>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$siteFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_SubScript">
+          <def>Util_GenerateSite</def>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(15,25)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>懸賞逾期</label>
+                <text>掮客又捎來一張紙條，這次只有一句話：「他們拔營了，錢我退回去了。下次快點。」\n\n那幾個鼠窩這個月的貢品，還是照樣送了出去。</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End" />
+        </li>
+
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetMap">
+                <canBeSpace>true</canBeSpace>
+              </li>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_BountyReward</thingSetMaker>
+                <storeAs>ratkinBountyReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$ratkinBountyReward</contents>
+                <sendStandardLetter>true</sendStandardLetter>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <customLetterLabel>懸賞金送達</customLetterLabel>
+                <customLetterText>據點空了。\n\n白銀比約定的日子早一天送到，附了張紙條：「那幾個鼠窩湊錢的時候把過冬的糧也算進去了，我沒收那份。」\n\n這一行難得有人這麼辦事。</customLetterText>
+              </li>
+              <!-- 名聲回寫（沿用 QuestScript_PeirinAmbush 已驗證的作法，CQF 函式庫自帶，不自寫 C#）：
+                   Ev_MercWork＝受僱動武（傭兵名聲＋、karma 微負）；
+                   Ev_ProtectWeak＝打的是壓榨周邊鼠窩的劫掠者＝乾淨活（karma＋）。 -->
+              <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+                <inSignal>site.AllEnemiesDefeated</inSignal>
+                <actions>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_MercWork</keyOfBool><valueOfBool>true</valueOfBool></li>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ProtectWeak</keyOfBool><valueOfBool>true</valueOfBool></li>
+                </actions>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>
