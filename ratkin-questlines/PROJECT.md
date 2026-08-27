@@ -322,3 +322,62 @@
 - **待議/待建**：①善惡值＝服務對象×態度（§6.7，待專門討論）②名匠傳奇武器（§6.9，T3 未來）。
 - **C# 檔（11 個）**：`GameComponent_RatkinLedger`/`MapComponent_RatkinColonyProfiler`/`QualityDelivery`/`CQFAction_SetName`/`CompUseEffect_RatkinAid`/`QuestNode_SpawnRatkinEnvoy`/`TechBlueprint`/`WeaponValueDelivery`/`ForgeDelivery`/`ForgeTradeDelivery`/`HarmonyInit`。mcs exit 0、DLL 34k。healthcheck：131 XML、三語各 412 Keyed key。
 - **⚠ 編譯指令更新**（新增 UI＋Harmony 引用）：`mcs -target:library -out:1.6/Assemblies/RatkinQuestlines.dll -r:Assembly-CSharp.dll -r:UnityEngine.CoreModule.dll -r:UnityEngine.IMGUIModule.dll -r:UnityEngine.TextRenderingModule.dll -r:netstandard.dll -r:<QEL>/QuestEditor_Library.dll -r:<2009463077>/Current/Assemblies/0Harmony.dll Source/*.cs`
+
+## 11h. §6.9 名匠傳奇武器 ＋ 傭兵團 §2 B1-B5 建置日誌（2026-08-27）
+
+**狀態：全部靜態綠燈（mcs exit 0、healthcheck 188 XML／三語各 632 key），實機一項都沒驗。**
+
+### §6.9 名匠傳奇武器（commit `a947660`）
+
+三段機制齊了：①頂級門檻交貨（沿用既有 `DialogCondition_WeaponValue`／`Dialog_ForgeDelivery`，
+只在最高 band 加 `<nameLegendary>true</nameLegendary>`）②命名＋登記 ③衍生傳聞任務。
+
+- 新檔 `Source/LegendaryWeapons.cs`：`LegendaryWeaponRecord`（Scribe 持久化）
+  ／`LegendaryWeaponNamer`（前綴池依品質分三檔：傳奇＝靈獸賦名、傑作＝天象、其餘＝事功；
+  器名池依武器種類）／`GameComponent_LegendaryWeapons`（名冊、加權抽籤、上限 64 汰換、
+  每 500 tick 回寫 `RatkinQL_HasLegendaryWeapon`）／`QuestNode_LegendaryWeaponTale`＋QuestPart。
+- **命名素材全部走 Keyed**（三語各一份），組合式用 `%P`／`%N` 而非 `{0}`／`{1}`
+  ——後者是 Translate 自己的佔位符語法，混用會讓翻譯系統嘗試解析。
+- **★命名點在 `Dialog_ForgeDelivery.Execute()`，排在 `Destroy` 之前**：物件毀了讀不到品質／材質。
+- 接線只掛**日食·探尋者**（T3 傳奇單件，1~2 件 Excellent）的 band2。
+  映山紅是 8~12 件量大薄利大單，替其中一把命名不合這條線的味道。
+  露娜（T2 單件卓越傑作）形狀其實一樣，要不要也讓她命名＝加一行 `<nameLegendary>`，待使用者決定。
+
+### 傭兵團 §2 B1-B5（commit `6039db1` ＋ `a9a1981`）
+
+| | 任務 | 對話 | 特點 |
+|---|---|---|---|
+| B1 | `MercBounty` | （無） | 懸賞的**信件觸發版**；★加開入口，舊的 `RaidOutpost` 訪客觸發照舊可用，共用 QuestUnique tag |
+| B2 | `MercEscort` | `Line_MercEscort` | 談價在前：400／免收（Charity）／抬到 800（Cruelty） |
+| B3 | `MercDefend` | `Line_MercDefectOffer` | ★倒戈分支：掮客帶 900 銀上門，收了＝Ev_Betray＋Rakinia 好感 −15＋任務 Fail |
+| B4 | `MercDirtyWork` | `Line_MercDirtyWork` | ★兩層 gate，第二層是**幾率**（`Soft_DirtyWorkOk`）；三種選擇完成條件相同，差在帳本 |
+| B5 | `MercVeteran` | `Line_MercVeteran` | 具名老兵「霜刀」入夥，機制同佩林 Ch3（`CQFAction_Faction`＋`CQFAction_SetName`）|
+
+- 五條全部沿用已驗證的 **F5 site 骨架**（`Util_GenerateSite` 內接 `site.AllEnemiesDefeated`），B5 除外（純訪客）。
+- 帳本新增 `RatkinQL_Rep_MercenaryHigh`（merc≥80，B5 的 gate）
+  ＋ `RatkinQL_Soft_DirtyWorkOk` 軟性 gate（B4）：機率＝`max(暗殺/80, (−karma−10)/40) × min(傭兵/40, 1)`。
+- 三語文本：簡體用 `opencc -c tw2sp` 從繁體轉（比 `t2s` 正確，會處理詞彙差異，例如「著／着」），英文另寫。
+
+### 實作上撞到、值得記住的
+
+- **不要為了從任務腳本寫全域 bool 而自寫 C#**：CQF 函式庫的 `QuestNode_DoCQFActions`
+  ＋`CQFAction_SetGlobalBool` 就能做，本包 `QuestScript_PeirinAmbush` 早有用例。
+  這輪一度新寫了一個 `QuestNode_SetGlobalBool`，發現重複後撤掉。
+- **軍閥是永久敵對派系**：不能生一個軍閥 pawn 當「訪客」來談判，會直接開打、對話掛不上。
+  B3 的收買使者因此設計成中立掮客（屬 Rakinia）。
+- **`CQFAction_ChangeGoodwillOfFaction` 只能改「目標 pawn 所屬派系」的好感**，不能指定任意派系。
+  所以 B3 的倒戈代價寫成「Rakinia 好感重挫」而非設計稿的「軍閥好感＋」——對永久敵對派系的好感沒有機制意義。
+
+### 待實機確認（開發側驗不了的）
+
+1. **`CQFAction_SentSignal` 從對話端發、`QuestNode_Signal` 接不接得到**（B3 倒戈的關鍵）。
+   目前只在「任務腳本自己發」的情境驗過（`SupplyContract` 的 Payout1/2）。
+   **失敗模式是良性的**：信號沒發出＝當作沒倒戈，任務照常進行，不卡死不報錯。
+2. §6.9 的名冊／命名／傳聞信整條鏈。
+3. 五條傭兵委託的 gate 是否刷得出來（尤其 B4 的軟性幾率 gate、B5 的 merc≥80）。
+
+### 明確 defer 的
+
+- B2 的「中途拿錢跑路棄客」分支：逾時 Fail 分不出「故意棄客」與「打不贏」。
+- B5 的「跨幾次委託短弧」：要等 B1~B4 的完成信號實機驗過才鋪得上去。
+- §6.9 的世界地圖旅程版護送、`conditionCauser` 暗殺骨架。
