@@ -54,7 +54,10 @@ Worldbuilder/Anime2World/
 - 文化已就位：27 份 `.rid` 覆蓋全部 30 派系，開局 0 個退回隨機。
 - `CURATION-AUDIT-2026-07-18.md` 稽核出 2 個接錯神（SnowRatkin 拜錯到機械族、Guild 被滾成
   AI 邪教），皆已離線改皮修正（風雪之神 / 冒险者盟约），zero precept 殘留、XML 良構。
-  另有 4 個口味小偏（Kiiro/RatkinWarlord/ZHP/TravelRatkin）未動，優先度低。
+- **2026-08-27：4 個口味小偏也全部處理完**——`ZHP` 拔 Supremacist/HumanPrimacy 改走「常灯之约」
+  雜貨鋪日常、`TravelRatkin` 整組去蟲（meme＋3 條 requireOne precept＋蟲禮讚儀式＋甲蟲指揮者角色）、
+  `RatkinWarlord` 印度教起源→中性具象神論並把四神接回王國「諾布」神族、`Kiiro` 純改皮成田園治癒調。
+  27 檔重驗：XML 27/27 良構、meme defName 全可解析、`Precept_<ID>` 反向參照 0 斷。做法與殘留判定見稽核檔。
 - **未做 in-game 驗證**：worldpreset 的 ideo headless 測不到，真正驗證只能新開局選「二次元
   定製世界」進遊戲逐派系肉眼看。收回當下尚未做這一步。
 
@@ -65,7 +68,8 @@ Worldbuilder/Anime2World/
 - [x] `CULTURE-PLAN.md` / `CURATION-AUDIT-2026-07-18.md` 記錄完整、可追溯每個信仰的來源與判定。
 - [ ] 實機：新開局選「二次元定製世界」，30 派系全部出現、無紅字。
 - [ ] 實機：逐派系檢查信仰名稱/precept 顯示正常（尤其 SnowRatkin／Guild 改皮後的風味）。
-- [ ] 待處理：4 個口味小偏（優先 ZHP＞TravelRatkin＞RatkinWarlord＞Kiiro）視使用者意願調整。
+- [x] 4 個口味小偏（ZHP／TravelRatkin／RatkinWarlord／Kiiro）離線處理完畢（2026-08-27）。
+- [ ] 實機：復驗上面這 4 個改動後的信仰風味（名稱／描述／神系／角色銜是否顯示正常）。
 
 ## 改動須知
 

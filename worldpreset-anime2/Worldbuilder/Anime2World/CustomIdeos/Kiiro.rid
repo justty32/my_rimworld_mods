@@ -1549,17 +1549,13 @@
 			<place>Boccocarro</place>
 			<deities />
 		</foundation>
-		<name>文化-肉体派</name>
-		<adjective>肉体</adjective>
-		<memberName>血肉者</memberName>
-		<leaderTitleMale>道德酋长</leaderTitleMale>
-		<leaderTitleFemale>道德酋长</leaderTitleFemale>
-		<description>"我追随者中的前十人用双手硬生生的从他们皮肤上撕下了各种装置，在灰暗地板上溅起的血花中，我突然领悟到了我们都错过的真实：每个人都是独特而有价值的，必须走自己的路。但这也只是我自己的道路--你的道路会是什么？"
-
-  ——Filip 'Fish' Fritsch，在被处决之前</description>
-		<descriptionTemplate>"我追随者中的前十人用双手硬生生的从他们皮肤上撕下了各种装置，在灰暗地板上溅起的血花中，我突然领悟到了我们都错过的真实：每个人都是独特而有价值的，必须走自己的路。但这也只是我自己的道路--你的道路会是什么？"
-
-  ——Filip 'Fish' Fritsch，在被处决之前</descriptionTemplate>
+		<name>本色之约</name>
+		<adjective>本色</adjective>
+		<memberName>本色人</memberName>
+		<leaderTitleMale>本色酋长</leaderTitleMale>
+		<leaderTitleFemale>本色酋长</leaderTitleFemale>
+		<description>面包出炉的时辰，绣绷收线的时辰，猎弓上油的时辰—— 绮罗人把日子过成一串这样的时辰。 我们不改动身体：手是揉面的手，眼是认线的眼，耳朵听得见风从哪边来，这就够了； 往身体里塞进不属于它的东西，只会让人慢慢忘记自己原本是谁。 后来，外面的东西来了。 那不是谁的过错，也没有谁来得及问一句为什么—— 毒雾散去的那天，一整座村子只剩下一个人。 所以我们不立神，不设教义，也不替任何人决定该怎么活。 活下来的人各走各的路：有人回去把面包炉重新烧热，有人再没碰过绣绷，有人一直往外走，再没回来。 临别时只留一句话彼此提醒—— 守住你的本色，然后走你自己的那一条路。</description>
+		<descriptionTemplate>面包出炉的时辰，绣绷收线的时辰，猎弓上油的时辰—— 绮罗人把日子过成一串这样的时辰。 我们不改动身体：手是揉面的手，眼是认线的眼，耳朵听得见风从哪边来，这就够了； 往身体里塞进不属于它的东西，只会让人慢慢忘记自己原本是谁。 后来，外面的东西来了。 那不是谁的过错，也没有谁来得及问一句为什么—— 毒雾散去的那天，一整座村子只剩下一个人。 所以我们不立神，不设教义，也不替任何人决定该怎么活。 活下来的人各走各的路：有人回去把面包炉重新烧热，有人再没碰过绣绷，有人一直往外走，再没回来。 临别时只留一句话彼此提醒—— 守住你的本色，然后走你自己的那一条路。</descriptionTemplate>
 		<culture>KiiroTraditionalCulture</culture>
 		<iconDef>Dotcircle</iconDef>
 		<colorDef>LightPurple</colorDef>
@@ -1617,7 +1613,7 @@
 				<layerBlacklist IsNull="True" />
 			</li>
 			<li Class="Precept_Ritual">
-				<name>自主墓地</name>
+				<name>归土</name>
 				<def>AM_RumBurial</def>
 				<ID>56</ID>
 				<randomSeed>590001462</randomSeed>
@@ -1666,7 +1662,7 @@
 				<layerBlacklist IsNull="True" />
 			</li>
 			<li Class="Precept_Ritual">
-				<name>自我之庆典</name>
+				<name>收穗节</name>
 				<def>Festival</def>
 				<ID>33</ID>
 				<randomSeed>-879331759</randomSeed>
@@ -2197,7 +2193,7 @@
 				<layerBlacklist IsNull="True" />
 			</li>
 			<li Class="Precept_RoleSingle">
-				<name>道德酋长</name>
+				<name>本色酋长</name>
 				<def>IdeoRole_Leader</def>
 				<ID>49</ID>
 				<randomSeed>775802635</randomSeed>
@@ -2418,7 +2414,7 @@
 				</chosenPawn>
 			</li>
 			<li Class="Precept_RoleSingle">
-				<name>干净伦理学家</name>
+				<name>守拙者</name>
 				<def>IdeoRole_Moralist</def>
 				<ID>50</ID>
 				<randomSeed>1387648505</randomSeed>
@@ -2672,7 +2668,7 @@
 				</chosenPawn>
 			</li>
 			<li Class="Precept_Building">
-				<name>自由祭坛</name>
+				<name>本色石台</name>
 				<def>IdeoBuilding</def>
 				<ID>52</ID>
 				<randomSeed>1228389610</randomSeed>
@@ -2723,7 +2719,7 @@
 				<thingDef>Melee_Cursed_Ratkin_ciHalberd</thingDef>
 			</li>
 			<li Class="Precept_Relic">
-				<name>文化-圣物</name>
+				<name>初春的犁</name>
 				<def>IdeoRelic</def>
 				<ID>54</ID>
 				<randomSeed>-1486857074</randomSeed>
@@ -2733,12 +2729,12 @@
 		</precepts>
 		<thingStyleCategories />
 		<usedSymbols>
-			<li>文化-肉体派</li>
-			<li>肉体</li>
-			<li>血肉者</li>
+			<li>本色之约</li>
+			<li>本色</li>
+			<li>本色人</li>
 		</usedSymbols>
 		<usedSymbolPacks>
-			<li>肉体派</li>
+			<li>本色</li>
 		</usedSymbolPacks>
 		<style>
 			<hairFrequencies>

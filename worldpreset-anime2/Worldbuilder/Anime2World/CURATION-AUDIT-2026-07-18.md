@@ -13,7 +13,10 @@
 
 > ✅ **2026-07-18 已離線捏好兩個信仰**：SnowRatkin→「**风雪之神**」、Guild→「**冒险者盟约**」（世俗）。
 > 手法＝**改皮風味字串＋（Guild）乾淨換 structure meme**，兩檔皆 0 殘留、XML 良構。詳見下方各節。
-> **真正驗證＝新開局選「二次元定製世界」進遊戲看**（worldpreset ideo headless 測不到）。四個口味小偏未動。
+> **真正驗證＝新開局選「二次元定製世界」進遊戲看**（worldpreset ideo headless 測不到）。
+>
+> ✅ **2026-08-27：四個口味小偏也全部處理完了**，見末節「四個 ⚠️ 小偏」的處理結果表。
+> 全 27 檔重驗：XML 良構 27/27、meme defName 全數可解析、`Precept_<ID>` 反向參照 0 斷。
 
 ## 範圍界定：哪些派系綁族 lore、哪些是原版原型
 
@@ -89,12 +92,28 @@
 
 ## 四個 ⚠️ 小偏（口味項，可留可調，全部 propose-only）
 
-| 派系 | 偏差 | 建議 |
-|---|---|---|
-| `Kiiro` | FleshPurity 非其治癒主題 | 進遊戲換「純真/田園」向信仰；不改也不出戲，優先度低 |
-| `RatkinWarlord` | Hindu 屬 RNG、與鼠族無互文 | 換中性 theist（保留 MaleSupremacy/Xenophobia 的軍閥骨架）|
-| `ZHP` | Supremacist+HumanPrimacy 太侵略 | 雜貨鋪鼠宜溫和；換掉侵略性 meme，走 Collectivist 賣萌日常 |
-| `TravelRatkin` | InsectoidSupremacy 突兀 | drop 或換（鼠族不敬蟲）；牛仔/光明神其餘可留 |
+**✅ 四項於 2026-08-27 全數處理完畢**（離線；仍未 in-game 驗證）。
+
+| 派系 | 原偏差 | 實際做法 | 動到 meme？ |
+|---|---|---|---|
+| `ZHP` | Supremacist＋HumanPrimacy 太侵略 | 拔兩個 meme、補 `VME_Egalitarian`；`Skullspike_Desired`→`_Disapproved`、`Execution_RespectedIfGuilty`→`_HorribleIfInnocent`、`IdeoDiversity_Standard`→`_Approved`；移除 `Bonding_Disapproved`（HumanPrimacy 殘留）與 `GladiatorDuel` 鬥技儀式；全套改皮成「常灯之约」雜貨鋪日常 | 是（3 個） |
+| `TravelRatkin` | InsectoidSupremacy 突兀（鼠族不敬蟲）| 拔 meme＋它 `requireOne` 的三條：移除 `VME_Insectoids_Exalted`，`VME_InsectJellyEaten_Loved_Classic`→`_Neutral_Classic`、`VME_InsectMeatEating_Sacrilegious`→`_DontCare`；另拔掉兩條 `requiredMemes` 指向它的孤兒（`VME_InsectoidHymnPrecept` 蟲族禮讚儀式、`VME_IdeoRole_InsectoidHerder` 甲蟲巢穴指揮者角色）；改皮「小虫-穆斯林」→「逐光牧人」 | 是（1 個） |
+| `RatkinWarlord` | Hindu 屬 RNG、與鼠族無互文 | `Structure_OriginHindu`→`Structure_TheistEmbodied`（該 meme 無 requireOne／requiredPrecepts ⇒ 0 殘留）；移除 `thingStyleCategories` 的 `Hindu` 視覺風格（其餘鼠族信仰本來就沒有）；四神改皮成王國「諾布」神族的軍閥支系（诺布戎／诺布慈／诺布铎／诺布厉）；領袖銜對齊 FactionDef 的「司令」 | 是（1 個） |
+| `Kiiro` | FleshPurity 非其治癒主題 | **只改皮、一個 meme 一條 precept 都沒動**——FleshPurity 本身就讀得成「身體如生時所是」，衝突的其實是顯示字串（「文化-肉体派」「血肉者」＋撕下皮下裝置的血腥描述）。全部重寫成田園治癒＋無妄之災的綺羅基調 | 否 |
+
+> **為什麼 Kiiro 只改皮**：`FleshPurity` 的 `requireOne` 是 `DrugUse_Prohibited` / `BodyMod_Abhorrent`，
+> Kiiro 已有 `BodyMod_Abhorrent`，換掉 meme 反而要動更多；而 audit 原本的判定就是「不改也不出戲」。
+> 真正出戲的是 RNG 生成的顯示字串，那個零風險可改。
+
+### 已知殘留（判定為可接受）
+
+`ZHP` 留下兩個 `requiredMemes` 未滿足的孤兒 precept：`IdeoRole_ProductionSpecialist`（原需 HumanPrimacy）、
+`IdeoRole_ShootingSpecialist`（原需 Supremacist）。**不拔**，理由有二：
+①「製造專家／彈藥大師」對一間邊境雜貨鋪本來就合理；
+②這種孤兒在本包**本來就普遍存在**——未經任何人動過的 `RatkinKingdom`／`RockRatkin`／`SnowRatkin`／`Traders`／`Guild`
+都各有 3～4 個，而它們是從真實遊戲 dump 出來的，代表引擎容忍這種狀態
+（`requiredMemes`／`requireOne` 都只在**生成期**檢查，載入期不驗——見 `Ideo.PreceptIsRequired` 只被 UI 呼叫、
+`ExposeData` 直接 Scribe 兩個清單）。
 
 ## 機制注意（哪些離線能做、哪些不能）——本輪實證更新
 
@@ -115,9 +134,13 @@
 
 1. **SnowRatkin**：✅✅ 已捏好「风雪之神」信仰（改皮，零殘留）。進遊戲確認風味即可。
 2. **Guild**：✅✅ 已捏好「冒险者盟约」世俗信仰（換 meme＋改皮，零殘留）。進遊戲確認即可。
-3. 有空再處理四個 ⚠️ 小偏（優先 ZHP＞TravelRatkin＞RatkinWarlord＞Kiiro；同理可離線改皮，換 meme 前先查有無專屬 precept）。
+3. ~~有空再處理四個 ⚠️ 小偏~~ → **2026-08-27 已全部做完**（ZHP／TravelRatkin／RatkinWarlord／Kiiro），
+   一併進遊戲確認風味即可。
 
-> **本輪動的檔**：`CustomIdeos/SnowRatkin.rid`、`CustomIdeos/Guild.rid`（皆改皮/換乾淨 meme，XML 良構）。
-> **未碰 live、未重組、未跑測**（worldpreset 本就 headless 測不到）。全在 worldpreset 源碼區，可 git 還原。
+> **2026-07-18 動的檔**：`CustomIdeos/SnowRatkin.rid`、`CustomIdeos/Guild.rid`（皆改皮/換乾淨 meme，XML 良構）。
+> **2026-08-27 動的檔**：`CustomIdeos/ZHP.rid`、`TravelRatkin.rid`、`RatkinWarlord.rid`、`Kiiro.rid`。
+> **兩輪都未碰 live、未重組、未跑測**（worldpreset 本就 headless 測不到）。全在 worldpreset 源碼區，可 git 還原。
+> ⚠️ **部署副本沒有跟著更新**：`~/notes/projects/modding/rimworld/worldpreset-2-anime/` 仍是舊版，
+> 要進遊戲看得先把本目錄 `cp -a` 過去（那邊是部署側領地，開發側不直接寫）。
 </content>
 </invoke>

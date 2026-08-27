@@ -1549,26 +1549,21 @@
 			<place>Ilwaba</place>
 			<deities />
 		</foundation>
-		<name>灵长合作社</name>
-		<adjective>支配</adjective>
-		<memberName>支配者</memberName>
+		<name>常灯之约</name>
+		<adjective>常灯</adjective>
+		<memberName>看店人</memberName>
 		<leaderTitleMale>杂货铺店长</leaderTitleMale>
 		<leaderTitleFemale>杂货铺店长</leaderTitleFemale>
-		<description>"那个隧道行者停止了对集体的贡献，却还一直吃着集体食堂的白食。我用一把缺口匕首杀了他。人们很震惊，我便解释道我们早已证明我们有实力理所当然地统治这个宇宙。如果规则是适者生存，那么很显然，我们已经赢了。"
-
-  ——Dina Cherry在甸里的演讲</description>
-		<descriptionTemplate>"那个隧道行者停止了对集体的贡献，却还一直吃着集体食堂的白食。我用一把缺口匕首杀了他。人们很震惊，我便解释道我们早已证明我们有实力理所当然地统治这个宇宙。如果规则是适者生存，那么很显然，我们已经赢了。"
-
-  ——Dina Cherry在甸里的演讲</descriptionTemplate>
+		<description>杂货铺的前身也不过是一处普通的殖民地。 那场大火烧掉了货架、账簿和许多来不及说出口的话， 活下来的人把烧焦的一块木板摆回原处，重新点亮了柜台上的灯。 从那天起我们只守两条约定—— 灯不熄，门不锁。 无论你从哪条路来、信的是哪一位神， 到了柜台前都只是客人； 秤要平，账要清，货要对得起价钱。 至于门外的世界有多大、谁又比谁高贵， 那不是我们该操心的事。 我们只负责让路过的人有热汤喝、有地方坐下， 然后平平安安地走。</description>
+		<descriptionTemplate>杂货铺的前身也不过是一处普通的殖民地。 那场大火烧掉了货架、账簿和许多来不及说出口的话， 活下来的人把烧焦的一块木板摆回原处，重新点亮了柜台上的灯。 从那天起我们只守两条约定—— 灯不熄，门不锁。 无论你从哪条路来、信的是哪一位神， 到了柜台前都只是客人； 秤要平，账要清，货要对得起价钱。 至于门外的世界有多大、谁又比谁高贵， 那不是我们该操心的事。 我们只负责让路过的人有热汤喝、有地方坐下， 然后平平安安地走。</descriptionTemplate>
 		<culture>ZHP_Culture</culture>
 		<iconDef>CirclesE</iconDef>
 		<colorDef>DarkRed</colorDef>
 		<primaryFactionColor>RGBA(1.000, 1.000, 1.000, 1.000)</primaryFactionColor>
 		<memes>
 			<li>Structure_Ideological</li>
-			<li>Supremacist</li>
 			<li>Collectivist</li>
-			<li>HumanPrimacy</li>
+			<li>VME_Egalitarian</li>
 		</memes>
 		<precepts>
 			<li Class="Precept_Ritual">
@@ -1655,7 +1650,7 @@
 				<layerBlacklist IsNull="True" />
 			</li>
 			<li Class="Precept_Ritual">
-				<name>支配日</name>
+				<name>开张日</name>
 				<def>Festival</def>
 				<ID>3219</ID>
 				<randomSeed>-933277184</randomSeed>
@@ -1709,7 +1704,7 @@
 				<layerBlacklist IsNull="True" />
 			</li>
 			<li Class="Precept_Ritual">
-				<name>伟大祭品</name>
+				<name>年终盘点</name>
 				<def>Festival</def>
 				<ID>3218</ID>
 				<randomSeed>-1620126088</randomSeed>
@@ -1759,44 +1754,6 @@
 				<layerWhitelist IsNull="True" />
 				<layerBlacklist IsNull="True" />
 			</li>
-			<li Class="Precept_Ritual">
-				<name>战争之单挑</name>
-				<def>GladiatorDuel</def>
-				<ID>3220</ID>
-				<randomSeed>-1958694919</randomSeed>
-				<usesDefiniteArticle>True</usesDefiniteArticle>
-				<nameMaker>NamerRitualGladiatorDuel</nameMaker>
-				<isAnytime>True</isAnytime>
-				<canBeAnytime>True</canBeAnytime>
-				<generatedAttachedReward>True</generatedAttachedReward>
-				<sourcePattern>GladiatorDuel</sourcePattern>
-				<obligationTargetFilter Class="RitualObligationTargetWorker_AnyRitualSpot">
-					<def>AnyRitualSpot</def>
-					<parent>Precept_3220</parent>
-				</obligationTargetFilter>
-				<targetFilter IsNull="True" />
-				<behavior Class="RitualBehaviorWorker_Duel">
-					<def>GladiatorDuel</def>
-				</behavior>
-				<triggers />
-				<attachableOutcomeEffect>RechargePsyfocus</attachableOutcomeEffect>
-				<outcomeEffect Class="RitualOutcomeEffectWorker_Duel">
-					<def>GladiatorDuel</def>
-					<compDatas>
-						<li Class="RitualOutcomeComp_DataThingPresence">
-							<presentForTicks>
-								<keys />
-								<values />
-							</presentForTicks>
-						</li>
-						<li IsNull="True" />
-						<li IsNull="True" />
-						<li IsNull="True" />
-					</compDatas>
-				</outcomeEffect>
-				<layerWhitelist IsNull="True" />
-				<layerBlacklist IsNull="True" />
-			</li>
 			<li Class="Precept_RitualSeat">
 				<name>仪式坐席</name>
 				<def>IdeoRitualSeat</def>
@@ -1816,7 +1773,7 @@
 			</li>
 			<li>
 				<name>处决</name>
-				<def>Execution_RespectedIfGuilty</def>
+				<def>Execution_HorribleIfInnocent</def>
 				<ID>3223</ID>
 				<randomSeed>1586017253</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
@@ -2012,13 +1969,6 @@
 				<randomSeed>1380272865</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
 			</li>
-			<li>
-				<name>牵绊</name>
-				<def>Bonding_Disapproved</def>
-				<ID>3244</ID>
-				<randomSeed>272816246</randomSeed>
-				<usesDefiniteArticle>True</usesDefiniteArticle>
-			</li>
 			<li Class="Precept_Ritual">
 				<name>分娩</name>
 				<def>ChildBirth</def>
@@ -2176,7 +2126,7 @@
 			</li>
 			<li>
 				<name>多元文化</name>
-				<def>IdeoDiversity_Standard</def>
+				<def>IdeoDiversity_Approved</def>
 				<ID>3250</ID>
 				<randomSeed>2024166207</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
@@ -2328,7 +2278,7 @@
 			</li>
 			<li>
 				<name>枭示</name>
-				<def>Skullspike_Desired</def>
+				<def>Skullspike_Disapproved</def>
 				<ID>3260</ID>
 				<randomSeed>958863849</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
@@ -2828,7 +2778,7 @@
 				</chosenPawn>
 			</li>
 			<li Class="Precept_RoleSingle">
-				<name>支配哲学家</name>
+				<name>常灯守夜人</name>
 				<def>IdeoRole_Moralist</def>
 				<ID>3280</ID>
 				<randomSeed>-1803719309</randomSeed>
@@ -3116,7 +3066,7 @@
 				</apparelRequirements>
 			</li>
 			<li Class="Precept_Building">
-				<name>一体祭坛</name>
+				<name>常灯柜台</name>
 				<def>IdeoBuilding</def>
 				<ID>3284</ID>
 				<randomSeed>-817758485</randomSeed>
@@ -3153,7 +3103,7 @@
 				<thingDef>Kiiro_FishingRod</thingDef>
 			</li>
 			<li Class="Precept_Relic">
-				<name>人类学-圣杯</name>
+				<name>焦痕货架</name>
 				<def>IdeoRelic</def>
 				<ID>3286</ID>
 				<randomSeed>-1381705111</randomSeed>

@@ -1558,11 +1558,11 @@
 			</deities>
 		</foundation>
 		<name>罗杰亚套索</name>
-		<adjective>小虫-穆斯塔里派</adjective>
-		<memberName>小虫-穆斯林</memberName>
+		<adjective>逐光</adjective>
+		<memberName>逐光牧人</memberName>
 		<leaderTitleMale>天命国王</leaderTitleMale>
 		<leaderTitleFemale>天命国王</leaderTitleFemale>
-		<description>当首批牛仔抵达闪耀科技世界罗杰亚时，他们给马匹备鞍，用套索制服野兽，并为创造无垠草原的世界之神&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;献上诚挚的赞颂。 恶贯满盈的腐败官僚对他的邻居充满敌视，并想回归人类间彼此隔绝的远古时代。 萍逢草 桔树茶，伟大神明&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;选出的先知，向他祈求帮助。&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;创造出了两束巨大的光柱：较大的光柱支配白昼，较小的光柱支配黑夜。他也创造出了众多的繁星。&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;将它们放在天穹中，以便在黑夜时照亮世界。 萍逢草于一个自律工厂中聚集了一群小虫-穆斯林，向他们宣扬了&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;的智慧。</description>
+		<description>当首批牛仔抵达闪耀科技世界罗杰亚时，他们给马匹备鞍，用套索制服野兽，并为创造无垠草原的世界之神&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;献上诚挚的赞颂。 恶贯满盈的腐败官僚对他的邻居充满敌视，并想回归人类间彼此隔绝的远古时代。 萍逢草 桔树茶，伟大神明&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;选出的先知，向他祈求帮助。&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;创造出了两束巨大的光柱：较大的光柱支配白昼，较小的光柱支配黑夜。他也创造出了众多的繁星。&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;将它们放在天穹中，以便在黑夜时照亮世界。 萍逢草在一处荒原驿站聚集了一群逐光牧人，向他们宣扬了&lt;color=#D09B61FF&gt;万能之主&lt;/color&gt;的智慧。</description>
 		<descriptionTemplate>当首批牛仔抵达闪耀科技世界罗杰亚时，他们给马匹备鞍，用套索制服野兽，并为创造无垠草原的%%deity0_type%%%%deity0_name%%献上诚挚的赞颂。 恶贯满盈的腐败官僚对他的邻居充满敌视，并想回归人类间彼此隔绝的远古时代。 萍逢草 桔树茶，伟大神明%%deity0_name%%选出的先知，向%%deity0_pronoun%%祈求帮助。%%deity0_name%%创造出了两束巨大的光柱：较大的光柱支配白昼，较小的光柱支配黑夜。%%deity0_pronoun%%也创造出了众多的繁星。%%deity0_name%%将它们放在天穹中，以便在黑夜时照亮世界。 萍逢草于一个自律工厂中聚集了一群%%memberNamePlural%%，向他们宣扬了%%deity0_name%%的智慧。</descriptionTemplate>
 		<culture>RK_Culture_Virtuard</culture>
 		<iconDef>RoundA</iconDef>
@@ -1572,7 +1572,6 @@
 			<li>Structure_OriginIslamic</li>
 			<li>AM_Cowboys</li>
 			<li>VME_Light</li>
-			<li>VME_InsectoidSupremacy</li>
 		</memes>
 		<precepts>
 			<li>
@@ -1580,13 +1579,6 @@
 				<def>VME_DarknessCombat_Despised</def>
 				<ID>620</ID>
 				<randomSeed>-1015099056</randomSeed>
-				<usesDefiniteArticle>True</usesDefiniteArticle>
-			</li>
-			<li>
-				<name>虫族</name>
-				<def>VME_Insectoids_Exalted</def>
-				<ID>621</ID>
-				<randomSeed>-832876369</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
 			</li>
 			<li>
@@ -1643,7 +1635,7 @@
 				<layerBlacklist IsNull="True" />
 			</li>
 			<li Class="Precept_Ritual">
-				<name>昆虫追思</name>
+				<name>篝火追思</name>
 				<def>AM_RumBurial</def>
 				<ID>706</ID>
 				<randomSeed>-285123644</randomSeed>
@@ -1693,14 +1685,14 @@
 			</li>
 			<li>
 				<name>虫胶</name>
-				<def>VME_InsectJellyEaten_Loved_Classic</def>
+				<def>VME_InsectJellyEaten_Neutral_Classic</def>
 				<ID>633</ID>
 				<randomSeed>-607233073</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
 			</li>
 			<li>
 				<name>虫肉</name>
-				<def>VME_InsectMeatEating_Sacrilegious</def>
+				<def>VME_InsectMeatEating_DontCare</def>
 				<ID>634</ID>
 				<randomSeed>921505376</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
@@ -2569,43 +2561,6 @@
 				<randomSeed>247021971</randomSeed>
 				<usesDefiniteArticle>True</usesDefiniteArticle>
 			</li>
-			<li Class="Precept_Ritual">
-				<name>虫族礼赞</name>
-				<def>VME_InsectoidHymnPrecept</def>
-				<ID>591</ID>
-				<randomSeed>602953672</randomSeed>
-				<usesDefiniteArticle>True</usesDefiniteArticle>
-				<ritualOnlyForIdeoMembers>True</ritualOnlyForIdeoMembers>
-				<isAnytime>True</isAnytime>
-				<generatedAttachedReward>True</generatedAttachedReward>
-				<sourcePattern>VME_InsectoidHymnRitual</sourcePattern>
-				<obligationTargetFilter Class="RitualObligationTargetWorker_IdeoBuildingOrRitualSpot">
-					<def>AnyIdeoBuildingOrRitualSpot</def>
-					<parent>Precept_591</parent>
-				</obligationTargetFilter>
-				<targetFilter Class="RitualTargetFilter_IdeoBuildingOrRitualSpot">
-					<def>IdeoBuildingOrRitualSpot</def>
-				</targetFilter>
-				<behavior Class="VanillaMemesExpanded.RitualBehaviorWorker_InsectoidHymn">
-					<def>VME_InsectoidHymnRitualBehaviour</def>
-				</behavior>
-				<triggers />
-				<outcomeEffect Class="VanillaMemesExpanded.RitualOutcomeEffectWorker_InsectoidHymn">
-					<def>VME_InsectoidHymnRitualOutcome</def>
-					<compDatas>
-						<li IsNull="True" />
-						<li Class="RitualOutcomeComp_DataThingPresence">
-							<presentForTicks>
-								<keys />
-								<values />
-							</presentForTicks>
-						</li>
-						<li Class="RitualOutcomeComp_DataRoomStatCached" />
-					</compDatas>
-				</outcomeEffect>
-				<layerWhitelist IsNull="True" />
-				<layerBlacklist IsNull="True" />
-			</li>
 			<li>
 				<name>心情</name>
 				<def>VME_Mood_Normal</def>
@@ -2922,7 +2877,7 @@
 				</chosenPawn>
 			</li>
 			<li Class="Precept_RoleSingle">
-				<name>小虫-穆斯塔里派伊玛目</name>
+				<name>逐光伊玛目</name>
 				<def>IdeoRole_Moralist</def>
 				<ID>697</ID>
 				<randomSeed>820792640</randomSeed>
@@ -3161,78 +3116,6 @@
 					</abilities>
 				</chosenPawn>
 			</li>
-			<li Class="Precept_RoleSingle">
-				<name>甲虫巢穴-指挥者</name>
-				<def>VME_IdeoRole_InsectoidHerder</def>
-				<ID>699</ID>
-				<randomSeed>-738341534</randomSeed>
-				<usesDefiniteArticle>True</usesDefiniteArticle>
-				<apparelRequirements>
-					<li>
-						<allowedFactionCategoryTags>
-							<li>RatkinStory</li>
-							<li>RatkinPlayer</li>
-						</allowedFactionCategoryTags>
-						<disallowedFactionCategoryTags IsNull="True" />
-						<anyMemeRequired IsNull="True" />
-						<requirement>
-							<bodyPartGroupsMatchAny>
-								<li>Torso</li>
-								<li>Neck</li>
-								<li>Shoulders</li>
-							</bodyPartGroupsMatchAny>
-							<requiredDefs>
-								<li>RK_WhiteCloak</li>
-							</requiredDefs>
-							<requiredTags IsNull="True" />
-							<allowedTags IsNull="True" />
-						</requirement>
-					</li>
-				</apparelRequirements>
-				<chosenPawn>
-					<pawn>null</pawn>
-					<abilities>
-						<li>
-							<def>VME_TameInsectoid</def>
-							<Id>145</Id>
-							<sourcePrecept>Precept_699</sourcePrecept>
-							<verbTracker>
-								<verbs>
-									<li Class="Verb_CastAbility">
-										<loadID>Ability_145_0</loadID>
-										<currentTarget>(0, 0, 0)</currentTarget>
-										<currentDestination>(0, 0, 0)</currentDestination>
-										<lastShotTick>-999999</lastShotTick>
-										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
-										<ability>Ability_145</ability>
-									</li>
-								</verbs>
-							</verbTracker>
-							<maxCharges>0</maxCharges>
-							<charges>0</charges>
-						</li>
-						<li>
-							<def>VME_ConstructANest</def>
-							<Id>146</Id>
-							<sourcePrecept>Precept_699</sourcePrecept>
-							<verbTracker>
-								<verbs>
-									<li Class="Verb_CastAbility">
-										<loadID>Ability_146_0</loadID>
-										<currentTarget>(0, 0, 0)</currentTarget>
-										<currentDestination>(0, 0, 0)</currentDestination>
-										<lastShotTick>-999999</lastShotTick>
-										<canHitNonTargetPawnsNow>True</canHitNonTargetPawnsNow>
-										<ability>Ability_146</ability>
-									</li>
-								</verbs>
-							</verbTracker>
-							<maxCharges>0</maxCharges>
-							<charges>0</charges>
-						</li>
-					</abilities>
-				</chosenPawn>
-			</li>
 			<li Class="Precept_Apparel">
 				<name>服装喜好</name>
 				<def>ApparelDesired_Strong_Subordinate</def>
@@ -3245,7 +3128,7 @@ Ideology</descOverride>
 				<apparelDef>Apparel_CowboyHat</apparelDef>
 			</li>
 			<li Class="Precept_Building">
-				<name>小虫-穆斯塔里派符号</name>
+				<name>逐光圣徽</name>
 				<def>IdeoBuilding</def>
 				<ID>701</ID>
 				<randomSeed>1565350211</randomSeed>
@@ -3320,7 +3203,7 @@ Ideology</descOverride>
 				<thingDef>USAC_Gun_MarksmanRifle</thingDef>
 			</li>
 			<li Class="Precept_Relic">
-				<name>小虫-单分子剑</name>
+				<name>逐光单分子剑</name>
 				<def>IdeoRelic</def>
 				<ID>703</ID>
 				<randomSeed>-1640205496</randomSeed>
@@ -3344,8 +3227,8 @@ Ideology</descOverride>
 		</thingStyleCategories>
 		<usedSymbols>
 			<li>罗杰亚套索</li>
-			<li>小虫-穆斯塔里派</li>
-			<li>小虫-穆斯林</li>
+			<li>逐光</li>
+			<li>逐光牧人</li>
 		</usedSymbols>
 		<usedSymbolPacks>
 			<li>穆斯塔里派</li>

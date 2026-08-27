@@ -1549,48 +1549,48 @@
 			<place>Lutuni</place>
 			<deities>
 				<li>
-					<name>加雅缇</name>
-					<type>生命之神</type>
+					<name>诺布戎</name>
+					<type>军戎之神</type>
 					<gender>Male</gender>
 					<iconPath>UI/Deities/DeityGeneric</iconPath>
-					<relatedMeme>Structure_OriginHindu</relatedMeme>
+					<relatedMeme>Structure_TheistEmbodied</relatedMeme>
 				</li>
 				<li>
-					<name>乌摩天妃</name>
-					<type>哺育之神</type>
-					<gender>Male</gender>
+					<name>诺布慈</name>
+					<type>救护之女神</type>
+					<gender>Female</gender>
 					<iconPath>UI/Deities/DeityGeneric</iconPath>
 					<relatedMeme>VME_Healthcare</relatedMeme>
 				</li>
 				<li>
-					<name>陪胪</name>
-					<type>毁灭之神</type>
+					<name>诺布铎</name>
+					<type>号令之神</type>
 					<gender>Male</gender>
 					<iconPath>UI/Deities/DeityGeneric</iconPath>
 					<relatedMeme>MaleSupremacy</relatedMeme>
 				</li>
 				<li>
-					<name>湿婆</name>
-					<type>毁灭之神</type>
+					<name>诺布厉</name>
+					<type>拒外之神</type>
 					<gender>Male</gender>
 					<iconPath>UI/Deities/DeityGeneric</iconPath>
 					<relatedMeme>HAR_Xenophobia</relatedMeme>
 				</li>
 			</deities>
 		</foundation>
-		<name>健康健康</name>
-		<adjective>健康-印度教</adjective>
-		<memberName>健康-印度教徒</memberName>
-		<leaderTitleMale>提尔斯元帅</leaderTitleMale>
-		<leaderTitleFemale>提尔斯元帅</leaderTitleFemale>
-		<description>&lt;color=#D09B61FF&gt;加雅缇&lt;/color&gt;创造出了我们，我们即是他的形象的完美体现。 正如&lt;color=#D09B61FF&gt;加雅缇&lt;/color&gt;所指示的那般，我们总是相互关心并共享资源，因此没有人会独自受苦。 &lt;color=#D09B61FF&gt;加雅缇&lt;/color&gt;对所有人说：“男性的力量是为了保护和供养女性的，而女性决不能篡夺男性的权力。”</description>
-		<descriptionTemplate>%%Deity0_name%%创造出了我们，我们即是%%deity0_possessive%%形象的完美体现。 正如%%deity0_name%%所指示的那般，我们总是相互关心并共享资源，因此没有人会独自受苦。 %%Deity0_name%%对所有人说：“男性的力量是为了保护和供养女性的，而女性决不能篡夺男性的权力。”</descriptionTemplate>
+		<name>诺布戎</name>
+		<adjective>军戎</adjective>
+		<memberName>军戎信徒</memberName>
+		<leaderTitleMale>司令</leaderTitleMale>
+		<leaderTitleFemale>司令</leaderTitleFemale>
+		<description>&lt;color=#D09B61FF&gt;诺布戎&lt;/color&gt;说：刀不出鞘，国就要饿死。 王国把&lt;color=#D09B61FF&gt;诺布戎&lt;/color&gt;从神龛上请了下去，说战神不合时宜；我们把&lt;color=#D09B61FF&gt;诺布戎&lt;/color&gt;请了回来，于是有了自己的国。 所以我们年年开战，年年把最好的铁留给前线、把最稀的粥留给后方——这不是苛待，这是供奉。 男儿持戈事诺布铎，女儿执药事诺布慈；一个在阵前号令，一个在阵后收拾，各安其位，无人僭越。 至于城外那些不拜诺布的族类，诺布厉早有明训：不必分辨，也不必怜悯。 每年总有小鼠趁夜往南跑，想回王国去讨一口安稳饭。 随他们去吧——&lt;color=#D09B61FF&gt;诺布戎&lt;/color&gt;从不留怯战之人，祂只清点还站着的。</description>
+		<descriptionTemplate>%%Deity0_name%%说：刀不出鞘，国就要饿死。 王国把%%deity0_name%%从神龛上请了下去，说战神不合时宜；我们把%%deity0_name%%请了回来，于是有了自己的国。 所以我们年年开战，年年把最好的铁留给前线、把最稀的粥留给后方——这不是苛待，这是供奉。 男儿持戈事%%deity2_name%%，女儿执药事%%deity1_name%%；一个在阵前号令，一个在阵后收拾，各安其位，无人僭越。 至于城外那些不拜诺布的族类，%%deity3_name%%早有明训：不必分辨，也不必怜悯。 每年总有小鼠趁夜往南跑，想回王国去讨一口安稳饭。 随他们去吧——%%Deity0_name%%从不留怯战之人，祂只清点还站着的。</descriptionTemplate>
 		<culture>RatkiniaTraditionCulture_Warlord_PLUS</culture>
 		<iconDef>ElementB</iconDef>
 		<colorDef>DarkBlue</colorDef>
 		<primaryFactionColor>RGBA(0.708, 0.096, 0.126, 1.000)</primaryFactionColor>
 		<memes>
-			<li>Structure_OriginHindu</li>
+			<li>Structure_TheistEmbodied</li>
 			<li>MaleSupremacy</li>
 			<li>HAR_Xenophobia</li>
 			<li>VME_Healthcare</li>
@@ -1618,7 +1618,7 @@
 				<usesDefiniteArticle>True</usesDefiniteArticle>
 			</li>
 			<li Class="Precept_Ritual">
-				<name>加雅缇悼辞</name>
+				<name>诺布戎悼辞</name>
 				<def>AM_BlastOffFuneral</def>
 				<ID>477</ID>
 				<randomSeed>1928297607</randomSeed>
@@ -2546,7 +2546,7 @@
 				<usesDefiniteArticle>True</usesDefiniteArticle>
 			</li>
 			<li Class="Precept_RoleSingle">
-				<name>提尔斯元帅</name>
+				<name>司令</name>
 				<def>IdeoRole_Leader</def>
 				<ID>468</ID>
 				<randomSeed>-1954228029</randomSeed>
@@ -2773,7 +2773,7 @@
 				</chosenPawn>
 			</li>
 			<li Class="Precept_RoleSingle">
-				<name>医疗医生</name>
+				<name>战地牧师</name>
 				<def>IdeoRole_Moralist</def>
 				<ID>469</ID>
 				<randomSeed>2006402582</randomSeed>
@@ -3097,7 +3097,7 @@ Ideology</descOverride>
 				<targetGender>Female</targetGender>
 			</li>
 			<li Class="Precept_Building">
-				<name>加雅缇圣坛</name>
+				<name>诺布戎兵坛</name>
 				<def>IdeoBuilding</def>
 				<ID>474</ID>
 				<randomSeed>1267273323</randomSeed>
@@ -3133,7 +3133,7 @@ Ideology</descOverride>
 				</presenceDemand>
 			</li>
 			<li Class="Precept_Relic">
-				<name>健康-圣物</name>
+				<name>诺布慈药匣</name>
 				<def>IdeoRelic</def>
 				<ID>475</ID>
 				<randomSeed>1732339676</randomSeed>
@@ -3142,7 +3142,7 @@ Ideology</descOverride>
 				<stuff>AA_SkySteel</stuff>
 			</li>
 			<li Class="Precept_Relic">
-				<name>大男子-遗物</name>
+				<name>诺布铎令牌</name>
 				<def>IdeoRelic</def>
 				<ID>476</ID>
 				<randomSeed>395942724</randomSeed>
@@ -3151,19 +3151,14 @@ Ideology</descOverride>
 				<stuff>dvd_Frayweld</stuff>
 			</li>
 		</precepts>
-		<thingStyleCategories>
-			<li>
-				<category>Hindu</category>
-				<priority>4</priority>
-			</li>
-		</thingStyleCategories>
+		<thingStyleCategories />
 		<usedSymbols>
-			<li>健康健康</li>
-			<li>健康-印度教</li>
-			<li>健康-印度教徒</li>
+			<li>诺布戎</li>
+			<li>军戎</li>
+			<li>军戎信徒</li>
 		</usedSymbols>
 		<usedSymbolPacks>
-			<li>印度教</li>
+			<li>信仰</li>
 		</usedSymbolPacks>
 		<style>
 			<hairFrequencies>

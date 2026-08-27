@@ -19,18 +19,18 @@ meme 的手動換成 pool 裡更合適的（見下表備註）。`.rid` 是遊�
 |---|---|---|---|---|---|
 | `Milira` | Milira_Faction | 新生-正义 | MiliraCulture | Ideological, Loyalist, Collectivist | |
 | `MiliraChurch` | Milira_AngelismChurch | 超凡科技之路 | Milira_ChurchCulture | Archist, MaleSupremacy, Loyalist, Collectivist | |
-| `Kiiro` | Kiiro_Faction | 文化-肉体派 | KiiroTraditionalCulture | Ideological, Individualist, FleshPurity | 肉体派味，想換純真味可調 |
+| `Kiiro` | Kiiro_Faction | 本色之约 | KiiroTraditionalCulture | Ideological, Individualist, FleshPurity | **2026-08-27 改皮**（meme 不動）：肉体派→「本色之约」田園純真味 |
 | `Moelotl` | AxolotlWanderingDynasty | 红船 礼义 | MoeLotlTraditionCulture | Ideological, FemaleSupremacy, Loyalist, Collectivist, FleshPurity | 女尊萌系王朝，讚 |
 | `StellarCorp` | USAC_Faction | 上帝 | USAC_Culture | Christian, Supremacist, Individualist, Proselytizer, HumanPrimacy | 企業教會，coherent |
 | `DMSLegion` | DMS_Army, DMS_AncientCorps | 凡人集体 | DMS_Nara_Culture | Archist, Collectivist, Transhumanist, HumanPrimacy | 兩支機甲軍團共用 |
 | `OARatkin` | OA_RK_Faction | 金鸢尾兰文化分支 | OA_RK…Culture | Elite, Friendly（OA 專屬 meme） | 完美貼合 |
 | `RatkinUnderground` | RKU_Faction | 鼠族游击队 | …Culture_Und | Tunneler, SharedBurdens | 地下游擊，貼合 |
-| `RatkinWarlord` | Rakinia_Warlord | 加雅缇 | …Warlord_PLUS | Hindu, MaleSupremacy, Xenophobia, Healthcare | 軍閥味 |
-| `ZHP` | ZHP_Faction | 灵长合作社 | ZHP_Culture | Ideological, Supremacist, Collectivist, HumanPrimacy | 雜貨鋪鼠 |
+| `RatkinWarlord` | Rakinia_Warlord | 诺布戎 | …Warlord_PLUS | **TheistEmbodied**, MaleSupremacy, Xenophobia, Healthcare | **2026-08-27 換神**：印度教起源→中性具象神論，神系接回王國的「諾布」神族（軍閥＝分裂出去那一支）|
+| `ZHP` | ZHP_Faction | 常灯之约 | ZHP_Culture | Ideological, Collectivist, **VME_Egalitarian** | **2026-08-27 去侵略性**：拔 Supremacist／HumanPrimacy，改走「灯不熄、门不锁」的雜貨鋪日常 |
 | `RatkinKingdom` | Rakinia, RKK_KnightOrders | 诺布阿尔 | RK_Culture_Virtuard | TheistEmbodied, Loyalist, TerritorialHegemony | **已換掉原本機械族亂滾**；王國＋騎士團共用王庭信仰 |
 | `RockRatkin` | Rakinia_RockRatkin | 诺布艾尔 | RK_Culture_Virtuard | TheistAbstract, Loyalist, Rancher, TerritorialHegemony | |
-| `SnowRatkin` | Rakinia_SnowRatkin | 阿图拉机械族 | RK_Culture_Virtuard | Archist, MechanoidSupremacy | ⚠️ 機械族信仰（奇特）。想換：進遊戲替它做一個，或再 dump 一份雪鼠信仰給我替換 |
-| `TravelRatkin` | Rakinia_TravelRatkin | 万能之主 | RK_Culture_Virtuard | Islamic, Cowboys, Light, InsectoidSupremacy | 牛仔游牧味，InsectoidSupremacy 稍怪可留可換 |
+| `SnowRatkin` | Rakinia_SnowRatkin | 风雪之神 | RK_Culture_Virtuard | TheistAbstract, Loyalist, Rancher, TerritorialHegemony | **2026-07-18 已改皮修好**（原本 RNG 滾到機械族崇拜，與雪鼠 lore 正面衝突）|
+| `TravelRatkin` | Rakinia_TravelRatkin | 万能之主 | RK_Culture_Virtuard | Islamic, Cowboys, Light | **2026-08-27 去蟲**：拔 InsectoidSupremacy 及其三條 requireOne precept＋蟲族禮讚儀式＋甲蟲巢穴指揮者角色；牛仔／光明神原樣保留 |
 | `Frontier` | OutlanderCivil | 岩仓教 | VFES_Frontier | Buddhist, Rancher, Royal | **已換掉原本蟲神膜拜** |
 | `FrontierRough` | OutlanderRough | 基督 | VFES_Frontier | Christian, Supremacist, Rancher | |
 | `Traders` | TradersGuild | 超凡-防御 | Astropolitan | Archist, Shipborn, Bulwark, Egalitarian | 太空商會，貼合 |
