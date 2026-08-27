@@ -24,5 +24,5 @@ C#（net48）+ XML Defs；**零 Harmony、零硬相依**（sims-mode 僅推薦�
 - `docs/2026-06-11-implementation-plan.md`：實作計畫索引（各 task 在 `docs/plan/task-*.md`）。
 
 ## 來源報告
-- `pas/analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/01_faction_scale_and_lifecycle.md`（idea 7+8；README 定位本案為大戰略叢集「中樞」）。
+- `analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/01_faction_scale_and_lifecycle.md`（idea 7+8；README 定位本案為大戰略叢集「中樞」）。
 - 姊妹案：`sims-mode-community`（活聚落＝拜訪體驗）、`npc-outposts`（衛星哨站＝倒戈跟隨對象）。

@@ -41,6 +41,6 @@ Rim War 的大戰略模擬——哨站養母聚落、被 warband 攻打、被佔
 
 - `docs/plan/2026-06-12-implementation-plan.md`：實作計畫（接點/公式/防衛不變式）
 - `session_log.md`：執行記錄
-- 上游分析：`pas/analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`（目標選擇/抵達鏈/§3 推薦方案）、
+- 上游分析：`analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`（目標選擇/抵達鏈/§3 推薦方案）、
   `.../_mod_ideas/world_map_grand_strategy/03_rimwar_warband_territories_integration.md` §3（成長公式 postfix 接法）
-- 權威反編譯：`pas/projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`
+- 權威反編譯：`projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`

@@ -2,7 +2,7 @@
 
 ## 2026-06-12 — P0 實作 session（T0–T9）
 
-- T0 API spike：8/8 簽章在 decompile 源（`~/repo/pas/projects/rimworld/`，Krafs ref 1.6.4850）
+- T0 API spike：8/8 簽章在 decompile 源（`~/repo/projects/rimworld/`，Krafs ref 1.6.4850）
   全數驗證通過，行號記入 `_ideas/sanguo-plan/plans/p0-named-officers/01-task-skeleton.md`。
   名字策略定案**方案 B**（首次具現後快取 pawn 名）。無一落空，未回改任務設計。
 - T1 骨架：About/csproj/.gitignore，空建置 0/0。

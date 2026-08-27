@@ -41,7 +41,7 @@ Grep `Settlements|AddToCache` in `RimWorld.Planet\WorldObjectsHolder.cs`。確�
 
 - [ ] **Step 8: vanilla Settlement WorldObjectDef 的貼圖路徑**
 
-先 Glob `pas/projects/rimworld/**/WorldObjects*.xml`（反編譯庫可能無 XML）。找得到 → 抄 `texture`/`expandingIconTexture` 確切值；找不到 → Task 4 XML 先用 `World/WorldObjects/DefaultSettlement` 與 `World/WorldObjects/Expanding/Settlement`，E2E 驗證（錯了頂多粉紅方塊，當場改）。
+先 Glob `projects/rimworld/**/WorldObjects*.xml`（反編譯庫可能無 XML）。找得到 → 抄 `texture`/`expandingIconTexture` 確切值；找不到 → Task 4 XML 先用 `World/WorldObjects/DefaultSettlement` 與 `World/WorldObjects/Expanding/Settlement`，E2E 驗證（錯了頂多粉紅方塊，當場改）。
 
 - [ ] **Step 9: IntVec3/IntRange 的 XML 解析格式**
 

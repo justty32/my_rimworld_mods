@@ -87,4 +87,4 @@ python3 tests/healthcheck.py           # 離線靜態健檢
 
 - `docs/plan/2026-06-12-implementation-plan.md`：攔截點論證＋完整設計
 - `session_log.md`：執行記錄
-- 上游分析：`~/repo/pas/analysis/rimworld_mods/empire-refactored/`、`~/repo/pas/analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`
+- 上游分析：`~/repo/analysis/rimworld_mods/empire-refactored/`、`~/repo/analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`

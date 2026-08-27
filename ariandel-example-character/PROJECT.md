@@ -6,7 +6,7 @@ Ariandel Library「特殊角色框架（SCMF）」的**純 XML 範例 mod**：�
 
 - 示範用 Ariandel Library 創作特殊角色的最小完整集合（零 C#、零種族 mod 相依）。
 - 範式來源＝官方教學範例 `Ariandel.UserGuideSCMF`（Workshop 3668177055），本 mod 把它從「米莉拉種族宿主」移植到原版人類，並補上「自訂主動技能」示範。
-- 對應分析報告：`~/repo/pas/analysis/rimworld_mods/ariandel-library/tutorial/01_create_unique_character.md`。
+- 對應分析報告：`~/repo/analysis/rimworld_mods/ariandel-library/tutorial/01_create_unique_character.md`。
 
 ## 角色設定
 

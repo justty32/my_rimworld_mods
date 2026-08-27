@@ -1,8 +1,8 @@
 # Rim War × Empire × 三國志化 調查彙整（2026-06-12）
 
 > 一批唯讀源碼調查的結論彙整，供後續挑選實作。各項由背景 subagent 完成、本檔回填。
-> 源碼基準：Rim War 反編譯 `~/repo/pas/projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`（簡記 `RW:`）、
-> VOE 反編譯 `~/repo/pas/projects/rimworld_mods/vanilla-outposts-expanded/decompiled-framework/Outposts.decompiled.cs`（簡記 `VOE:`）、
+> 源碼基準：Rim War 反編譯 `~/repo/projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`（簡記 `RW:`）、
+> VOE 反編譯 `~/repo/projects/rimworld_mods/vanilla-outposts-expanded/decompiled-framework/Outposts.decompiled.cs`（簡記 `VOE:`）、
 > Empire workshop 源碼、自家 mod `~/repo/my_rimworld_mods/`。
 
 ## 進度

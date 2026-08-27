@@ -1,8 +1,8 @@
 # Empire × Rim War × npc-outposts 戰爭叢集（三 mod 構想）
 
 > 2026-06-12 brainstorm 記錄（已釐清需求與拆解，**尚未進實作計畫**）。
-> 上游分析：`pas/analysis/rimworld_mods/empire-refactored/`（extension_points＋bridge walkthrough＋tutorial）、
-> `pas/analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/03_rimwar_warband_territories_integration.md`（戰力公式定案）。
+> 上游分析：`analysis/rimworld_mods/empire-refactored/`（extension_points＋bridge walkthrough＋tutorial）、
+> `analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/03_rimwar_warband_territories_integration.md`（戰力公式定案）。
 
 ## 願景一句話
 
@@ -55,7 +55,7 @@
   - `Patch_ConvertSettlement`＝附庸打輸時 **prefix 擋下易主**，只折點數（防 Destroy/複製聚落/RemoveRWDFaction 三連環）；
   - `Patch_ForceVassalBehavior`＝PColony 鎖 Vassal 行為（不主動派 RimWar 單位）。
   - **→ Mod 2 範圍大幅縮小**：防守/馳援/實體戰已由 Patch-RW 提供，剩下要做的＝把「打輸後果」從折點數改成真易主（接管/替換 `Patch_ConvertSettlement` 的攔截邏輯，安全處理 WorldSettlementFC 退場與 RimWar 註冊），外加驗證 warband 目標選擇確實會挑附庸。風險從「解開無視」降為「改寫單一後果路徑」。
-  - 詳盡逐檔走讀已在 `pas/analysis/rimworld_mods/empire-refactored/details/bridge_module_walkthrough.md`。
+  - 詳盡逐檔走讀已在 `analysis/rimworld_mods/empire-refactored/details/bridge_module_walkthrough.md`。
 - **Empire 擴充面**：優先走 B-1（`FCInterfaces` 20+ 介面 ＋ 15 個 Registry，免 Harmony；`IBattleModifier`/`ILifecycleParticipant`/`IRaidTarget`/`IThreatScalingContributor` 都直接相關），逼不得已才 B-2 compat DLL。註冊慣例 `[StaticConstructorOnStartup]` ＋ `XxxRegistry.Register`。
 - **RimWar 戰力**：`RimWarSettlementComp.RimWarPoints` 為 public 可直接讀寫；成長唯一入口 `IncrementSettlementGrowth`（`RW:17567`，核心公式 `RW:17622-17626`）；上限基礎 50000，postfix 加點不受原方法 Clamp 閘控、須自行尊重上限。
 - **npc-outposts 是自家碼**：`NpcOutpost : Settlement`（有 `ParentSettlement` 引用＋`OutpostTypeDef`）、增生在 `WorldComponent_OutpostSpawner`（2500 tick 週期、per-settlement cap 字典）。**不需反射**，橋接 mod 可直接引用；也可考慮在 npc-outposts 本體加少量擴充接點（事件/虛方法）讓 Mod 1/3 掛載更乾淨。

@@ -1,7 +1,7 @@
 # 模擬市民社區（Sims Mode Community）
 
 ## 衍生目標
-落地 `pas/analysis/rimworld/others/life_politics/sims_mode_community.md` 的願景：把 RimWorld 從「上帝視角管理」轉向「世界中的參與者」。整體拆成 P1–P6 多階段路線圖（見 `docs/2026-06-11-design.md` §1），本資料夾承載整個大計畫。
+落地 `analysis/rimworld/others/life_politics/sims_mode_community.md` 的願景：把 RimWorld 從「上帝視角管理」轉向「世界中的參與者」。整體拆成 P1–P6 多階段路線圖（見 `docs/2026-06-11-design.md` §1），本資料夾承載整個大計畫。
 
 **P1（v1）＝活的聚落**：玩家商隊訪問非敵對派系聚落（1.6 本體 visit settlement）生成地圖時，聚落 pawn 不再傻站（原版全員只掛 `LordJob_DefendBase`），而是按「派系 → 角色 → 作息表」過生活：白天各司其職、傍晚聚會社交、夜間回床睡覺、被襲擊切防禦。
 
@@ -32,5 +32,5 @@
 - `session_log.md`：執行記錄（API 驗證結果、E2E 結果）。
 
 ## 來源報告
-- 願景：`pas/analysis/rimworld/others/life_politics/`（`sims_mode_community.md` ＋ `rpg_quest_system.md`、`authority_leadership_system.md`）
-- 可行性坐實：`pas/analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/05_settlement_npc_life_and_interaction.md`（Lord/Duty 範式、RimCities 借鑑）、`02_outposts_and_world_objects.md` §6（visit settlement）
+- 願景：`analysis/rimworld/others/life_politics/`（`sims_mode_community.md` ＋ `rpg_quest_system.md`、`authority_leadership_system.md`）
+- 可行性坐實：`analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/05_settlement_npc_life_and_interaction.md`（Lord/Duty 範式、RimCities 借鑑）、`02_outposts_and_world_objects.md` §6（visit settlement）

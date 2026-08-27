@@ -1,6 +1,6 @@
 # P2／P3 設計參照（取自 pas 分析素材）
 
-> 來源：`pas/analysis/rimworld_mods/`（已分析的published mod）。本檔僅作後階段（P2 玩家互動、P3 同盟/合併/通用生命週期）的設計錨點，**不影響 P1**。所有座標為各 mod 反編譯源行號（分析當時記錄）。
+> 來源：`analysis/rimworld_mods/`（已分析的published mod）。本檔僅作後階段（P2 玩家互動、P3 同盟/合併/通用生命週期）的設計錨點，**不影響 P1**。所有座標為各 mod 反編譯源行號（分析當時記錄）。
 
 ## 1. faction-territories — 聚落易主／附庸（P2 玩家互動 + P3 割讓的權威參照）
 

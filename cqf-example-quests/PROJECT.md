@@ -2,7 +2,7 @@
 
 ## 目標
 
-Custom Quest Framework（CQF, `HaiLuan.CustomQuestFramework`）的**純 XML 教學範例 mod**：用最小但彼此不同的三個任務 + 一棵手寫對話樹，把「依託 CQF 做新任務」的主要機制各示範一次。搭配分析報告 `pas/analysis/rimworld_mods/custom-quest-framework/tutorial/02_authoring_new_quests.md`（含 CQFAction 全型錄連結）。
+Custom Quest Framework（CQF, `HaiLuan.CustomQuestFramework`）的**純 XML 教學範例 mod**：用最小但彼此不同的三個任務 + 一棵手寫對話樹，把「依託 CQF 做新任務」的主要機制各示範一次。搭配分析報告 `analysis/rimworld_mods/custom-quest-framework/tutorial/02_authoring_new_quests.md`（含 CQFAction 全型錄連結）。
 
 前作 `cqf-caravan-redemption` 只驗證了「自訂 QuestScriptDef 能載入觸發」；本 mod 補上它沒碰的：任務鏈、延時排程、全域旗標、條件分支、信號閘門、以及**手寫 DialogTreeDef**（此前無本地實證）。
 
@@ -19,7 +19,7 @@ Custom Quest Framework（CQF, `HaiLuan.CustomQuestFramework`）的**純 XML 教�
 
 - RimWorld 1.6，純 XML（零 C#、零自帶 Harmony patch）
 - 相依：Harmony + CQF（`About.xml` modDependencies / loadAfter）
-- 欄位 schema 權威：CQF 反編譯源 `pas/projects/rimworld_mods/custom-quest-framework/decompiled/QuestEditor_Library/QuestEditor_Library.decompiled.cs`（各 XML 內註明行號）
+- 欄位 schema 權威：CQF 反編譯源 `projects/rimworld_mods/custom-quest-framework/decompiled/QuestEditor_Library/QuestEditor_Library.decompiled.cs`（各 XML 內註明行號）
 
 ## 完成定義
 
@@ -38,4 +38,4 @@ Custom Quest Framework（CQF, `HaiLuan.CustomQuestFramework`）的**純 XML 教�
 
 - `1.6/Defs/`：所有 Def（每檔頭部有機制說明與源碼行號）
 - `tests/healthcheck.py`：離線 XML/schema/交叉引用/翻譯健檢
-- 分析側：`pas/analysis/rimworld_mods/custom-quest-framework/tutorial/02_authoring_new_quests.md`、`details/cqfaction_catalog.md`
+- 分析側：`analysis/rimworld_mods/custom-quest-framework/tutorial/02_authoring_new_quests.md`、`details/cqfaction_catalog.md`

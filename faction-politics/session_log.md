@@ -4,7 +4,7 @@
 
 ### Task 0: API 殘餘驗證 —— 7/8 經 pas 分析素材核對，#3 部分待建置
 
-無反編譯源，改以 `pas/analysis/rimworld`（帶「核對 2026-06-01」標記）+ `pas/derived/rimworld-mod-guide`（專題頁附程式碼）交叉驗證：
+無反編譯源，改以 `analysis/rimworld`（帶「核對 2026-06-01」標記）+ `pas/derived/rimworld-mod-guide`（專題頁附程式碼）交叉驗證：
 
 - **#1 已驗** `int delta = GoodwillToMakeHostile(faction)` → 回傳 **int**；`rimworld-mod-guide/html/31-factions.html:333,336` 並述「算負增量→餵 TryAffectGoodwillWith」正是 FactionSplitter 寫法。
 - **#2 已驗** `TryAffectGoodwillWith(Faction, int, canSendMessage:bool, canSendHostilityLetter:bool)`：`details/optimized_outpost_core.md:102-104`「核對 2026-06-01」第二參數 **int**。
@@ -29,7 +29,7 @@ RebelRecord 29 / OutpostsBridge 32 / PoliticsBridges 36 / RimWarBridge 46 / Rebe
 
 ### 補充：P2/P3 設計參照落檔（`docs/p2-p3-references.md`）
 
-掃 `pas/analysis/rimworld_mods`：**#3 的 `FactionGeneratorParms` 原始呼叫無命中**（mod 分析皆高階剖析）→ #3 確定留本機。但 P2/P3 參照豐收，已落 `docs/p2-p3-references.md`：
+掃 `analysis/rimworld_mods`：**#3 的 `FactionGeneratorParms` 原始呼叫無命中**（mod 分析皆高階剖析）→ #3 確定留本機。但 P2/P3 參照豐收，已落 `docs/p2-p3-references.md`：
 - **faction-territories** Vassalage：玩家 gizmo+對話框（`Settlement_GetGizmos_Vassalise:7742`）、藩屬點數貨幣（`VassalagePointsComponent:8496`）、聚落割讓 `ExecuteCedeToFactionAtTile:10878`（與本案 SetFaction 同類）。注意它攔毀城信件用 Harmony，本案零-Harmony 須改 gizmo/alert。
 - **empire-refactored** 四維狀態 `unrest/loyalty/happiness/prosperity`（`WorldSettlementFC.cs:78-94`）+ `FCEventDef` → P2 可把單一 progress 升級為 loyalty 主軸 + def 化事件。
 - **架構背書**：empire-refactored 9 個 `IfModActive` compat DLL 與本案 npc-outposts bridge 同款技法；warband-warfare League 同盟系統為 P3 參照。
@@ -152,9 +152,3 @@ Rim War v1.6 實體就在本機 workshop（`2222935097`，Torann.RimWar）→ �
 - **staging 還原正式參數**：`progressPerDay 0.2~0.6`、`respawnDelayDays 20`（測試加速 24~24/0.5 撤除），faction-politics 整包 rsync 與 repo 一致。
 - E2E 期間順手修復沉澱（各自已 commit）：RandomPawnKind 取代 basicMemberKind、forced-keep 復原、per-faction 例外隔離、debug dump 工具、sims-mode 影子 MapParent 反攻陷架構＋重組 gizmo 轉發、npc-outposts cctor 執行緒/存檔字典治本。
 - **Task 10 標記完成。**
-
-### 待辦
-
-- Task 10 實機 E2E（`docs/plan/task-10-e2e.md`）：開局/舊檔補發 → 拜訪見本人（裝 Visit Settlements `3535955435` + Harmony）→ 離場再訪（驗 forced-keep 修復：反叛者同一人、進度不歸零）→ 擊殺歸零重生 → 達標分裂（letter/新派系/聚落+哨站易主/母敵對）→ 存讀檔 → 上限觸頂 → 無 RimWar/無 outposts 環境 log 乾淨。本機 RimWorld 1.6.4850（Proton）+ Rim War + Visit Settlements workshop 齊備；faction-politics 與 npc-outposts 已部署至 `~/rimworld_mods/` 並 symlink 進遊戲 Mods。
-- E2E 加驗 Rim War bridge：啟動 log 應見「Rim War bridge 已綁定」；分裂後新派系應出現於 Rim War 派系資料。
-- E2E 加驗 Empire 相容：啟用 Empire Refactored 建附庸聚落 → dev mode 確認 PColony 無 RebelRecord（tracker 不追蹤）、分裂候選不含 PColony 聚落。

@@ -1,7 +1,7 @@
 # Pocket Dimension Example（異空間門範例 mod）
 
 > RimWorld 1.6。packageId `pas.pocketdimension.example`。**零 Harmony、零 DLC 相依**。
-> 對應可行性報告：`~/repo/pas/analysis/rimworld_mods/_mod_ideas/05_pocket_dimension.md`。
+> 對應可行性報告：`~/repo/analysis/rimworld_mods/_mod_ideas/06_pocket_dimension.md`。
 
 ## 目標
 

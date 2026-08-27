@@ -2,7 +2,7 @@
 
 ## 目標
 證明「在 Vanilla Psycasts Expanded 下新增一條完整靈能道路＝**全純 XML、零 patch、零 C#**」。
-配套分析（含全部源碼佐證 file:line）：`~/repo/pas/analysis/rimworld_mods/vanilla-psycasts-expanded/`（主報告 `tutorial/01_define_new_path.md`）。
+配套分析（含全部源碼佐證 file:line）：`~/repo/analysis/rimworld_mods/vanilla-psycasts-expanded/`（主報告 `tutorial/01_define_new_path.md`）。
 
 ## 範圍
 - 1 條 `VanillaPsycastsExpanded.PsycasterPathDef`（`PASVPE_Tranquilizer`，主頁籤 Psycasts，無解鎖限制）。

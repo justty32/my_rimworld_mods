@@ -1,7 +1,7 @@
 # empire-warfare 實作計畫（2026-06-12）
 
 > 構想出處：`_ideas/2026-06-12-empire-rimwar-war-cluster.md` Mod 2（含「2026-06-12 讀源碼修正」段——範圍縮小為**改寫敗戰後果＋目標性驗證**）。
-> 上游分析：`pas/analysis/rimworld_mods/empire-refactored/`（bridge walkthrough / extension_points / tutorial）、`pas/analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`。
+> 上游分析：`analysis/rimworld_mods/empire-refactored/`（bridge walkthrough / extension_points / tutorial）、`analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`。
 
 ## 0. 範圍界定（聚焦）
 

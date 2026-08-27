@@ -105,5 +105,5 @@ python3 tests/healthcheck.py           # 離線靜態健檢
 
 - `docs/plan/2026-06-12-implementation-plan.md`：接點論證＋三項功能設計＋去重
 - `session_log.md`：執行記錄
-- 上游分析：`~/repo/pas/analysis/rimworld_mods/empire-refactored/details/extension_points.md`（B-1 介面/Registry 表）
+- 上游分析：`~/repo/analysis/rimworld_mods/empire-refactored/details/extension_points.md`（B-1 介面/Registry 表）
 - 姊妹 mod：`../npc-outposts-rimwar/`（Mod 1）、`../empire-warfare/`（Mod 2）

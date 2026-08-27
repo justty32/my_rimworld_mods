@@ -3,7 +3,7 @@
 ## B0 — S1 spike（0.25d，唯讀）
 
 1. **`FactionDialogMaker.FactionDialogFor(Pawn negotiator, Faction faction)`**
-   （`~/repo/pas/projects/rimworld/RimWorld/FactionDialogMaker.cs:16`，public static，回 DiaNode）：
+   （`~/repo/projects/rimworld/RimWorld/FactionDialogMaker.cs:16`，public static，回 DiaNode）：
    確認 postfix 簽章 `(Pawn negotiator, Faction faction, ref DiaNode __result)` 可行、
    DiaNode.options 可直接 Add。
 2. **RimWar 共存**：RimWar 同點 postfix（`RW:5875-5908`）插 4 選項並**刪除**含

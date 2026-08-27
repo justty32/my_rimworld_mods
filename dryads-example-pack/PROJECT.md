@@ -1,6 +1,6 @@
 # Dryads Example Pack: Resinmaker and Rescuer
 
-以「定義新樹精」為題的最小示範 mod：兩種新 Gauranlen 樹精階型，純 XML、零 Harmony、零框架依賴（僅需 Ideology DLC）。配套分析報告在 `~/repo/pas/analysis/rimworld_mods/vanilla-ideology-expanded-dryads/tutorial/01_define_new_dryad.md`。
+以「定義新樹精」為題的最小示範 mod：兩種新 Gauranlen 樹精階型，純 XML、零 Harmony、零框架依賴（僅需 Ideology DLC）。配套分析報告在 `~/repo/analysis/rimworld_mods/vanilla-ideology-expanded-dryads/tutorial/01_define_new_dryad.md`。
 
 ## 目標與範圍
 

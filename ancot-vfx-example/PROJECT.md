@@ -32,4 +32,4 @@ Ancot Library（`Ancot.AncotLibrary`，Workshop 2988801276）特效系統的最�
 
 ## 分析依據
 
-`~/repo/pas/analysis/rimworld_mods/ancot-library/`（`architecture/00_overview.md`、`details/vfx_system.md`），反編譯源 `~/repo/pas/projects/rimworld_mods/ancot-library/`。
+`~/repo/analysis/rimworld_mods/ancot-library/`（`architecture/00_overview.md`、`details/vfx_system.md`），反編譯源 `~/repo/projects/rimworld_mods/ancot-library/`。

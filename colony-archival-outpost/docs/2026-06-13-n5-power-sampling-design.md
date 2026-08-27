@@ -84,7 +84,7 @@
 
 ## 8. 不確定 / 待實作驗證
 
-- `PowerNet` 即時淨功率的**確切 1.6 API**（`CurrentEnergyGainRate()` 回 Wd/tick，需 `/ WattsToWattDaysPerTick` 換瓦）——實作前對照 `~/repo/pas/projects/rimworld/` 反編譯確認。
+- `PowerNet` 即時淨功率的**確切 1.6 API**（`CurrentEnergyGainRate()` 回 Wd/tick，需 `/ WattsToWattDaysPerTick` 換瓦）——實作前對照 `~/repo/projects/rimworld/` 反編譯確認。
 - `CompPowerTrader.PowerOutput` 設負值是否被香草正確當「消耗」併入電網結算——比照 VOE Power Grid 的 `CompPowerGridOutlet` 確認虛方法名與行為。
 - `isEdifice=false` 是否足以允許疊牆放置（或需額外 PlaceWorker 放寬）。
 

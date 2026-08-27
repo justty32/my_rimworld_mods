@@ -2,7 +2,7 @@
 
 ## A0 — 讀碼 spike（0.25d，唯讀不寫碼）
 
-照家規（P1/P2 計畫的 T0 慣例），動手前以反編譯源（`~/repo/pas/projects/rimworld/`）釘死：
+照家規（P1/P2 計畫的 T0 慣例），動手前以反編譯源（`~/repo/projects/rimworld/`）釘死：
 
 1. **`Faction.defeated`**（`RimWorld/Faction.cs:32`，public bool）：確認 vanilla 何時置 true
    （最後聚落被毀時由誰寫入）、defeated 派系是否留在 `Find.FactionManager`（預期：留，

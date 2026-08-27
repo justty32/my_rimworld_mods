@@ -19,8 +19,8 @@ RimWorld 1.6 派系 mod：新增一個鼠族（NewRatkinPlus）派系「橡實�
 | NewRatkinPlus 本體（packageId `Solaris.RatkinRaceMod`） | `~/.steam/steam/steamapps/workshop/content/294100/1578693166/` |
 | 王國/商隊 FactionDef 範本 | 上述 mod `1.6/Defs/FactionDefs/Factions_Misc.xml` |
 | 命名 RulePack 範本＋詞庫 | `1.6/Defs/RulePack/RulePacks_Namers_Factions.xml`、`Contents/Languages/English/Strings/Names/Noun/*.txt` |
-| Worldbuilder preset schema 分析 | `~/repo/pas/analysis/rimworld_mods/worldbuilder/details/01_preset_schema.md` |
-| 手寫 preset 範例（赤色黎明） | `~/repo/pas/analysis/rimworld_mods/worldbuilder/others/example_preset_mod/` |
+| Worldbuilder preset schema 分析 | `~/repo/analysis/rimworld_mods/worldbuilder/details/01_preset_schema.md` |
+| 手寫 preset 範例（赤色黎明） | `~/repo/analysis/rimworld_mods/worldbuilder/others/example_preset_mod/` |
 
 ## 文化設計依據（每個決策長在鼠族既有世界觀上）
 從 NewRatkinPlus 素材抽出的文化元素 → 對應本 mod 的設計決策：

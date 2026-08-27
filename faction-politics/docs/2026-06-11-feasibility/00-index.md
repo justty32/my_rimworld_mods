@@ -1,6 +1,6 @@
 # faction-politics 可行性調查（索引）
 
-> 來源 idea：`pas/analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/01_faction_scale_and_lifecycle.md`（idea 7+8：派系規模/生命週期 + 具名 NPC 政治）。
+> 來源 idea：`analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/01_faction_scale_and_lifecycle.md`（idea 7+8：派系規模/生命週期 + 具名 NPC 政治）。
 > 本調查對該報告做獨立源碼覆核（權威源 `C:\code\mine\pas\projects\rimworld`，2026-06-11），並依使用者四項範圍決策收斂出 P1 可行結論。
 
 ## 結論速覽

@@ -1,9 +1,9 @@
 # npc-outposts-rimwar 實作計畫（2026-06-12）
 
 > 構想來源：`_ideas/2026-06-12-empire-rimwar-war-cluster.md`（Mod 1）。
-> 技術定案：`pas/analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`、
-> `pas/analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/03_rimwar_warband_territories_integration.md` §3。
-> 行號引用＝`pas/projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`（關鍵簽章已逐一核對）。
+> 技術定案：`analysis/rimworld_mods/rim-war/details/target_selection_and_arrival.md`、
+> `analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/03_rimwar_warband_territories_integration.md` §3。
+> 行號引用＝`projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`（關鍵簽章已逐一核對）。
 
 ## 範圍：四項功能
 

@@ -13,8 +13,8 @@
 | 偵察感測莢艙 | `PASEX_Module_ReconSensorPod` / `PASEX_Apparel_ReconSensorPod` | Mobile Dragoon（Exosuit Framework）部件：物品+衣服雙 def、`CompProperties_ExosuitModule` 佔 `MountLeft` 槽（條件載入） |
 
 對應調查報告（機制原理、欄位語意表、file:line 引用）：
-- `~/repo/pas/analysis/rimworld_mods/dead-mans-switch/tutorial/02_define_new_mech.md`（新機兵／武器／插件）
-- `~/repo/pas/analysis/rimworld_mods/mobile-dragoon/tutorial/02_dragoon_module_and_weapon.md`（龍騎兵部件／武器）
+- `~/repo/analysis/rimworld_mods/dead-mans-switch/tutorial/02_define_new_mech.md`（新機兵／武器／插件）
+- `~/repo/analysis/rimworld_mods/mobile-dragoon/tutorial/02_dragoon_module_and_weapon.md`（龍騎兵部件／武器）
 
 ## 相依鏈
 

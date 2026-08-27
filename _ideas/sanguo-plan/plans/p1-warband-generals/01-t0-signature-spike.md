@@ -1,6 +1,6 @@
 # T0 — 簽章 spike（結果定案）
 
-> 來源：`~/repo/pas/projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`（2026-06-12 核對）。
+> 來源：`~/repo/projects/rimworld_mods/rim-war/decompiled/RimWar.decompiled.cs`（2026-06-12 核對）。
 > spike 殘留物＝`Source/SignatureSpike.cs` 編譯期釘（RimWar 改簽章 → build 直接紅，先於實機炸）。
 
 ## 已核對簽章（行號＝反編譯檔）

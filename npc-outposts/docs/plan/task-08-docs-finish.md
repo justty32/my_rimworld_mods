@@ -37,7 +37,7 @@ C#（net48）＋ XML Defs/PatchOperation；零 Harmony。**硬相依 `pas.sims.c
 - `session_log.md`：執行記錄。
 
 ## 來源報告
-- 可行性：`pas/analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/02_outposts_and_world_objects.md`（VOE 解剖、輕量 WorldObject、lazy 生圖、Settlement 繼承 CP 值）。
+- 可行性：`analysis/rimworld_mods/_mod_ideas/world_map_grand_strategy/02_outposts_and_world_objects.md`（VOE 解剖、輕量 WorldObject、lazy 生圖、Settlement 繼承 CP 值）。
 - 姊妹案：`sims-mode-community`（活聚落＝哨站地圖的守軍行為引擎）。
 ```
 

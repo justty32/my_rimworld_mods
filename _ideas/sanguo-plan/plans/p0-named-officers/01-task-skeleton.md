@@ -6,7 +6,7 @@
 > 把「以為存在」變「驗證存在」，避免 E2E 才踩坑（faction-politics 曾在 Task 0 漏 #7 盲點）。
 
 逐項確認並把行號記進本檔（驗證 = 在 decompile/ref 中找到該成員；
-decompile 源：`~/repo/pas/projects/rimworld/`，Krafs ref 1.6.4850。2026-06-12 簽收）：
+decompile 源：`~/repo/projects/rimworld/`，Krafs ref 1.6.4850。2026-06-12 簽收）：
 
 - [x] `Settlement.previouslyGeneratedInhabitants` 是 public `List<Pawn>`
       （`RimWorld.Planet/Settlement.cs:14`；redress 路徑仍讀它：`Verse/PawnGenerator.cs:212-213`，
