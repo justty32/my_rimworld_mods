@@ -140,7 +140,10 @@
 > **2026-07-18 動的檔**：`CustomIdeos/SnowRatkin.rid`、`CustomIdeos/Guild.rid`（皆改皮/換乾淨 meme，XML 良構）。
 > **2026-08-27 動的檔**：`CustomIdeos/ZHP.rid`、`TravelRatkin.rid`、`RatkinWarlord.rid`、`Kiiro.rid`。
 > **兩輪都未碰 live、未重組、未跑測**（worldpreset 本就 headless 測不到）。全在 worldpreset 源碼區，可 git 還原。
-> ⚠️ **部署副本沒有跟著更新**：`~/notes/projects/modding/rimworld/worldpreset-2-anime/` 仍是舊版，
-> 要進遊戲看得先把本目錄 `cp -a` 過去（那邊是部署側領地，開發側不直接寫）。
+> ✅ **2026-08-27 已同步到部署副本**：四份 `.rid` ＋ 本檔 ＋ `CULTURE-PLAN.md` 已複製進
+> `~/notes/projects/modding/rimworld/worldpreset-2-anime/`（遊戲 `Mods/worldpreset-2-anime` symlink 指向那裡）。
+> 同步前已確認部署側那四份與開發側改動前**逐位元組相同**（沒有蓋掉部署側的在地修改），
+> 並整包備份。同步後穿 symlink 從遊戲實際讀取路徑複驗：27 份 `.rid` ＋ `About.xml` ＋ `Preset.xml` 全數良構。
+> 開發側專屬的 `PROJECT.md`／`SOURCE-HISTORY.md` **不進**部署副本（維持原本的分工）。
 </content>
 </invoke>
