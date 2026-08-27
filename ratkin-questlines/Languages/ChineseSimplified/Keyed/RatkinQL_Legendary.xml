@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!--
+    §6.9 名匠传奇武器。命名素材是「池」：用 | 分隔，C# 端随机抽。
+    组合式（Patterns）用 %P=前缀、%N=器名；只写 %P ＝独名。
+    ⚠ 不要在这几个池里用 {0}/{1}——那是 Translate 自己的占位符语法。
+  -->
+
+  <!-- 前缀池：传奇品质＝灵兽赋名（承 NewRatkinPlus 圣剑/龙剑的赋名传统） -->
+  <RatkinQL_Legendary_PoolBeast>青龙|白虎|朱雀|玄武|应龙|烛龙|螭吻|鸣凤|饕餮|穷奇</RatkinQL_Legendary_PoolBeast>
+  <!-- 前缀池：杰作品质＝天象、节气、自然象 -->
+  <RatkinQL_Legendary_PoolSky>银月|落霜|惊蛰|流火|断云|夜雪|长风|晓星|残照|秋分|寒潭|裂帛</RatkinQL_Legendary_PoolSky>
+  <!-- 前缀池：其余＝事功、志节（鼠族军工百姓的朴素命名） -->
+  <RatkinQL_Legendary_PoolDeed>不悔|守夜|归乡|束心|拂尘|长明|寸心|无名|报春|问路|扶伤|抵债</RatkinQL_Legendary_PoolDeed>
+
+  <!-- 器名池：依武器种类挑 -->
+  <RatkinQL_Legendary_NounBlade>剑|锋|牙|刃|霜刃</RatkinQL_Legendary_NounBlade>
+  <RatkinQL_Legendary_NounSpear>枪|矛|穗|刺</RatkinQL_Legendary_NounSpear>
+  <RatkinQL_Legendary_NounAxe>斧|钺|开山</RatkinQL_Legendary_NounAxe>
+  <RatkinQL_Legendary_NounHammer>锤|杵|砧</RatkinQL_Legendary_NounHammer>
+  <RatkinQL_Legendary_NounBow>弦|隼|弩|羽</RatkinQL_Legendary_NounBow>
+  <RatkinQL_Legendary_NounGun>铳|雷|啸</RatkinQL_Legendary_NounGun>
+  <RatkinQL_Legendary_NounGeneric>器|刃|信物</RatkinQL_Legendary_NounGeneric>
+
+  <!-- 组合式：%P 前缀、%N 器名 -->
+  <RatkinQL_Legendary_Patterns>%P之%N|%P%N|%P|%N之%P</RatkinQL_Legendary_Patterns>
+
+  <!-- 交货当下命名：{0}=名字 {1}=武器种类 {2}=品质 -->
+  <RatkinQL_Legendary_NamedLabel>它有名字了：{0}</RatkinQL_Legendary_NamedLabel>
+  <RatkinQL_Legendary_NamedText>客户把那件{2}的{1}接过去，翻来覆去看了很久，最后用指节在刃身上轻轻叩了一下。\n\n「这口兵器不该没有名字。」\n\n他当着你的面替它取了名——从今往后，它叫「{0}」。\n\n你不知道它会走到哪里、落在谁手上。但打铁这一行就是这样：东西出了门，名声才刚开始走。往后若有风声传回来，多半是关于它的。</RatkinQL_Legendary_NamedText>
+
+  <!-- 衍生传闻：{0}=名字 {1}=武器种类 {2}=品质 {3}=距诞生天数 -->
+  <RatkinQL_Legendary_TaleLabel>「{0}」的下落</RatkinQL_Legendary_TaleLabel>
+  <RatkinQL_Legendary_Tale1>一名路过的鼠族脚商在你的铁匠台前站了很久，才开口：「那口叫『{0}』的{1}……我在南边的市集见过。挂在一个独眼老兵背上，谁出价都不卖。」\n\n他说老兵只讲了一句话：这东西替他挡过一次，他就不打算再让它离身。\n\n（那是你{3}天前出手的活。你的名号正顺着它往外走。）</RatkinQL_Legendary_Tale1>
+  <RatkinQL_Legendary_Tale2>边境传回来的消息不太好听：「{0}」在一场伏击里被劫走了。\n\n押货的商队全数被掳，那件{2}的{1}如今在谁手上没人说得准。有人说它进了军阀的库房，也有人说它早被拆开卖了料。\n\n（东西是好东西，只是命不由匠人管。你{3}天前把它交出去的时候，也没想过会听到这种下落。）</RatkinQL_Legendary_Tale2>
+  <RatkinQL_Legendary_Tale3>有人把「{0}」写进歌里了。\n\n一个在酒馆讨生活的鼠族说书人途经此地，唱了一段边境守军的段子——里头那件出鞘就让敌阵退了半步的{1}，名字正是你听过的那个。他甚至不知道铸它的人就坐在台下。\n\n（{3}天，从一块料到一段唱词。这一行的回报有时就是这样来的。）</RatkinQL_Legendary_Tale3>
+  <RatkinQL_Legendary_Tale4>一封没有署名的短笺，字写得很用力：\n\n「『{0}』还在。用它的人换了三个，都活着回来了。第四个托我把这话带给打它的匠人——谢了。」\n\n笺纸下面压着一小块回礼的银。\n\n（{3}天前你把那件{2}的{1}交了出去，当时只当是一单生意。）</RatkinQL_Legendary_Tale4>
+
+</LanguageData>

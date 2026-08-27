@@ -24,6 +24,7 @@ namespace RatkinQuestlines
         public List<ThingDefCountClass> extraThings;   // 額外實體獎勵（口糧/材料…）
         public List<string> evFlags;                   // 達此 band 要 set 的全域名聲旗標（Ev_ForgeWellDone_*/Ev_WeaponDeal/Ev_Charity…）
         public string message;                         // 達此 band 的訊息（Keyed key）
+        public bool nameLegendary = false;             // §6.9：達此 band → 交出的最高值武器被客戶命名、入傳奇名冊
 
         public void ExposeData()
         {
@@ -32,6 +33,7 @@ namespace RatkinQuestlines
             Scribe_Collections.Look(ref extraThings, "extraThings", LookMode.Deep);
             Scribe_Collections.Look(ref evFlags, "evFlags", LookMode.Value);
             Scribe_Values.Look(ref message, "message");
+            Scribe_Values.Look(ref nameLegendary, "nameLegendary", false);
         }
     }
 
@@ -48,6 +50,7 @@ namespace RatkinQuestlines
         public int refCount = 4;
         public List<ForgeDeliveryBand> bands = new List<ForgeDeliveryBand>();
         public string titleKey = "RatkinQL_Forge_DeliverWindow_Title";
+        public string legendaryClient;           // §6.9：命名入冊時記在名冊上的客戶 id（例 CrownProcurer）
 
         private float BaseThreshold()
         {
@@ -75,7 +78,7 @@ namespace RatkinQuestlines
             {
                 envoy = ti.Thing;   // 交貨成功後遣離的對象（帶頭訪客）
             }
-            Find.WindowStack.Add(new Dialog_ForgeDelivery(map, count, minQuality, weaponFilter, BaseThreshold(), bands, titleKey, envoy));
+            Find.WindowStack.Add(new Dialog_ForgeDelivery(map, count, minQuality, weaponFilter, BaseThreshold(), bands, titleKey, envoy, legendaryClient));
         }
 
         public override void ExposeData()
@@ -91,6 +94,7 @@ namespace RatkinQuestlines
             Scribe_Values.Look(ref refCount, "refCount", 4);
             Scribe_Collections.Look(ref bands, "bands", LookMode.Deep);
             Scribe_Values.Look(ref titleKey, "titleKey", "RatkinQL_Forge_DeliverWindow_Title");
+            Scribe_Values.Look(ref legendaryClient, "legendaryClient");
         }
     }
 
@@ -104,14 +108,16 @@ namespace RatkinQuestlines
         private readonly List<ForgeDeliveryBand> bands;
         private readonly string titleKey;
         private readonly Thing envoy;              // 帶頭訪客：獎勵放其腳下、交貨成功後遣離
+        private readonly string legendaryClient;   // §6.9：命名入冊時記的客戶 id
 
         private readonly List<Thing> candidates;
         private readonly HashSet<Thing> selected = new HashSet<Thing>();
         private Vector2 scrollPos = Vector2.zero;
 
         public Dialog_ForgeDelivery(Map map, IntRange count, QualityCategory minQuality, string weaponFilter,
-            float baseThreshold, List<ForgeDeliveryBand> bands, string titleKey, Thing envoy)
+            float baseThreshold, List<ForgeDeliveryBand> bands, string titleKey, Thing envoy, string legendaryClient)
         {
+            this.legendaryClient = legendaryClient;
             this.map = map;
             this.count = count;
             this.minQuality = minQuality;
@@ -257,6 +263,26 @@ namespace RatkinQuestlines
             }
             ForgeDeliveryBand b = bands[bandIdx];
 
+            // §6.9 名匠傳奇武器：這個 band 要命名的話，先把「交出去的最值錢那把」命名入冊。
+            //   ⚠ 必須在 Destroy 之前——物件毀了就讀不到 CompQuality／Stuff。
+            LegendaryWeaponRecord named = null;
+            if (b.nameLegendary)
+            {
+                Thing best = null;
+                foreach (Thing t in selected)
+                {
+                    if (t != null && !t.Destroyed && (best == null || t.MarketValue > best.MarketValue))
+                    {
+                        best = t;
+                    }
+                }
+                GameComponent_LegendaryWeapons reg = GameComponent_LegendaryWeapons.Component;
+                if (best != null && reg != null)
+                {
+                    named = reg.Register(best, legendaryClient);
+                }
+            }
+
             // 消費勾選的武器
             foreach (Thing t in selected)
             {
@@ -298,6 +324,15 @@ namespace RatkinQuestlines
             if (!b.message.NullOrEmpty())
             {
                 Messages.Message(b.message.Translate(), MessageTypeDefOf.PositiveEvent, false);
+            }
+
+            // §6.9：命名成功 → 發一封「客戶把它命名為『XX』」的信。之後這把會在傳聞任務裡回來找你。
+            if (named != null)
+            {
+                Find.LetterStack.ReceiveLetter(
+                    "RatkinQL_Legendary_NamedLabel".Translate(named.name),
+                    "RatkinQL_Legendary_NamedText".Translate(named.name, named.WeaponLabel, named.quality.GetLabel()),
+                    LetterDefOf.PositiveEvent);
             }
 
             // 交貨成功 → 遣離訪客（移除對話＋走出地圖）

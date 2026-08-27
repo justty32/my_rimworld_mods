@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    §6.9 第三段：名匠傳奇武器的衍生傳聞。
+    設計權威：brainstorm/6b-forge-design-increment.md §6.9（使用者定案）。
+
+    這條劇本本身沒有任務目標，是一封「你鑄的那把兵器現在怎麼了」的傳聞信＋名聲回饋。
+    gate＝RatkinQL_HasLegendaryWeapon（由 GameComponent_LegendaryWeapons 每 500 tick 回寫；
+    名冊空＝false ⇒ 說書人根本不會挑到這條）。QuestNode_LegendaryWeaponTale 的 TestRunInt
+    也會再驗一次名冊非空，兩層保險。
+
+    具體是哪一把武器、講哪一種傳聞，都在 QuestPart 發信時才決定——所以底下的
+    questName/questDescription 必須寫成通用的。（本包既有任務描述全是靜態字串，
+    沒有用過 slate 變數代換；若代換失敗玩家會看到字面的 [xxx]，故不冒這個險。）
+
+    rootSelectionWeight 壓得比委託低：傳聞是點綴，不該擠掉真正的鐵匠屋單子。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_LegendaryWeaponTale</defName>
+    <rootSelectionWeight>0.35</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>3~6</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->你鑄的那口兵器</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->有風聲從外頭傳回來，說的是你交出去、被客戶命過名的那件兵器。東西出了門，名聲才剛開始走——這次帶回來的是好消息還是壞消息，看完信才知道。（不需要你做任何事；聽到自己的活被人提起，本身就替你的名號添了一分。）</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_HasLegendaryWeapon</key>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <!-- 接受後隔約兩天才傳到你耳裡，讓它像「風聲」而不是即時通報 -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>120000</delayTicks>
+          <outSignalComplete>TaleArrives</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_LegendaryWeaponTale">
+          <inSignal>TaleArrives</inSignal>
+        </li>
+
+        <!-- 不把 End 直接掛在 TaleArrives 上：同一個信號的 QuestPart 依加入順序收訊，
+             雖然發信節點排在前面，但隔一小段再結束更保險（也讓信件先進信箱再結案）。
+             作法沿用 QuestScript_ForgeFrontierGeneral 的 EnvoyArrive→delay→End 結構。 -->
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>TaleArrives</inSignalEnable>
+          <delayTicks>600</delayTicks>
+          <outSignalComplete>TaleDone</outSignalComplete>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>TaleDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

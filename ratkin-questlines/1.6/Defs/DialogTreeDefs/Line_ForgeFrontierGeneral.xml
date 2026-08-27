@@ -89,6 +89,8 @@
                   <refStuff>Plasteel</refStuff>
                   <refQuality>Excellent</refQuality>
                   <refCount>1</refCount>
+                  <!-- §6.9：命名入冊時記在名冊上的客戶（是誰把這把兵器帶走的） -->
+                  <legendaryClient>FrontierGeneral</legendaryClient>
                   <bands>
                     <!-- band1 達標：一件卓越，700 銀＋滿意度＋軍械商名聲（無 karma） -->
                     <li>
@@ -100,7 +102,11 @@
                       </evFlags>
                       <message>RatkinQL_Forge_Frontier_MsgPaid</message>
                     </li>
-                    <!-- band2 超額（總值 2×，更精/更多）：1200 銀＋更多名聲＋Ev_Charity（為名將精工超額＝正派善） -->
+                    <!-- band2 超額（總值 2×，更精/更多）：1200 銀＋更多名聲＋Ev_Charity（為名將精工超額＝正派善）
+                         ★§6.9 名匠傳奇武器的觸發點＝本包唯一的頂 band 命名：交出去的最值錢那把會被日食當場命名、
+                         入傳奇名冊，之後由 QuestScript_LegendaryWeaponTale 隨機帶回它的傳聞。
+                         （只掛在這裡是照 6b §6.9「名匠＝T3/頂層、最高次高品質＋總值很高」的定案；
+                          映山紅是量大薄利的 8~12 件大單，替其中一把命名不合這條線的味道。） -->
                     <li>
                       <valueMultiple>2</valueMultiple>
                       <silver>1200</silver>
@@ -111,6 +117,7 @@
                         <li>RatkinQL_Ev_Charity</li>
                       </evFlags>
                       <message>RatkinQL_Forge_Frontier_MsgPaidFine</message>
+                      <nameLegendary>true</nameLegendary>
                     </li>
                   </bands>
                 </li>
