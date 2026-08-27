@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B2《護送商隊》— v1 簡化版。
+    設計權威：brainstorm/6-forge-and-company.md §2 B2。該節列了兩種做法並自己給了建議：
+      「護送＝世界地圖旅程 vs 簡化成『途中在你聚居點附近生一波伏擊、擊退即算護成』。
+        ★建議 v1 走簡化版（複用 F6 fire-raid/F5），世界旅程列精修。」
+    本檔＝那個 v1 簡化版，複用 F5 site 骨架：伏擊者的營地已經紮在商路上，斥候先回報了位置，
+    你把營地拔掉＝這趟貨平安過去。世界地圖旅程版列為日後精修。
+
+    ★與 B1／B3 的差異在「談價在前」：接單後商人本人先上門議酬（Line_MercEscort），
+      三個價碼分岔就是 §2 B2 的善惡鉤子——
+        照行情收（Ev_GenericTrade）／對窮客免收（Ev_Charity, karma＋）／趁人之危抬價（Ev_Cruelty, karma−）。
+      伏擊營地在接單當下就生成（斥候回報），不等對話——site 只能在任務生成期建，
+      沒辦法等對話談完才長出來。敘事上也說得通：埋伏的人不會等你談完價才就位。
+
+    ⚠ 設計稿 B2 還有一條「中途遇襲拿錢跑路棄客（Ev_Betray）」的分支。v1 沒做——
+      「跑路」需要偵測玩家中途放棄，目前沒有乾淨的信號可用（逾時 Fail 抓不出「故意棄客」
+      和「打不贏」的差別，把兩者都記成背信是錯的）。背信這條情緒在 B3 的倒戈分支已經完整表達，
+      這裡不硬塞。世界旅程版做出來時再一併補。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_MercEscort</defName>
+    <rootSelectionWeight>0.7</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>4~8</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->商路上的埋伏</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->一個跑長線的鼠族商人託人帶話，想僱你護一趟貨。\n\n他的斥候在商路上發現了埋伏——一夥人在隘口紮了營，等的顯然不是他一個。他這趟貨押的是別人的訂金，繞路來不及，硬闖是送死。\n\n位置已經標在地圖上。把那處營地清掉，這趟貨就過得去。\n\n商人本人會親自來一趟談酬勞。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_State_Martial</key>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_RandomizePointsChallengeRating</def></li>
+        <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+        <li Class="QuestNode_GetSiteTile"><storeAs>siteTile</storeAs><preferCloserTiles>true</preferCloserTiles></li>
+        <li Class="QuestNode_QuestUnique"><tag>RatkinQL_MercEscort</tag></li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>siteFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags><li><tag>Outpost</tag></li></sitePartsTags>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$siteFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_GenerateSite</def></li>
+        <li Class="QuestNode_SpawnWorldObjects"><worldObjects>$site</worldObjects></li>
+
+        <!-- 商人親自來談酬勞（接單即動身，約一天後到） -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>60000</delayTicks>
+          <outSignalComplete>MerchantArrives</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>MerchantArrives</inSignal>
+          <dialogManager>RatkinQL_MercEscortManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <points>45~60</points>
+          <letterLabel>RatkinQL_MercEscort_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_MercEscort_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(10,16)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>貨沒過去</label>
+                <text>隘口那夥人等到了他們要等的人——不是這個商人，是另一支更肥的隊伍。他們得手之後拔營走了。\n\n商人的貨最後繞了遠路，晚了十一天。訂金賠掉大半，他沒有再捎話來。</text>
+              </li>
+              <li Class="QuestNode_End"><outcome>Fail</outcome></li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End" />
+        </li>
+
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_BountyReward</thingSetMaker>
+                <storeAs>ratkinEscortReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$ratkinEscortReward</contents>
+                <sendStandardLetter>true</sendStandardLetter>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <customLetterLabel>貨過去了</customLetterLabel>
+                <customLetterText>隘口清空的第三天，商隊順利通過。\n\n商人捎來一批貨底當謝禮，附了一張手寫的路線圖——上頭標了他這些年走過、認為安全的幾條線。\n\n「這條路我還要走很多年。往後有事，照這張圖上的記號找我。」</customLetterText>
+              </li>
+              <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+                <inSignal>site.AllEnemiesDefeated</inSignal>
+                <actions>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_MercWork</keyOfBool><valueOfBool>true</valueOfBool></li>
+                </actions>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

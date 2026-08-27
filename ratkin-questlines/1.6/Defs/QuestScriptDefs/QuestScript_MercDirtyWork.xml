@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B4《髒活委託》。
+    設計權威：brainstorm/6-forge-and-company.md §2 B4——
+      「這條的出現機率隨你的暗黑傾向升高（Rep_Assassin/Rep_Mercenary 高、或 Karma_Evil）
+        ——★壞名聲招來髒活」／「傭兵**自然滑向**暗殺——不是專線，是接髒活接出來的。
+        這正是使用者要的『善惡自然體現』。」
+
+    ★所以 gate 是兩層，而且第二層是**幾率**不是硬鎖：
+      1. RatkinQL_State_Martial ——你得先是個武力主導的聚居點。
+      2. RatkinQL_Soft_DirtyWorkOk ——F8 帳本每 2500 tick 擲一次骰重寫的軟性旗標。
+         機率＝max(暗殺名聲/80, (−karma−10)/40) × min(傭兵名聲/40, 1)。
+         白話：你越黑、掮客越容易想到你；但你得先在這行有名字，否則沒人找得到你。
+         乾淨玩家幾乎不會看到這條線，這是刻意的。
+
+    骨架＝F5 site（同 B1/B2/B3）。目標人物住在那處據點裡，清場＝任務達成。
+    ⚠ 設計稿寫「複用 F5 conditionCauser.Destroyed 暗殺骨架」——本包沒有那個骨架，
+      現成且久經測試的是 site.AllEnemiesDefeated，故用它。差別只在「連他的護衛一起清掉」，
+      對這條線的味道沒有損失（掮客要的本來就是「處理乾淨」）。
+
+    「接下幹掉」與「只嚇阻」的分岔放在掮客上門的對話裡（Line_MercDirtyWork），
+    不是兩條任務——因為兩者的完成條件相同，差別在你怎麼跟自己交代、以及酬勞與 karma。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_MercDirtyWork</defName>
+    <rootSelectionWeight>0.5</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>3~7</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->不上檯面的活</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->有人打聽到你這裡了。\n\n來的話帶得很含糊：某處聚落裡有個「擋了路」的人，出價的人希望他不要再擋。價錢開得比你接過的任何一趟都高，而且沒有提「清場」「護衛」「懸賞」這些詞。\n\n捎話的人說，出價那邊派了個人來當面講清楚，這兩天就到。\n\n位置已經標在地圖上了——標得很準，準到不像是外人打聽來的。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_State_Martial</key>
+        </li>
+        <!-- ★壞名聲招來髒活：帳本擲骰寫的軟性旗標，乾淨玩家幾乎看不到這條 -->
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Soft_DirtyWorkOk</key>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_RandomizePointsChallengeRating</def></li>
+        <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+        <li Class="QuestNode_GetSiteTile"><storeAs>siteTile</storeAs><preferCloserTiles>true</preferCloserTiles></li>
+        <li Class="QuestNode_QuestUnique"><tag>RatkinQL_MercDirtyWork</tag></li>
+
+        <li Class="QuestNode_GetFaction">
+          <allowEnemy>true</allowEnemy>
+          <mustBePermanentEnemy>true</mustBePermanentEnemy>
+          <storeAs>siteFaction</storeAs>
+        </li>
+
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags><li><tag>Outpost</tag></li></sitePartsTags>
+        </li>
+
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$siteFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+
+        <li Class="QuestNode_SubScript"><def>Util_GenerateSite</def></li>
+        <li Class="QuestNode_SpawnWorldObjects"><worldObjects>$site</worldObjects></li>
+
+        <!-- 出價那邊派人來當面講清楚（接單後約一天） -->
+        <li Class="QuestNode_Delay">
+          <delayTicks>60000</delayTicks>
+          <outSignalComplete>FixerArrives</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>FixerArrives</inSignal>
+          <dialogManager>RatkinQL_MercDirtyWorkManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <points>35~50</points>
+          <letterLabel>RatkinQL_MercDirty_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_MercDirty_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(8,14)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label>他們找了別人</label>
+                <text>你沒有動。\n\n第九天，那件事還是辦成了——換了別人辦。沒有人來要說法，也沒有人抱怨。\n\n這一行的規矩就是這樣：你不接，永遠有人接。</text>
+              </li>
+              <li Class="QuestNode_End"><outcome>Fail</outcome></li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End" />
+        </li>
+
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetMap"><canBeSpace>true</canBeSpace></li>
+              <li Class="QuestNode_GenerateThingSet">
+                <thingSetMaker>RatkinQL_BountyReward</thingSetMaker>
+                <storeAs>ratkinDirtyReward</storeAs>
+              </li>
+              <li Class="QuestNode_DropPods">
+                <contents>$ratkinDirtyReward</contents>
+                <sendStandardLetter>true</sendStandardLetter>
+                <useTradeDropSpot>true</useTradeDropSpot>
+                <customLetterLabel>尾款</customLetterLabel>
+                <customLetterText>尾款送到了，沒有附話，也沒有署名。\n\n送東西來的鼠族連門都沒進，放下就走。他顯然被交代過不要多說一個字。\n\n這種活的好處是乾淨俐落。壞處是往後找上你的，多半也是這種。</customLetterText>
+              </li>
+              <li Class="QuestEditor_Library.QuestNode_DoCQFActions">
+                <inSignal>site.AllEnemiesDefeated</inSignal>
+                <actions>
+                  <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_MercWork</keyOfBool><valueOfBool>true</valueOfBool></li>
+                </actions>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

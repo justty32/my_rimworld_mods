@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 傭兵團 §2 B2《護送商隊》的議酬對話。 -->
+
+  <RatkinQL_MercEscort_Title>跑長線的商人</RatkinQL_MercEscort_Title>
+  <RatkinQL_MercEscort_Report>談了護送隘口那趟貨的價錢。</RatkinQL_MercEscort_Report>
+
+  <RatkinQL_MercEscort_ArriveLabel>商人親自來了</RatkinQL_MercEscort_ArriveLabel>
+  <RatkinQL_MercEscort_ArriveText>託人帶話的那個商人自己來了，只帶了兩名夥計。\n\n他沒有先寒暄，進門就把一卷路線圖攤在桌上，指了指隘口的位置——那裡已經用炭筆圈了兩圈。\n\n「酬勞的事我想當面談。這種事託人傳，傳到最後兩邊都不痛快。」</RatkinQL_MercEscort_ArriveText>
+
+  <RatkinQL_MercEscort_Greeting>他把炭筆放下。\n\n「{Interviewer_labelShort}，我先把底交給你：這趟貨不是我的。是三個鋪子併著出的訂金，我只是走這條線的人。」\n\n「行情我知道——這種規模的營地，一般收四百上下。我帶了四百，就在外頭車上。」\n\n他停了一下，看著你，把話說完。\n\n「但我也不瞞你：這趟要是賠了，賠的是那三個鋪子，不是我一個人。你要是想多要，我也給得起——只是給完之後，我還得回去跟他們交代。」</RatkinQL_MercEscort_Greeting>
+
+  <RatkinQL_MercEscort_OptFair>照行情收 — 400 銀，公道價</RatkinQL_MercEscort_OptFair>
+  <RatkinQL_MercEscort_OptFree>這趟不收錢 — 押的是別人的訂金，留給那三家</RatkinQL_MercEscort_OptFree>
+  <RatkinQL_MercEscort_OptGouge>抬到 800 — 他繞不了路，也硬闖不了</RatkinQL_MercEscort_OptGouge>
+  <RatkinQL_MercEscort_OptDetails>先問清楚那夥人是什麼來路</RatkinQL_MercEscort_OptDetails>
+  <RatkinQL_MercEscort_OptBack>回到談價</RatkinQL_MercEscort_OptBack>
+  <RatkinQL_MercEscort_OptLeave>結束談話</RatkinQL_MercEscort_OptLeave>
+
+  <RatkinQL_MercEscort_Details1>「來路？」他用炭筆敲了敲那兩個圈。\n\n「不是流寇。流寇不會挑隘口紮營，也不會紮這麼久——他們在等固定會走這條線的隊伍。我的斥候看了三天，換過兩班崗，有哨位、有柵。那是軍閥那邊放出來吃商路的。」</RatkinQL_MercEscort_Details1>
+  <RatkinQL_MercEscort_Details2>「所以你不必替我趕時間。他們短時間不會走——真走了，是因為等到了更肥的。」\n\n他把圖捲起來。\n\n「但你也別拖太久。這條線上不只我一家在走。」</RatkinQL_MercEscort_Details2>
+
+  <RatkinQL_MercEscort_FarewellGood>他點了點頭，把炭筆插回衣領。\n\n「那就這麼定。貨我照原定日子發，你什麼時候動手，我不過問。」\n\n走到門口，他回頭多說了一句：\n\n「這條路我還要走很多年。做得成一次，往後就是老主顧。」</RatkinQL_MercEscort_FarewellGood>
+  <RatkinQL_MercEscort_FarewellGouge>他沒有還價，也沒有變臉，只是從車上把另外四百也搬了進來，一袋一袋擺整齊。\n\n「八百。」\n\n擺完之後他直起腰，把路線圖收好。\n\n「這數我回去照實報。那三個鋪子問起來的時候，我會說是你開的價。」\n\n他走的時候依然客氣。只是這次沒有說「往後有事再找你」。</RatkinQL_MercEscort_FarewellGouge>
+
+  <RatkinQL_MercEscort_MsgFair>照行情談成：400 銀。</RatkinQL_MercEscort_MsgFair>
+  <RatkinQL_MercEscort_MsgFree>你沒有收這趟的護衛費。</RatkinQL_MercEscort_MsgFree>
+  <RatkinQL_MercEscort_MsgGouge>你把價抬到了 800 銀。他付了。</RatkinQL_MercEscort_MsgGouge>
+
+</LanguageData>

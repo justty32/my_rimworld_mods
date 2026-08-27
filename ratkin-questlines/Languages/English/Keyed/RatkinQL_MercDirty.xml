@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Mercenary Company §2 B4 "The dirty job" - the fixer who comes to spell it out. -->
+
+  <RatkinQL_MercDirty_Title>The fixer</RatkinQL_MercDirty_Title>
+  <RatkinQL_MercDirty_Report>You talked through the job nobody puts in writing.</RatkinQL_MercDirty_Report>
+
+  <RatkinQL_MercDirty_ArriveLabel>The one sent to spell it out has arrived</RatkinQL_MercDirty_ArriveLabel>
+  <RatkinQL_MercDirty_ArriveText>A ratkin of no guessable age has arrived, carrying nothing that would identify where he came from.\n\nHe introduces himself only as "the one sent to spell it out", and adds not one word beyond that. The two who came with him stay outside and show no intention of entering.\n\nHe is waiting until you have time.</RatkinQL_MercDirty_ArriveText>
+
+  <RatkinQL_MercDirty_Greeting>He waits for you to sit before he starts, speaking at an unhurried pace, as though reading off a list.\n\n"You do not need his name. He is in that outpost, with a dozen or so around him - hired men, not family."\n\n"What the paying side wants is this: he stops standing in the way of a certain matter. How that happens is not their concern, and they will not ask."\n\nHe sets two pouches on the table side by side, one large, one small.\n\n"That is the advance. Whichever you take is what I write down. The balance comes the usual way, once it is done."\n\nHe says nothing more, and does not hurry you.</RatkinQL_MercDirty_Greeting>
+
+  <RatkinQL_MercDirty_OptKill>Take the large pouch - 500 silver, and he is my problem</RatkinQL_MercDirty_OptKill>
+  <RatkinQL_MercDirty_OptScare>Take the small pouch - 150 silver, I frighten him off and no more</RatkinQL_MercDirty_OptScare>
+  <RatkinQL_MercDirty_OptRefuse>Take neither - I do not do this kind of work</RatkinQL_MercDirty_OptRefuse>
+  <RatkinQL_MercDirty_OptDetails>Ask first: whose way is he actually standing in</RatkinQL_MercDirty_OptDetails>
+  <RatkinQL_MercDirty_OptBack>Back to the two pouches</RatkinQL_MercDirty_OptBack>
+  <RatkinQL_MercDirty_OptLeave>End the conversation</RatkinQL_MercDirty_OptLeave>
+
+  <RatkinQL_MercDirty_Details1>He does not answer at once. First he checks that the two outside are still where he left them.\n\n"I can tell you the part I know. He is sitting on a document. While that document exists, a certain piece of business cannot be closed. He probably knows it himself - which is why he hired the dozen."\n\n"Whether he is a good man, I do not know. Whether sitting on that document does him any good, I do not know either. All I know is that someone is willing to pay this much."</RatkinQL_MercDirty_Details1>
+  <RatkinQL_MercDirty_Details2>"If you are asking for my advice - I do not have any."\n\nHe squares the two pouches, lining them up with the edge of the table.\n\n"I have been in this trade long enough to have seen people take the large one, people take the small one, and people take neither. How those three sorts ended up later follows no pattern I can find."\n\n"So decide it yourself. Do not ask me."</RatkinQL_MercDirty_Details2>
+
+  <RatkinQL_MercDirty_FarewellKill>He returns the small pouch to his coat, gently.\n\n"Noted."\n\nAs he stands he pauses, as if remembering one more thing that ought to be said:\n\n"When it is done, leave nothing behind, and say nothing afterwards. The troublesome part of this trade was never the act. It is someone remembering to ask about it later."</RatkinQL_MercDirty_FarewellKill>
+  <RatkinQL_MercDirty_FarewellScare>He glances at the small pouch, takes back the large one, and offers no opinion at all.\n\n"Noted. I will report it exactly as you said it."\n\nAt the door he adds one thing more, in the same level tone:\n\n"Fair warning: if he does not frighten off, the paying side will not lower what they want. You will have to work that out yourself when the time comes."</RatkinQL_MercDirty_FarewellScare>
+  <RatkinQL_MercDirty_FarewellRefuse>He gathers up both pouches without asking why even once.\n\n"Noted."\n\nHe pauses at the door.\n\n"I say this to everyone who refuses: they came to you because someone believed you would take it. Refusing does not undo that belief."\n\nHe leaves. The two outside fall in behind him and vanish at the turn of the road.</RatkinQL_MercDirty_FarewellRefuse>
+
+  <RatkinQL_MercDirty_MsgKill>You took the large pouch. You intend to settle this cleanly.</RatkinQL_MercDirty_MsgKill>
+  <RatkinQL_MercDirty_MsgScare>You took the small pouch. You only intend to make him leave.</RatkinQL_MercDirty_MsgScare>
+  <RatkinQL_MercDirty_MsgRefuse>You took neither pouch.</RatkinQL_MercDirty_MsgRefuse>
+
+</LanguageData>

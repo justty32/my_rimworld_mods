@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B5《老兵入夥》——一位歷經風霜的鼠族女傭兵找上門，可以留下當殖民者。
+    設計權威：brainstorm/6-forge-and-company.md §2 B5
+      「跨幾次委託的短弧；依你的抉擇，結局加入你的傭兵團當殖民者
+        （複用 CQFAction_Faction＋SetName＋gender）。給傭兵團家族一個具名情感錨。」
+
+    ★v1 是**單次來訪**，不是短弧。原因：短弧要跨幾次委託累積旗標，那需要先有幾條委託線
+      各自在完成時回寫「她看過你怎麼做事」的狀態；B1~B4 這輪才剛落地、都還沒實機驗過。
+      等那四條驗完、確定完成信號都可靠，再把短弧鋪上去（她第二、三次出現時帶著對前幾單的評價）。
+      v1 先把「具名人物加入」這個最有價值的部分做出來——機制上與佩林 Ch3 同一套，已驗證過。
+
+    gate 兩層：
+      - RatkinQL_Rep_MercenaryHigh（帳本：傭兵名聲 ≥80）——她不是隨便投人的，你得先打出名號。
+      - RatkinQL_Merc_VeteranJoined = false ——一次性，留下來之後就不再出現。
+        （對話端在「請她留下」時 set true。）
+    沒有 site、沒有戰鬥；純訪客＋對話，骨架同鐵匠屋的具名客戶線。
+  -->
+  <QuestScriptDef>
+    <defName>RatkinQL_MercVeteran</defName>
+    <rootSelectionWeight>0.6</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <rootMinProgressScore>0</rootMinProgressScore>
+    <expireDaysRange>5~10</expireDaysRange>
+    <canGiveRoyalFavor>false</canGiveRoyalFavor>
+
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->有人來投</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->你這邊接活的名聲傳出去了。\n\n一個獨自行動的鼠族傭兵託人帶話，說想過來看看——她沒有說要投靠，只說「聽說這裡做事還算有規矩」。\n\n帶話的人多提了一句：她一個人走了很久了，原本的隊伍已經不在。\n\n她過幾天會到。要不要留下她，到時候你自己看。</li>
+      </rulesStrings>
+    </questDescriptionRules>
+
+    <root Class="QuestNode_Sequence">
+      <nodes>
+
+        <!-- 得先在這行有名字，她才會聽說你 -->
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Rep_MercenaryHigh</key>
+        </li>
+        <!-- 一次性：她留下之後不再出現 -->
+        <li Class="RatkinQuestlines.QuestNode_RequireGlobalBool">
+          <key>RatkinQL_Merc_VeteranJoined</key>
+          <value>false</value>
+        </li>
+
+        <li Class="QuestNode_GetMap">
+          <canBeSpace>false</canBeSpace>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <delayTicks>240000</delayTicks>
+          <outSignalComplete>VeteranArrives</outSignalComplete>
+        </li>
+
+        <li Class="RatkinQuestlines.QuestNode_SpawnRatkinEnvoy">
+          <inSignal>VeteranArrives</inSignal>
+          <dialogManager>RatkinQL_MercVeteranManager</dialogManager>
+          <factionDef>Rakinia</factionDef>
+          <points>30~45</points>
+          <letterLabel>RatkinQL_MercVet_ArriveLabel</letterLabel>
+          <letterText>RatkinQL_MercVet_ArriveText</letterText>
+        </li>
+
+        <li Class="QuestNode_Delay">
+          <inSignalEnable>VeteranArrives</inSignalEnable>
+          <delayTicks>900000</delayTicks>
+          <outSignalComplete>VeteranVisitDone</outSignalComplete>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>VeteranVisitDone</inSignal>
+          <outcome>Success</outcome>
+        </li>
+
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

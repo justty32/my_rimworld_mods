@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 傭兵團 §2 B4《髒活委託》的當面交代對話。 -->
+
+  <RatkinQL_MercDirty_Title>辦事的</RatkinQL_MercDirty_Title>
+  <RatkinQL_MercDirty_Report>當面談了那樁不上檯面的活。</RatkinQL_MercDirty_Report>
+
+  <RatkinQL_MercDirty_ArriveLabel>來講清楚的人到了</RatkinQL_MercDirty_ArriveLabel>
+  <RatkinQL_MercDirty_ArriveText>一個看不出年紀的鼠族到了，身上沒有任何能認出來歷的東西。\n\n他自報是「來把話講清楚的」，此外一句多的都沒有。隨行的兩個人留在門外，沒有進來的意思。\n\n他在等你有空。</RatkinQL_MercDirty_ArriveText>
+
+  <RatkinQL_MercDirty_Greeting>他等你坐下才開口，語速不快，像在念一份清單。\n\n「那個人叫什麼，你不需要知道。他在那處據點裡，有十來個人跟著他——那些人是他花錢請的，不是他的家人。」\n\n「出價的一方要的是：他不要再擋著那件事。怎麼做到，他們不在乎，也不會問。」\n\n他把兩個袋子並排放在桌上，一大一小。\n\n「這是訂金。你選哪一個，我就記哪一個。尾款照規矩，事成之後送到。」\n\n他沒有再說話，也沒有催。</RatkinQL_MercDirty_Greeting>
+
+  <RatkinQL_MercDirty_OptKill>拿大的那袋 — 500 銀，人我來處理</RatkinQL_MercDirty_OptKill>
+  <RatkinQL_MercDirty_OptScare>拿小的那袋 — 150 銀，我只去嚇他，讓他自己走</RatkinQL_MercDirty_OptScare>
+  <RatkinQL_MercDirty_OptRefuse>兩袋都不拿 — 這種活我不接</RatkinQL_MercDirty_OptRefuse>
+  <RatkinQL_MercDirty_OptDetails>先問：他到底擋了誰的什麼事</RatkinQL_MercDirty_OptDetails>
+  <RatkinQL_MercDirty_OptBack>回到那兩個袋子</RatkinQL_MercDirty_OptBack>
+  <RatkinQL_MercDirty_OptLeave>結束談話</RatkinQL_MercDirty_OptLeave>
+
+  <RatkinQL_MercDirty_Details1>他沒有立刻回答，先確認了一下門外的人還在原地。\n\n「我可以告訴你我知道的部分：他手上壓著一份文書，那份東西在，某一筆買賣就做不成。他自己大概也知道，所以才請了那十來個人。」\n\n「他是不是好人，我不知道。壓著那份文書對他有沒有好處，我也不知道。我只知道有人願意花這個價錢。」</RatkinQL_MercDirty_Details1>
+  <RatkinQL_MercDirty_Details2>「你要是想問我建議——我沒有建議。」\n\n他把兩個袋子的位置調正，讓它們對齊桌沿。\n\n「我這一行做久了，看過拿大袋的，也看過拿小袋的，還看過兩袋都不拿的。三種人後來過得怎麼樣，沒有規律。」\n\n「所以這個你自己決定，別問我。」</RatkinQL_MercDirty_Details2>
+
+  <RatkinQL_MercDirty_FarewellKill>他把小的那袋收回懷裡，動作很輕。\n\n「記下了。」\n\n站起來時他停了一下，像是想起還有一句該說的：\n\n「事情辦完之後，別留東西，也別留話。這一行最麻煩的從來不是動手那一下，是後來有人想起來問。」</RatkinQL_MercDirty_FarewellKill>
+  <RatkinQL_MercDirty_FarewellScare>他看了小袋子一眼，把大的那袋收了回去，臉上沒有任何評價。\n\n「記下了。我會照你說的報上去。」\n\n走到門口他補了一句，語氣還是那樣平：\n\n「先說在前頭：他要是嚇不走，出價那邊不會因此少要什麼。到時候你自己看著辦。」</RatkinQL_MercDirty_FarewellScare>
+  <RatkinQL_MercDirty_FarewellRefuse>他把兩個袋子都收了起來，沒有多問一句為什麼。\n\n「記下了。」\n\n他在門口停了一下。\n\n「這話我對每個回絕的人都說一次：找上你，是因為有人覺得你會接。你不接，那個印象也不會因此就改掉。」\n\n他走了。門外那兩個人跟著他一起消失在路口。</RatkinQL_MercDirty_FarewellRefuse>
+
+  <RatkinQL_MercDirty_MsgKill>你拿了大的那袋。這件事，你打算辦乾淨。</RatkinQL_MercDirty_MsgKill>
+  <RatkinQL_MercDirty_MsgScare>你拿了小的那袋。你只打算讓他自己走。</RatkinQL_MercDirty_MsgScare>
+  <RatkinQL_MercDirty_MsgRefuse>你一袋都沒拿。</RatkinQL_MercDirty_MsgRefuse>
+
+</LanguageData>

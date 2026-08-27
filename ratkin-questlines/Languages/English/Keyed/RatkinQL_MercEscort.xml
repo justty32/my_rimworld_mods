@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Mercenary Company §2 B2 "Escort the caravan" - the fee negotiation. -->
+
+  <RatkinQL_MercEscort_Title>The long-haul merchant</RatkinQL_MercEscort_Title>
+  <RatkinQL_MercEscort_Report>You settled the fee for clearing the pass.</RatkinQL_MercEscort_Report>
+
+  <RatkinQL_MercEscort_ArriveLabel>The merchant has come in person</RatkinQL_MercEscort_ArriveLabel>
+  <RatkinQL_MercEscort_ArriveText>The merchant who sent word has come himself, with only two hands along.\n\nHe skips the pleasantries entirely. He walks in, spreads a route map across the table and taps the pass - already circled twice in charcoal.\n\n"I want to settle the fee face to face. Send that sort of thing through a third party and both sides end up sour about it."</RatkinQL_MercEscort_ArriveText>
+
+  <RatkinQL_MercEscort_Greeting>He sets the charcoal down.\n\n"{Interviewer_labelShort}, I will show you my hand first: this load is not mine. Three shops put up the deposit between them. I am only the one who walks the road."\n\n"I know the going rate. A camp that size, four hundred, thereabouts. I brought four hundred. It is on the cart outside."\n\nHe pauses, looks at you, and finishes the thought.\n\n"But I will not hide the rest from you either. If this load is lost, it is those three shops that lose it, not me alone. If you want more, I can pay more - I just have to go back and explain it to them afterwards."</RatkinQL_MercEscort_Greeting>
+
+  <RatkinQL_MercEscort_OptFair>Take the going rate - 400 silver, a fair price</RatkinQL_MercEscort_OptFair>
+  <RatkinQL_MercEscort_OptFree>No fee this time - the deposit is not his, leave it with the three shops</RatkinQL_MercEscort_OptFree>
+  <RatkinQL_MercEscort_OptGouge>Push it to 800 - he cannot go around, and he cannot force the pass</RatkinQL_MercEscort_OptGouge>
+  <RatkinQL_MercEscort_OptDetails>Ask first who exactly is sitting in that pass</RatkinQL_MercEscort_OptDetails>
+  <RatkinQL_MercEscort_OptBack>Back to the fee</RatkinQL_MercEscort_OptBack>
+  <RatkinQL_MercEscort_OptLeave>End the conversation</RatkinQL_MercEscort_OptLeave>
+
+  <RatkinQL_MercEscort_Details1>"Who?" He taps the charcoal against the two circles.\n\n"Not bandits. Bandits do not camp in a pass, and they do not sit there this long - these are waiting for a specific caravan that runs this line. My scout watched for three days. Two watch rotations, sentry posts, a palisade. That is warlord work, put out to feed on the trade road."</RatkinQL_MercEscort_Details1>
+  <RatkinQL_MercEscort_Details2>"So you do not have to rush on my account. They will not move soon - and if they do move, it is because something fatter came along first."\n\nHe rolls the map up.\n\n"But do not sit on it forever either. I am not the only one who walks this line."</RatkinQL_MercEscort_Details2>
+
+  <RatkinQL_MercEscort_FarewellGood>He nods and tucks the charcoal back into his collar.\n\n"Settled, then. The load goes out on the day I planned. When you move on the pass is your business."\n\nAt the door he turns back and adds one more thing:\n\n"I will be walking this road for many years yet. Do the job once, and you have a regular."</RatkinQL_MercEscort_FarewellGood>
+  <RatkinQL_MercEscort_FarewellGouge>He does not haggle and his face does not change. He simply fetches the other four hundred from the cart and stacks the bags neatly, one at a time.\n\n"Eight hundred."\n\nWhen he has finished he straightens up and puts the route map away.\n\n"I will report that figure as it stands. When those three shops ask, I will tell them it was your price."\n\nHe is still courteous when he leaves. He just does not say "come to me again" this time.</RatkinQL_MercEscort_FarewellGouge>
+
+  <RatkinQL_MercEscort_MsgFair>Settled at the going rate: 400 silver.</RatkinQL_MercEscort_MsgFair>
+  <RatkinQL_MercEscort_MsgFree>You took no escort fee for this one.</RatkinQL_MercEscort_MsgFree>
+  <RatkinQL_MercEscort_MsgGouge>You pushed the price to 800 silver. He paid it.</RatkinQL_MercEscort_MsgGouge>
+
+</LanguageData>

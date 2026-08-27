@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 佣兵团 §2 B5《老兵入伙》：独行的鼠族女佣兵「霜刀」。 -->
+
+  <RatkinQL_MercVet_Title>独行的老兵</RatkinQL_MercVet_Title>
+  <RatkinQL_MercVet_Report>一个走了很久的同行来看过了。</RatkinQL_MercVet_Report>
+
+  <RatkinQL_MercVet_ArriveLabel>她到了</RatkinQL_MercVet_ArriveLabel>
+  <RatkinQL_MercVet_ArriveText>托人带话的那个鼠族佣兵到了。\n\n她比带话的人形容的更瘦，装备却保养得极好——刀鞘的缝线是新换的，护腕上的旧补丁叠了三层。这种人不缺钱买新的，只是不换。\n\n她在门口把武器解下来搁在一边，然后才进来。</RatkinQL_MercVet_ArriveText>
+
+  <RatkinQL_MercVet_Greeting>她自己找了个位置坐下，没有等人请。\n\n「我姓霜。以前队上都叫我霜刀，久了本名也没人记得。」\n\n「我不是来投靠的，先说清楚。我是来看看的——这条在线做事的地方我看过不少，多半撑不过两年。你这里我打听了三个月，听到的说法是『还算有规矩』。」\n\n她把手放在桌上，指节上有几道很旧的疤。\n\n「规矩这东西听起来不值钱。但我原来的队伍就是败在没规矩上的。」\n\n她没有再往下说，也没有要你追问的意思。</RatkinQL_MercVet_Greeting>
+
+  <RatkinQL_MercVet_OptStay>请她留下 — 这里有她的位置</RatkinQL_MercVet_OptStay>
+  <RatkinQL_MercVet_OptSendOff>给她一笔盘缠，送她上路 — 120 银</RatkinQL_MercVet_OptSendOff>
+  <RatkinQL_MercVet_OptDetails>问她原来的队伍怎么了</RatkinQL_MercVet_OptDetails>
+  <RatkinQL_MercVet_OptBack>回到正题</RatkinQL_MercVet_OptBack>
+  <RatkinQL_MercVet_OptLeave>结束谈话</RatkinQL_MercVet_OptLeave>
+
+  <RatkinQL_MercVet_Details1>她想了一下，像是在决定要从哪里讲起，最后选了最短的版本。\n\n「接了一单护送。中途对面加价，队长收了。」\n\n「那趟我没在场，我在后队押货。等我赶到的时候，该护的人已经没了，我们自己也折了七个——后来对面觉得留活口麻烦。」</RatkinQL_MercVet_Details1>
+  <RatkinQL_MercVet_Details2>「队长活下来了。他拿着那笔钱又拉了一支队伍，听说做得不错。」\n\n她说这句话时语气没有变。\n\n「我不去找他。这一行不兴报仇，报仇的人活不长。我只是不想再进那种队伍。」\n\n她抬眼看你。\n\n「所以我先来看。看了才决定。」</RatkinQL_MercVet_Details2>
+
+  <RatkinQL_MercVet_FarewellStay>她没有立刻答应，先在院子里站了一会儿，把几个角落都看过。\n\n回来的时候她只说了一句：\n\n「行。刀我自己带，饭我自己挣。」\n\n她把行囊解下来放在墙边，动作和放下武器时一样轻。这一次没有再拿起来。</RatkinQL_MercVet_FarewellStay>
+  <RatkinQL_MercVet_FarewellSendOff>她把银子收了，数都没数。\n\n「多谢。」\n\n背上行囊之后她在门口停了一下。\n\n「这钱我当是借的。这条在线走的人不多，往后总会再碰上。」\n\n她走的方向和来的时候不一样。</RatkinQL_MercVet_FarewellSendOff>
+
+  <RatkinQL_MercVet_MsgStay>霜刀留下了。她把行囊放在墙边，没有再拿起来。</RatkinQL_MercVet_MsgStay>
+  <RatkinQL_MercVet_MsgSendOff>你给了她一笔盘缠。她说这钱当是借的。</RatkinQL_MercVet_MsgSendOff>
+
+</LanguageData>

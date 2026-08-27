@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B5《老兵入夥》對話——獨行的鼠族女傭兵「霜刀」。
+    由 QuestScript_MercVeteran 召來（gate＝傭兵名聲 ≥80 且尚未入夥）。
+
+    「具名人物加入」機制與佩林 Ch3 完全同一套（本包已驗證過的唯一一條路）：
+      CQFAction_Faction(Interviewee → PlayerColony) ＋ CQFAction_SetName 正名＋指定性別。
+      ——留下的是這條線裡認識的那個人，不是隨機路人鼠。
+
+    三個出口：
+      - 請她留下 → 入夥＋正名為霜刀（Female）＋set Merc_VeteranJoined（一次性，之後不再刷出）
+                   ＋Ev_ProtectWeak（收留一個走投無路的同行）
+      - 給她盤纏送她上路 → Ev_Charity（karma＋），她不入夥，但旗標不設 → 日後還會再遇到
+      - 只是聊聊 → 什麼都不做，可以回頭再選
+
+    ⚠ 設計稿要的是「跨幾次委託的短弧」。v1 只做單次來訪——短弧需要 B1~B4 各自在完成時
+      回寫「她看過你怎麼做事」的旗標，而那四條這輪才剛落地、都還沒實機驗過完成信號。
+      等它們驗完再補她的第二、三次出現（帶著對前幾單的評價）。
+
+    聲線＝走了很久的獨行老兵：話少、句子短、不訴苦也不誇口；提起舊隊伍時直接跳過細節。
+    刻意不寫成悲情——§2 要的是情感錨，不是賺眼淚。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_MercVeteranTree</defName>
+    <title>RatkinQL_MercVet_Title</title>
+    <dialogReportKey>RatkinQL_MercVet_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>4</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_MercVet_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <!-- ★留下她：入夥＋正名（同 Line_PeirinCh3 已驗證的作法） -->
+          <li>
+            <text>RatkinQL_MercVet_OptStay</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Stay</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>RatkinQL_MercVet_MsgStay</message>
+                  <type>PositiveEvent</type>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_Faction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <faction>PlayerColony</faction>
+                </li>
+                <li Class="RatkinQuestlines.CQFAction_SetName">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <first>Frost</first><nick>Frostblade</nick><last>Shuang</last><gender>Female</gender>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Merc_VeteranJoined</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_ProtectWeak</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <!-- 送她上路：不入夥，也不設一次性旗標 ⇒ 日後還有機會再遇到 -->
+          <li>
+            <text>RatkinQL_MercVet_OptSendOff</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>SendOff</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>VeteranSendOff</dataName>
+                      <message>RatkinQL_MercVet_MsgSendOff</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>120~120</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Charity</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li><text>RatkinQL_MercVet_OptDetails</text><results><li><resultName>GoDetails</resultName><nextIndex>1</nextIndex></li></results></li>
+          <li><text>RatkinQL_MercVet_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_MercVet_Details1</text>
+        <extraText><li>RatkinQL_MercVet_Details2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercVet_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_MercVet_FarewellStay</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercVet_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_MercVet_FarewellSendOff</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercVet_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_MercVeteranManager</defName>
+    <tags><li>RatkinQL_MercVeteran</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_MercVeteranTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

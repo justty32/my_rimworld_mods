@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B2《護送商隊》的議酬對話——跑長線的鼠族商人親自來談價。
+    由 QuestScript_MercEscort 接單約一天後召來。
+
+    三個價碼分岔＝§2 B2 的善惡鉤子，酬勞當場付（CQFAction_Spawn 白銀），
+    清場的賞金另外由任務腳本投放：
+      - 照行情收 400 銀 → Ev_GenericTrade（商人名聲）
+      - 對窮客免收       → Ev_Charity（karma＋10、商人名聲＋3）——他這趟押的是別人的訂金
+      - 趁人之危抬價 800 → Ev_Cruelty（karma−8、商人名聲＋4）＋Rakinia 好感 −5
+    三者都 removeDialogAfterSelect：價錢談一次就定。
+    無論談成什麼價，任務的成功條件都一樣（清掉隘口的營地）——價碼只影響你拿多少、以及你是什麼人。
+
+    聲線＝跑長線的老商人：務實、算得清、不哭窮也不擺架子；被抬價時不吵，只是把數字記下來。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_MercEscortTree</defName>
+    <title>RatkinQL_MercEscort_Title</title>
+    <dialogReportKey>RatkinQL_MercEscort_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>4</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_MercEscort_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <li>
+            <text>RatkinQL_MercEscort_OptFair</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Fair</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>EscortFair</dataName>
+                      <message>RatkinQL_MercEscort_MsgFair</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>400~400</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_GenericTrade</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_MercEscort_OptFree</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Free</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>RatkinQL_MercEscort_MsgFree</message>
+                  <type>PositiveEvent</type>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>true</isIncrease><value>5</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Charity</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_MercEscort_OptGouge</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Gouge</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>EscortGouge</dataName>
+                      <message>RatkinQL_MercEscort_MsgGouge</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>800~800</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_ChangeGoodwillOfFaction">
+                  <targetsText><li>Interviewee</li></targetsText>
+                  <isIncrease>false</isIncrease><value>5</value><sendLetter>false</sendLetter>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Cruelty</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li><text>RatkinQL_MercEscort_OptDetails</text><results><li><resultName>GoDetails</resultName><nextIndex>1</nextIndex></li></results></li>
+          <li><text>RatkinQL_MercEscort_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_MercEscort_Details1</text>
+        <extraText><li>RatkinQL_MercEscort_Details2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercEscort_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_MercEscort_FarewellGood</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercEscort_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_MercEscort_FarewellGouge</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercEscort_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_MercEscortManager</defName>
+    <tags><li>RatkinQL_MercEscort</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_MercEscortTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

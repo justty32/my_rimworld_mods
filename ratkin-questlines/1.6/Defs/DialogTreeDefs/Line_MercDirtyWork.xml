@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    傭兵團 §2 B4《髒活委託》的當面交代對話——出價那邊派來的「辦事的」。
+    由 QuestScript_MercDirtyWork 接單約一天後召來。
+
+    三個出口（§2 B4 原定的三分岔）：
+      - 照單全收，人我來處理 → 500 銀訂金 ＋ Ev_Assassin（暗殺名聲＋12、karma −8）
+      - 我只去嚇他，不動手   → 150 銀訂金 ＋ Ev_MercWork（傭兵名聲，karma 幾乎不動）
+      - 回絕                 → 什麼都不設；任務仍在，但你沒有拿訂金
+    三個都 removeDialogAfterSelect。**任務的成功條件三種選擇都一樣**（清掉那處據點）
+    ——差別在訂金多少、以及你在帳本上變成什麼人。這正是 §2 要的
+    「傭兵自然滑向暗殺——不是專線，是接髒活接出來的」：機制不逼你，帳本只是記著。
+
+    聲線＝專業的辦事人：不亢奮、不勸誘、不美化，也不替你決定。把價錢和後果講清楚就閉嘴。
+    刻意不寫成陰森反派——真正做這行的人是最無趣的那種。
+  -->
+  <QuestEditor_Library.DialogTreeDef>
+    <defName>RatkinQL_MercDirtyWorkTree</defName>
+    <title>RatkinQL_MercDirty_Title</title>
+    <dialogReportKey>RatkinQL_MercDirty_Report</dialogReportKey>
+    <requireNonHostile>true</requireNonHostile>
+    <curIndex>5</curIndex>
+    <nodeMoulds>
+
+      <li><key>0</key><value>
+        <text>RatkinQL_MercDirty_Greeting</text>
+        <index>0</index><subNodeIndexs><li>1</li></subNodeIndexs>
+        <options>
+
+          <li>
+            <text>RatkinQL_MercDirty_OptKill</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>TakeKill</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>DirtyKillAdvance</dataName>
+                      <message>RatkinQL_MercDirty_MsgKill</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>500~500</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_Assassin</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>2</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_MercDirty_OptScare</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>TakeScare</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Spawn">
+                  <targetsText><li>Interviewer</li></targetsText>
+                  <datas>
+                    <li>
+                      <dataName>DirtyScareAdvance</dataName>
+                      <message>RatkinQL_MercDirty_MsgScare</message>
+                      <things>
+                        <li Class="QuestEditor_Library.CQFThingDefCount"><thing>Silver</thing><count>150~150</count></li>
+                      </things>
+                    </li>
+                  </datas>
+                </li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ev_MercWork</keyOfBool><valueOfBool>true</valueOfBool></li>
+                <li Class="QuestEditor_Library.CQFAction_SetGlobalBool"><keyOfBool>RatkinQL_Ident_Mercenary</keyOfBool><valueOfBool>true</valueOfBool></li>
+              </actions>
+              <nextIndex>3</nextIndex>
+            </li></results>
+          </li>
+
+          <li>
+            <text>RatkinQL_MercDirty_OptRefuse</text>
+            <removeDialogAfterSelect>true</removeDialogAfterSelect>
+            <results><li>
+              <resultName>Refused</resultName>
+              <actions>
+                <li Class="QuestEditor_Library.CQFAction_Message">
+                  <message>RatkinQL_MercDirty_MsgRefuse</message>
+                  <type>NeutralEvent</type>
+                </li>
+              </actions>
+              <nextIndex>4</nextIndex>
+            </li></results>
+          </li>
+
+          <li><text>RatkinQL_MercDirty_OptDetails</text><results><li><resultName>GoDetails</resultName><nextIndex>1</nextIndex></li></results></li>
+          <li><text>RatkinQL_MercDirty_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li>
+        </options>
+      </value></li>
+
+      <li><key>1</key><value>
+        <text>RatkinQL_MercDirty_Details1</text>
+        <extraText><li>RatkinQL_MercDirty_Details2</li></extraText>
+        <index>1</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDirty_OptBack</text><results><li><resultName>Back</resultName><nextIndex>0</nextIndex></li></results></li></options>
+      </value></li>
+
+      <li><key>2</key><value>
+        <text>RatkinQL_MercDirty_FarewellKill</text>
+        <index>2</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDirty_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>3</key><value>
+        <text>RatkinQL_MercDirty_FarewellScare</text>
+        <index>3</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDirty_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+      <li><key>4</key><value>
+        <text>RatkinQL_MercDirty_FarewellRefuse</text>
+        <index>4</index><parentIndex>0</parentIndex><subNodeIndexs />
+        <options><li><text>RatkinQL_MercDirty_OptLeave</text><results><li><resultName>Leave</resultName></li></results></li></options>
+      </value></li>
+
+    </nodeMoulds>
+  </QuestEditor_Library.DialogTreeDef>
+
+  <QuestEditor_Library.DialogManagerDef>
+    <defName>RatkinQL_MercDirtyWorkManager</defName>
+    <tags><li>RatkinQL_MercDirtyWork</li></tags>
+    <genrationConditions />
+    <trees><li><tree>RatkinQL_MercDirtyWorkTree</tree><conditions /></li></trees>
+  </QuestEditor_Library.DialogManagerDef>
+
+</Defs>

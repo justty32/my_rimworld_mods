@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Mercenary Company §2 B5 "The veteran joins" - Frostblade, the lone ratkin veteran. -->
+
+  <RatkinQL_MercVet_Title>The lone veteran</RatkinQL_MercVet_Title>
+  <RatkinQL_MercVet_Report>Someone who has been walking a long time came to look you over.</RatkinQL_MercVet_Report>
+
+  <RatkinQL_MercVet_ArriveLabel>She has arrived</RatkinQL_MercVet_ArriveLabel>
+  <RatkinQL_MercVet_ArriveText>The mercenary who sent word ahead has arrived.\n\nShe is thinner than the messenger described, but her gear is immaculate - the stitching on the scabbard has been recently replaced, and the old patch on her bracer is three layers deep. Someone like this does not lack the money for new equipment. She simply does not replace it.\n\nShe unbuckles her weapon at the door and sets it aside before coming in.</RatkinQL_MercVet_ArriveText>
+
+  <RatkinQL_MercVet_Greeting>She finds herself a seat without waiting to be offered one.\n\n"Frost is the family name. The old company called me Frostblade, and after a while nobody remembered the given one."\n\n"I am not here to sign on - let me be clear about that. I am here to look. I have seen a good many outfits on this line and most do not last two years. I asked about this place for three months. What I kept hearing back was: they run it straight."\n\nShe rests her hands on the table. There are several very old scars across the knuckles.\n\n"'Running it straight' does not sound worth much. But it is what my old company died of not having."\n\nShe does not go on, and does not look like she wants to be asked.</RatkinQL_MercVet_Greeting>
+
+  <RatkinQL_MercVet_OptStay>Ask her to stay - there is a place for her here</RatkinQL_MercVet_OptStay>
+  <RatkinQL_MercVet_OptSendOff>Give her something for the road and see her off - 120 silver</RatkinQL_MercVet_OptSendOff>
+  <RatkinQL_MercVet_OptDetails>Ask what happened to her old company</RatkinQL_MercVet_OptDetails>
+  <RatkinQL_MercVet_OptBack>Back to the matter at hand</RatkinQL_MercVet_OptBack>
+  <RatkinQL_MercVet_OptLeave>End the conversation</RatkinQL_MercVet_OptLeave>
+
+  <RatkinQL_MercVet_Details1>She thinks for a moment, as if deciding where to start, and settles on the shortest version.\n\n"We took an escort job. Partway through, the other side raised their offer. The captain took it."\n\n"I was not there for that part - I was at the back with the goods. By the time I came up, the people we were meant to be protecting were gone, and we had lost seven of our own. The other side decided afterwards that live witnesses were inconvenient."</RatkinQL_MercVet_Details1>
+  <RatkinQL_MercVet_Details2>"The captain lived. He took that money, raised another company, and by all accounts is doing well."\n\nHer tone does not change as she says it.\n\n"I am not going after him. This trade does not run on revenge, and the ones who try do not last. I only do not want to be in that kind of company again."\n\nShe looks up at you.\n\n"So I came to look first. I decide after I have looked."</RatkinQL_MercVet_Details2>
+
+  <RatkinQL_MercVet_FarewellStay>She does not answer at once. She walks the yard for a while first, checking every corner.\n\nWhen she comes back, all she says is:\n\n"Right. I bring my own blade. I earn my own keep."\n\nShe unslings her pack and sets it against the wall, as gently as she set down her weapon. This time she does not pick it back up.</RatkinQL_MercVet_FarewellStay>
+  <RatkinQL_MercVet_FarewellSendOff>She takes the silver without counting it.\n\n"Obliged."\n\nWith her pack on her shoulder, she pauses at the door.\n\n"I will treat this as borrowed. Not many walk this line. We will cross paths again."\n\nShe leaves in a different direction from the one she came by.</RatkinQL_MercVet_FarewellSendOff>
+
+  <RatkinQL_MercVet_MsgStay>Frostblade is staying. She set her pack against the wall and did not pick it up again.</RatkinQL_MercVet_MsgStay>
+  <RatkinQL_MercVet_MsgSendOff>You gave her something for the road. She said she would treat it as borrowed.</RatkinQL_MercVet_MsgSendOff>
+
+</LanguageData>
