@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>FactionGearSeeder</AssemblyName>
+    <RootNamespace>pas.gear</RootNamespace>
+    <OutputPath>../1.6/Assemblies/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <LangVersion>latest</LangVersion>
+    <!-- 只輸出自己的 DLL；Harmony/RimWorld 由遊戲提供，不隨附複製。 -->
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

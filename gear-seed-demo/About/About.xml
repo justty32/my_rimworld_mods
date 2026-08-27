@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Gear Seed Demo (PirateWaster)</name>
+  <author>justty32</author>
+  <packageId>pas.gear.demo</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>pas.gear.community</packageId>
+      <displayName>Faction Gear Seeder (Community)</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>pas.gear.community</li>
+  </loadAfter>
+  <description>Demo content for Faction Gear Seeder (pas.gear.community): a single FactionGearSeedDef for the PirateWaster faction, transcribed from a yc's Faction Editor preset with tools/transcribe_yc_preset.py. Pure data — no C#. Enable this together with the Faction Gear Seeder engine and Harmony to see PirateWaster pawns spawn wearing and wielding the transcribed loadout.\n\nThis is the third layer of the opening-world pipeline demo (roster / relations / gear).</description>
+</ModMetaData>
